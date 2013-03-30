@@ -63,11 +63,7 @@ namespace Batman.Core.Bootstrapper
         /// <returns>The object associated with the type</returns>
         public object GetService(Type serviceType)
         {
-            try
-            {
-                return Container.Resolve(serviceType);
-            }
-            catch { return null; }
+            return Container.Resolve(serviceType, "", null);
         }
 
         /// <summary>
@@ -77,11 +73,7 @@ namespace Batman.Core.Bootstrapper
         /// <returns>The objects associated with the type</returns>
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            try
-            {
-                return Container.ResolveAll(serviceType);
-            }
-            catch { return new List<object>(); }
+            return Container.ResolveAll(serviceType);
         }
 
         #endregion

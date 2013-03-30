@@ -40,13 +40,31 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utilities.DataTypes">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.IO">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Reflection">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.Reflection.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatComputer.cs" />
     <Compile Include="Bootstrapper\BaseClasses\BootstrapperBase.cs" />
     <Compile Include="Bootstrapper\Interfaces\IBootstrapper.cs" />
     <Compile Include="Bootstrapper\Interfaces\IModule.cs" />
     <Compile Include="Bootstrapper\Modules\ManagersModule.cs" />
+    <Compile Include="FileSystem\Interfaces\IDirectory.cs" />
+    <Compile Include="FileSystem\Interfaces\IFile.cs" />
+    <Compile Include="FileSystem\Interfaces\IFileSystem.cs" />
+    <Compile Include="Logging\BaseClasses\LogBase.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

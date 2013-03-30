@@ -49,20 +49,11 @@ namespace Batman.Core.Bootstrapper.BaseClasses
         /// <summary>
         /// The IoC container
         /// </summary>
-        protected Container AppContainer { get; private set; }
+        protected abstract Container AppContainer { get; }
 
         #endregion
 
         #region Functions
-
-        /// <summary>
-        /// Initializes the bootstrapper
-        /// </summary>
-        /// <param name="AppContainer">The IoC container used by the app</param>
-        public void Initialize(Container AppContainer)
-        {
-            this.AppContainer = AppContainer;
-        }
 
         /// <summary>
         /// Registers an object with the bootstrapper
@@ -100,8 +91,9 @@ namespace Batman.Core.Bootstrapper.BaseClasses
         /// Resolves the object based on the type specified
         /// </summary>
         /// <typeparam name="T">Type to resolve</typeparam>
+        /// <param name="DefaultObject">Default object to return if the type can not be resolved</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>()
+        public abstract T Resolve<T>(T DefaultObject=default(T))
             where T : class;
 
         /// <summary>
@@ -145,24 +137,27 @@ namespace Batman.Core.Bootstrapper.BaseClasses
         /// </summary>
         /// <typeparam name="T">Type to resolve</typeparam>
         /// <param name="Name">Name associated with the object</param>
+        /// <param name="DefaultObject">Default object to return if the type can not be resolved</param>
         /// <returns>An object of the specified type</returns>
-        public abstract T Resolve<T>(string Name)
+        public abstract T Resolve<T>(string Name,T DefaultObject=default(T))
             where T : class;
 
         /// <summary>
         /// Resolves the object based on the type specified
         /// </summary>
         /// <param name="ObjectType">Object type</param>
+        /// <param name="DefaultObject">Default object to return if the type can not be resolved</param>
         /// <returns>An object of the specified type</returns>
-        public abstract object Resolve(Type ObjectType);
+        public abstract object Resolve(Type ObjectType, object DefaultObject = null);
 
         /// <summary>
         /// Resolves the object based on the type specified
         /// </summary>
         /// <param name="ObjectType">Object type</param>
         /// <param name="Name">Name associated with the object</param>
+        /// <param name="DefaultObject">Default object to return if the type can not be resolved</param>
         /// <returns>An object of the specified type</returns>
-        public abstract object Resolve(Type ObjectType, string Name);
+        public abstract object Resolve(Type ObjectType, string Name,object DefaultObject=null);
 
         /// <summary>
         /// Resolves the objects based on the type specified
@@ -178,6 +173,29 @@ namespace Batman.Core.Bootstrapper.BaseClasses
         /// <param name="ObjectType">Object type</param>
         /// <returns>A list of objects of the specified type</returns>
         public abstract IEnumerable<object> ResolveAll(Type ObjectType);
+
+        /// <summary>
+        /// Disposes of the object
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes of the object
+        /// </summary>
+        /// <param name="Managed">Determines if all objects should be disposed or just managed objects</param>
+        public abstract void Dispose(bool Managed);
+
+        /// <summary>
+        /// Destructor
+        /// </summary>
+        ~BootstrapperBase()
+        {
+            Dispose(false);
+        }
 
         #endregion
     }

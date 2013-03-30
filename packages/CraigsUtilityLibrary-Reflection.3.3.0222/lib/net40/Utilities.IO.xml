@@ -1,0 +1,789 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.IO</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.IO.Logging.BaseClasses.LogBase`1">
+            <summary>
+            Base class for logs
+            </summary>
+            <typeparam name="LogType">Log type</typeparam>
+        </member>
+        <member name="T:Utilities.IO.Logging.Interfaces.ILog">
+            <summary>
+            Log interface
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.Interfaces.ILog.LogMessage(System.String,Utilities.IO.Logging.Enums.MessageType,System.Object[])">
+            <summary>
+            Logs a message
+            </summary>
+            <param name="Message">Message text</param>
+            <param name="Type">Message type</param>
+            <param name="args">Any additional arguments that will be used in formatting the message</param>
+        </member>
+        <member name="M:Utilities.IO.Logging.BaseClasses.LogBase`1.#ctor(System.Action{`0})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Start">Action called when the log is created</param>
+        </member>
+        <member name="F:Utilities.IO.Logging.BaseClasses.LogBase`1.Log_">
+            <summary>
+            Called to log the current message
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.BaseClasses.LogBase`1.Dispose">
+            <summary>
+            Disposes the object
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.BaseClasses.LogBase`1.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the objects
+            </summary>
+            <param name="Disposing">True to dispose of all resources, false only disposes of native resources</param>
+        </member>
+        <member name="M:Utilities.IO.Logging.BaseClasses.LogBase`1.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.BaseClasses.LogBase`1.LogMessage(System.String,Utilities.IO.Logging.Enums.MessageType,System.Object[])">
+            <summary>
+            Logs a message
+            </summary>
+            <param name="Message">Message to log</param>
+            <param name="Type">Type of message</param>
+            <param name="args">args to format/insert into the message</param>
+        </member>
+        <member name="P:Utilities.IO.Logging.BaseClasses.LogBase`1.Start">
+            <summary>
+            Called when the log is "opened"
+            </summary>
+        </member>
+        <member name="P:Utilities.IO.Logging.BaseClasses.LogBase`1.End">
+            <summary>
+            Called when the log is "closed"
+            </summary>
+        </member>
+        <member name="P:Utilities.IO.Logging.BaseClasses.LogBase`1.Log">
+            <summary>
+            Called to log the current message
+            </summary>
+        </member>
+        <member name="P:Utilities.IO.Logging.BaseClasses.LogBase`1.FormatMessage">
+            <summary>
+            Format message function
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Logging.BaseClasses.Format">
+            <summary>
+            Delegate used to format the message
+            </summary>
+            <param name="Message">Message to format</param>
+            <param name="Type">Type of message</param>
+            <param name="args">Args to insert into the message</param>
+            <returns>The formatted message</returns>
+        </member>
+        <member name="T:Utilities.IO.Logging.ConsoleLog">
+            <summary>
+            Outputs messages to the console
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.ConsoleLog.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Logging.Enums.MessageType">
+            <summary>
+            Message type
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.General">
+            <summary>
+            General message
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.Debug">
+            <summary>
+            Debug message
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.Trace">
+            <summary>
+            Trace message
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.Info">
+            <summary>
+            Info message
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.Warn">
+            <summary>
+            Warn message
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.Enums.MessageType.Error">
+            <summary>
+            Error message
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Logging.FileLog">
+            <summary>
+            Outputs messages to a file
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.FileLog.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Logging.LoggingManager">
+            <summary>
+            Logging manager
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.Logging.LoggingManager.Logs">
+            <summary>
+            Logs
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Logging.LoggingManager.GetLog``1(System.String)">
+            <summary>
+            Gets a specified log
+            </summary>
+            <param name="Name">The name of the log file</param>
+            <typeparam name="LogType">Log type that the log object should be</typeparam>
+            <returns>The log file specified</returns>
+        </member>
+        <member name="M:Utilities.IO.Logging.LoggingManager.GetLog(System.String)">
+            <summary>
+            Gets a specified log
+            </summary>
+            <param name="Name">The name of the log file</param>
+            <returns>The log file specified</returns>
+        </member>
+        <member name="M:Utilities.IO.Logging.LoggingManager.AddLog``1(System.String)">
+            <summary>
+            Adds a log object or replaces one already in use
+            </summary>
+            <param name="Name">The name of the log file</param>
+            <typeparam name="LogType">Log type to add</typeparam>
+        </member>
+        <member name="M:Utilities.IO.Logging.LoggingManager.AddLog(Utilities.IO.Logging.Interfaces.ILog,System.String)">
+            <summary>
+            Adds a log object or replaces one already in use
+            </summary>
+            <param name="Log">The log object to add</param>
+            <param name="Name">The name of the log file</param>
+        </member>
+        <member name="M:Utilities.IO.Logging.LoggingManager.Destroy">
+            <summary>
+            Destroys the logging manager
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.IO.DirectoryInfo"/>
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.CopyTo(System.IO.DirectoryInfo,System.String,System.Boolean,Utilities.IO.ExtensionMethods.Enums.CopyOptions)">
+            <summary>
+            Copies a directory to another location
+            </summary>
+            <param name="Source">Source directory</param>
+            <param name="Destination">Destination directory</param>
+            <param name="Recursive">Should the copy be recursive</param>
+            <param name="Options">Options used in copying</param>
+            <returns>The DirectoryInfo for the destination info</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteAll(System.IO.DirectoryInfo)">
+            <summary>
+            Deletes directory and all content found within it
+            </summary>
+            <param name="Info">Directory info object</param>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteDirectoriesNewerThan(System.IO.DirectoryInfo,System.DateTime,System.Boolean)">
+            <summary>
+            Deletes directories newer than the specified date
+            </summary>
+            <param name="Directory">Directory to look within</param>
+            <param name="CompareDate">The date to compare to</param>
+            <param name="Recursive">Is this a recursive call</param>
+            <returns>Returns the directory object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteDirectoriesOlderThan(System.IO.DirectoryInfo,System.DateTime,System.Boolean)">
+            <summary>
+            Deletes directories newer than the specified date
+            </summary>
+            <param name="Directory">Directory to look within</param>
+            <param name="CompareDate">The date to compare to</param>
+            <param name="Recursive">Is this a recursive call</param>
+            <returns>Returns the directory object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteFiles(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Deletes files from a directory
+            </summary>
+            <param name="Directory">Directory to delete the files from</param>
+            <param name="Recursive">Should this be recursive?</param>
+            <returns>The directory that is sent in</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteFilesNewerThan(System.IO.DirectoryInfo,System.DateTime,System.Boolean)">
+            <summary>
+            Deletes files newer than the specified date
+            </summary>
+            <param name="Directory">Directory to look within</param>
+            <param name="CompareDate">The date to compare to</param>
+            <param name="Recursive">Is this a recursive call</param>
+            <returns>Returns the directory object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DeleteFilesOlderThan(System.IO.DirectoryInfo,System.DateTime,System.Boolean)">
+            <summary>
+            Deletes files older than the specified date
+            </summary>
+            <param name="Directory">Directory to look within</param>
+            <param name="CompareDate">The date to compare to</param>
+            <param name="Recursive">Is this a recursive call</param>
+            <returns>Returns the directory object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.DriveInfo(System.IO.DirectoryInfo)">
+            <summary>
+            Gets the drive information for a directory
+            </summary>
+            <param name="Directory">The directory to get the drive info of</param>
+            <returns>The drive info connected to the directory</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.EnumerateFiles(System.IO.DirectoryInfo,System.Collections.Generic.IEnumerable{System.String},System.IO.SearchOption)">
+            <summary>
+            Enumerates the files within a directory
+            </summary>
+            <param name="Directory">Directory to search in</param>
+            <param name="SearchPatterns">Patterns to search for</param>
+            <param name="Options">Search options</param>
+            <returns>The enumerated files from the directory</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.Size(System.IO.DirectoryInfo,System.String,System.Boolean)">
+            <summary>
+            Gets the size of all files within a directory
+            </summary>
+            <param name="Directory">Directory</param>
+            <param name="SearchPattern">Search pattern used to tell what files to include (defaults to all)</param>
+            <param name="Recursive">determines if this is a recursive call or not</param>
+            <returns>The directory size</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.DirectoryInfoExtensions.SetAttributes(System.IO.DirectoryInfo,System.IO.FileAttributes,System.Boolean)">
+            <summary>
+            Sets a directory's attributes
+            </summary>
+            <param name="Directory">Directory</param>
+            <param name="Attributes">Attributes to set</param>
+            <param name="Recursive">Determines if this is a recursive call</param>
+            <returns>The directory object</returns>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.Enums.CopyOptions">
+            <summary>
+            Options used in directory copying
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.ExtensionMethods.Enums.CopyOptions.CopyIfNewer">
+            <summary>
+            Copy if newer than the DateTime specified
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.ExtensionMethods.Enums.CopyOptions.CopyAlways">
+            <summary>
+            Copy always
+            </summary>
+        </member>
+        <member name="F:Utilities.IO.ExtensionMethods.Enums.CopyOptions.DoNotOverwrite">
+            <summary>
+            Do not overwrite a file
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.FileInfoExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.IO.FileInfo"/>
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.CompareTo(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Compares two files against one another
+            </summary>
+            <param name="File1">First file</param>
+            <param name="File2">Second file</param>
+            <returns>True if the content is the same, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.DriveInfo(System.IO.FileInfo)">
+            <summary>
+            Gets the drive information for a file
+            </summary>
+            <param name="File">The file to get the drive info of</param>
+            <returns>The drive info connected to the file</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Read(System.IO.FileInfo)">
+            <summary>
+            Reads a file to the end as a string
+            </summary>
+            <param name="File">File to read</param>
+            <returns>A string containing the contents of the file</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Read(System.String)">
+            <summary>
+            Reads a file to the end as a string
+            </summary>
+            <param name="Location">File to read</param>
+            <returns>A string containing the contents of the file</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.ReadBinary(System.IO.FileInfo)">
+            <summary>
+            Reads a file to the end and returns a binary array
+            </summary>
+            <param name="File">File to open</param>
+            <returns>A binary array containing the contents of the file</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.ReadBinary(System.String)">
+            <summary>
+            Reads a file to the end and returns a binary array
+            </summary>
+            <param name="Location">File to open</param>
+            <returns>A binary array containing the contents of the file</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Execute(System.IO.FileInfo,System.String,System.String,System.String,System.String,System.Diagnostics.ProcessWindowStyle,System.String)">
+            <summary>
+            Executes the file
+            </summary>
+            <param name="File">File to execute</param>
+            <param name="Arguments">Arguments sent to the executable</param>
+            <param name="Domain">Domain of the user</param>
+            <param name="Password">Password of the user</param>
+            <param name="User">User to run the file as</param>
+            <param name="WindowStyle">Window style</param>
+            <param name="WorkingDirectory">Working directory</param>
+            <returns>The process object created when the executable is started</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Execute(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.ProcessWindowStyle,System.String)">
+            <summary>
+            Executes the file
+            </summary>
+            <param name="File">File to execute</param>
+            <param name="Arguments">Arguments sent to the executable</param>
+            <param name="Domain">Domain of the user</param>
+            <param name="Password">Password of the user</param>
+            <param name="User">User to run the file as</param>
+            <param name="WindowStyle">Window style</param>
+            <param name="WorkingDirectory">Working directory</param>
+            <returns>The process object created when the executable is started</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Execute(System.IO.FileInfo,System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Executes the file
+            </summary>
+            <param name="File">File to execute</param>
+            <param name="Info">Info used to execute the file</param>
+            <returns>The process object created when the executable is started</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Execute(System.String,System.Diagnostics.ProcessStartInfo)">
+            <summary>
+            Executes the file
+            </summary>
+            <param name="File">File to execute</param>
+            <param name="Info">Info used to execute the file</param>
+            <returns>The process object created when the executable is started</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Save(System.IO.FileInfo,System.String,System.IO.FileMode,System.Text.Encoding)">
+            <summary>
+            Saves a string to a file
+            </summary>
+            <param name="File">File to save to</param>
+            <param name="Content">Content to save to the file</param>
+            <param name="EncodingUsing">Encoding that the content is using (defaults to ASCII)</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Save(System.IO.FileInfo,System.Byte[],System.IO.FileMode)">
+            <summary>
+            Saves a byte array to a file
+            </summary>
+            <param name="File">File to save to</param>
+            <param name="Content">Content to save to the file</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Save(System.String,System.String,System.IO.FileMode,System.Text.Encoding)">
+            <summary>
+            Saves the string to the specified file
+            </summary>
+            <param name="Location">Location to save the content to</param>
+            <param name="Content">Content to save the the file</param>
+            <param name="EncodingUsing">Encoding that the content is using (defaults to ASCII)</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object associated with the location</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.Save(System.String,System.Byte[],System.IO.FileMode)">
+            <summary>
+            Saves a byte array to a file
+            </summary>
+            <param name="Location">File to save to</param>
+            <param name="Content">Content to save to the file</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object associated with the location</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.SaveAsync(System.IO.FileInfo,System.String,System.AsyncCallback,System.Object,System.IO.FileMode,System.Text.Encoding)">
+            <summary>
+            Saves a string to a file (asynchronously)
+            </summary>
+            <param name="File">File to save to</param>
+            <param name="Content">Content to save to the file</param>
+            <param name="CallBack">Call back function</param>
+            <param name="StateObject">State object</param>
+            <param name="EncodingUsing">Encoding that the content is using (defaults to ASCII)</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.SaveAsync(System.IO.FileInfo,System.Byte[],System.AsyncCallback,System.Object,System.IO.FileMode)">
+            <summary>
+            Saves a byte array to a file (asynchronously)
+            </summary>
+            <param name="File">File to save to</param>
+            <param name="Content">Content to save to the file</param>
+            <param name="CallBack">Call back function</param>
+            <param name="StateObject">State object</param>
+            <param name="Mode">Mode for saving the file (defaults to Create)</param>
+            <returns>The FileInfo object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.FileInfoExtensions.SetAttributes(System.IO.FileInfo,System.IO.FileAttributes)">
+            <summary>
+            Sets the attributes of a file
+            </summary>
+            <param name="File">File</param>
+            <param name="Attributes">Attributes to set</param>
+            <returns>The file info</returns>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.SerializationExtensions">
+            <summary>
+            Serialization extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Serialize(System.Object,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding,System.String)">
+            <summary>
+            Serializes the object using the specified serializer
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <param name="Serializer">Serializer to use (defaults to JSONSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)</param>
+            <param name="FileLocation">File location to save to</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.SerializeBinary(System.Object,Utilities.IO.Serializers.Interfaces.ISerializer{System.Byte[]},System.String)">
+            <summary>
+            Serializes the object using the specified serializer
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <param name="Serializer">Serializer to use (defaults to BinarySerializer)</param>
+            <param name="FileLocation">File location to save to</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize``1(System.String,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <typeparam name="R">Object type</typeparam>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to JSONSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize``1(System.Xml.XmlDocument,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <typeparam name="R">Object type</typeparam>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to XMLSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize``1(System.Byte[],Utilities.IO.Serializers.Interfaces.ISerializer{System.Byte[]})">
+            <summary>
+            Deserializes an object
+            </summary>
+            <typeparam name="R">Object type</typeparam>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to BinarySerializer)</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize``1(System.IO.FileInfo,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <typeparam name="R">Object type</typeparam>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to JSONSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize(System.IO.FileInfo,System.Type,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to JSONSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <param name="ObjectType">Object type</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize(System.String,System.Type,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <param name="Data">Data to deserialize</param>
+            <param name="ObjectType">Object type</param>
+            <param name="Serializer">Serializer to use (defaults to JSONSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize(System.Byte[],System.Type,Utilities.IO.Serializers.Interfaces.ISerializer{System.Byte[]})">
+            <summary>
+            Deserializes an object
+            </summary>
+            <param name="Data">Data to deserialize</param>
+            <param name="ObjectType">Object type</param>
+            <param name="Serializer">Serializer to use (defaults to BinarySerializer)</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.Deserialize(System.Xml.XmlDocument,System.Type,Utilities.IO.Serializers.Interfaces.ISerializer{System.String},System.Text.Encoding)">
+            <summary>
+            Deserializes an object
+            </summary>
+            <param name="Data">Data to deserialize</param>
+            <param name="ObjectType">Object type</param>
+            <param name="Serializer">Serializer to use (defaults to XMLSerializer)</param>
+            <param name="EncodingUsing">Encoding to use (defaults to ASCII)></param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.DeserializeBinary(System.IO.FileInfo,System.Type,Utilities.IO.Serializers.Interfaces.ISerializer{System.Byte[]})">
+            <summary>
+            Deserializes an object
+            </summary>
+            <param name="Data">Data to deserialize</param>
+            <param name="ObjectType">Object type</param>
+            <param name="Serializer">Serializer to use (defaults to BinarySerializer)</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.SerializationExtensions.DeserializeBinary``1(System.IO.FileInfo,Utilities.IO.Serializers.Interfaces.ISerializer{System.Byte[]})">
+            <summary>
+            Deserializes an object
+            </summary>
+            <typeparam name="R">Object type</typeparam>
+            <param name="Data">Data to deserialize</param>
+            <param name="Serializer">Serializer to use (defaults to BinarySerializer)</param>
+            <returns>The deserialized object</returns>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.UriExtensions">
+            <summary>
+            Uri Extension methods
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.UriExtensions.Execute(System.Uri)">
+            <summary>
+            opens the URL in a browser
+            </summary>
+            <param name="URL">URL to execute</param>
+            <returns>The process object created when opening the URL</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.UriExtensions.Read(System.Uri,System.String,System.String,System.String,System.String)">
+            <summary>
+            Reads the text content of a URL
+            </summary>
+            <param name="URL">Uri to read the content of</param>
+            <param name="UserName">User name used in network credentials</param>
+            <param name="Password">Password used in network credentials</param>
+            <param name="Domain">Domain to use in network credentials</param>
+            <param name="AuthenticationType">Authentication type to use in network credentials</param>
+            <returns>String representation of the content of the URL</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.UriExtensions.Read(System.Uri,System.Net.WebClient,System.String,System.String,System.String,System.String)">
+            <summary>
+            Reads the text content of a URL
+            </summary>
+            <param name="URL">The Uri to read the content of</param>
+            <param name="Client">WebClient used to load the data</param>
+            <param name="UserName">User name used in network credentials</param>
+            <param name="Password">Password used in network credentials</param>
+            <param name="Domain">Domain to use in network credentials</param>
+            <param name="AuthenticationType">Authentication type to use in network credentials</param>
+            <returns>Stream containing the content of the URL</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.UriExtensions.ReadBinary(System.Uri,System.String,System.String,System.String,System.String)">
+            <summary>
+            Reads the content of a URL
+            </summary>
+            <param name="URL">Uri to read the content of</param>
+            <param name="UserName">User name used in network credentials</param>
+            <param name="Password">Password used in network credentials</param>
+            <param name="Domain">Domain to use in network credentials</param>
+            <param name="AuthenticationType">Authentication type to use in network credentials</param>
+            <returns>Byte array representation of the content of the URL</returns>
+        </member>
+        <member name="T:Utilities.IO.ExtensionMethods.StringExtensions">
+            <summary>
+            Extension methods for strings
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.StringExtensions.RemoveIllegalDirectoryNameCharacters(System.String,System.Char)">
+            <summary>
+            Removes illegal characters from a directory
+            </summary>
+            <param name="DirectoryName">Directory name</param>
+            <param name="ReplacementChar">Replacement character</param>
+            <returns>DirectoryName with all illegal characters replaced with ReplacementChar</returns>
+        </member>
+        <member name="M:Utilities.IO.ExtensionMethods.StringExtensions.RemoveIllegalFileNameCharacters(System.String,System.Char)">
+            <summary>
+            Removes illegal characters from a file
+            </summary>
+            <param name="FileName">File name</param>
+            <param name="ReplacementChar">Replacement character</param>
+            <returns>FileName with all illegal characters replaced with ReplacementChar</returns>
+        </member>
+        <member name="T:Utilities.IO.Serializers.BinarySerializer">
+            <summary>
+            Binary serializer
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Serializers.Interfaces.ISerializer`1">
+            <summary>
+            Serializer interface
+            </summary>
+            <typeparam name="T">Type that the object is serialized to/from</typeparam>
+        </member>
+        <member name="M:Utilities.IO.Serializers.Interfaces.ISerializer`1.Serialize(System.Object)">
+            <summary>
+            Serializes the object
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.Interfaces.ISerializer`1.Deserialize(`0,System.Type)">
+            <summary>
+            Deserializes the data
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Data">Data to deserialize</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.BinarySerializer.Serialize(System.Object)">
+            <summary>
+            Serializes the object
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.BinarySerializer.Deserialize(System.Byte[],System.Type)">
+            <summary>
+            Deserializes the data
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Data">Data to deserialize</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="T:Utilities.IO.Serializers.JSONSerializer">
+            <summary>
+            JSON serializer
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Serializers.JSONSerializer.#ctor(System.Text.Encoding)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="EncodingUsing">Encoding that the serializer should use (defaults to ASCII)</param>
+        </member>
+        <member name="M:Utilities.IO.Serializers.JSONSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes the object
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.JSONSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserializes the data
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Data">Data to deserialize</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="P:Utilities.IO.Serializers.JSONSerializer.EncodingUsing">
+            <summary>
+            Encoding that the serializer should use
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Serializers.SOAPSerializer">
+            <summary>
+            SOAP serializer
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Serializers.SOAPSerializer.#ctor(System.Text.Encoding)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="EncodingUsing">Encoding that the serializer should use (defaults to ASCII)</param>
+        </member>
+        <member name="M:Utilities.IO.Serializers.SOAPSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes the object
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.SOAPSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserializes the data
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Data">Data to deserialize</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="P:Utilities.IO.Serializers.SOAPSerializer.EncodingUsing">
+            <summary>
+            Encoding that the serializer should use
+            </summary>
+        </member>
+        <member name="T:Utilities.IO.Serializers.XMLSerializer">
+            <summary>
+            XML serializer
+            </summary>
+        </member>
+        <member name="M:Utilities.IO.Serializers.XMLSerializer.#ctor(System.Text.Encoding)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="EncodingUsing">Encoding that the serializer should use (defaults to ASCII)</param>
+        </member>
+        <member name="M:Utilities.IO.Serializers.XMLSerializer.Serialize(System.Object)">
+            <summary>
+            Serializes the object
+            </summary>
+            <param name="Object">Object to serialize</param>
+            <returns>The serialized object</returns>
+        </member>
+        <member name="M:Utilities.IO.Serializers.XMLSerializer.Deserialize(System.String,System.Type)">
+            <summary>
+            Deserializes the data
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Data">Data to deserialize</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="P:Utilities.IO.Serializers.XMLSerializer.EncodingUsing">
+            <summary>
+            Encoding that the serializer should use
+            </summary>
+        </member>
+    </members>
+</doc>

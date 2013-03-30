@@ -34,6 +34,13 @@ namespace Batman.Core.Bootstrapper.TinyIoC
     /// </summary>
     public class Bootstrapper : BootstrapperBase<TinyIoCContainer>
     {
+        public Bootstrapper()
+            : base()
+        {
+        }
+
+        protected override TinyIoCContainer AppContainer { get { return TinyIoCContainer.Current; } }
+
         public override void Register<T>(Func<T> Function, string Name)
         {
             AppContainer.Register<T>((x, y) => Function(), Name);
@@ -74,34 +81,63 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             AppContainer.Register<T>(Object);
         }
 
-        public override object Resolve(Type ObjectType, string Name)
+        public override object Resolve(Type ObjectType, string Name,object DefaultObject=null)
         {
-            return AppContainer.Resolve(ObjectType, Name);
+            try
+            {
+                return AppContainer.Resolve(ObjectType, Name);
+            }
+            catch { return DefaultObject; }
         }
 
-        public override object Resolve(Type ObjectType)
+        public override object Resolve(Type ObjectType,object DefaultObject=null)
         {
-            return AppContainer.Resolve(ObjectType);
+            try
+            {
+                return AppContainer.Resolve(ObjectType);
+            }
+            catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>(string Name)
+        public override T Resolve<T>(string Name,T DefaultObject=default(T))
         {
-            return AppContainer.Resolve<T>(Name);
+            try
+            {
+                return AppContainer.Resolve<T>(Name);
+            }
+            catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>()
+        public override T Resolve<T>(T DefaultObject=default(T))
         {
-            return AppContainer.Resolve<T>();
+            try
+            {
+                return AppContainer.Resolve<T>();
+            }
+            catch { return DefaultObject; }
         }
 
         public override IEnumerable<object> ResolveAll(Type ObjectType)
         {
-            return AppContainer.ResolveAll(ObjectType);
+            try
+            {
+                return AppContainer.ResolveAll(ObjectType);
+            }
+            catch { return new List<object>(); }
         }
 
         public override IEnumerable<T> ResolveAll<T>()
         {
+            try
+            {
             return AppContainer.ResolveAll<T>();
+            }
+            catch { return new List<T>(); }
+        }
+
+        public override void Dispose(bool Managed)
+        {
+            AppContainer.Dispose();
         }
     }
 }
