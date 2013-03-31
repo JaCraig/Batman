@@ -31,6 +31,36 @@ namespace Batman.Core.FileSystem.Interfaces
     /// </summary>
     public interface IFileSystem
     {
-        
+        #region Properties
+
+        /// <summary>
+        /// Relative path starting string (ex: "~" for local storage)
+        /// </summary>
+        string RelativeStarter { get; }
+
+        /// <summary>
+        /// Name of the file system
+        /// </summary>
+        string Name { get; }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Gets the class representation for the file
+        /// </summary>
+        /// <param name="Path">Path to the file</param>
+        /// <returns>The file object</returns>
+        IFile File(string Path);
+
+        /// <summary>
+        /// Gets the directory representation for the directory
+        /// </summary>
+        /// <param name="Path">Path to the directory</param>
+        /// <returns>The directory object</returns>
+        IDirectory Directory(string Path);
+
+        #endregion
     }
 }

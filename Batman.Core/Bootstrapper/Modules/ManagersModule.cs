@@ -21,6 +21,7 @@ THE SOFTWARE.*/
 
 #region Usings
 using Batman.Core.Bootstrapper.Interfaces;
+using Batman.Core.FileSystem;
 #endregion
 
 namespace Batman.Core.Bootstrapper.Modules
@@ -32,7 +33,7 @@ namespace Batman.Core.Bootstrapper.Modules
     {
         public void Load(Bootstrapper.Interfaces.IBootstrapper Bootstrapper)
         {
-            //Bootstrapper.Register<AssetManager>(new AssetManager());
+            Bootstrapper.Register<FileManager>(new FileManager());
         }
     }
 }

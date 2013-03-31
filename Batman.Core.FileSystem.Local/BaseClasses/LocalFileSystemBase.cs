@@ -25,63 +25,76 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
-using System.IO;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
 #endregion
 
-namespace Batman.Core
+namespace Batman.Core.FileSystem.Local.BaseClasses
 {
     /// <summary>
-    /// Generally controls the basic flow of the application during certain phases
+    /// Local file system base class
     /// </summary>
-    public static class BatComputer
+    public abstract class LocalFileSystemBase : IFileSystem
     {
-        #region Members
+        #region Constructor
 
         /// <summary>
-        /// Bootstrapper that the application holds onto
+        /// Constructor
         /// </summary>
-        public static IBootstrapper Bootstrapper = null;
+        protected LocalFileSystemBase()
+        {
+        }
 
-        public static LogBase Logger = null;
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Relative starter
+        /// </summary>
+        public abstract string RelativeStarter { get; }
+
+        /// <summary>
+        /// Name of the file system
+        /// </summary>
+        public abstract string Name { get; }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Called at the start of the application
+        /// Gets the class representation for the file
         /// </summary>
-        public static void Start()
+        /// <param name="Path">Path to the file</param>
+        /// <returns>The file object</returns>
+        public IFile File(string Path)
         {
-            new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false);
-            Bootstrapper = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IBootstrapper>().FirstOrDefault();
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<IModule>().ForEach(x => x.Load(Bootstrapper));
-            Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
-            Logger.LogMessage("Application starting", MessageType.Info);
+            Path = AbsolutePath(Path);
+            return new File(Path);
         }
 
         /// <summary>
-        /// Called at the end of the application
+        /// Gets the directory representation for the directory
         /// </summary>
-        public static void End()
+        /// <param name="Path">Path to the directory</param>
+        /// <returns>The directory object</returns>
+        public IDirectory Directory(string Path)
         {
-            if (Logger != null)
-            {
-                Logger.LogMessage("Application ending", MessageType.Info);
-                Logger.Dispose();
-                Logger = null;
-            }
-            if (Bootstrapper != null)
-            {
-                Bootstrapper.Dispose();
-                Bootstrapper = null;
-            }
+            Path = AbsolutePath(Path);
+            return new Directory(Path);
         }
+
+        /// <summary>
+        /// Gets the absolute path of the variable passed in
+        /// </summary>
+        /// <param name="Path">Path to convert to absolute</param>
+        /// <returns>The absolute path of the path passed in</returns>
+        protected abstract string AbsolutePath(string Path);
 
         #endregion
     }

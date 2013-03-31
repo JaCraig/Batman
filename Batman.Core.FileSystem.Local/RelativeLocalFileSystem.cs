@@ -25,62 +25,62 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
-using System.IO;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
+using Batman.Core.FileSystem.Local.BaseClasses;
 #endregion
 
-namespace Batman.Core
+namespace Batman.Core.FileSystem.Local
 {
     /// <summary>
-    /// Generally controls the basic flow of the application during certain phases
+    /// Relative local file system
     /// </summary>
-    public static class BatComputer
+    public class RelativeLocalFileSystem : LocalFileSystemBase
     {
-        #region Members
+        #region Constructor
 
         /// <summary>
-        /// Bootstrapper that the application holds onto
+        /// Constructor
         /// </summary>
-        public static IBootstrapper Bootstrapper = null;
+        public RelativeLocalFileSystem() : base() { }
 
-        public static LogBase Logger = null;
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Relative starter
+        /// </summary>
+        public override string RelativeStarter { get { return "~"; } }
+
+        /// <summary>
+        /// Name of the file system
+        /// </summary>
+        public override string Name { get { return "Relative Local"; } }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Called at the start of the application
+        /// Gets the absolute path of the variable passed in
         /// </summary>
-        public static void Start()
+        /// <param name="Path">Path to convert to absolute</param>
+        /// <returns>The absolute path of the path passed in</returns>
+        protected override string AbsolutePath(string Path)
         {
-            new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false);
-            Bootstrapper = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IBootstrapper>().FirstOrDefault();
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<IModule>().ForEach(x => x.Load(Bootstrapper));
-            Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
-            Logger.LogMessage("Application starting", MessageType.Info);
-        }
-
-        /// <summary>
-        /// Called at the end of the application
-        /// </summary>
-        public static void End()
-        {
-            if (Logger != null)
+            if (Path.StartsWith(RelativeStarter, StringComparison.OrdinalIgnoreCase))
             {
-                Logger.LogMessage("Application ending", MessageType.Info);
-                Logger.Dispose();
-                Logger = null;
+                if (HttpContext.Current == null)
+                    Path = Path.Replace(RelativeStarter, AppDomain.CurrentDomain.BaseDirectory);
+                else
+                    Path = HttpContext.Current.Server.MapPath(Path);
             }
-            if (Bootstrapper != null)
-            {
-                Bootstrapper.Dispose();
-                Bootstrapper = null;
-            }
+            return Path;
         }
 
         #endregion

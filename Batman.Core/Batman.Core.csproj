@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Custom.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\Custom.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -59,6 +59,7 @@
     <Compile Include="FileSystem\Interfaces\IDirectory.cs" />
     <Compile Include="FileSystem\Interfaces\IFile.cs" />
     <Compile Include="FileSystem\Interfaces\IFileSystem.cs" />
+    <Compile Include="FileSystem\FileManager.cs" />
     <Compile Include="Logging\BaseClasses\LogBase.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

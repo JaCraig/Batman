@@ -101,7 +101,7 @@ namespace Batman.Core.FileSystem.Interfaces
         /// <param name="SearchPattern">Search pattern to use</param>
         /// <param name="Options">Search options to use</param>
         /// <returns>The list of directories</returns>
-        IEnumerable<IDirectory> EnumerateDirectories(IEnumerable<string> SearchPatterns, SearchOption Options = SearchOption.TopDirectoryOnly);
+        IEnumerable<IDirectory> EnumerateDirectories(string SearchPattern, SearchOption Options = SearchOption.TopDirectoryOnly);
 
         /// <summary>
         /// Enumerates files within the directory (defaults to top level directory and not the sub directories)
@@ -116,6 +116,12 @@ namespace Batman.Core.FileSystem.Interfaces
         /// </summary>
         /// <param name="Directory">Directory to move to</param>
         void MoveTo(IDirectory Directory);
+
+        /// <summary>
+        /// Renames the directory
+        /// </summary>
+        /// <param name="Name">The new name of the directory</param>
+        void Rename(string Name);
 
         #endregion
     }
