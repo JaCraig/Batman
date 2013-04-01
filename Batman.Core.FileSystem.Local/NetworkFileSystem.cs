@@ -20,48 +20,61 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Batman.Core.Bootstrapper.Interfaces;
+using Utilities.DataTypes.ExtensionMethods;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Logging;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
+using Batman.Core.FileSystem.Local.BaseClasses;
 #endregion
 
-namespace Batman.Core.FileSystem.Interfaces
+namespace Batman.Core.FileSystem.Local
 {
     /// <summary>
-    /// Interface for the file system
+    /// Network file system
     /// </summary>
-    public interface IFileSystem
+    public class NetworkFileSystem : LocalFileSystemBase
     {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public NetworkFileSystem() : base() { }
+
+        #endregion
+
         #region Properties
-        
+
+        /// <summary>
+        /// Relative starter
+        /// </summary>
+        protected override string HandleRegexString { get { return @"^\\"; } }
+
         /// <summary>
         /// Name of the file system
         /// </summary>
-        string Name { get; }
+        public override string Name { get { return "Network"; } }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Gets the class representation for the file
+        /// Gets the absolute path of the variable passed in
         /// </summary>
-        /// <param name="Path">Path to the file</param>
-        /// <returns>The file object</returns>
-        IFile File(string Path);
-
-        /// <summary>
-        /// Gets the directory representation for the directory
-        /// </summary>
-        /// <param name="Path">Path to the directory</param>
-        /// <returns>The directory object</returns>
-        IDirectory Directory(string Path);
-
-        /// <summary>
-        /// Returns true if it can handle the path, false otherwise
-        /// </summary>
-        /// <param name="Path">The path to check against</param>
-        /// <returns>True if it can handle the path, false otherwise</returns>
-        bool CanHandle(string Path);
+        /// <param name="Path">Path to convert to absolute</param>
+        /// <returns>The absolute path of the path passed in</returns>
+        protected override string AbsolutePath(string Path)
+        {
+            return Path;
+        }
 
         #endregion
     }

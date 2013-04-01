@@ -20,22 +20,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Batman.Core.Tasks.Enums;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.Tasks.Interfaces
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Task interface
     /// </summary>
-    public class ManagersModule : IModule
+    public interface ITask
     {
-        public void Load(Bootstrapper.Interfaces.IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-        }
+        /// <summary>
+        /// Time that the task should be run
+        /// </summary>
+        RunTime TimeToRun { get; }
+
+        /// <summary>
+        /// Name of the task
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        /// Runs the task
+        /// </summary>
+        void Run();
     }
 }

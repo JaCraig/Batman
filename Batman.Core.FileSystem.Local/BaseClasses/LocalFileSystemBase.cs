@@ -31,6 +31,7 @@ using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
 using Batman.Core.FileSystem.Interfaces;
 using System.Web;
+using System.Text.RegularExpressions;
 #endregion
 
 namespace Batman.Core.FileSystem.Local.BaseClasses
@@ -47,6 +48,7 @@ namespace Batman.Core.FileSystem.Local.BaseClasses
         /// </summary>
         protected LocalFileSystemBase()
         {
+            HandleRegex = new Regex(HandleRegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
         }
 
         #endregion
@@ -54,9 +56,14 @@ namespace Batman.Core.FileSystem.Local.BaseClasses
         #region Properties
 
         /// <summary>
-        /// Relative starter
+        /// Regex string used to determine if the file system can handle the path
         /// </summary>
-        public abstract string RelativeStarter { get; }
+        protected abstract string HandleRegexString { get; }
+
+        /// <summary>
+        /// Regex used to determine if the file system can handle the path
+        /// </summary>
+        protected Regex HandleRegex { get; private set; }
 
         /// <summary>
         /// Name of the file system
@@ -95,6 +102,16 @@ namespace Batman.Core.FileSystem.Local.BaseClasses
         /// <param name="Path">Path to convert to absolute</param>
         /// <returns>The absolute path of the path passed in</returns>
         protected abstract string AbsolutePath(string Path);
+
+        /// <summary>
+        /// Returns true if it can handle the path, false otherwise
+        /// </summary>
+        /// <param name="Path">The path to check against</param>
+        /// <returns>True if it can handle the path, false otherwise</returns>
+        public bool CanHandle(string Path)
+        {
+            return HandleRegex.IsMatch(Path);
+        }
 
         #endregion
     }

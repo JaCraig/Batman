@@ -122,6 +122,8 @@ namespace Batman.Core.FileSystem.Local
 
         public void Delete()
         {
+            if (!Exists)
+                return;
             InternalFile.Delete();
             InternalFile.Refresh();
         }

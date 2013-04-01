@@ -31,6 +31,15 @@ namespace Batman.Core.Bootstrapper.Interfaces
     /// </summary>
     public interface IBootstrapper : IDisposable
     {
+        #region Properties
+
+        /// <summary>
+        /// Name of the bootstrapper
+        /// </summary>
+        string Name { get; }
+
+        #endregion
+
         #region Register
 
         /// <summary>

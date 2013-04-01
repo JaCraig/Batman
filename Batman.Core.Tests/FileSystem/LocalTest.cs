@@ -5,22 +5,28 @@ using System.Text;
 using Xunit;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
+using System.IO;
+using Utilities.Reflection.ExtensionMethods;
+using Utilities.DataTypes.ExtensionMethods;
 
 namespace Batman.Core.Tests.FileSystem
 {
     public class LocalTest:IDisposable
     {
+        public LocalTest() { new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false).ForEach(x => x); }
         [Fact]
         public void InitializationTest()
         {
             FileManager Manager = new FileManager();
             Assert.NotEqual(null, Manager["Relative Local"]);
             Assert.NotEqual(null, Manager["Absolute Local"]);
+            Assert.NotEqual(null, Manager["Network"]);
         }
 
         [Fact]
         public void DirectoryTest()
         {
+            
             FileManager Manager = new FileManager();
             IDirectory TempObject = Manager.Directory("~/Data/Test");
             Assert.Equal(false, TempObject.Exists);
@@ -40,6 +46,7 @@ namespace Batman.Core.Tests.FileSystem
         [Fact]
         public void DirectoryRenameTest()
         {
+            
             FileManager Manager = new FileManager();
             IDirectory TempObject = Manager.Directory("~/Data/Test");
             TempObject.Create();
@@ -52,6 +59,7 @@ namespace Batman.Core.Tests.FileSystem
         [Fact]
         public void DirectoryMoveToTest()
         {
+            
             FileManager Manager = new FileManager();
             IDirectory TempObject = Manager.Directory("~/Data/Test");
             TempObject.Create();
@@ -65,6 +73,7 @@ namespace Batman.Core.Tests.FileSystem
         [Fact]
         public void FileTest()
         {
+            
             FileManager Manager = new FileManager();
             IFile TempObject = Manager.File("~/Data/Test/Data.txt");
             Assert.Equal(false, TempObject.Exists);
@@ -86,6 +95,7 @@ namespace Batman.Core.Tests.FileSystem
         [Fact]
         public void FileRenameTest()
         {
+            
             FileManager Manager = new FileManager();
             IFile TempObject = Manager.File("~/Data/Test/Data.txt");
             TempObject.Write("This is a test");
@@ -98,6 +108,7 @@ namespace Batman.Core.Tests.FileSystem
         [Fact]
         public void FileMoveToTest()
         {
+            
             FileManager Manager = new FileManager();
             IFile TempObject = Manager.File("~/Data/Test/Data.txt");
             TempObject.Write("This is a test");

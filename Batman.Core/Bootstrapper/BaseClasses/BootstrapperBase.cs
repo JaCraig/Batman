@@ -51,6 +51,11 @@ namespace Batman.Core.Bootstrapper.BaseClasses
         /// </summary>
         protected abstract Container AppContainer { get; }
 
+        /// <summary>
+        /// Name of the bootstrapper
+        /// </summary>
+        public abstract string Name { get; }
+
         #endregion
 
         #region Functions

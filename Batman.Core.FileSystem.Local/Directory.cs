@@ -128,6 +128,8 @@ namespace Batman.Core.FileSystem.Local
 
         public void Delete()
         {
+            if (!Exists)
+                return;
             InternalDirectory.DeleteAll();
             InternalDirectory.Refresh();
         }

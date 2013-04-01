@@ -1,4 +1,5 @@
-﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Batman.Core.AppHelper), "Start")]
+﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Batman.Core.AppHelper), "PreStart")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Batman.Core.AppHelper), "PostStart")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(Batman.Core.AppHelper), "End")]
 
 namespace Batman.Core
@@ -13,12 +14,20 @@ namespace Batman.Core
 
     #endregion
 
+    /// <summary>
+    /// 
+    /// </summary>
     public static class AppHelper
     {
-        public static void Start()
+        public static void PreStart()
         {
-            BatComputer.Start();
+            BatComputer.PreStart();
             DependencyResolver.SetResolver(new Bootstrapper.DependencyResolver(BatComputer.Bootstrapper));
+        }
+
+        public static void PostStart()
+        {
+            BatComputer.PostStart();
         }
 
         public static void End()

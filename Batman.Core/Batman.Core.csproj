@@ -63,6 +63,9 @@
     <Compile Include="Logging\BaseClasses\LogBase.cs" />
     <Compile Include="Logging\NullLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tasks\Enums\RunTime.cs" />
+    <Compile Include="Tasks\Interfaces\ITask.cs" />
+    <Compile Include="Tasks\TaskManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

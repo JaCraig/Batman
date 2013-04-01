@@ -33,6 +33,7 @@ using Batman.Core.Logging;
 using Batman.Core.FileSystem.Interfaces;
 using System.Reflection;
 using System.IO;
+using System.Text.RegularExpressions;
 #endregion
 
 namespace Batman.Core.FileSystem
@@ -54,12 +55,6 @@ namespace Batman.Core.FileSystem
             foreach (IFileSystem FileSystem in Assemblies.GetObjects<IFileSystem>())
             {
                 FileSystems.Add(FileSystem.Name, FileSystem);
-            }
-            Assemblies = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false);
-            foreach (IFileSystem FileSystem in Assemblies.GetObjects<IFileSystem>())
-            {
-                if (!FileSystems.ContainsKey(FileSystem.Name))
-                    FileSystems.Add(FileSystem.Name, FileSystem);
             }
         }
 
@@ -114,10 +109,19 @@ namespace Batman.Core.FileSystem
         {
             foreach (string Key in FileSystems.Keys)
             {
-                if (Path.StartsWith(FileSystems[Key].RelativeStarter))
+                if (FileSystems[Key].CanHandle(Path))
                     return FileSystems[Key];
             }
             return null;
+        }
+
+        /// <summary>
+        /// Outputs the file system information in string format
+        /// </summary>
+        /// <returns>The list of file systems that are available</returns>
+        public override string ToString()
+        {
+            return FileSystems.Keys.ToString(x => x);
         }
 
         #endregion

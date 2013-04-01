@@ -11,8 +11,9 @@ namespace Batman.Core.Tests
         [Fact]
         public void Start()
         {
-            Assert.DoesNotThrow(() => BatComputer.Start());
+            Assert.DoesNotThrow(() => BatComputer.PreStart());
             Assert.IsType<Batman.Core.Bootstrapper.TinyIoC.Bootstrapper>(BatComputer.Bootstrapper);
+            Assert.DoesNotThrow(() => BatComputer.PostStart());
         }
 
         [Fact]

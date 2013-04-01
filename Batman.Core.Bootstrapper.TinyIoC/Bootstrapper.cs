@@ -41,6 +41,8 @@ namespace Batman.Core.Bootstrapper.TinyIoC
 
         protected override TinyIoCContainer AppContainer { get { return TinyIoCContainer.Current; } }
 
+        public override string Name { get { return "TinyIoC"; } }
+
         public override void Register<T>(Func<T> Function, string Name)
         {
             AppContainer.Register<T>((x, y) => Function(), Name);

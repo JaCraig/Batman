@@ -31,6 +31,9 @@ using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
 using System.IO;
+using Batman.Core.Tasks;
+using Batman.Core.Tasks.Enums;
+using Batman.Core.FileSystem;
 #endregion
 
 namespace Batman.Core
@@ -47,8 +50,6 @@ namespace Batman.Core
         /// </summary>
         public static IBootstrapper Bootstrapper = null;
 
-        public static LogBase Logger = null;
-
         #endregion
 
         #region Functions
@@ -56,13 +57,28 @@ namespace Batman.Core
         /// <summary>
         /// Called at the start of the application
         /// </summary>
-        public static void Start()
+        public static void PreStart()
         {
-            new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false);
+            new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false).ForEach(x => x);
             Bootstrapper = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IBootstrapper>().FirstOrDefault();
+            Bootstrapper.Register<IBootstrapper>(Bootstrapper);
             AppDomain.CurrentDomain.GetAssemblies().GetObjects<IModule>().ForEach(x => x.Load(Bootstrapper));
-            Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
-            Logger.LogMessage("Application starting", MessageType.Info);
+            LogBase Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
+            Logger.LogMessage("Batman starting", MessageType.Info);
+            Logger.LogMessage("Current bootstrapper: {0}", MessageType.Debug, Bootstrapper.Name);
+            Logger.LogMessage("Current file systems detected: {0}", MessageType.Debug, Bootstrapper.Resolve<FileManager>().ToString());
+            Logger.LogMessage("Starting pre start tasks", MessageType.Info);
+            Bootstrapper.Resolve<TaskManager>().Run(RunTime.PreStart);
+        }
+
+        /// <summary>
+        /// Called after the application has been initiated
+        /// </summary>
+        public static void PostStart()
+        {
+            LogBase Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
+            Logger.LogMessage("Starting post start tasks", MessageType.Info);
+            Bootstrapper.Resolve<TaskManager>().Run(RunTime.PostStart);
         }
 
         /// <summary>
@@ -70,14 +86,20 @@ namespace Batman.Core
         /// </summary>
         public static void End()
         {
-            if (Logger != null)
-            {
-                Logger.LogMessage("Application ending", MessageType.Info);
-                Logger.Dispose();
-                Logger = null;
-            }
             if (Bootstrapper != null)
             {
+                LogBase Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
+                if (Logger != null)
+                {
+                    Logger.LogMessage("Application ending", MessageType.Info);
+                    Logger.LogMessage("Starting end tasks", MessageType.Info);
+                }
+                Bootstrapper.Resolve<TaskManager>().Run(RunTime.End);
+                if (Logger != null)
+                {
+                    Logger.Dispose();
+                    Logger = null;
+                }
                 Bootstrapper.Dispose();
                 Bootstrapper = null;
             }

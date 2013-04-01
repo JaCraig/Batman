@@ -55,7 +55,7 @@ namespace Batman.Core.FileSystem.Local
         /// <summary>
         /// Relative starter
         /// </summary>
-        public override string RelativeStarter { get { return "~"; } }
+        protected override string HandleRegexString { get { return @"^~"; } }
 
         /// <summary>
         /// Name of the file system
@@ -73,10 +73,10 @@ namespace Batman.Core.FileSystem.Local
         /// <returns>The absolute path of the path passed in</returns>
         protected override string AbsolutePath(string Path)
         {
-            if (Path.StartsWith(RelativeStarter, StringComparison.OrdinalIgnoreCase))
+            if (Path.StartsWith("~", StringComparison.OrdinalIgnoreCase))
             {
                 if (HttpContext.Current == null)
-                    Path = Path.Replace(RelativeStarter, AppDomain.CurrentDomain.BaseDirectory);
+                    Path = AppDomain.CurrentDomain.BaseDirectory + Path.Right(Path.Length - 1);
                 else
                     Path = HttpContext.Current.Server.MapPath(Path);
             }

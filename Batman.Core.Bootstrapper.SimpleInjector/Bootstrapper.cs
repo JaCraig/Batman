@@ -44,6 +44,8 @@ namespace Batman.Core.Bootstrapper.TinyIoC
 
         protected override SimpleInjector.Container AppContainer { get { return _Container; } }
 
+        public override string Name { get { return "Simple Injector"; } }
+
         public override void Register<T>(Func<T> Function, string Name)
         {
             AppContainer.Register<T>(Function);

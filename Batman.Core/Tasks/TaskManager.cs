@@ -25,55 +25,67 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
+using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
-using Batman.Core.FileSystem.Local.BaseClasses;
+using System.IO;
+using Utilities.DataTypes;
+using Batman.Core.Tasks.Enums;
+using Batman.Core.Tasks.Interfaces;
+using System.Reflection;
 #endregion
 
-namespace Batman.Core.FileSystem.Local
+namespace Batman.Core.Tasks
 {
     /// <summary>
-    /// Absolute local file system
+    /// Task manager
     /// </summary>
-    public class AbsoluteLocalFileSystem : LocalFileSystemBase
+    public class TaskManager
     {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public AbsoluteLocalFileSystem() : base() { }
+        public TaskManager()
+        {
+            Tasks = new ListMapping<RunTime, ITask>();
+            foreach (ITask Task in AppDomain.CurrentDomain.GetAssemblies().GetObjects<ITask>())
+            {
+                Tasks.Add(Task.TimeToRun, Task);
+            }
+        }
 
         #endregion
 
         #region Properties
 
         /// <summary>
-        /// Relative starter
+        /// Tasks to run
         /// </summary>
-        protected override string HandleRegexString { get { return @"^\w:"; } }
-
-        /// <summary>
-        /// Name of the file system
-        /// </summary>
-        public override string Name { get { return "Absolute Local"; } }
+        public ListMapping<RunTime, ITask> Tasks { get; private set; }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Gets the absolute path of the variable passed in
+        /// Runs the tasks associated with the run time specified
         /// </summary>
-        /// <param name="Path">Path to convert to absolute</param>
-        /// <returns>The absolute path of the path passed in</returns>
-        protected override string AbsolutePath(string Path)
+        /// <param name="TimeToRun">Time to run</param>
+        public void Run(RunTime TimeToRun)
         {
-            return Path;
+            if (Tasks.ContainsKey(TimeToRun))
+            {
+                Tasks[TimeToRun].ForEach(x =>
+                {
+                    if (BatComputer.Bootstrapper != null)
+                        BatComputer.Bootstrapper.Resolve<LogBase>(new NullLogger()).LogMessage("Running {0}", MessageType.Info, x.Name);
+                    x.Run();
+                });
+            }
         }
 
         #endregion
