@@ -24,23 +24,31 @@ using System;
 using Batman.Core.Bootstrapper.Interfaces;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Interfaces;
+using Batman.Core.MVC.Assets.Enums;
+using Batman.Core.FileSystem;
 #endregion
 
-namespace Batman.Core.Bootstrapper
+namespace Batman.Core.MVC.Assets
 {
     /// <summary>
-    /// Dependency resolver base class
+    /// Asset manager class
     /// </summary>
-    public class DependencyResolver : IDependencyResolver
+    public class AssetManager
     {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public DependencyResolver(IBootstrapper Container)
+        public AssetManager()
         {
-            this.Container = Container;
+            Filters = new List<IFilter>();
+            Minifiers = new List<IMinifier>();
+            Orderers = new List<IOrderer>();
+            Transformers = new List<ITransformer>();
+            Translators = new List<ITranslator>();
+            Validators = new List<IValidator>();
         }
 
         #endregion
@@ -48,32 +56,47 @@ namespace Batman.Core.Bootstrapper
         #region Properties
 
         /// <summary>
-        /// The IoC container
+        /// Filters
         /// </summary>
-        protected IBootstrapper Container { get; private set; }
+        protected IList<IFilter> Filters { get; private set; }
+
+        /// <summary>
+        /// Minifiers
+        /// </summary>
+        protected IList<IMinifier> Minifiers { get; private set; }
+
+        /// <summary>
+        /// Orderers
+        /// </summary>
+        protected IList<IOrderer> Orderers { get; private set; }
+
+        /// <summary>
+        /// Transformers
+        /// </summary>
+        protected IList<ITransformer> Transformers { get; private set; }
+
+        /// <summary>
+        /// Translators
+        /// </summary>
+        protected IList<ITranslator> Translators { get; private set; }
+
+        /// <summary>
+        /// Validators
+        /// </summary>
+        protected IList<IValidator> Validators { get; private set; }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Gets the service based on the type specified
+        /// Determines the asset type
         /// </summary>
-        /// <param name="serviceType">Service type</param>
-        /// <returns>The object associated with the type</returns>
-        public object GetService(Type serviceType)
+        /// <param name="Path">Path to the asset</param>
+        /// <returns>The asset type</returns>
+        public AssetType DetermineType(string Path)
         {
-            return Container.Resolve(serviceType, "", null);
-        }
-
-        /// <summary>
-        /// Gets the services based on the type specified
-        /// </summary>
-        /// <param name="serviceType">Service type</param>
-        /// <returns>The objects associated with the type</returns>
-        public IEnumerable<object> GetServices(Type serviceType)
-        {
-            return Container.ResolveAll(serviceType);
+            return AssetType.Unknown;
         }
 
         #endregion

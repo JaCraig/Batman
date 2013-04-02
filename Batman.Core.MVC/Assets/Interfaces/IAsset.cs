@@ -20,22 +20,57 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Enums;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Interfaces
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Asset interface
     /// </summary>
-    public class ManagersModule : IModule
+    public interface IAsset
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-        }
+        #region Properties
+
+        /// <summary>
+        /// The path to the asset
+        /// </summary>
+        string Path { get; set; }
+
+        /// <summary>
+        /// URL to the asset
+        /// </summary>
+        string URL { get; set; }
+
+        /// <summary>
+        /// Asset type
+        /// </summary>
+        AssetType Type { get; set; }
+
+        /// <summary>
+        /// Is the asset minified
+        /// </summary>
+        bool Minified { get; set; }
+
+        /// <summary>
+        /// Last date/time the asset was modified
+        /// </summary>
+        DateTime LastModified { get; set; }
+
+        /// <summary>
+        /// Content of the asset
+        /// </summary>
+        string Content { get; set; }
+
+        /// <summary>
+        /// Included assets
+        /// </summary>
+        IList<IAsset> Included { get; set; }
+
+        #endregion
     }
 }

@@ -20,22 +20,20 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Enums;
+using System.Web.Optimization;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Interfaces
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Transformer interface
     /// </summary>
-    public class ManagersModule : IModule
+    public interface ITransformer : IBundleTransform
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-        }
     }
 }

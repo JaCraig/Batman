@@ -20,22 +20,41 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Interfaces;
+using Batman.Core.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using Utilities.DataTypes.ExtensionMethods;
+using System.Linq;
+using System.Text.RegularExpressions;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Filters
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Filters a list of assets and sets whether the assets are already minified or not
     /// </summary>
-    public class ManagersModule : IModule
+    public class Minified : IFilter
     {
-        public void Load(IBootstrapper Bootstrapper)
+        /// <summary>
+        /// Used to determine if this is a minified file or not
+        /// </summary>
+        private Regex MinifiedRegex = new Regex(@"\.min\.", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+        /// <summary>
+        /// Filters the assets
+        /// </summary>
+        /// <param name="Assets">Assets to filter</param>
+        /// <returns>The filtered assets</returns>
+        public IList<IAsset> Filter(IList<IAsset> Assets)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
+            if (Assets == null || Assets.Count == 0)
+                return new List<IAsset>();
+            Assets.ForEach(x => x.Minified = MinifiedRegex.IsMatch(x.Path));
+            return Assets;
         }
     }
 }

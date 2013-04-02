@@ -20,22 +20,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Enums;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Interfaces
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Translator interface
     /// </summary>
-    public class ManagersModule : IModule
+    public interface ITranslator
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-        }
+        /// <summary>
+        /// Processes a list of assets
+        /// </summary>
+        /// <param name="Assets">Assets to process</param>
+        /// <returns>The processed assets</returns>
+        IList<IAsset> Translate(IList<IAsset> Assets);
+
+        /// <summary>
+        /// Processes an individual asset
+        /// </summary>
+        /// <param name="Asset">Asset to process</param>
+        /// <returns>The processed asset</returns>
+        IAsset Translate(IAsset Asset);
+
+        /// <summary>
+        /// The asset type that this translates to
+        /// </summary>
+        AssetType TranslatesTo { get; }
+
+        /// <summary>
+        /// Determines if it can translate the individual asset
+        /// </summary>
+        /// <param name="Asset">Asset</param>
+        /// <returns>True if it can translate the asset, false otherwise</returns>
+        bool CanTranslate(IAsset Asset);
     }
 }

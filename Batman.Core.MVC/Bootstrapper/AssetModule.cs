@@ -23,19 +23,19 @@ THE SOFTWARE.*/
 using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
 using Batman.Core.Tasks;
+using Batman.Core.MVC.Assets;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Bootstrapper
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Module for registering the asset module
     /// </summary>
-    public class ManagersModule : IModule
+    public class AssetModule : IModule
     {
         public void Load(IBootstrapper Bootstrapper)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
+            Bootstrapper.Register<AssetManager>(new AssetManager());
         }
     }
 }

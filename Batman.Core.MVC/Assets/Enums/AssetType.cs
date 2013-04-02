@@ -20,22 +20,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System.Web.Mvc;
+using System.Collections.Generic;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Enums
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Type that the asset should compile down to
     /// </summary>
-    public class ManagersModule : IModule
+    public enum AssetType
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-        }
+        /// <summary>
+        /// Unknown type
+        /// </summary>
+        Unknown,
+        /// <summary>
+        /// CSS
+        /// </summary>
+        CSS,
+        /// <summary>
+        /// Javascript
+        /// </summary>
+        Javascript,
+        /// <summary>
+        /// HTML
+        /// </summary>
+        HTML
     }
 }

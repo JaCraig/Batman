@@ -20,22 +20,34 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Interfaces;
+using Batman.Core.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using Utilities.DataTypes.ExtensionMethods;
+using System.Linq;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Filters
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Filters a list of assets and returns only a unique set of assets
     /// </summary>
-    public class ManagersModule : IModule
+    public class CleanIncludes : IFilter
     {
-        public void Load(IBootstrapper Bootstrapper)
+        /// <summary>
+        /// Filters the assets
+        /// </summary>
+        /// <param name="Assets">Assets to filter</param>
+        /// <returns>The filtered assets</returns>
+        public IList<IAsset> Filter(IList<IAsset> Assets)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
+            if (Assets == null || Assets.Count == 0)
+                return new List<IAsset>();
+            return Assets.Distinct().ToList();
         }
     }
 }

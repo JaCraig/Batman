@@ -20,22 +20,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
 using Batman.Core.Bootstrapper.Interfaces;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Interfaces;
+using Batman.Core.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.MVC.Assets.Minifiers
 {
-    /// <summary>
-    /// Module for registering various object/class managers
-    /// </summary>
-    public class ManagersModule : IModule
+    public class NullMinifier:IMinifier
     {
-        public void Load(IBootstrapper Bootstrapper)
+        public IList<IAsset> Minify(IList<IAsset> Assets)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
+            throw new NotImplementedException();
         }
     }
 }
