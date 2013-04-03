@@ -24,20 +24,23 @@ using System;
 using Batman.Core.Bootstrapper.Interfaces;
 using System.Web.Mvc;
 using System.Collections.Generic;
+using Batman.Core.MVC.Assets.Interfaces;
 using Batman.Core.MVC.Assets.Enums;
+using Batman.Core.FileSystem;
+using System.IO;
+using System.Web.Optimization;
 #endregion
 
-namespace Batman.Core.MVC.Assets.Interfaces
+namespace Batman.Core.MVC.Assets.Orderers
 {
     /// <summary>
-    /// Validator interface
+    /// Default orderer (does nothing)
     /// </summary>
-    public interface IValidator
+    public class NullOrderer:IOrderer
     {
-        /// <summary>
-        /// Validates a list of assets
-        /// </summary>
-        /// <param name="Assets">Assets to validate</param>
-        void Validate(IList<IAsset> Assets);
+        public IEnumerable<FileInfo> OrderFiles(BundleContext context, IEnumerable<FileInfo> files)
+        {
+            return files;
+        }
     }
 }

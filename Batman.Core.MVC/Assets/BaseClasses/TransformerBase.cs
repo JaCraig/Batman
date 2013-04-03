@@ -27,27 +27,26 @@ using System.Collections.Generic;
 using Batman.Core.MVC.Assets.Interfaces;
 using Batman.Core.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
+using System.Web.Optimization;
+using Utilities.DataTypes.ExtensionMethods;
+using System.Linq;
 #endregion
 
-namespace Batman.Core.MVC.Assets
+namespace Batman.Core.MVC.Assets.BaseClasses
 {
     /// <summary>
-    /// Asset manager class
+    /// Transformer base class
     /// </summary>
-    public class AssetManager
+    public abstract class TransformerBase : ITransformer
     {
         #region Constructor
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public AssetManager()
+        protected TransformerBase()
         {
-            Filters = new List<IFilter>();
-            Minifiers = new List<IMinifier>();
-            Orderers = new List<IOrderer>();
-            Transformers = new List<ITransformer>();
-            Translators = new List<ITranslator>();
+            Manager = BatComputer.Bootstrapper.Resolve<AssetManager>();
         }
 
         #endregion
@@ -55,43 +54,29 @@ namespace Batman.Core.MVC.Assets
         #region Properties
 
         /// <summary>
-        /// Filters
+        /// Manager that loads basic asset stuff
         /// </summary>
-        public IList<IFilter> Filters { get; private set; }
-
-        /// <summary>
-        /// Minifiers
-        /// </summary>
-        public IList<IMinifier> Minifiers { get; private set; }
-
-        /// <summary>
-        /// Orderers
-        /// </summary>
-        public IList<IOrderer> Orderers { get; private set; }
-
-        /// <summary>
-        /// Transformers
-        /// </summary>
-        public IList<ITransformer> Transformers { get; private set; }
-
-        /// <summary>
-        /// Translators
-        /// </summary>
-        public IList<ITranslator> Translators { get; private set; }
+        protected AssetManager Manager { get; private set; }
 
         #endregion
 
         #region Functions
 
-        /// <summary>
-        /// Determines the asset type
-        /// </summary>
-        /// <param name="Path">Path to the asset</param>
-        /// <returns>The asset type</returns>
-        public AssetType DetermineType(string Path)
+        public void Process(BundleContext context, BundleResponse response)
         {
-            return AssetType.Unknown;
+            if (!context.EnableInstrumentation)
+            {
+                Process(response.Files.Select(x => new Asset(x.FullName)), context, response);
+            }
         }
+
+        /// <summary>
+        /// Called to process the assets
+        /// </summary>
+        /// <param name="Assets">Assets to process</param>
+        /// <param name="Context">Bundle context</param>
+        /// <param name="Response">Bundle response</param>
+        protected abstract void Process(IEnumerable<Asset> Assets, BundleContext Context, BundleResponse Response);
 
         #endregion
     }

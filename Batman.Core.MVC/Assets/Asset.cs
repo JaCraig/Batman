@@ -43,18 +43,24 @@ namespace Batman.Core.MVC.Assets
         /// </summary>
         /// <param name="Path">Path to the asset</param>
         /// <param name="Type">Asset type</param>
-        public Asset(string Path, AssetType Type)
+        public Asset(string Path)
         {
             this.Path = Path;
             this.Included = new List<IAsset>();
             this.FileSystem = BatComputer.Bootstrapper.Resolve<FileManager>();
             this.Minified = false;
-            this.Type = Type;
+            this.Manager = BatComputer.Bootstrapper.Resolve<AssetManager>();
+            this.Type = Manager.DetermineType(Path);
         }
 
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Asset manager
+        /// </summary>
+        protected AssetManager Manager { get; private set; }
 
         /// <summary>
         /// File system wrapper
