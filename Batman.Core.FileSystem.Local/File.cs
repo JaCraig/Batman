@@ -162,6 +162,11 @@ namespace Batman.Core.FileSystem.Local
             InternalFile.Refresh();
         }
 
+        public override string ToString()
+        {
+            return FullName;
+        }
+
         #endregion
     }
 }

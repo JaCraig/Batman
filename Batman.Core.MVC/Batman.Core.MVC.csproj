@@ -33,8 +33,8 @@
     <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Antlr3.Runtime">
-      <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="Antlr3.Runtime, Version=3.3.1.7705, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -42,9 +42,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="System.Web.Optimization">
+    <Reference Include="System.Web.Optimization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -53,39 +54,51 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Math">
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Media">
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Random">
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Random.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.Reflection.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
-    <Reference Include="WebGrease">
-      <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
+    <Reference Include="WebGrease, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\AssetManager.cs" />
-    <Compile Include="Assets\BaseClasses\TransformerBase.cs" />
+    <Compile Include="Assets\Filters\CSSFixImagesAndFonts.cs" />
+    <Compile Include="Assets\Filters\CSSSetupImports.cs" />
+    <Compile Include="Assets\Filters\RemoveUselessFiles.cs" />
+    <Compile Include="Assets\Interfaces\IContentFilter.cs" />
+    <Compile Include="Assets\Transformers\Transformer.cs" />
     <Compile Include="Assets\Enums\AssetType.cs" />
-    <Compile Include="Assets\Filters\CleanIncludes.cs" />
-    <Compile Include="Assets\Filters\Minified.cs" />
+    <Compile Include="Assets\Enums\RunTime.cs" />
+    <Compile Include="Assets\Filters\RemoveDuplicates.cs" />
     <Compile Include="Assets\Interfaces\IAsset.cs" />
     <Compile Include="Assets\Interfaces\IFilter.cs" />
-    <Compile Include="Assets\Interfaces\IMinifer.cs" />
-    <Compile Include="Assets\Interfaces\IOrderer.cs" />
-    <Compile Include="Assets\Interfaces\ITransformer.cs" />
     <Compile Include="Assets\Interfaces\ITranslator.cs" />
-    <Compile Include="Assets\Orderers\NullOrderer.cs" />
+    <Compile Include="Assets\Utils\FileInfoComparer.cs" />
     <Compile Include="Bootstrapper\AssetModule.cs" />
     <Compile Include="Bootstrapper\DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Tasks\AssetBundlerTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Batman.Core\Batman.Core.csproj">
@@ -96,9 +109,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Transformers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

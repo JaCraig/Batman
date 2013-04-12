@@ -162,6 +162,11 @@ namespace Batman.Core.FileSystem.Local
             InternalDirectory = new DirectoryInfo(Parent.FullName + "\\" + Name);
         }
 
+        public override string ToString()
+        {
+            return FullName;
+        }
+
         #endregion
     }
 }

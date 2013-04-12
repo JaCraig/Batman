@@ -35,6 +35,11 @@ namespace Batman.Core.MVC.Assets.Interfaces
     public interface IFilter
     {
         /// <summary>
+        /// When this filter should be run
+        /// </summary>
+        RunTime TimeToRun { get; }
+
+        /// <summary>
         /// Processes a list of assets
         /// </summary>
         /// <param name="Assets">Assets to process</param>

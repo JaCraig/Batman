@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Encryption</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Encryption.RSAEncryption">
+            <summary>
+            Utility class for doing RSA Encryption
+            </summary>
+        </member>
+        <member name="M:Utilities.Encryption.RSAEncryption.Encrypt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Encrypts a string using RSA
+            </summary>
+            <param name="Input">Input string (should be small as anything over 128 bytes can not be decrypted)</param>
+            <param name="Key">Key to use for encryption</param>
+            <param name="EncodingUsing">Encoding that the input string uses (defaults to UTF8)</param>
+            <returns>An encrypted string (64bit string)</returns>
+        </member>
+        <member name="M:Utilities.Encryption.RSAEncryption.Decrypt(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Decrypts a string using RSA
+            </summary>
+            <param name="Input">Input string (should be small as anything over 128 bytes can not be decrypted)</param>
+            <param name="Key">Key to use for decryption</param>
+            <param name="EncodingUsing">Encoding that the result should use (defaults to UTF8)</param>
+            <returns>A decrypted string</returns>
+        </member>
+        <member name="M:Utilities.Encryption.RSAEncryption.CreateKey(System.Boolean)">
+            <summary>
+            Creates a new set of keys
+            </summary>
+            <param name="PrivatePublic">True if private key should be included, false otherwise</param>
+            <returns>XML representation of the key information</returns>
+        </member>
+        <member name="M:Utilities.Encryption.RSAEncryption.SignHash(System.String,System.String,System.String@,System.Text.Encoding)">
+            <summary>
+            Takes a string and creates a signed hash of it
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Key">Key to encrypt/sign with</param>
+            <param name="Hash">This will be filled with the unsigned hash</param>
+            <param name="EncodingUsing">Encoding that the input is using (defaults to UTF8)</param>
+            <returns>A signed hash of the input (64bit string)</returns>
+        </member>
+        <member name="M:Utilities.Encryption.RSAEncryption.VerifyHash(System.String,System.String,System.String)">
+            <summary>
+            Verifies a signed hash against the unsigned version
+            </summary>
+            <param name="Hash">The unsigned hash (should be 64bit string)</param>
+            <param name="SignedHash">The signed hash (should be 64bit string)</param>
+            <param name="Key">The key to use in decryption</param>
+            <returns>True if it is verified, false otherwise</returns>
+        </member>
+        <member name="T:Utilities.Encryption.ExtensionMethods.SymmetricExtensions">
+            <summary>
+            Symmetric key extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Encrypt(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Encrypts a string
+            </summary>
+            <param name="Data">Text to be encrypted</param>
+            <param name="Key">Password to encrypt with</param>
+            <param name="AlgorithmUsing">Algorithm to use for encryption (defaults to AES)</param>
+            <param name="Salt">Salt to encrypt with</param>
+            <param name="HashAlgorithm">Can be either SHA1 or MD5</param>
+            <param name="PasswordIterations">Number of iterations to do</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <param name="EncodingUsing">Encoding that the original string is using (defaults to UTF8)</param>
+            <returns>An encrypted string (Base 64 string)</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Encrypt(System.String,System.Security.Cryptography.DeriveBytes,System.Text.Encoding,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.Int32)">
+            <summary>
+            Encrypts a byte array
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use to encrypt the data (can use PasswordDeriveBytes, Rfc2898DeriveBytes, etc. Really anything that implements DeriveBytes)</param>
+            <param name="AlgorithmUsing">Algorithm to use for encryption (defaults to AES)</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <param name="EncodingUsing">Encoding that the original string is using (defaults to UTF8)</param>
+            <returns>An encrypted byte array</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Encrypt(System.Byte[],System.String,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Encrypts a byte array
+            </summary>
+            <param name="Data">Data to be encrypted</param>
+            <param name="Key">Password to encrypt with</param>
+            <param name="AlgorithmUsing">Algorithm to use for encryption (defaults to AES)</param>
+            <param name="Salt">Salt to encrypt with</param>
+            <param name="HashAlgorithm">Can be either SHA1 or MD5</param>
+            <param name="PasswordIterations">Number of iterations to do</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>An encrypted byte array</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Encrypt(System.Byte[],System.Security.Cryptography.DeriveBytes,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.Int32)">
+            <summary>
+            Encrypts a byte array
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use to encrypt the data (can use PasswordDeriveBytes, Rfc2898DeriveBytes, etc. Really anything that implements DeriveBytes)</param>
+            <param name="AlgorithmUsing">Algorithm to use for encryption (defaults to AES)</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>An encrypted byte array</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Decrypt(System.String,System.Security.Cryptography.DeriveBytes,System.Text.Encoding,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.Int32)">
+            <summary>
+            Decrypts a string
+            </summary>
+            <param name="Data">Text to be decrypted (Base 64 string)</param>
+            <param name="Key">Key to use to encrypt the data (can use PasswordDeriveBytes, Rfc2898DeriveBytes, etc. Really anything that implements DeriveBytes)</param>
+            <param name="EncodingUsing">Encoding that the output string should use (defaults to UTF8)</param>
+            <param name="AlgorithmUsing">Algorithm to use for decryption (defaults to AES)</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>A decrypted string</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Decrypt(System.String,System.String,System.Text.Encoding,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Decrypts a string
+            </summary>
+            <param name="Data">Text to be decrypted (Base 64 string)</param>
+            <param name="Key">Password to decrypt with</param>
+            <param name="EncodingUsing">Encoding that the output string should use (defaults to UTF8)</param>
+            <param name="AlgorithmUsing">Algorithm to use for decryption (defaults to AES)</param>
+            <param name="Salt">Salt to decrypt with</param>
+            <param name="HashAlgorithm">Can be either SHA1 or MD5</param>
+            <param name="PasswordIterations">Number of iterations to do</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>A decrypted string</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Decrypt(System.Byte[],System.Security.Cryptography.DeriveBytes,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.Int32)">
+            <summary>
+            Decrypts a byte array
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use to encrypt the data (can use PasswordDeriveBytes, Rfc2898DeriveBytes, etc. Really anything that implements DeriveBytes)</param>
+            <param name="AlgorithmUsing">Algorithm to use for encryption (defaults to AES)</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>An encrypted byte array</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.SymmetricExtensions.Decrypt(System.Byte[],System.String,System.Security.Cryptography.SymmetricAlgorithm,System.String,System.String,System.Int32,System.String,System.Int32)">
+            <summary>
+            Decrypts a byte array
+            </summary>
+            <param name="Data">Data to be decrypted</param>
+            <param name="Key">Password to decrypt with</param>
+            <param name="AlgorithmUsing">Algorithm to use for decryption</param>
+            <param name="Salt">Salt to decrypt with</param>
+            <param name="HashAlgorithm">Can be either SHA1 or MD5</param>
+            <param name="PasswordIterations">Number of iterations to do</param>
+            <param name="InitialVector">Needs to be 16 ASCII characters long</param>
+            <param name="KeySize">Can be 64 (DES only), 128 (AES), 192 (AES and Triple DES), or 256 (AES)</param>
+            <returns>A decrypted byte array</returns>
+        </member>
+        <member name="T:Utilities.Encryption.ExtensionMethods.HashExtensions">
+            <summary>
+            Hash based extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.HashExtensions.GenerateSalt(System.Random,System.Int32)">
+            <summary>
+            Generates salt
+            </summary>
+            <param name="Random">Randomization object</param>
+            <param name="Size">Size of the salt byte array</param>
+            <returns>A byte array as salt</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.HashExtensions.Hash(System.Byte[],System.Security.Cryptography.HashAlgorithm)">
+            <summary>
+            Computes the hash of a byte array
+            </summary>
+            <param name="Data">Byte array to hash</param>
+            <param name="Algorithm">Hash algorithm to use (defaults to SHA1)</param>
+            <returns>The hash of the byte array</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.HashExtensions.Hash(System.String,System.Security.Cryptography.HashAlgorithm,System.Text.Encoding)">
+            <summary>
+            Computes the hash of a string
+            </summary>
+            <param name="Data">string to hash</param>
+            <param name="Algorithm">Algorithm to use (defaults to SHA1)</param>
+            <param name="EncodingUsing">Encoding used by the string (defaults to UTF8)</param>
+            <returns>The hash of the string</returns>
+        </member>
+        <member name="T:Utilities.Encryption.ExtensionMethods.ShiftExtensions">
+            <summary>
+            Extensions that deal with bit xoring
+            </summary>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.Encrypt(System.Byte[],System.Byte[],System.Boolean)">
+            <summary>
+            Encrypts the data using a basic xor of the key (not very secure unless doing a one time pad)
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use</param>
+            <param name="OneTimePad">Is this a one time pad?</param>
+            <returns>The encrypted data</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.Encrypt(System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            Encrypts the data using a basic xor of the key (not very secure unless doing a one time pad)
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use</param>
+            <param name="OneTimePad">Is this a one time pad?</param>
+            <param name="EncodingUsing">Encoding that the Data uses (defaults to UTF8)</param>
+            <returns>The encrypted data</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.Decrypt(System.Byte[],System.Byte[],System.Boolean)">
+            <summary>
+            Decrypts the data using a basic xor of the key (not very secure unless doing a one time pad)
+            </summary>
+            <param name="Data">Data to encrypt</param>
+            <param name="Key">Key to use</param>
+            <param name="OneTimePad">Is this a one time pad?</param>
+            <returns>The decrypted data</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.Decrypt(System.String,System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            Decrypts the data using a basic xor of the key (not very secure unless doing a one time pad)
+            </summary>
+            <param name="Data">Data to decrypt</param>
+            <param name="Key">Key to use</param>
+            <param name="OneTimePad">Is this a one time pad?</param>
+            <param name="EncodingUsing">Encoding that the Data uses (defaults to UTF8)</param>
+            <returns>The encrypted data</returns>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.Process(System.Byte[],System.Byte[])">
+            <summary>
+            Actually does the encryption/decryption
+            </summary>
+        </member>
+        <member name="M:Utilities.Encryption.ExtensionMethods.ShiftExtensions.XOr(System.String,System.String,System.Text.Encoding)">
+            <summary>
+            XOrs two strings together, returning the result
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Key">Key to use</param>
+            <param name="EncodingUsing">Encoding that the data uses (defaults to UTF8)</param>
+            <returns>The XOred string</returns>
+        </member>
+    </members>
+</doc>

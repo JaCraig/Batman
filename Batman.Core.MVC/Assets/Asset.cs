@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using Batman.Core.MVC.Assets.Interfaces;
 using Batman.Core.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
+using Batman.Core.FileSystem.Interfaces;
 #endregion
 
 namespace Batman.Core.MVC.Assets
@@ -42,15 +43,16 @@ namespace Batman.Core.MVC.Assets
         /// Constructor
         /// </summary>
         /// <param name="Path">Path to the asset</param>
-        /// <param name="Type">Asset type</param>
         public Asset(string Path)
         {
             this.Path = Path;
             this.Included = new List<IAsset>();
-            this.FileSystem = BatComputer.Bootstrapper.Resolve<FileManager>();
-            this.Minified = false;
             this.Manager = BatComputer.Bootstrapper.Resolve<AssetManager>();
             this.Type = Manager.DetermineType(Path);
+            IFile File = BatComputer.Bootstrapper.Resolve<FileManager>().File(Path);
+            this.LastModified = File.Modified;
+            this.Content = File.Read();
+            this.Minified = File.FullName.ToUpperInvariant().Contains(".MIN.");
         }
 
         #endregion
@@ -61,11 +63,6 @@ namespace Batman.Core.MVC.Assets
         /// Asset manager
         /// </summary>
         protected AssetManager Manager { get; private set; }
-
-        /// <summary>
-        /// File system wrapper
-        /// </summary>
-        protected FileManager FileSystem { get; private set; }
 
         /// <summary>
         /// The path to the asset

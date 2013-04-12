@@ -32,6 +32,7 @@ using Batman.Core.Logging;
 using Batman.Core.FileSystem.Interfaces;
 using System.Web;
 using Batman.Core.FileSystem.Local.BaseClasses;
+using System.IO;
 #endregion
 
 namespace Batman.Core.FileSystem.Local
@@ -55,7 +56,7 @@ namespace Batman.Core.FileSystem.Local
         /// <summary>
         /// Relative starter
         /// </summary>
-        protected override string HandleRegexString { get { return @"^~"; } }
+        protected override string HandleRegexString { get { return @"^[~|\.]"; } }
 
         /// <summary>
         /// Name of the file system
@@ -73,12 +74,30 @@ namespace Batman.Core.FileSystem.Local
         /// <returns>The absolute path of the path passed in</returns>
         protected override string AbsolutePath(string Path)
         {
-            if (Path.StartsWith("~", StringComparison.OrdinalIgnoreCase))
+            Path = Path.Replace("/", "\\");
+            string BaseDirectory = "";
+            string ParentDirectory = "";
+            if (HttpContext.Current == null)
             {
-                if (HttpContext.Current == null)
-                    Path = AppDomain.CurrentDomain.BaseDirectory + Path.Right(Path.Length - 1);
-                else
-                    Path = HttpContext.Current.Server.MapPath(Path);
+                BaseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                ParentDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).Parent.FullName;
+            }
+            else
+            {
+                BaseDirectory = HttpContext.Current.Server.MapPath("~/");
+                ParentDirectory = new DirectoryInfo(HttpContext.Current.Server.MapPath("~/")).Parent.FullName;
+            }
+            if (Path.StartsWith("..\\"))
+            {
+                Path = ParentDirectory + Path.Right(Path.Length - 2);
+            }
+            else if (Path.StartsWith(".\\"))
+            {
+                Path = BaseDirectory + Path.Right(Path.Length - 1);
+            }
+            else if (Path.StartsWith("~\\"))
+            {
+                Path = BaseDirectory + Path.Right(Path.Length - 1);
             }
             return Path;
         }

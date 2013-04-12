@@ -54,10 +54,8 @@ namespace Batman.Core.MVC.Assets.Interfaces
         AssetType TranslatesTo { get; }
 
         /// <summary>
-        /// Determines if it can translate the individual asset
+        /// File type that the translator accepts
         /// </summary>
-        /// <param name="Asset">Asset</param>
-        /// <returns>True if it can translate the asset, false otherwise</returns>
-        bool CanTranslate(IAsset Asset);
+        string FileTypeAccepts { get; }
     }
 }

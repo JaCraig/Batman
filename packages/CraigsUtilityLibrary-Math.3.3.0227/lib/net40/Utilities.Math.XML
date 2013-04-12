@@ -1,0 +1,1144 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Math</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Math.Matrix">
+            <summary>
+            Matrix used in linear algebra
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Matrix.#ctor(System.Int32,System.Int32,System.Double[0:,0:])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Width">Width of the matrix</param>
+            <param name="Height">Height of the matrix</param>
+            <param name="Values">Values to use in the matrix</param>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Equality(Utilities.Math.Matrix,Utilities.Math.Matrix)">
+            <summary>
+            Determines if two matrices are equal
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="M2">Matrix 2</param>
+            <returns>True if they are equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Inequality(Utilities.Math.Matrix,Utilities.Math.Matrix)">
+            <summary>
+            Determines if two matrices are unequal
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="M2">Matrix 2</param>
+            <returns>True if they are not equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Addition(Utilities.Math.Matrix,Utilities.Math.Matrix)">
+            <summary>
+            Adds two matrices
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="M2">Matrix 2</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Subtraction(Utilities.Math.Matrix,Utilities.Math.Matrix)">
+            <summary>
+            Subtracts two matrices
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="M2">Matrix 2</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_UnaryNegation(Utilities.Math.Matrix)">
+            <summary>
+            Negates a matrix
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Multiply(Utilities.Math.Matrix,Utilities.Math.Matrix)">
+            <summary>
+            Multiplies two matrices
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="M2">Matrix 2</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Multiply(Utilities.Math.Matrix,System.Double)">
+            <summary>
+            Multiplies a matrix by a value
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="D">Value to multiply by</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Multiply(System.Double,Utilities.Math.Matrix)">
+            <summary>
+            Multiplies a matrix by a value
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="D">Value to multiply by</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Division(Utilities.Math.Matrix,System.Double)">
+            <summary>
+            Divides a matrix by a value
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="D">Value to divide by</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.op_Division(System.Double,Utilities.Math.Matrix)">
+            <summary>
+            Divides a matrix by a value
+            </summary>
+            <param name="M1">Matrix 1</param>
+            <param name="D">Value to divide by</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.Equals(System.Object)">
+            <summary>
+            Determines if the objects are equal
+            </summary>
+            <param name="obj">Object to check</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.GetHashCode">
+            <summary>
+            Gets the hash code for the object
+            </summary>
+            <returns>The hash code for the object</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.ToString">
+            <summary>
+            Gets the string representation of the matrix
+            </summary>
+            <returns>The matrix as a string</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.Transpose">
+            <summary>
+            Transposes the matrix
+            </summary>
+            <returns>Returns a new transposed matrix</returns>
+        </member>
+        <member name="M:Utilities.Math.Matrix.Determinant">
+            <summary>
+            Gets the determinant of a square matrix
+            </summary>
+            <returns>The determinant of a square matrix</returns>
+        </member>
+        <member name="P:Utilities.Math.Matrix.Width">
+            <summary>
+            Width of the matrix
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Matrix.Height">
+            <summary>
+            Height of the matrix
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Matrix.Item(System.Int32,System.Int32)">
+            <summary>
+            Sets the values of the matrix
+            </summary>
+            <param name="X">X position</param>
+            <param name="Y">Y position</param>
+            <returns>the value at a point in the matrix</returns>
+        </member>
+        <member name="P:Utilities.Math.Matrix.Values">
+            <summary>
+            Values for the matrix
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.Set`1">
+            <summary>
+            Class to be used for sets of data
+            </summary>
+            <typeparam name="T">Type that the set holds</typeparam>
+        </member>
+        <member name="M:Utilities.Math.Set`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Set`1.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="InitialSize">Initial size</param>
+        </member>
+        <member name="M:Utilities.Math.Set`1.Contains(Utilities.Math.Set{`0})">
+            <summary>
+            Used to tell if this set contains the other
+            </summary>
+            <param name="Set">Set to check against</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.IsSubset(Utilities.Math.Set{`0})">
+            <summary>
+            Used to tell if this is a subset of the other
+            </summary>
+            <param name="Set">Set to check against</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.Intersect(Utilities.Math.Set{`0})">
+            <summary>
+            Determines if the sets intersect
+            </summary>
+            <param name="Set">Set to check against</param>
+            <returns>True if they do, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.GetIntersection(Utilities.Math.Set{`0},Utilities.Math.Set{`0})">
+            <summary>
+            Gets the intersection of set 1 and set 2
+            </summary>
+            <param name="Set1">Set 1</param>
+            <param name="Set2">Set 2</param>
+            <returns>The intersection of the two sets</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.op_Addition(Utilities.Math.Set{`0},Utilities.Math.Set{`0})">
+            <summary>
+            Adds two sets together
+            </summary>
+            <param name="Set1">Set 1</param>
+            <param name="Set2">Set 2</param>
+            <returns>The joined sets</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.op_Subtraction(Utilities.Math.Set{`0},Utilities.Math.Set{`0})">
+            <summary>
+            Removes items from set 2 from set 1
+            </summary>
+            <param name="Set1">Set 1</param>
+            <param name="Set2">Set 2</param>
+            <returns>The resulting set</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.op_Equality(Utilities.Math.Set{`0},Utilities.Math.Set{`0})">
+            <summary>
+            Determines if the two sets are equivalent
+            </summary>
+            <param name="Set1">Set 1</param>
+            <param name="Set2">Set 2</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.op_Inequality(Utilities.Math.Set{`0},Utilities.Math.Set{`0})">
+            <summary>
+            Determines if the two sets are not equivalent
+            </summary>
+            <param name="Set1">Set 1</param>
+            <param name="Set2">Set 2</param>
+            <returns>False if they are, true otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.GetHashCode">
+            <summary>
+            Returns the hash code for the object
+            </summary>
+            <returns>The hash code for the object</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.Equals(System.Object)">
+            <summary>
+            Determines if the two sets are equivalent
+            </summary>
+            <param name="obj">The object to compare to</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Set`1.ToString">
+            <summary>
+            Returns the set as a string
+            </summary>
+            <returns>The set as a string</returns>
+        </member>
+        <member name="T:Utilities.Math.Vector3">
+            <summary>
+            Vector class (holds three items)
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Vector3.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="X">X direction</param>
+            <param name="Y">Y direction</param>
+            <param name="Z">Z direction</param>
+        </member>
+        <member name="M:Utilities.Math.Vector3.Normalize">
+            <summary>
+            Normalizes the vector
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Vector3.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>String representation of the vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.GetHashCode">
+            <summary>
+            Gets the hash code
+            </summary>
+            <returns>The hash code</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.Equals(System.Object)">
+            <summary>
+            Determines if the items are equal
+            </summary>
+            <param name="obj">Object to compare</param>
+            <returns>true if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Addition(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Addition
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Subtraction(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Subtraction
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_UnaryNegation(Utilities.Math.Vector3)">
+            <summary>
+            Negation
+            </summary>
+            <param name="V1">Item 1</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_LessThan(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Less than
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_LessThanOrEqual(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Less than or equal
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_GreaterThan(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Greater than
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_GreaterThanOrEqual(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Greater than or equal
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Equality(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Equals
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Inequality(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Not equals
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Division(Utilities.Math.Vector3,System.Double)">
+            <summary>
+            Division
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="D">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Multiply(Utilities.Math.Vector3,System.Double)">
+            <summary>
+            Multiplication
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="D">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Multiply(System.Double,Utilities.Math.Vector3)">
+            <summary>
+            Multiplication
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="D">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.op_Multiply(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Does a cross product
+            </summary>
+            <param name="V1">Item 1</param>
+            <param name="V2">Item 2</param>
+            <returns>The resulting vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.DotProduct(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Does a dot product
+            </summary>
+            <param name="V1">Vector 1</param>
+            <param name="V2">Vector 2</param>
+            <returns>a dot product</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.Interpolate(Utilities.Math.Vector3,Utilities.Math.Vector3,System.Double)">
+            <summary>
+            Interpolates between the vectors
+            </summary>
+            <param name="V1">Vector 1</param>
+            <param name="V2">Vector 2</param>
+            <param name="Control">Percent to move between 1 and 2</param>
+            <returns>The interpolated vector</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.Distance(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            The distance between two vectors
+            </summary>
+            <param name="V1">Vector 1</param>
+            <param name="V2">Vector 2</param>
+            <returns>Distance between the vectors</returns>
+        </member>
+        <member name="M:Utilities.Math.Vector3.Angle(Utilities.Math.Vector3,Utilities.Math.Vector3)">
+            <summary>
+            Determines the angle between the vectors
+            </summary>
+            <param name="V1">Vector 1</param>
+            <param name="V2">Vector 2</param>
+            <returns>Angle between the vectors</returns>
+        </member>
+        <member name="P:Utilities.Math.Vector3.Array">
+            <summary>
+            Used for converting this to an array and back
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Vector3.Magnitude">
+            <summary>
+            Returns the magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Vector3.X">
+            <summary>
+            X value
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Vector3.Y">
+            <summary>
+            Y Value
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Vector3.Z">
+            <summary>
+            Z value
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.Conversion">
+            <summary>
+            Conversion helper
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Conversion.CelsiusToFahrenheit(System.Double)">
+            <summary>
+            Celsius to Fahrenheit
+            </summary>
+            <param name="Value">Celsius value</param>
+            <returns>Equivalent Fahrenheit temp</returns>
+        </member>
+        <member name="M:Utilities.Math.Conversion.CelsiusToKelvin(System.Double)">
+            <summary>
+            Celsius to Kelvin
+            </summary>
+            <param name="Value">Celsius value</param>
+            <returns>Equivalent Kelvin temp</returns>
+        </member>
+        <member name="M:Utilities.Math.Conversion.FahrenheitToCelsius(System.Double)">
+            <summary>
+            Fahrenheit to Celsius
+            </summary>
+            <param name="Value">Fahrenheit value</param>
+            <returns>Equivalent Celsius value</returns>
+        </member>
+        <member name="M:Utilities.Math.Conversion.FahrenheitToKelvin(System.Double)">
+            <summary>
+            Fahrenheit to Kelvin
+            </summary>
+            <param name="Value">Fahrenheit value</param>
+            <returns>Equivalent Kelvin value</returns>
+        </member>
+        <member name="M:Utilities.Math.Conversion.KelvinToCelsius(System.Double)">
+            <summary>
+            Kelvin to Celsius
+            </summary>
+            <param name="Value">Kelvin value</param>
+            <returns>Equivalent Celsius value</returns>
+        </member>
+        <member name="M:Utilities.Math.Conversion.KelvinToFahrenheit(System.Double)">
+            <summary>
+            Kelvin to Fahrenheit
+            </summary>
+            <param name="Value">Kelvin value</param>
+            <returns>Equivalent Fahrenheit value</returns>
+        </member>
+        <member name="T:Utilities.Math.ExtensionMethods.MathExtensions">
+            <summary>
+            Extension methods that add basic math functions
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Decimal)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Double)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Single)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Int32)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Int64)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Absolute(System.Int16)">
+            <summary>
+            Returns the absolute value
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The absolute value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Exp(System.Double)">
+            <summary>
+            Returns E raised to the specified power
+            </summary>
+            <param name="Value">Power to raise E by</param>
+            <returns>E raised to the specified power</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Factorial(System.Int32)">
+            <summary>
+            Calculates the factorial for a number
+            </summary>
+            <param name="Input">Input value (N!)</param>
+            <returns>The factorial specified</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.GreatestCommonDenominator(System.Int32,System.Int32)">
+            <summary>
+            Returns the greatest common denominator between value1 and value2
+            </summary>
+            <param name="Value1">Value 1</param>
+            <param name="Value2">Value 2</param>
+            <returns>The greatest common denominator if one exists</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.GreatestCommonDenominator(System.Int32,System.UInt32)">
+            <summary>
+            Returns the greatest common denominator between value1 and value2
+            </summary>
+            <param name="Value1">Value 1</param>
+            <param name="Value2">Value 2</param>
+            <returns>The greatest common denominator if one exists</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.GreatestCommonDenominator(System.UInt32,System.UInt32)">
+            <summary>
+            Returns the greatest common denominator between value1 and value2
+            </summary>
+            <param name="Value1">Value 1</param>
+            <param name="Value2">Value 2</param>
+            <returns>The greatest common denominator if one exists</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Log(System.Double)">
+            <summary>
+            Returns the natural (base e) logarithm of a specified number
+            </summary>
+            <param name="Value">Specified number</param>
+            <returns>The natural logarithm of the specified number</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Log(System.Double,System.Double)">
+            <summary>
+            Returns the logarithm of a specified number in a specified base
+            </summary>
+            <param name="Value">Value</param>
+            <param name="Base">Base</param>
+            <returns>The logarithm of a specified number in a specified base</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Log10(System.Double)">
+            <summary>
+            Returns the base 10 logarithm of a specified number
+            </summary>
+            <param name="Value">Value</param>
+            <returns>The base 10 logarithm of the specified number</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Median``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets the median from the list
+            </summary>
+            <typeparam name="T">The data type of the list</typeparam>
+            <param name="Values">The list of values</param>
+            <returns>The median value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Mode``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Gets the mode (item that occurs the most) from the list
+            </summary>
+            <typeparam name="T">The data type of the list</typeparam>
+            <param name="Values">The list of values</param>
+            <returns>The mode value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Pow(System.Double,System.Double)">
+            <summary>
+            Raises Value to the power of Power
+            </summary>
+            <param name="Value">Value to raise</param>
+            <param name="Power">Power</param>
+            <returns>The resulting value</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Round(System.Double,System.Int32,System.MidpointRounding)">
+            <summary>
+            Rounds the value to the number of digits
+            </summary>
+            <param name="Value">Value to round</param>
+            <param name="Digits">Digits to round to</param>
+            <param name="Rounding">Rounding mode to use</param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.StandardDeviation(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Gets the standard deviation
+            </summary>
+            <param name="Values">List of values</param>
+            <returns>The standard deviation</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Sqrt(System.Double)">
+            <summary>
+            Returns the square root of a value
+            </summary>
+            <param name="Value">Value to take the square root of</param>
+            <returns>The square root</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Variance(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Calculates the variance of a list of values
+            </summary>
+            <param name="Values">List of values</param>
+            <returns>The variance</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Variance(System.Collections.Generic.IEnumerable{System.Int32})">
+            <summary>
+            Calculates the variance of a list of values
+            </summary>
+            <param name="Values">List of values</param>
+            <returns>The variance</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.MathExtensions.Variance(System.Collections.Generic.IEnumerable{System.Single})">
+            <summary>
+            Calculates the variance of a list of values
+            </summary>
+            <param name="Values">List of values</param>
+            <returns>The variance</returns>
+        </member>
+        <member name="T:Utilities.Math.ExtensionMethods.PermutationExtensions">
+            <summary>
+            Permutation extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PermutationExtensions.Permute``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Finds all permutations of the items within the list
+            </summary>
+            <typeparam name="T">Object type in the list</typeparam>
+            <param name="Input">Input list</param>
+            <returns>The list of permutations</returns>
+        </member>
+        <member name="T:Utilities.Math.Fraction">
+            <summary>
+            Represents a fraction
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Fraction.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Numerator">Numerator</param>
+            <param name="Denominator">Denominator</param>
+        </member>
+        <member name="M:Utilities.Math.Fraction.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Numerator">Numerator</param>
+            <param name="Denominator">Denominator</param>
+        </member>
+        <member name="M:Utilities.Math.Fraction.#ctor(System.Decimal,System.Decimal)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Numerator">Numerator</param>
+            <param name="Denominator">Denominator</param>
+        </member>
+        <member name="M:Utilities.Math.Fraction.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Numerator">Numerator</param>
+            <param name="Denominator">Denominator</param>
+        </member>
+        <member name="M:Utilities.Math.Fraction.ToString">
+            <summary>
+            Displays the fraction as a string
+            </summary>
+            <returns>The fraction as a string</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.GetHashCode">
+            <summary>
+            Gets the hash code of the fraction
+            </summary>
+            <returns>The hash code of the fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.Equals(System.Object)">
+            <summary>
+            Determines if the fractions are equal
+            </summary>
+            <param name="obj">object to check</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.Reduce">
+            <summary>
+            Reduces the fraction (finds the greatest common denominator and divides the numerator/denominator by it).
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Fraction.Inverse">
+            <summary>
+            Returns the inverse of the fraction
+            </summary>
+            <returns>The inverse</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Equality(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Equality(Utilities.Math.Fraction,System.Double)">
+            <summary>
+            Equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Equality(System.Double,Utilities.Math.Fraction)">
+            <summary>
+            Equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Inequality(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Not equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Inequality(Utilities.Math.Fraction,System.Double)">
+            <summary>
+            Not equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Inequality(System.Double,Utilities.Math.Fraction)">
+            <summary>
+            Not equals operator
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(Utilities.Math.Fraction)~System.Double">
+            <summary>
+            Converts the fraction to a double
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The fraction as a double</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(Utilities.Math.Fraction)~System.Decimal">
+            <summary>
+            Converts the fraction to a decimal
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The fraction as a decimal</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(Utilities.Math.Fraction)~System.Single">
+            <summary>
+            Converts the fraction to a float
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The fraction as a float</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(System.Double)~Utilities.Math.Fraction">
+            <summary>
+            Converts the double to a fraction
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The double as a fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(System.Decimal)~Utilities.Math.Fraction">
+            <summary>
+            Converts the decimal to a fraction
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The decimal as a fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(System.Single)~Utilities.Math.Fraction">
+            <summary>
+            Converts the float to a fraction
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The float as a fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(System.Int32)~Utilities.Math.Fraction">
+            <summary>
+            Converts the int to a fraction
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The int as a fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(System.UInt32)~Utilities.Math.Fraction">
+            <summary>
+            Converts the uint to a fraction
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The uint as a fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Implicit(Utilities.Math.Fraction)~System.String">
+            <summary>
+            Converts the fraction to a string
+            </summary>
+            <param name="Fraction">Fraction</param>
+            <returns>The fraction as a string</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Multiply(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Multiplication
+            </summary>
+            <param name="First">First fraction</param>
+            <param name="Second">Second fraction</param>
+            <returns>The resulting fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Addition(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Addition
+            </summary>
+            <param name="First">First fraction</param>
+            <param name="Second">Second fraction</param>
+            <returns>The added fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Subtraction(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Subtraction
+            </summary>
+            <param name="First">First fraction</param>
+            <param name="Second">Second fraction</param>
+            <returns>The subtracted fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_Division(Utilities.Math.Fraction,Utilities.Math.Fraction)">
+            <summary>
+            Division
+            </summary>
+            <param name="First">First item</param>
+            <param name="Second">Second item</param>
+            <returns>The divided fraction</returns>
+        </member>
+        <member name="M:Utilities.Math.Fraction.op_UnaryNegation(Utilities.Math.Fraction)">
+            <summary>
+            Negation of the fraction
+            </summary>
+            <param name="First">Fraction to negate</param>
+            <returns>The negated fraction</returns>
+        </member>
+        <member name="P:Utilities.Math.Fraction.Numerator">
+            <summary>
+            Numerator of the faction
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Fraction.Denominator">
+            <summary>
+            Denominator of the fraction
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.ExtensionMethods.PredicateExtensions">
+            <summary>
+            Predicate extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.AddToSet``1(System.Predicate{``0},``0[])">
+            <summary>
+            Adds the given values to the predicate set
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="Predicate">Predicate to add to</param>
+            <param name="Values">Values to add</param>
+            <returns>The resulting predicate set</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.CartesianProduct``2(System.Predicate{``0},System.Predicate{``1})">
+            <summary>
+            Treats the predicates as sets and does a cartesian product of them
+            </summary>
+            <typeparam name="T1">Type 1</typeparam>
+            <typeparam name="T2">Type 2</typeparam>
+            <param name="Predicate1">Predicate 1</param>
+            <param name="Predicate2">Predicate 2</param>
+            <returns>The cartesian product</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.Difference``1(System.Predicate{``0},System.Predicate{``0})">
+            <summary>
+            Treats the predicates as sets and does a difference
+            </summary>
+            <typeparam name="T">Data Type</typeparam>
+            <param name="Predicate1">Predicate 1</param>
+            <param name="Predicate2">Predicate 2</param>
+            <returns>The difference of the two predicates</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.Intersect``1(System.Predicate{``0},System.Predicate{``0})">
+            <summary>
+            Treats predicates as sets and intersects them together
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="Predicate1">Predicate 1</param>
+            <param name="Predicate2">Predicate 2</param>
+            <returns>The intersected predicate</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.RelativeComplement``1(System.Predicate{``0},System.Predicate{``0})">
+            <summary>
+            Treats predicates as sets and returns the relative complement
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="Predicate1">Predicate 1</param>
+            <param name="Predicate2">Predicate 2</param>
+            <returns>The relative complement</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.RemoveFromSet``1(System.Predicate{``0},``0[])">
+            <summary>
+            Removes the values from the predicate set
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="Predicate">Predicate</param>
+            <param name="Values">Values to remove</param>
+            <returns>The resulting set</returns>
+        </member>
+        <member name="M:Utilities.Math.ExtensionMethods.PredicateExtensions.Union``1(System.Predicate{``0},System.Predicate{``0})">
+            <summary>
+            Treats predicates as sets and unions them together
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+            <param name="Predicate1">Predicate 1</param>
+            <param name="Predicate2">Predicate 2</param>
+            <returns>The unioned predicate</returns>
+        </member>
+        <member name="T:Utilities.Math.Geometry.BaseClasses.Shape">
+            <summary>
+            Base shape class
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Geometry.BaseClasses.Shape.#ctor(Utilities.Math.Geometry.Point,Utilities.Math.Geometry.Point,Utilities.Math.Geometry.Point)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Max">Max X,Y value</param>
+            <param name="Min">Min X,Y value</param>
+            <param name="Center">Center of the shape</param>
+        </member>
+        <member name="M:Utilities.Math.Geometry.BaseClasses.Shape.Contains(System.Double,System.Double)">
+            <summary>
+            Determines if the point is within the shape and returns true if it is, false otherwise
+            </summary>
+            <param name="X">X Coordinate</param>
+            <param name="Y">Y Coordinate</param>
+            <returns>True if it is contained, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Math.Geometry.BaseClasses.Shape.EuclideanDistance(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Determines the Euclidean distance between two points
+            </summary>
+            <param name="X1">X1 coordinate</param>
+            <param name="Y1">Y1 coordinate</param>
+            <param name="X2">X2 coordinate</param>
+            <param name="Y2">Y2 coordinate</param>
+            <returns>The Euclidean distance between the two points</returns>
+        </member>
+        <member name="P:Utilities.Math.Geometry.BaseClasses.Shape.Min">
+            <summary>
+            Min X,Y value
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.BaseClasses.Shape.Max">
+            <summary>
+            Max X,Y value
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.BaseClasses.Shape.Center">
+            <summary>
+            Center coordinate
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.BaseClasses.Shape.Set">
+            <summary>
+            The predicate/set that can be used to determine if a point is within the shape
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.Geometry.Circle">
+            <summary>
+            Represents a 2D circle
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Circle.#ctor(System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="X">X coordinate</param>
+            <param name="Y">Y coordinate</param>
+            <param name="Radius">Radius of the circle</param>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Circle.Overlap(Utilities.Math.Geometry.Circle)">
+            <summary>
+            Determines if the two circles overlap
+            </summary>
+            <param name="Object">Object to check</param>
+            <returns>True if they overlap, false otherwise</returns>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Circle.Radius">
+            <summary>
+            Radius of the circle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Circle.Diameter">
+            <summary>
+            Diameter of the circle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Circle.Circumference">
+            <summary>
+            Circumference of the circle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Circle.Area">
+            <summary>
+            Area of the circle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Circle.Set">
+            <summary>
+            The predicate/set that can be used to determine if a point is within the shape
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.Geometry.Point">
+            <summary>
+            Contains an individual point's information
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Point.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="X">X coordinate</param>
+            <param name="Y">Y coordinate</param>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Point.Translate(System.Double,System.Double)">
+            <summary>
+            Translates the point by X and Y
+            </summary>
+            <param name="X">X direction translation</param>
+            <param name="Y">Y direction translation</param>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Point.X">
+            <summary>
+            X coordinate
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Point.Y">
+            <summary>
+            Y coordinate
+            </summary>
+        </member>
+        <member name="T:Utilities.Math.Geometry.Rectangle">
+            <summary>
+            Represents a rectangle
+            </summary>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Rectangle.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="X">X coordinate (lower left)</param>
+            <param name="Y">Y coordinate (lower left)</param>
+            <param name="Width">Width of the rectangle</param>
+            <param name="Height">Height of the rectangle</param>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Rectangle.#ctor(Utilities.Math.Geometry.Point,Utilities.Math.Geometry.Point)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LowerLeft">lower left</param>
+            <param name="UpperRight">upper right</param>
+        </member>
+        <member name="M:Utilities.Math.Geometry.Rectangle.Overlap(Utilities.Math.Geometry.BaseClasses.Shape)">
+            <summary>
+            Determines if the two rectangles overlap
+            </summary>
+            <param name="Object">Object to check</param>
+            <returns>True if they overlap, false otherwise</returns>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Rectangle.Height">
+            <summary>
+            Height of the rectangle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Rectangle.Width">
+            <summary>
+            Width of the rectangle
+            </summary>
+        </member>
+        <member name="P:Utilities.Math.Geometry.Rectangle.Area">
+            <summary>
+            Area of the rectangle
+            </summary>
+        </member>
+    </members>
+</doc>

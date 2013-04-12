@@ -1,0 +1,835 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Media</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Media.Image.Filter">
+            <summary>
+            Used when applying convolution filters to an image
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Filter.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Width">Width</param>
+            <param name="Height">Height</param>
+        </member>
+        <member name="M:Utilities.Media.Image.Filter.ApplyFilter(System.Drawing.Bitmap)">
+            <summary>
+            Applies the filter to the input image
+            </summary>
+            <param name="Input">input image</param>
+            <returns>Returns a separate image with the filter applied</returns>
+        </member>
+        <member name="P:Utilities.Media.Image.Filter.MyFilter">
+            <summary>
+            The actual filter array
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Filter.Width">
+            <summary>
+            Width of the filter box
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Filter.Height">
+            <summary>
+            Height of the filter box
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Filter.Offset">
+            <summary>
+            Amount to add to the red, blue, and green values
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Filter.Absolute">
+            <summary>
+            Determines if we should take the absolute value prior to clamping
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.CellularMap">
+            <summary>
+            A cellular map creator
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.CellularMap.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Seed">Seed for random generation</param>
+            <param name="Width">Width of the image</param>
+            <param name="Height">Height of the image</param>
+            <param name="NumberOfPoints">Number of cells</param>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.CellularMap.CalculateDistances">
+            <summary>
+            Calculate the distance between the points
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.CellularMap.FindClosestPoint(System.Int32,System.Int32)">
+            <summary>
+            Finds the closest cell center
+            </summary>
+            <param name="x">x axis</param>
+            <param name="y">y axis</param>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.CellularMap.ClosestPoint">
+            <summary>
+            List of closest cells
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.CellularMap.Distances">
+            <summary>
+            Distances to the closest cell
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.CellularMap.MinDistance">
+            <summary>
+            Minimum distance to a point
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.CellularMap.MaxDistance">
+            <summary>
+            Maximum distance to a point
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.Point">
+            <summary>
+            Individual point
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.Point.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.Point.X">
+            <summary>
+            X axis
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.Procedural.Point.Y">
+            <summary>
+            Y axis
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.RGBHistogram">
+            <summary>
+            Class used to create an RGB Histogram
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.RGBHistogram.#ctor(System.Drawing.Bitmap)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Image">Image to load</param>
+        </member>
+        <member name="M:Utilities.Media.Image.RGBHistogram.LoadImage(System.Drawing.Bitmap)">
+            <summary>
+            Loads an image
+            </summary>
+            <param name="ImageUsing">Image to load</param>
+        </member>
+        <member name="M:Utilities.Media.Image.RGBHistogram.Normalize">
+            <summary>
+            Normalizes the histogram
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.RGBHistogram.Equalize">
+            <summary>
+            Equalizes the histogram
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.RGBHistogram.R">
+            <summary>
+            Red values
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.RGBHistogram.G">
+            <summary>
+            Green values
+            </summary>
+        </member>
+        <member name="P:Utilities.Media.Image.RGBHistogram.B">
+            <summary>
+            Blue values
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.ColorMatrix">
+            <summary>
+            Helper class for setting up and applying a color matrix
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.ColorMatrix.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.ColorMatrix.Apply(System.Drawing.Bitmap)">
+            <summary>
+            Applies the color matrix
+            </summary>
+            <param name="OriginalImage">Image sent in</param>
+            <returns>An image with the color matrix applied</returns>
+        </member>
+        <member name="P:Utilities.Media.Image.ColorMatrix.Matrix">
+            <summary>
+            Matrix containing the values of the ColorMatrix
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.CellularTexture">
+            <summary>
+            Cellular texture helper
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.CellularTexture.Generate(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates a cellular texture image
+            </summary>
+            <param name="Width">Width</param>
+            <param name="Height">Height</param>
+            <param name="NumberOfPoints">Number of points</param>
+            <param name="Seed">Random seed</param>
+            <returns>Returns an image of a cellular texture</returns>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.FaultFormation">
+            <summary>
+            Helper class for doing fault formations
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.FaultFormation.Generate(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates a number of faults, returning an image
+            </summary>
+            <param name="Width">Width of the resulting image</param>
+            <param name="Height">Height of the resulting image</param>
+            <param name="NumberFaults">Number of faults</param>
+            <param name="Seed">Random seed</param>
+            <returns>An image from the resulting faults</returns>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.MidpointDisplacement">
+            <summary>
+            Helper class for generating cracks by midpoint displacement
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.MidpointDisplacement.Generate(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Generates an image that contains cracks
+            </summary>
+            <param name="Width">Image width</param>
+            <param name="Height">Image height</param>
+            <param name="NumberOfCracks">Number of cracks</param>
+            <param name="Iterations">Iterations</param>
+            <param name="MaxChange">Maximum height change of the cracks</param>
+            <param name="MaxLength">Maximum length of the cracks</param>
+            <param name="Seed">Random seed</param>
+            <returns>An image containing "cracks"</returns>
+        </member>
+        <member name="T:Utilities.Media.Image.Procedural.PerlinNoise">
+            <summary>
+            Perlin noise helper class
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.Procedural.PerlinNoise.Generate(System.Int32,System.Int32,System.Int32,System.Int32,System.Single,System.Single,System.Single,System.Int32,System.Int32)">
+            <summary>
+            Generates perlin noise
+            </summary>
+            <param name="Width">Width of the resulting image</param>
+            <param name="Height">Height of the resulting image</param>
+            <param name="MaxRGBValue">MaxRGBValue</param>
+            <param name="MinRGBValue">MinRGBValue</param>
+            <param name="Frequency">Frequency</param>
+            <param name="Amplitude">Amplitude</param>
+            <param name="Persistance">Persistance</param>
+            <param name="Octaves">Octaves</param>
+            <param name="Seed">Random seed</param>
+            <returns>An image containing perlin noise</returns>
+        </member>
+        <member name="T:Utilities.Media.Image.ExtensionMethods.BitmapExtensions">
+            <summary>
+            Image extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.AddNoise(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            adds noise to the image
+            </summary>
+            <param name="OriginalImage">Image to add noise to</param>
+            <param name="FileName">Location to save the image to (optional)</param>
+            <param name="Amount">Amount of noise to add (defaults to 10)</param>
+            <returns>New image object with the noise added</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.AdjustBrightness(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Adjusts the brightness
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <param name="Value">-255 to 255</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.AdjustContrast(System.Drawing.Bitmap,System.Single,System.String)">
+            <summary>
+            Adjusts the Contrast
+            </summary>
+            <param name="OriginalImage">Image to change</param>
+            <param name="Value">Used to set the contrast (-100 to 100)</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.AdjustGamma(System.Drawing.Bitmap,System.Single,System.String)">
+            <summary>
+            Adjusts the Gamma
+            </summary>
+            <param name="OriginalImage">Image to change</param>
+            <param name="Value">Used to build the gamma ramp (usually .2 to 5)</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.And(System.Drawing.Bitmap,System.Drawing.Bitmap,System.String)">
+            <summary>
+            ands two images
+            </summary>
+            <param name="Image1">Image to manipulate</param>
+            <param name="Image2">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.BlackAndWhite(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Converts an image to black and white
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object of the black and white image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.BlueFilter(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Gets the blue filter for an image
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.BoxBlur(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does smoothing using a box blur
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="Size">Size of the aperture</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.BumpMap(System.Drawing.Bitmap,Utilities.Media.Image.ExtensionMethods.Direction,System.Boolean)">
+            <summary>
+            Creates the bump map
+            </summary>
+            <param name="Direction">Direction of the bump map</param>
+            <param name="Image">Image to create a bump map from</param>
+            <param name="Invert">Inverts the direction of the bump map</param>
+            <returns>The resulting bump map</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Colorize(System.Drawing.Bitmap,System.Drawing.Color[],System.String)">
+            <summary>
+            Colorizes a black and white image
+            </summary>
+            <param name="OriginalImage">Black and white image</param>
+            <param name="Colors">Color array to use for the image</param>
+            <param name="FileName">File to save to</param>
+            <returns>The colorized image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Crop(System.Drawing.Bitmap,System.Int32,System.Int32,Utilities.Media.Image.ExtensionMethods.Align,Utilities.Media.Image.ExtensionMethods.Align,System.String)">
+            <summary>
+            Crops an image
+            </summary>
+            <param name="ImageUsing">Image to crop</param>
+            <param name="Width">Width of the cropped image</param>
+            <param name="Height">Height of the cropped image</param>
+            <param name="VAlignment">The verticle alignment of the cropping (top or bottom)</param>
+            <param name="HAlignment">The horizontal alignment of the cropping (left or right)</param>
+            <param name="FileName">File to save to</param>
+            <returns>A Bitmap object of the cropped image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Dilate(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does dilation
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="Size">Size of the aperture</param>
+            <param name="FileName">File to save to</param>
+            <returns>A Bitmap object of the resulting image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.DrawRoundedRectangle(System.Drawing.Bitmap,System.Drawing.Color,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Draws a rounded rectangle on a bitmap
+            </summary>
+            <param name="Image">Image to draw on</param>
+            <param name="BoxColor">The color that the box should be</param>
+            <param name="XPosition">The upper right corner's x position</param>
+            <param name="YPosition">The upper right corner's y position</param>
+            <param name="Height">Height of the box</param>
+            <param name="Width">Width of the box</param>
+            <param name="CornerRadius">Radius of the corners</param>
+            <param name="FileName">File to save to</param>
+            <returns>The bitmap with the rounded box on it</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.DrawText(System.Drawing.Bitmap,System.String,System.Drawing.Font,System.Drawing.Brush,System.Drawing.RectangleF,System.String)">
+            <summary>
+            Draws text on an image within the bounding box specified.
+            </summary>
+            <param name="Image">Image to draw on</param>
+            <param name="TextToDraw">The text to draw on the image</param>
+            <param name="FontToUse">Font in which to draw the text</param>
+            <param name="BrushUsing">Defines the brush using</param>
+            <param name="BoxToDrawWithin">Rectangle to draw the image within</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object with the text drawn on it</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.EdgeDetection(System.Drawing.Bitmap,System.Single,System.Drawing.Color,System.String)">
+            <summary>
+            Does basic edge detection on an image
+            </summary>
+            <param name="OriginalImage">Image to do edge detection on</param>
+            <param name="Threshold">Decides what is considered an edge</param>
+            <param name="EdgeColor">Color of the edge</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap which has the edges drawn on it</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Emboss(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Emboss function
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Equalize(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Uses an RGB histogram to equalize the image
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>The resulting bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Flip(System.Drawing.Bitmap,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Flips an image
+            </summary>
+            <param name="Image">Image to flip</param>
+            <param name="FlipX">Flips an image along the X axis</param>
+            <param name="FlipY">Flips an image along the Y axis</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap which is flipped</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GaussianBlur(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does smoothing using a gaussian blur
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <param name="Size">Size of the aperture</param>
+            <returns>The resulting bitmap</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GetHTMLPalette(System.Drawing.Bitmap)">
+            <summary>
+            Gets a palette listing in HTML string format
+            </summary>
+            <param name="OriginalImage">Image to get the palette of</param>
+            <returns>A list containing HTML color values (ex: #041845)</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GreenFilter(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Gets the Green filter for an image
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GetImageFormat(System.String)">
+            <summary>
+            Returns the image format this file is using
+            </summary>
+            <param name="FileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GetPixelSize(System.Drawing.Imaging.BitmapData)">
+            <summary>
+            Gets the pixel size (in bytes)
+            </summary>
+            <param name="Data">Bitmap data</param>
+            <returns>The pixel size (in bytes)</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.GetPixel(System.Drawing.Imaging.BitmapData,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets a pixel from an x,y coordinate
+            </summary>
+            <param name="Data">Bitmap data</param>
+            <param name="x">X coord</param>
+            <param name="y">Y coord</param>
+            <param name="PixelSizeInBytes">Pixel size in bytes</param>
+            <returns>The pixel at the x,y coords</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Jitter(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Causes a "Jitter" effect
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="MaxJitter">Maximum number of pixels the item can move</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.KuwaharaBlur(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does smoothing using a kuwahara blur
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="Size">Size of the aperture</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.LaplaceEdgeDetection(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Laplace edge detection function
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.LockImage(System.Drawing.Bitmap)">
+            <summary>
+            Locks an image
+            </summary>
+            <param name="Image">Image to lock</param>
+            <returns>The bitmap data for the image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.MedianFilter(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does smoothing using a median filter
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <param name="Size">Size of the aperture</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.MotionDetection(System.Drawing.Bitmap,System.Drawing.Bitmap,System.Int32,System.Drawing.Color)">
+            <summary>
+            Runs a simplistic motion detection algorithm
+            </summary>
+            <param name="NewImage">The "new" frame</param>
+            <param name="OldImage">The "old" frame</param>
+            <param name="Threshold">The threshold used to detect changes in the image</param>
+            <param name="DetectionColor">Color to display changes in the images as</param>
+            <returns>A bitmap indicating where changes between frames have occurred overlayed on top of the new image.</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Negative(System.Drawing.Bitmap,System.String)">
+            <summary>
+            gets the negative of the image
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.NormalMap(System.Drawing.Bitmap,System.Boolean,System.Boolean)">
+            <summary>
+            Creates the normal map
+            </summary>
+            <param name="ImageUsing">Image to create the normal map from</param>
+            <param name="InvertX">Invert the X direction</param>
+            <param name="InvertY">Invert the Y direction</param>
+            <returns>Returns the resulting normal map</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Or(System.Drawing.Bitmap,System.Drawing.Bitmap,System.String)">
+            <summary>
+            Ors two images
+            </summary>
+            <param name="Image1">Image to manipulate</param>
+            <param name="Image2">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.OilPainting(System.Drawing.Bitmap,System.Int32,System.Int32)">
+            <summary>
+            Slow but interesting function that applies an oil painting effect
+            </summary>
+            <param name="Image">Image to create the oil painting effect from</param>
+            <param name="Seed">Randomization seed</param>
+            <param name="NumberOfPoints">Number of points for the painting</param>
+            <returns>The resulting bitmap</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Pixelate(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Pixelates an image
+            </summary>
+            <param name="OriginalImage">Image to pixelate</param>
+            <param name="PixelSize">Size of the "pixels" in pixels</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.RedFilter(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Gets the Red filter for an image
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Resize(System.Drawing.Bitmap,System.Int32,Utilities.Media.Image.ExtensionMethods.Quality,System.String)">
+            <summary>
+            Resizes an image to a certain height
+            </summary>
+            <param name="Image">Image to resize</param>
+            <param name="MaxSide">Max height/width for the final image</param>
+            <param name="Quality">Quality of the resizing</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object of the resized image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Resize(System.Drawing.Bitmap,System.Int32,System.Int32,Utilities.Media.Image.ExtensionMethods.Quality,System.String)">
+            <summary>
+            Resizes an image to a certain height
+            </summary>
+            <param name="Image">Image to resize</param>
+            <param name="Width">New width for the final image</param>
+            <param name="Height">New height for the final image</param>
+            <param name="Quality">Quality of the resizing</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object of the resized image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Rotate(System.Drawing.Bitmap,System.Single,System.String)">
+            <summary>
+            Rotates an image
+            </summary>
+            <param name="Image">Image to rotate</param>
+            <param name="DegreesToRotate">Degrees to rotate the image</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object containing the rotated image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SepiaTone(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Converts an image to sepia tone
+            </summary>
+            <param name="Image">Image to change</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object of the sepia tone image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SetPixel(System.Drawing.Imaging.BitmapData,System.Int32,System.Int32,System.Drawing.Color,System.Int32)">
+            <summary>
+            Sets a pixel at the x,y coords
+            </summary>
+            <param name="Data">Bitmap data</param>
+            <param name="x">X coord</param>
+            <param name="y">Y coord</param>
+            <param name="PixelColor">Pixel color information</param>
+            <param name="PixelSizeInBytes">Pixel size in bytes</param>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Sharpen(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Sharpens an image
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SharpenLess(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Sharpens an image
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SinWave(System.Drawing.Bitmap,System.Single,System.Single,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Does a "wave" effect on the image
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="Amplitude">Amplitude of the sine wave</param>
+            <param name="Frequency">Frequency of the sine wave</param>
+            <param name="XDirection">Determines if this should be done in the X direction</param>
+            <param name="YDirection">Determines if this should be done in the Y direction</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap which has been modified</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SobelEdgeDetection(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Sobel edge detection function
+            </summary>
+            <param name="Input">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SobelEmboss(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Sobel emboss function
+            </summary>
+            <param name="Image">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.SNNBlur(System.Drawing.Bitmap,System.Int32,System.String)">
+            <summary>
+            Does smoothing using a SNN blur
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <param name="Size">Size of the aperture</param>
+            <returns>The resulting bitmap</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.StretchContrast(System.Drawing.Bitmap,System.String)">
+            <summary>
+            Stretches the contrast
+            </summary>
+            <param name="OriginalImage">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Threshold(System.Drawing.Bitmap,System.Single,System.String)">
+            <summary>
+            Does threshold manipulation of the image
+            </summary>
+            <param name="OriginalImage">Image to transform</param>
+            <param name="Threshold">Float defining the threshold at which to set the pixel to black vs white.</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object containing the new image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.ToASCIIArt(System.Drawing.Bitmap)">
+            <summary>
+            Converts an image to ASCII art
+            </summary>
+            <param name="Input">The image you wish to convert</param>
+            <returns>A string containing the art</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.ToBase64(System.Drawing.Image,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Converts an image to a base64 string and returns it
+            </summary>
+            <param name="Image">Image to convert</param>
+            <param name="DesiredFormat">Desired image format (defaults to Jpeg)</param>
+            <returns>The image in base64 string format</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Turbulence(System.Drawing.Bitmap,System.Int32,System.Single,System.Int32,System.String)">
+            <summary>
+            Does turbulence manipulation of the image
+            </summary>
+            <param name="OriginalImage">Image to transform</param>
+            <param name="Roughness">Roughness of the movement</param>
+            <param name="Power">How strong the movement is</param>
+            <param name="Seed">Random seed</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap object containing the new image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.UnlockImage(System.Drawing.Bitmap,System.Drawing.Imaging.BitmapData)">
+            <summary>
+            Unlocks the image's data
+            </summary>
+            <param name="Image">Image to unlock</param>
+            <param name="ImageData">The image data</param>
+            <returns>Returns the image</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Watermark(System.Drawing.Bitmap,System.Drawing.Bitmap,System.Single,System.Int32,System.Int32,System.Drawing.Color,System.String)">
+            <summary>
+            Adds a watermark to an image
+            </summary>
+            <param name="Image">image to add the watermark to</param>
+            <param name="WatermarkImage">Watermark image</param>
+            <param name="Opacity">Opacity of the watermark (1.0 to 0.0 with 1 being completely visible and 0 being invisible)</param>
+            <param name="X">X position in pixels for the watermark</param>
+            <param name="Y">Y position in pixels for the watermark</param>
+            <param name="KeyColor">Transparent color used in watermark image, set to null if not used</param>
+            <param name="FileName">File to save to</param>
+            <returns>The results in the form of a bitmap object</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.BitmapExtensions.Xor(System.Drawing.Bitmap,System.Drawing.Bitmap,System.String)">
+            <summary>
+            Xors two images
+            </summary>
+            <param name="Image1">Image to manipulate</param>
+            <param name="Image2">Image to manipulate</param>
+            <param name="FileName">File to save to</param>
+            <returns>A bitmap image</returns>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.BitmapExtensions._ASCIICharacters">
+            <summary>
+            Characters used for ASCII art
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.ExtensionMethods.Align">
+            <summary>
+            Enum defining alignment
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Align.Top">
+            <summary>
+            Top
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Align.Bottom">
+            <summary>
+            Bottom
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Align.Left">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Align.Right">
+            <summary>
+            Right
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.ExtensionMethods.Quality">
+            <summary>
+            Enum defining quality
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Quality.High">
+            <summary>
+            High
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Quality.Low">
+            <summary>
+            Low
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.ExtensionMethods.Direction">
+            <summary>
+            Direction
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Direction.TopBottom">
+            <summary>
+            Top to bottom
+            </summary>
+        </member>
+        <member name="F:Utilities.Media.Image.ExtensionMethods.Direction.LeftRight">
+            <summary>
+            Left to right
+            </summary>
+        </member>
+        <member name="T:Utilities.Media.Image.ExtensionMethods.ScreenExtensions">
+            <summary>
+            Screen extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.ScreenExtensions.TakeScreenShot(System.Windows.Forms.Screen,System.String)">
+            <summary>
+            Takes a screenshot of the screen as a whole
+            (if multiple screens are attached, it takes an image containing them all)
+            </summary>
+            <param name="Screen">Screen to get the screenshot from</param>
+            <param name="FileName">Name of the file to save the screenshot (optional)</param>
+            <returns>Returns a bitmap containing the screen shot</returns>
+        </member>
+        <member name="M:Utilities.Media.Image.ExtensionMethods.ScreenExtensions.TakeScreenShot(System.Collections.Generic.IEnumerable{System.Windows.Forms.Screen},System.String)">
+            <summary>
+            Takes a screenshot of the screen as a whole
+            (if multiple screens are attached, it takes an image containing them all)
+            </summary>
+            <param name="Screens">Screens to get the screenshot from</param>
+            <param name="FileName">Name of the file to save the screenshot (optional)</param>
+            <returns>Returns a bitmap containing the screen shot</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,1643 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Random</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Random.Random">
+            <summary>
+            Utility class for handling random
+            information.
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.Random.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.Random.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Seed">Seed value</param>
+        </member>
+        <member name="M:Utilities.Random.Random.ThreadSafeNext(System.Int32,System.Int32)">
+            <summary>
+            A thread safe version of a random number generation
+            </summary>
+            <param name="Min">Minimum value</param>
+            <param name="Max">Maximum value</param>
+            <returns>A randomly generated value</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.BoolGenerator">
+            <summary>
+            Randomly generates bools
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.BaseClasses.GeneratorAttributeBase">
+            <summary>
+            Attribute base class for generators
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.Interfaces.IGenerator">
+            <summary>
+            Generator interface
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.Interfaces.IGenerator.NextObj(System.Random)">
+            <summary>
+            Generates a random value and returns it as an object
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object</returns>
+        </member>
+        <member name="M:Utilities.Random.BaseClasses.GeneratorAttributeBase.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Minimum value</param>
+            <param name="Max">Maximum value</param>
+        </member>
+        <member name="M:Utilities.Random.BaseClasses.GeneratorAttributeBase.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.BaseClasses.GeneratorAttributeBase.Min">
+            <summary>
+            Minimum allowed
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.BaseClasses.GeneratorAttributeBase.Max">
+            <summary>
+            Maximum allowed
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.Interfaces.IGenerator`1">
+            <summary>
+            Generator interface
+            </summary>
+            <typeparam name="T">Type it generates</typeparam>
+        </member>
+        <member name="M:Utilities.Random.Interfaces.IGenerator`1.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.Interfaces.IGenerator`1.Next(System.Random,`0,`0)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.BoolGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.BoolGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.BoolGenerator.Next(System.Random,System.Boolean,System.Boolean)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.BoolGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ExtensionMethods.RandomExtensions">
+            <summary>
+            Extension methods for the Random class
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Next``1(System.Random,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a value of the specified type
+            </summary>
+            <typeparam name="T">Type to generate</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.NextClass``1(System.Random,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a value of the specified type
+            </summary>
+            <typeparam name="T">Type to generate</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Next``1(System.Random,``0,``0,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a value of the specified type
+            </summary>
+            <typeparam name="T">Type to generate</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Next``1(System.Random,System.Int32,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a list of values of the specified type
+            </summary>
+            <typeparam name="T">Type to the be generated</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Amount">Number of items to generate</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.NextClass``1(System.Random,System.Int32,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a list of values of the specified type
+            </summary>
+            <typeparam name="T">Type to the be generated</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Amount">Number of items to generate</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Next``1(System.Random,System.Int32,``0,``0,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a list of values of the specified type
+            </summary>
+            <typeparam name="T">Type to the be generated</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Amount">Number of items to generate</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Next``1(System.Random,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Picks a random item from the list
+            </summary>
+            <typeparam name="T">Type of object in the list</typeparam>
+            <param name="Random">Random number generator</param>
+            <param name="List">List to pick from</param>
+            <returns>Item that is returned</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.NextEnum``1(System.Random,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a value of the specified enum type
+            </summary>
+            <typeparam name="T">Type to generate</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.NextEnum``1(System.Random,System.Int32,Utilities.Random.Interfaces.IGenerator{``0})">
+            <summary>
+            Randomly generates a list of values of the specified enum type
+            </summary>
+            <typeparam name="T">Type to the be generated</typeparam>
+            <param name="Random">Random object</param>
+            <param name="Amount">Number of items to generate</param>
+            <param name="Generator">Generator to be used (if not included, default generator is used)</param>
+            <returns>The randomly generated value</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.RegisterGenerator``1(System.Random,Utilities.Random.Interfaces.IGenerator)">
+            <summary>
+            Registers a generator with a type
+            </summary>
+            <typeparam name="T">Type to associate with the generator</typeparam>
+            <param name="Rand">Random number generator</param>
+            <param name="Generator">Generator to associate with the type</param>
+            <returns>The random number generator</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.RegisterGenerator(System.Random,System.Type,Utilities.Random.Interfaces.IGenerator)">
+            <summary>
+            Registers a generator with a type
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <param name="Generator">Generator to associate with the type</param>
+            <param name="Type">Type to associate with the generator</param>
+            <returns>The random number generator</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.ResetGenerators(System.Random)">
+            <summary>
+            Resets the generators to the defaults
+            </summary>
+            <param name="Random">Random object</param>
+            <returns>The random object sent in</returns>
+        </member>
+        <member name="M:Utilities.Random.ExtensionMethods.RandomExtensions.Shuffle``1(System.Random,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Shuffles a list randomly
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Random">Random object</param>
+            <param name="List">List of objects to shuffle</param>
+            <returns>The shuffled list</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.DecimalGenerator`1">
+            <summary>
+            Randomly generates decimals
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator`1.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator`1.Next(System.Random,`0,`0)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator`1.NextObj(System.Random)">
+            <summary>
+            Randomly generates an object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>A randomly generated object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.DecimalGenerator">
+            <summary>
+            Decimal generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator.#ctor(System.Decimal,System.Decimal)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DecimalGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.DoubleGenerator">
+            <summary>
+            Double generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DoubleGenerator.#ctor(System.Double,System.Double)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DoubleGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DoubleGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.FloatGenerator">
+            <summary>
+            Float generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.FloatGenerator.#ctor(System.Single,System.Single)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.FloatGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.FloatGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.DateTimeGenerator">
+            <summary>
+            Randomly generates DateTimes
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DateTimeGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DateTimeGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DateTimeGenerator.Next(System.Random,System.DateTime,System.DateTime)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.DateTimeGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.IntegerGenerator`1">
+            <summary>
+            Randomly generates ints
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntegerGenerator`1.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntegerGenerator`1.Next(System.Random,`0,`0)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntegerGenerator`1.NextObj(System.Random)">
+            <summary>
+            Randomly generates an object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>A randomly generated object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.ByteGenerator">
+            <summary>
+            Byte generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ByteGenerator.#ctor(System.Byte,System.Byte)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ByteGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ByteGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.CharGenerator">
+            <summary>
+            Char generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.CharGenerator.#ctor(System.Char,System.Char)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.CharGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.CharGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.IntGenerator">
+            <summary>
+            Int generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntGenerator.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.IntGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.LongGenerator">
+            <summary>
+            Long generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.LongGenerator.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.LongGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.LongGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.SByteGenerator">
+            <summary>
+            sbyte generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.SByteGenerator.#ctor(System.SByte,System.SByte)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.SByteGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.SByteGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.ShortGenerator">
+            <summary>
+            Short generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ShortGenerator.#ctor(System.Int16,System.Int16)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ShortGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ShortGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.UIntGenerator">
+            <summary>
+            uint generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UIntGenerator.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UIntGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UIntGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.ULongGenerator">
+            <summary>
+            ulong generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ULongGenerator.#ctor(System.UInt64,System.UInt64)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ULongGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ULongGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.UShortGenerator">
+            <summary>
+            ushort generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UShortGenerator.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Min">Min value</param>
+            <param name="Max">Max value</param>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UShortGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.UShortGenerator.NextObj(System.Random)">
+            <summary>
+            Creates the next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.TimeSpanGenerator">
+            <summary>
+            Randomly generates TimeSpans
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.TimeSpanGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.TimeSpanGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.TimeSpanGenerator.Next(System.Random,System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.TimeSpanGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.ColorGenerator">
+            <summary>
+            Randomly generates Colors
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ColorGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ColorGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ColorGenerator.Next(System.Random,System.Drawing.Color,System.Drawing.Color)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ColorGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.EnumGenerator`1">
+            <summary>
+            Randomly generates Enum
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.EnumGenerator`1.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.EnumGenerator`1.Next(System.Random,`0,`0)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.EnumGenerator`1.NextObj(System.Random)">
+            <summary>
+            Randomly generates an object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>A randomly generated object</returns>
+        </member>
+        <member name="T:Utilities.Random.Interfaces.IStringGenerator">
+            <summary>
+            String generator interface
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.Interfaces.IStringGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="T:Utilities.Random.StringGenerators.LoremIpsumGenerator">
+            <summary>
+            Lorem Ipsum Generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.LoremIpsumGenerator.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="NumberOfParagraphs">Number of paragraphs</param>
+            <param name="MaxSentenceLength">Maximum sentence length</param>
+            <param name="MinSentenceLength">Minimum sentence length</param>
+            <param name="NumberOfSentences">Number of sentences per paragraph</param>
+            <param name="HTMLFormatting">Determines if this should use HTML formatting or not</param>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.LoremIpsumGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.LoremIpsumGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.LoremIpsumGenerator.NextSentence(System.Random,System.Int32)">
+            <summary>
+            Creates a Lorem Ipsum sentence.
+            </summary>
+            <param name="NumberOfWords">Number of words for the sentence</param>
+            <param name="Rand">Random number generator using</param>
+            <returns>A string containing Lorem Ipsum text</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.LoremIpsumGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.LoremIpsumGenerator.NumberOfParagraphs">
+            <summary>
+            Number of paragraphs
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.LoremIpsumGenerator.NumberOfSentences">
+            <summary>
+            Number of sentences
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.LoremIpsumGenerator.MinSentenceLength">
+            <summary>
+            Minimum sentence length
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.LoremIpsumGenerator.MaxSentenceLength">
+            <summary>
+            Maximum sentence length
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.LoremIpsumGenerator.HTMLFormatting">
+            <summary>
+            Should the sentence use HTML formatting?
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.StringGenerator">
+            <summary>
+            Randomly generates strings
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.StringGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.StringGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.StringGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.StringGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.StringGenerator.NextString(System.Random,System.Int32,System.String,System.Int32)">
+            <summary>
+            Returns a randomly generated string of a specified length, containing
+            only a set of characters, and at max a specified number of non alpha numeric characters.
+            </summary>
+            <param name="Length">Length of the string</param>
+            <param name="AllowedCharacters">Characters allowed in the string</param>
+            <param name="NumberOfNonAlphaNumericsAllowed">Number of non alpha numeric characters allowed.</param>
+            <param name="Rand">Random number generator</param>
+            <returns>A randomly generated string of a specified length, containing only a set of characters, and at max a specified number of non alpha numeric characters.</returns>
+        </member>
+        <member name="T:Utilities.Random.StringGenerators.RegexStringGenerator">
+            <summary>
+            Randomly generates strings based on a Regex
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.RegexStringGenerator.#ctor(System.Int32,System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Length">Length of the string to generate</param>
+            <param name="AllowedCharacters">Characters that are allowed</param>
+            <param name="NumberOfNonAlphaNumericsAllowed">Number of non alphanumeric characters to allow</param>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.RegexStringGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.RegexStringGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.RegexStringGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.RegexStringGenerator.Length">
+            <summary>
+            Length to generate
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.RegexStringGenerator.AllowedCharacters">
+            <summary>
+            Characters allowed
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.RegexStringGenerator.NumberOfNonAlphaNumericsAllowed">
+            <summary>
+            Number of non alpha numeric characters allowed
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.StringGenerators.PatternGenerator">
+            <summary>
+            Randomly generates strings based on a pattern
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.PatternGenerator.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Pattern">
+            Pattern to use:
+            # = Number
+            @ = Alpha character
+            </param>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.PatternGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.PatternGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.StringGenerators.PatternGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.StringGenerators.PatternGenerator.Pattern">
+            <summary>
+            Pattern to use
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.FemaleFirstNameGenerator">
+            <summary>
+            Female first name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleFirstNameGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleFirstNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleFirstNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleFirstNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.FemaleNameGenerator">
+            <summary>
+            Female name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNameGenerator.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Prefix">Should a prefix be generated</param>
+            <param name="MiddleName">Should a middle name be generated</param>
+            <param name="LastName">Should a last name be generated</param>
+            <param name="Suffix">Should a suffix be generated</param>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.FemaleNameGenerator.Prefix">
+            <summary>
+            Should a prefix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.FemaleNameGenerator.MiddleName">
+            <summary>
+            Should a middle name be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.FemaleNameGenerator.Suffix">
+            <summary>
+            Should a suffix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.FemaleNameGenerator.LastName">
+            <summary>
+            Should a last name be generated?
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.FemaleNamePrefixGenerator">
+            <summary>
+            Female name prefix generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNamePrefixGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNamePrefixGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNamePrefixGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.FemaleNamePrefixGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.LastNameGenerator">
+            <summary>
+            Last name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.LastNameGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.LastNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.LastNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.LastNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.MaleNameGenerator">
+            <summary>
+            Male name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNameGenerator.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Prefix">Should a prefix be generated</param>
+            <param name="MiddleName">Should a middle name be generated</param>
+            <param name="LastName">Should a last name be generated</param>
+            <param name="Suffix">Should a suffix be generated</param>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.MaleNameGenerator.Prefix">
+            <summary>
+            Should a prefix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.MaleNameGenerator.MiddleName">
+            <summary>
+            Should a middle name be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.MaleNameGenerator.Suffix">
+            <summary>
+            Should a suffix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.MaleNameGenerator.LastName">
+            <summary>
+            Should a last name be generated?
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.NameGenerator">
+            <summary>
+            Name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameGenerator.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Prefix">Should a prefix be generated</param>
+            <param name="MiddleName">Should a middle name be generated</param>
+            <param name="LastName">Should a last name be generated</param>
+            <param name="Suffix">Should a suffix be generated</param>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.NameGenerator.Prefix">
+            <summary>
+            Should a prefix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.NameGenerator.MiddleName">
+            <summary>
+            Should a middle name be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.NameGenerator.Suffix">
+            <summary>
+            Should a suffix be generated?
+            </summary>
+        </member>
+        <member name="P:Utilities.Random.NameGenerators.NameGenerator.LastName">
+            <summary>
+            Should a last name be generated?
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.MaleFirstNameGenerator">
+            <summary>
+            Male first name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleFirstNameGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleFirstNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleFirstNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleFirstNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.MaleNamePrefixGenerator">
+            <summary>
+            Male name prefix generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNamePrefixGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNamePrefixGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNamePrefixGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.MaleNamePrefixGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.NameSuffixGenerator">
+            <summary>
+            Name suffix generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameSuffixGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameSuffixGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameSuffixGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.NameSuffixGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.PhoneNumberGenerator">
+            <summary>
+            Generates a random phone number
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.PhoneNumberGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.AddressGenerator">
+            <summary>
+            Generates a random address
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.AddressGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.AddressGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.AddressGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.AddressGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.CityGenerator">
+            <summary>
+            Generates a random city
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.CityGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.CityGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.CityGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.CityGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.DomainNameGenerator">
+            <summary>
+            Generates a random domain name
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.DomainNameGenerator.#ctor(System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="CommonEndings">Common endings to domain names should be used (.com,.org,.net,etc.)</param>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.DomainNameGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.DomainNameGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.DomainNameGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.ContactInfoGenerators.DomainNameGenerator.CommonEndings">
+            <summary>
+            Should common domain name endings be used
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator">
+            <summary>
+            Generates a random email address
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator.#ctor(System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="CommonEndings">Common endings to domain names should be used (.com,.org,.net,etc.)</param>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="P:Utilities.Random.ContactInfoGenerators.EmailAddressGenerator.CommonEndings">
+            <summary>
+            Should common domain name endings be used?
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.StateAbbreviationGenerator">
+            <summary>
+            Generates a random state abbreviation
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateAbbreviationGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateAbbreviationGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateAbbreviationGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateAbbreviationGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.StateGenerator">
+            <summary>
+            Generates a random state
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StateGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.StreetAddressGenerator">
+            <summary>
+            Generates a random street address
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StreetAddressGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StreetAddressGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StreetAddressGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.StreetAddressGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.ContactInfoGenerators.ZipCodeGenerator">
+            <summary>
+            Generates a random zip code
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.ContactInfoGenerators.ZipCodeGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="T:Utilities.Random.NameGenerators.CompanyGenerator">
+            <summary>
+            Company name generator
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.CompanyGenerator.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.CompanyGenerator.Next(System.Random)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.CompanyGenerator.Next(System.Random,System.String,System.String)">
+            <summary>
+            Generates a random value of the specified type
+            </summary>
+            <param name="Rand">Random number generator that it can use</param>
+            <param name="Min">Minimum value (inclusive)</param>
+            <param name="Max">Maximum value (inclusive)</param>
+            <returns>A randomly generated object of the specified type</returns>
+        </member>
+        <member name="M:Utilities.Random.NameGenerators.CompanyGenerator.NextObj(System.Random)">
+            <summary>
+            Generates next object
+            </summary>
+            <param name="Rand">Random number generator</param>
+            <returns>The next object</returns>
+        </member>
+        <member name="T:Utilities.Random.DefaultClasses.ClassGenerator`1">
+            <summary>
+            Randomly generates a class
+            </summary>
+            <typeparam name="T">Class type to generate</typeparam>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ClassGenerator`1.Next(System.Random)">
+            <summary>
+            Generates a random version of the class
+            </summary>
+            <param name="Rand">Random generator to use</param>
+            <returns>The randomly generated class</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ClassGenerator`1.Next(System.Random,`0,`0)">
+            <summary>
+            Generates a random version of the class
+            </summary>
+            <param name="Rand">Random generator to use</param>
+            <param name="Min">Min value (not used)</param>
+            <param name="Max">Max value (not used)</param>
+            <returns>The randomly generated class</returns>
+        </member>
+        <member name="M:Utilities.Random.DefaultClasses.ClassGenerator`1.NextObj(System.Random)">
+            <summary>
+            Gets a random version of the class
+            </summary>
+            <param name="Rand">Random generator used</param>
+            <returns>The randonly generated class</returns>
+        </member>
+    </members>
+</doc>
