@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core", "Batman.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Tests", "Batman.Core.Tests\Batman.Core.Tests.csproj", "{0AEEECAB-BDC0-49C8-AAD8-D999E9AF678E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.MVC", "Batman.Core.MVC\Batman.Core.MVC.csproj", "{D149447D-5393-4E74-B873-3E52C6AD1217}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC", "Batman.MVC\Batman.MVC.csproj", "{D149447D-5393-4E74-B873-3E52C6AD1217}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Bootstrapper.TinyIoC", "Batman.Core.Bootstrapper.TinyIoC\Batman.Core.Bootstrapper.TinyIoC.csproj", "{A45865D2-BA36-4832-828B-6C6CD7C09BF4}"
 EndProject
@@ -25,9 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.FileSystem.Loca
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{B1397D76-1B00-4C4A-BBF6-354D0F949C09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.MVC.Assets.WebGrease", "Batman.Core.MVC.Assets.WebGrease\Batman.Core.MVC.Assets.WebGrease.csproj", "{17C41C92-A6F8-4935-B723-BC68DDD66F19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.WebGrease", "Batman.MVC.Assets.WebGrease\Batman.MVC.Assets.WebGrease.csproj", "{17C41C92-A6F8-4935-B723-BC68DDD66F19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.MVC.Assets.Yui", "Batman.Core.MVC.Assets.Yui\Batman.Core.MVC.Assets.Yui.csproj", "{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.Yui", "Batman.MVC.Assets.Yui\Batman.MVC.Assets.Yui.csproj", "{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.Less", "Batman.MVC.Assets.Less\Batman.MVC.Assets.Less.csproj", "{8D08470C-D294-4F75-8405-DAF69B1B897F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +73,10 @@ Global
 		{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,5 +89,6 @@ Global
 		{2BD04D9A-6A49-493E-9F5C-C670B56F7E53} = {E74DF284-6F6A-4361-AF81-A4E44E20D41E}
 		{17C41C92-A6F8-4935-B723-BC68DDD66F19} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
 		{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
+		{8D08470C-D294-4F75-8405-DAF69B1B897F} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
 	EndGlobalSection
 EndGlobal

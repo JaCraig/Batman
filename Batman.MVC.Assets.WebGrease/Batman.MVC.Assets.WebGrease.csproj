@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0AEEECAB-BDC0-49C8-AAD8-D999E9AF678E}</ProjectGuid>
+    <ProjectGuid>{17C41C92-A6F8-4935-B723-BC68DDD66F19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Batman.Core.Tests</RootNamespace>
-    <AssemblyName>Batman.Core.Tests</AssemblyName>
+    <RootNamespace>Batman.MVC.Assets.WebGrease</RootNamespace>
+    <AssemblyName>Batman.MVC.Assets.WebGrease</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,9 +29,11 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,48 +41,23 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.1\lib\net20\xunit.dll</HintPath>
+    <Reference Include="WebGrease">
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatComputerTests.cs" />
-    <Compile Include="Bootstrapper\TinyIoCTest.cs" />
-    <Compile Include="FileSystem\LocalTest.cs" />
+    <Compile Include="Minifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\TaskTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Batman.Core.Bootstrapper.TinyIoC\Batman.Core.Bootstrapper.TinyIoC.csproj">
-      <Project>{A45865D2-BA36-4832-828B-6C6CD7C09BF4}</Project>
-      <Name>Batman.Core.Bootstrapper.TinyIoC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Batman.Core.FileSystem.Local\Batman.Core.FileSystem.Local.csproj">
-      <Project>{2BD04D9A-6A49-493E-9F5C-C670B56F7E53}</Project>
-      <Name>Batman.Core.FileSystem.Local</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Batman.MVC\Batman.MVC.csproj">
-      <Project>{D149447D-5393-4E74-B873-3E52C6AD1217}</Project>
-      <Name>Batman.MVC</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Batman.Core\Batman.Core.csproj">
-      <Project>{BF07F4E5-BFCC-4F09-A225-84689E2C9850}</Project>
-      <Name>Batman.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Batman.MVC\Batman.MVC.csproj">
+      <Project>{D149447D-5393-4E74-B873-3E52C6AD1217}</Project>
+      <Name>Batman.MVC</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
