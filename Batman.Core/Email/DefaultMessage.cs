@@ -20,29 +20,44 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
-using Batman.Core.Email.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Batman.Core.Bootstrapper.Interfaces;
 using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using Batman.Core.Email;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Logging;
+using System.IO;
+using Batman.Core.Tasks;
+using Batman.Core.Tasks.Enums;
+using Batman.Core.FileSystem;
+using System.Net.Mail;
+using Batman.Core.Email.Interfaces;
+using System.Threading;
+using System.Net.Mime;
+using Batman.Core.Email.BaseClasses;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.Email
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Default message class
     /// </summary>
-    public class ManagersModule : IModule
+    public class DefaultMessage : MessageBase
     {
-        public void Load(IBootstrapper Bootstrapper)
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public DefaultMessage(IEnumerable<IFormatter> Formatters, EmailManager Manager)
+            : base(Formatters, Manager)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-            Bootstrapper.Register<EmailManager>(new EmailManager());
         }
+
+        #endregion
     }
 }

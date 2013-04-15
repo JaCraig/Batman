@@ -160,6 +160,7 @@ namespace Batman.MVC.Assets
             Response.Content = Content;
             Response.Files = Files.OrderBy(x => x.FullName);
             Response.ContentType = Assets.First().Type == AssetType.CSS ? "text/css" : "text/javascript";
+            Response.Cacheability = HttpCacheability.ServerAndPrivate;
         }
 
         /// <summary>

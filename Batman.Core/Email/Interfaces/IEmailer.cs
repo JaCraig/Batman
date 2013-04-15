@@ -20,29 +20,50 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
-using Batman.Core.Email.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Batman.Core.Bootstrapper.Interfaces;
 using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using Batman.Core.Email;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Logging;
+using System.IO;
+using Batman.Core.Tasks;
+using Batman.Core.Tasks.Enums;
+using Batman.Core.FileSystem;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.Email.Interfaces
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Emailer interface
     /// </summary>
-    public class ManagersModule : IModule
+    public interface IEmailer
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-            Bootstrapper.Register<EmailManager>(new EmailManager());
-        }
+        #region Functions
+
+        /// <summary>
+        /// Sends an email
+        /// </summary>
+        /// <param name="Messages">The messages to send</param>
+        void SendMail(params IMessage[] Messages);
+
+        /// <summary>
+        /// Sends a piece of mail asynchronous
+        /// </summary>
+        /// <param name="Messages">The messages to send</param>
+        void SendMailAsync(params IMessage[] Messages);
+
+        /// <summary>
+        /// Creates a message object
+        /// </summary>
+        /// <param name="Formatters">Formatters</param>
+        /// <returns>The created message object</returns>
+        IMessage CreateMessage(IEnumerable<IFormatter> Formatters,EmailManager Manager);
+
+        #endregion
     }
 }

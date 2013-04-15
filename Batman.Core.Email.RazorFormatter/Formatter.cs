@@ -20,29 +20,26 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
 using Batman.Core.Email.Interfaces;
-using System;
-using Utilities.Reflection.ExtensionMethods;
-using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using Batman.Core.Email;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Threading;
+using System.Dynamic;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.Core.Email.SMTP
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Razor based formatter
     /// </summary>
-    public class ManagersModule : IModule
+    public class Formatter : IFormatter
     {
-        public void Load(IBootstrapper Bootstrapper)
+        public Formatter() { }
+
+        public IMessage Format<T>(string Template, IMessage Message, T Model)
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-            Bootstrapper.Register<EmailManager>(new EmailManager());
+            Message.Body = RazorEngine.Razor.Parse(Template, Model);
+            return Message;
         }
     }
 }

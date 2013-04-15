@@ -20,29 +20,59 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
-using Batman.Core.Email.Interfaces;
 using System;
-using Utilities.Reflection.ExtensionMethods;
+using Batman.Core.Bootstrapper.Interfaces;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.MVC.Assets.Interfaces;
+using Batman.MVC.Assets.Enums;
+using Batman.Core.FileSystem;
 using Utilities.DataTypes.ExtensionMethods;
 using System.Linq;
+using System.Web.Optimization;
+using System.IO;
+using Batman.MVC.Assets.Utils;
+using Utilities.Reflection.ExtensionMethods;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
+using Utilities.DataTypes;
+using Batman.Core.Tasks.Interfaces;
+using Batman.MVC.Assets;
+using Batman.Core;
 using Batman.Core.Email;
+using Batman.Core.Email.Interfaces;
+using System.Configuration;
 #endregion
 
-namespace Batman.Core.Bootstrapper.Modules
+namespace Batman.MVC.BaseClasses
 {
     /// <summary>
-    /// Module for registering various object/class managers
+    /// Controller base class
     /// </summary>
-    public class ManagersModule : IModule
+    public abstract class ControllerBase:Controller
     {
-        public void Load(IBootstrapper Bootstrapper)
+        #region Constructor
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        protected ControllerBase()
+            : base()
         {
-            Bootstrapper.Register<FileManager>(new FileManager());
-            Bootstrapper.Register<TaskManager>(new TaskManager());
-            Bootstrapper.Register<EmailManager>(new EmailManager());
         }
+
+        #endregion
+
+        #region Functions
+
+        protected IMessage Email<T>(string Template, T Model)
+        {
+            EmailManager Manager=DependencyResolver.Current.GetService<EmailManager>();
+            IMessage Message = Manager.CreateMessage();
+            Message.Format(Template, Model);
+            return Message;
+        }
+
+        #endregion
     }
 }

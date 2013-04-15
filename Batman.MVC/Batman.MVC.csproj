@@ -95,6 +95,7 @@
     <Compile Include="Assets\Interfaces\IFilter.cs" />
     <Compile Include="Assets\Interfaces\ITranslator.cs" />
     <Compile Include="Assets\Utils\FileInfoComparer.cs" />
+    <Compile Include="BaseClasses\ControllerBase.cs" />
     <Compile Include="Bootstrapper\AssetModule.cs" />
     <Compile Include="Bootstrapper\DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

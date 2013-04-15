@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loggers", "Loggers", "{4E3C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FileSystems", "FileSystems", "{E74DF284-6F6A-4361-AF81-A4E44E20D41E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.FileSystem.Local", "Batman.Core.FileSystem.Local\Batman.Core.FileSystem.Local.csproj", "{2BD04D9A-6A49-493E-9F5C-C670B56F7E53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.FileSystem.Default", "Batman.Core.FileSystem.Local\Batman.Core.FileSystem.Default.csproj", "{2BD04D9A-6A49-493E-9F5C-C670B56F7E53}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{B1397D76-1B00-4C4A-BBF6-354D0F949C09}"
 EndProject
@@ -30,6 +30,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.Yui", "Batman.MVC.Assets.Yui\Batman.MVC.Assets.Yui.csproj", "{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.Less", "Batman.MVC.Assets.Less\Batman.MVC.Assets.Less.csproj", "{8D08470C-D294-4F75-8405-DAF69B1B897F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{AF179E4E-7BDE-4D90-908F-F3D42EC40D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Email.SMTP", "Batman.Core.Email.SMTP\Batman.Core.Email.SMTP.csproj", "{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Email.RazorFormatter", "Batman.Core.Email.RazorFormatter\Batman.Core.Email.RazorFormatter.csproj", "{B07A14D4-FEEA-41ED-B6CF-310D9A622480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +83,14 @@ Global
 		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D08470C-D294-4F75-8405-DAF69B1B897F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,5 +104,7 @@ Global
 		{17C41C92-A6F8-4935-B723-BC68DDD66F19} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
 		{D060EF74-B9D3-4FF4-A55C-FDD3CF40DC4C} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
 		{8D08470C-D294-4F75-8405-DAF69B1B897F} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
+		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
+		{B07A14D4-FEEA-41ED-B6CF-310D9A622480} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
 	EndGlobalSection
 EndGlobal

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{BF07F4E5-BFCC-4F09-A225-84689E2C9850}</ProjectGuid>
+    <ProjectGuid>{2BD04D9A-6A49-493E-9F5C-C670B56F7E53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Batman.Core</RootNamespace>
-    <AssemblyName>Batman.Core</AssemblyName>
+    <RootNamespace>Batman.Core.FileSystem.Default</RootNamespace>
+    <AssemblyName>Batman.Core.FileSystem.Default</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -35,48 +35,41 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Utilities.DataTypes">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
-    </Reference>
-    <Reference Include="Utilities.Reflection">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.Reflection.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BatComputer.cs" />
-    <Compile Include="Bootstrapper\BaseClasses\BootstrapperBase.cs" />
-    <Compile Include="Bootstrapper\Interfaces\IBootstrapper.cs" />
-    <Compile Include="Bootstrapper\Interfaces\IModule.cs" />
-    <Compile Include="Bootstrapper\Modules\ManagersModule.cs" />
-    <Compile Include="Email\DefaultMessage.cs" />
-    <Compile Include="Email\EmailManager.cs" />
-    <Compile Include="Email\Interfaces\IEmailer.cs" />
-    <Compile Include="Email\Interfaces\IFormatter.cs" />
-    <Compile Include="Email\Interfaces\IMessage.cs" />
-    <Compile Include="Email\BaseClasses\MessageBase.cs" />
-    <Compile Include="FileSystem\Interfaces\IDirectory.cs" />
-    <Compile Include="FileSystem\Interfaces\IFile.cs" />
-    <Compile Include="FileSystem\Interfaces\IFileSystem.cs" />
-    <Compile Include="FileSystem\FileManager.cs" />
-    <Compile Include="Logging\BaseClasses\LogBase.cs" />
-    <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="AbsoluteLocalFileSystem.cs" />
+    <Compile Include="BaseClasses\LocalFileSystemBase.cs" />
+    <Compile Include="BaseClasses\WebFileSystem.cs" />
+    <Compile Include="Directory.cs" />
+    <Compile Include="File.cs" />
+    <Compile Include="HTTPFileSystem.cs" />
+    <Compile Include="NetworkFileSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\Enums\RunTime.cs" />
-    <Compile Include="Tasks\Interfaces\ITask.cs" />
-    <Compile Include="Tasks\TaskManager.cs" />
+    <Compile Include="RelativeLocalFileSystem.cs" />
+    <Compile Include="WebDirectory.cs" />
+    <Compile Include="WebFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Batman.Core\Batman.Core.csproj">
+      <Project>{BF07F4E5-BFCC-4F09-A225-84689E2C9850}</Project>
+      <Name>Batman.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
