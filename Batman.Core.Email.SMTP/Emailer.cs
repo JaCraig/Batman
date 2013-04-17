@@ -25,14 +25,15 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading;
 using System.Collections.Generic;
+using Batman.Core.Communication.BaseClasses;
 #endregion
 
-namespace Batman.Core.Email.SMTP
+namespace Batman.Core.Communication.SMTP
 {
     /// <summary>
     /// SMTP emailer
     /// </summary>
-    public class Emailer : IEmailer
+    public class Emailer : CommunicatorBase
     {
         public Emailer() { }
 
@@ -109,6 +110,21 @@ namespace Batman.Core.Email.SMTP
         public IMessage CreateMessage(IEnumerable<IFormatter> Formatters, EmailManager Manager)
         {
             return new DefaultMessage(Formatters, Manager);
+        }
+
+        public override string Name
+        {
+            get { throw new System.NotImplementedException(); }
+        }
+
+        public override Interfaces.IMessage CreateMessage()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void InternalSend(Interfaces.IMessage Message)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

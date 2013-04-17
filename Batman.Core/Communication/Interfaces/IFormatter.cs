@@ -34,36 +34,33 @@ using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
+using System.Net.Mail;
+using Batman.Core.FileSystem.Interfaces;
 #endregion
 
-namespace Batman.Core.Email.Interfaces
+namespace Batman.Core.Communication.Interfaces
 {
     /// <summary>
-    /// Emailer interface
+    /// Formatter interface
     /// </summary>
-    public interface IEmailer
+    public interface IFormatter
     {
-        #region Functions
+        /// <summary>
+        /// Formats the message
+        /// </summary>
+        /// <param name="Template">Template to use</param>
+        /// <param name="Message">Message to format</param>
+        /// <param name="Model">Model object used to format the message</param>
+        /// <returns>The formatted message</returns>
+        IMessage Format<T>(IMessage Message, string Template, T Model);
 
         /// <summary>
-        /// Sends an email
+        /// Formats the message
         /// </summary>
-        /// <param name="Messages">The messages to send</param>
-        void SendMail(params IMessage[] Messages);
-
-        /// <summary>
-        /// Sends a piece of mail asynchronous
-        /// </summary>
-        /// <param name="Messages">The messages to send</param>
-        void SendMailAsync(params IMessage[] Messages);
-
-        /// <summary>
-        /// Creates a message object
-        /// </summary>
-        /// <param name="Formatters">Formatters</param>
-        /// <returns>The created message object</returns>
-        IMessage CreateMessage(IEnumerable<IFormatter> Formatters,EmailManager Manager);
-
-        #endregion
+        /// <param name="Template">Template to use</param>
+        /// <param name="Message">Message to format</param>
+        /// <param name="Model">Model object used to format the message</param>
+        /// <returns>The formatted message</returns>
+        IMessage Format<T>(IMessage Message, IFile Template, T Model);
     }
 }

@@ -33,9 +33,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Assets.Less", "B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Email", "Email", "{AF179E4E-7BDE-4D90-908F-F3D42EC40D93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Email.SMTP", "Batman.Core.Email.SMTP\Batman.Core.Email.SMTP.csproj", "{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Communication.SMTP", "Batman.Core.Email.SMTP\Batman.Core.Communication.SMTP.csproj", "{D0FBD592-DDE1-45B3-98FB-AB7735AE7214}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Email.RazorFormatter", "Batman.Core.Email.RazorFormatter\Batman.Core.Email.RazorFormatter.csproj", "{B07A14D4-FEEA-41ED-B6CF-310D9A622480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Communication.RazorFormatter", "Batman.Core.Email.RazorFormatter\Batman.Core.Communication.RazorFormatter.csproj", "{B07A14D4-FEEA-41ED-B6CF-310D9A622480}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

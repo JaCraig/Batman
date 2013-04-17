@@ -25,41 +25,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
-using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
 using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
-using System.Net.Mail;
-using Batman.Core.Email.Interfaces;
+using Batman.Core.Communication.Interfaces;
+using Batman.Core.FileSystem.Interfaces;
 using System.Threading;
-using System.Net.Mime;
+using Batman.Core.Communication.BaseClasses;
+using System.Net.Mail;
 #endregion
 
-namespace Batman.Core.Email.BaseClasses
+namespace Batman.Core.Communication
 {
     /// <summary>
-    /// Email message base class
+    /// Email message class
     /// </summary>
-    public abstract class MessageBase : IMessage
+    public abstract class EmailMessage : MessageBase, IEmailMessage
     {
-        #region Constructors
+        #region Constructor
 
         /// <summary>
-        /// Default Constructor
+        /// Constructor
         /// </summary>
-        /// <param name="Formatters">Formatters</param>
-        protected MessageBase(IEnumerable<IFormatter> Formatters,EmailManager Manager)
+        /// <param name="Communicator">Communicator used to create the message</param>
+        public EmailMessage(ICommunicator Communicator)
+            : base(Communicator)
         {
             Attachments = new List<Attachment>();
             EmbeddedResources = new List<LinkedResource>();
             Priority = MailPriority.Normal;
-            this.Formatters = Formatters;
-            this.Manager = Manager;
         }
 
         #endregion
@@ -67,119 +64,58 @@ namespace Batman.Core.Email.BaseClasses
         #region Properties
 
         /// <summary>
-        /// Any attachments that are included with this
-        /// message.
+        /// Attachments
         /// </summary>
         public ICollection<Attachment> Attachments { get; private set; }
 
         /// <summary>
-        /// Formatters
-        /// </summary>
-        public IEnumerable<IFormatter> Formatters { get; private set; }
-
-        /// <summary>
-        /// Any attachment (usually images) that need to be embedded in the message
+        /// Embedded resource
         /// </summary>
         public ICollection<LinkedResource> EmbeddedResources { get; private set; }
 
         /// <summary>
-        /// The priority of this message
+        /// Priority
         /// </summary>
         public MailPriority Priority { get; set; }
 
         /// <summary>
-        /// Email manager
-        /// </summary>
-        protected EmailManager Manager { get; private set; }
-
-        /// <summary>
-        /// Server Location
+        /// Server
         /// </summary>
         public string Server { get; set; }
 
         /// <summary>
-        /// User Name for the server
+        /// User name for the user
         /// </summary>
         public string UserName { get; set; }
 
         /// <summary>
-        /// Password for the server
+        /// Password for the user
         /// </summary>
         public string Password { get; set; }
 
         /// <summary>
-        /// Port to send the information on
+        /// Port to use
         /// </summary>
         public int Port { get; set; }
 
         /// <summary>
-        /// Decides whether we are using STARTTLS (SSL) or not
+        /// Use SSL?
         /// </summary>
         public bool UseSSL { get; set; }
 
         /// <summary>
-        /// Carbon copy send (seperate email addresses with a comma)
+        /// CC
         /// </summary>
         public string CC { get; set; }
 
         /// <summary>
-        /// Blind carbon copy send (seperate email addresses with a comma)
+        /// BCC
         /// </summary>
         public string Bcc { get; set; }
-
-        /// <summary>
-        /// Whom the message is to
-        /// </summary>
-        public string To { get; set; }
-
-        /// <summary>
-        /// The subject of the email
-        /// </summary>
-        public string Subject { get; set; }
-
-        /// <summary>
-        /// Whom the message is from
-        /// </summary>
-        public string From { get; set; }
-
-        /// <summary>
-        /// Body of the text
-        /// </summary>
-        public string Body { get; set; }
 
         #endregion
 
         #region Functions
-
-        /// <summary>
-        /// Formats the message
-        /// </summary>
-        /// <typeparam name="T">Model type</typeparam>
-        /// <param name="Template">Template string</param>
-        /// <param name="Model">Model object</param>
-        public void Format<T>(string Template, T Model)
-        {
-            foreach (IFormatter Formatter in Formatters)
-            {
-                Formatter.Format(Template, this, Model);
-            }
-        }
-
-        /// <summary>
-        /// Sends the message
-        /// </summary>
-        public void Send()
-        {
-            Manager.SendMail(this);
-        }
-
-        /// <summary>
-        /// Sends the message asynchronously
-        /// </summary>
-        public void SendAsync()
-        {
-            Manager.SendMailAsync(this);
-        }
 
         /// <summary>
         /// Disposes the object
@@ -198,12 +134,18 @@ namespace Batman.Core.Email.BaseClasses
         {
             if (Attachments != null)
             {
-                Attachments.ForEach(x => x.Dispose());
+                foreach (Attachment Attachment in Attachments)
+                {
+                    Attachment.Dispose();
+                }
                 Attachments = null;
             }
             if (EmbeddedResources != null)
             {
-                EmbeddedResources.ForEach(x => x.Dispose());
+                foreach (LinkedResource Resource in EmbeddedResources)
+                {
+                    Resource.Dispose();
+                }
                 EmbeddedResources = null;
             }
         }
@@ -211,7 +153,7 @@ namespace Batman.Core.Email.BaseClasses
         /// <summary>
         /// Destructor
         /// </summary>
-        ~MessageBase()
+        ~EmailMessage()
         {
             Dispose(false);
         }

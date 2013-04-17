@@ -23,12 +23,11 @@ THE SOFTWARE.*/
 using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
 using Batman.Core.Tasks;
-using Batman.Core.Email.Interfaces;
 using System;
 using Utilities.Reflection.ExtensionMethods;
 using Utilities.DataTypes.ExtensionMethods;
 using System.Linq;
-using Batman.Core.Email;
+using Batman.Core.Communication;
 #endregion
 
 namespace Batman.Core.Bootstrapper.Modules
@@ -42,7 +41,7 @@ namespace Batman.Core.Bootstrapper.Modules
         {
             Bootstrapper.Register<FileManager>(new FileManager());
             Bootstrapper.Register<TaskManager>(new TaskManager());
-            Bootstrapper.Register<EmailManager>(new EmailManager());
+            Bootstrapper.Register<CommunicationManager>(new CommunicationManager());
         }
     }
 }

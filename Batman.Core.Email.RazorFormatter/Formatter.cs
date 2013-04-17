@@ -27,7 +27,7 @@ using System.Threading;
 using System.Dynamic;
 #endregion
 
-namespace Batman.Core.Email.SMTP
+namespace Batman.Core.Communication.SMTP
 {
     /// <summary>
     /// Razor based formatter

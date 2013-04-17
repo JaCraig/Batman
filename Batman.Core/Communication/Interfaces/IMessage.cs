@@ -35,74 +35,77 @@ using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
 using System.Net.Mail;
-using Batman.Core.Email.Interfaces;
-using System.Threading;
-using System.Net.Mime;
-using Batman.Core.Email.BaseClasses;
+using Batman.Core.FileSystem.Interfaces;
 #endregion
 
-namespace Batman.Core.Email
+namespace Batman.Core.Communication.Interfaces
 {
     /// <summary>
-    /// Email manager
+    /// Message interface
     /// </summary>
-    public class EmailManager
+    public interface IMessage
     {
-        #region Constructor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public EmailManager()
-        {
-            Emailer = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IEmailer>().FirstOrDefault();
-            Formatters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IFormatter>();
-        }
-
-        #endregion
-
         #region Properties
 
         /// <summary>
-        /// Emailer
+        /// Whom the message is to
         /// </summary>
-        public IEmailer Emailer { get; private set; }
+        string To { get; set; }
 
         /// <summary>
-        /// Formatters
+        /// The subject of the Communicator
         /// </summary>
-        public IEnumerable<IFormatter> Formatters { get; private set; }
+        string Subject { get; set; }
+
+        /// <summary>
+        /// Whom the message is from
+        /// </summary>
+        string From { get; set; }
+
+        /// <summary>
+        /// Body of the text
+        /// </summary>
+        string Body { get; set; }
 
         #endregion
 
         #region Functions
 
         /// <summary>
-        /// Creates a message object
+        /// Sends a message
         /// </summary>
-        /// <returns>The message object</returns>
-        public IMessage CreateMessage()
-        {
-            return Emailer.CreateMessage(Formatters, this);
-        }
+        /// <typeparam name="T">Model type</typeparam>
+        /// <param name="Template">Template text to use</param>
+        /// <param name="Model">Model object</param>
+        /// <returns>this</returns>
+        IMessage Send<T>(string Template, T Model);
 
         /// <summary>
-        /// Sends an email
+        /// Sends a message asynchronously
         /// </summary>
-        /// <param name="Messages">The messages to send</param>
-        public void SendMail(params IMessage[] Messages)
-        {
-            Emailer.SendMail(Messages);
-        }
+        /// <typeparam name="T">Model type</typeparam>
+        /// <param name="Template">Template text to use</param>
+        /// <param name="Model">Model object</param>
+        /// <returns>this</returns>
+        IMessage SendAsync<T>(string Template, T Model);
 
         /// <summary>
-        /// Sends a piece of mail asynchronous
+        /// Sends a message
         /// </summary>
-        /// <param name="Messages">The messages to send</param>
-        public void SendMailAsync(params IMessage[] Messages)
-        {
-            Emailer.SendMailAsync(Messages);
-        }
+        /// <typeparam name="T">Model type</typeparam>
+        /// <param name="Template">Template text to use</param>
+        /// <param name="Model">Model object</param>
+        /// <returns>this</returns>
+        IMessage Send<T>(IFile Template, T Model);
+
+        /// <summary>
+        /// Sends a message asynchronously
+        /// </summary>
+        /// <typeparam name="T">Model type</typeparam>
+        /// <param name="Template">Template text to use</param>
+        /// <param name="Model">Model object</param>
+        /// <returns>this</returns>
+        IMessage SendAsync<T>(IFile Template, T Model);
 
         #endregion
     }

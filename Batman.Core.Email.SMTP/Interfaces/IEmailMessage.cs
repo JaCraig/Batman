@@ -35,28 +35,67 @@ using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
 using System.Net.Mail;
-using Batman.Core.Email.Interfaces;
-using System.Threading;
-using System.Net.Mime;
-using Batman.Core.Email.BaseClasses;
 #endregion
 
-namespace Batman.Core.Email
+namespace Batman.Core.Communication.Interfaces
 {
     /// <summary>
-    /// Default message class
+    /// Email message interface
     /// </summary>
-    public class DefaultMessage : MessageBase
+    public interface IEmailMessage : IMessage, IDisposable
     {
-        #region Constructor
+        #region Properties
 
         /// <summary>
-        /// Constructor
+        /// Any attachments that are included with this
+        /// message.
         /// </summary>
-        public DefaultMessage(IEnumerable<IFormatter> Formatters, EmailManager Manager)
-            : base(Formatters, Manager)
-        {
-        }
+        ICollection<Attachment> Attachments { get; }
+
+        /// <summary>
+        /// Any attachment (usually images) that need to be embedded in the message
+        /// </summary>
+        ICollection<LinkedResource> EmbeddedResources { get; }
+
+        /// <summary>
+        /// The priority of this message
+        /// </summary>
+        MailPriority Priority { get; set; }
+
+        /// <summary>
+        /// Server Location
+        /// </summary>
+        string Server { get; set; }
+
+        /// <summary>
+        /// User Name for the server
+        /// </summary>
+        string UserName { get; set; }
+
+        /// <summary>
+        /// Password for the server
+        /// </summary>
+        string Password { get; set; }
+
+        /// <summary>
+        /// Port to send the information on
+        /// </summary>
+        int Port { get; set; }
+
+        /// <summary>
+        /// Decides whether we are using STARTTLS (SSL) or not
+        /// </summary>
+        bool UseSSL { get; set; }
+
+        /// <summary>
+        /// Carbon copy send (seperate email addresses with a comma)
+        /// </summary>
+        string CC { get; set; }
+
+        /// <summary>
+        /// Blind carbon copy send (seperate email addresses with a comma)
+        /// </summary>
+        string Bcc { get; set; }
 
         #endregion
     }

@@ -35,22 +35,52 @@ using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
 using System.Net.Mail;
+using System.Threading;
+using System.Net.Mime;
+using Batman.Core.Communication.Interfaces;
+using Batman.Core.Communication.BaseClasses;
 #endregion
 
-namespace Batman.Core.Email.Interfaces
+namespace Batman.Core.Communication
 {
     /// <summary>
-    /// Formatter interface
+    /// Communication manager (Email, SMS, Twitter, etc.)
     /// </summary>
-    public interface IFormatter
+    public class CommunicationManager
     {
+        #region Constructor
+
         /// <summary>
-        /// Formats the message
+        /// Constructor
         /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(string Template, IMessage Message, T Model);
+        public CommunicationManager()
+        {
+            Formatters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IFormatter>();
+            Communicators = new Dictionary<string, ICommunicator>();
+            AppDomain.CurrentDomain.GetAssemblies().GetObjects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.Name, x); });
+        }
+
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Communicators
+        /// </summary>
+        public IDictionary<string, ICommunicator> Communicators { get; private set; }
+
+        /// <summary>
+        /// Formatters
+        /// </summary>
+        public IEnumerable<IFormatter> Formatters { get; private set; }
+
+        /// <summary>
+        /// Gets the communicator by its name
+        /// </summary>
+        /// <param name="Name">Name of the communicator requested</param>
+        /// <returns>The communicator based on its name</returns>
+        public ICommunicator this[string Name] { get { return Communicators[Name]; } }
+
+        #endregion
     }
 }
