@@ -20,11 +20,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Email.Interfaces;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Threading;
 using System.Dynamic;
+using Batman.Core.Communication.Interfaces;
+using RazorEngine.Templating;
 #endregion
 
 namespace Batman.Core.Communication.SMTP
@@ -36,10 +37,17 @@ namespace Batman.Core.Communication.SMTP
     {
         public Formatter() { }
 
-        public IMessage Format<T>(string Template, IMessage Message, T Model)
+        public IMessage Format<T>(IMessage Message, string Template, T Model)
         {
+            ITemplate TemplateObject = RazorEngine.Razor.GetTemplate<T>(Template, Model, Template);
+            TemplateObject.
             Message.Body = RazorEngine.Razor.Parse(Template, Model);
             return Message;
+        }
+
+        public IMessage Format<T>(IMessage Message, FileSystem.Interfaces.IFile Template, T Model)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

@@ -43,7 +43,7 @@ namespace Batman.Core.Communication
     /// <summary>
     /// Email message class
     /// </summary>
-    public abstract class EmailMessage : MessageBase, IEmailMessage
+    public class EmailMessage : MessageBase, IEmailMessage
     {
         #region Constructor
 
