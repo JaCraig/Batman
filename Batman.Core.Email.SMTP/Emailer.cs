@@ -25,6 +25,7 @@ using System.Net.Mime;
 using System.Threading;
 using System.Collections.Generic;
 using Batman.Core.Communication.BaseClasses;
+using System;
 #endregion
 
 namespace Batman.Core.Communication.SMTP
@@ -36,7 +37,7 @@ namespace Batman.Core.Communication.SMTP
     {
         public Emailer() { }
 
-        public override string Name { get { return "SMTP"; } }
+        public override Type MessageType { get { return typeof(EmailMessage); } }
 
         public override Interfaces.IMessage CreateMessage()
         {
@@ -46,6 +47,10 @@ namespace Batman.Core.Communication.SMTP
         protected override void InternalSend(Interfaces.IMessage Message2)
         {
             EmailMessage Message = Message2 as EmailMessage;
+            if (Message == null)
+                return;
+            if (!string.IsNullOrEmpty(Message.Body))
+                Message.Body = " ";
             using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
             {
                 char[] Splitter = { ',', ';' };

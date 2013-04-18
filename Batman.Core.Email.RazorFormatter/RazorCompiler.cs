@@ -20,33 +20,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using System.Net.Mail;
-using System.Net.Mime;
-using System.Threading;
-using System.Dynamic;
-using Batman.Core.Communication.Interfaces;
-using RazorEngine.Templating;
+using System;
+using Batman.Core.Bootstrapper.Interfaces;
+using System.Collections.Generic;
 using Batman.Core.FileSystem;
+using System.Linq;
+using System.IO;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
+using Batman.Core.Tasks.Interfaces;
+using Batman.Core;
+using System.Dynamic;
 #endregion
 
-namespace Batman.Core.Communication.SMTP
+namespace Batman.Core.Communication.RazorFormatter
 {
     /// <summary>
-    /// Razor based formatter
+    /// Razor compiler task
     /// </summary>
-    public class Formatter : IFormatter
+    public class RazorCompiler : ITask
     {
-        public Formatter() { }
-
-        public IMessage Format<T>(IMessage Message, string Template, T Model)
+        public Core.Tasks.Enums.RunTime TimeToRun
         {
-            return Format(Message, BatComputer.Bootstrapper.Resolve<FileManager>().File("~/Templates/" + Template + ".cshtml"), Model);
+            get { return Batman.Core.Tasks.Enums.RunTime.PostStart; }
         }
 
-        public IMessage Format<T>(IMessage Message, FileSystem.Interfaces.IFile Template, T Model)
+        public string Name
         {
-            Message.Body = RazorEngine.Razor.Run<dynamic>(Template.FullName, Model);
-            return Message;
+            get { return "Razor template compiler"; }
+        }
+
+        public void Run()
+        {
+            IDirectory Directory = BatComputer.Bootstrapper.Resolve<FileManager>().Directory("~/Templates/");
+            foreach (IFile File in Directory.EnumerateFiles(new string[] { "*.cshtml" }, SearchOption.AllDirectories))
+            {
+                RazorEngine.Razor.Compile<DynamicObject>(File.Read(), File.FullName);
+            }
         }
     }
 }

@@ -47,9 +47,9 @@ namespace Batman.Core.Communication.Interfaces
         #region Properties
 
         /// <summary>
-        /// Name of the communicator
+        /// Message type used by the communicator
         /// </summary>
-        string Name { get; }
+        Type MessageType { get; }
 
         #endregion
 

@@ -56,8 +56,8 @@ namespace Batman.Core.Communication
         public CommunicationManager()
         {
             Formatters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IFormatter>();
-            Communicators = new Dictionary<string, ICommunicator>();
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.Name, x); });
+            Communicators = new Dictionary<Type, ICommunicator>();
+            AppDomain.CurrentDomain.GetAssemblies().GetObjects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.MessageType, x); });
         }
 
         #endregion
@@ -67,7 +67,7 @@ namespace Batman.Core.Communication
         /// <summary>
         /// Communicators
         /// </summary>
-        public IDictionary<string, ICommunicator> Communicators { get; private set; }
+        public IDictionary<Type, ICommunicator> Communicators { get; private set; }
 
         /// <summary>
         /// Formatters
@@ -75,11 +75,11 @@ namespace Batman.Core.Communication
         public IEnumerable<IFormatter> Formatters { get; private set; }
 
         /// <summary>
-        /// Gets the communicator by its name
+        /// Gets the communicator by its message type
         /// </summary>
-        /// <param name="Name">Name of the communicator requested</param>
-        /// <returns>The communicator based on its name</returns>
-        public ICommunicator this[string Name] { get { return Communicators[Name]; } }
+        /// <param name="MessageType">Message type</param>
+        /// <returns>The communicator based on its message type</returns>
+        public ICommunicator this[Type MessageType] { get { return Communicators[MessageType]; } }
 
         #endregion
     }

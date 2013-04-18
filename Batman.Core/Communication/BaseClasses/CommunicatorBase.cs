@@ -60,9 +60,9 @@ namespace Batman.Core.Communication.BaseClasses
         #region Properties
 
         /// <summary>
-        /// Name of the communicator
+        /// Message type used by the communicator
         /// </summary>
-        public abstract string Name { get; }
+        public abstract Type MessageType { get; }
 
         /// <summary>
         /// Formatters

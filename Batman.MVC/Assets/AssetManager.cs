@@ -168,7 +168,8 @@ namespace Batman.MVC.Assets
         /// </summary>
         public void CreateBundles()
         {
-            CreateBundles(FileManager.Directory("~/"));
+            CreateBundles(FileManager.Directory("~/Scripts"));
+            CreateBundles(FileManager.Directory("~/Content"));
         }
 
         /// <summary>

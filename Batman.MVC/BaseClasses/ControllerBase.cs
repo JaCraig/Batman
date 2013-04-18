@@ -39,9 +39,9 @@ using Utilities.DataTypes;
 using Batman.Core.Tasks.Interfaces;
 using Batman.MVC.Assets;
 using Batman.Core;
-using Batman.Core.Email;
-using Batman.Core.Email.Interfaces;
 using System.Configuration;
+using Batman.Core.Communication;
+using Batman.Core.Communication.Interfaces;
 #endregion
 
 namespace Batman.MVC.BaseClasses
@@ -49,7 +49,7 @@ namespace Batman.MVC.BaseClasses
     /// <summary>
     /// Controller base class
     /// </summary>
-    public abstract class ControllerBase:Controller
+    public abstract class ControllerBase : Controller
     {
         #region Constructor
 
@@ -65,12 +65,15 @@ namespace Batman.MVC.BaseClasses
 
         #region Functions
 
-        protected IMessage Email<T>(string Template, T Model)
+        /// <summary>
+        /// Creates a message object
+        /// </summary>
+        /// <typeparam name="T">Message type</typeparam>
+        /// <returns>The created message object</returns>
+        protected T CreateMessage<T>()
+            where T : class,IMessage
         {
-            EmailManager Manager=DependencyResolver.Current.GetService<EmailManager>();
-            IMessage Message = Manager.CreateMessage();
-            Message.Format(Template, Model);
-            return Message;
+            return DependencyResolver.Current.GetService<CommunicationManager>()[typeof(T)].CreateMessage() as T;
         }
 
         #endregion
