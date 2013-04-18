@@ -76,6 +76,26 @@ namespace Batman.MVC.BaseClasses
             return DependencyResolver.Current.GetService<CommunicationManager>()[typeof(T)].CreateMessage() as T;
         }
 
+        /// <summary>
+        /// Gets a file based on the path entered
+        /// </summary>
+        /// <param name="Path">Path to the file</param>
+        /// <returns>The file pointed to by the path</returns>
+        protected IFile FileInfo(string Path)
+        {
+            return DependencyResolver.Current.GetService<FileManager>().File(Path);
+        }
+
+        /// <summary>
+        /// Gets a directory based on the path entered
+        /// </summary>
+        /// <param name="Path">Path to the directory</param>
+        /// <returns>The directory pointed to by the path</returns>
+        protected IDirectory DirectoryInfo(string Path)
+        {
+            return DependencyResolver.Current.GetService<FileManager>().Directory(Path);
+        }
+
         #endregion
     }
 }

@@ -55,7 +55,7 @@ namespace Batman.Core.Communication.RazorFormatter
             IDirectory Directory = BatComputer.Bootstrapper.Resolve<FileManager>().Directory("~/Templates/");
             foreach (IFile File in Directory.EnumerateFiles(new string[] { "*.cshtml" }, SearchOption.AllDirectories))
             {
-                RazorEngine.Razor.Compile<DynamicObject>(File.Read(), File.FullName);
+                RazorEngine.Razor.Compile(File.Read(), File.FullName);
             }
         }
     }

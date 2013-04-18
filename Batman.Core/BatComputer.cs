@@ -34,6 +34,7 @@ using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
+using Batman.Core.Communication;
 #endregion
 
 namespace Batman.Core
@@ -67,6 +68,7 @@ namespace Batman.Core
             Logger.LogMessage("Batman starting", MessageType.Info);
             Logger.LogMessage("Current bootstrapper: {0}", MessageType.Debug, Bootstrapper.Name);
             Logger.LogMessage("Current file systems detected: {0}", MessageType.Debug, Bootstrapper.Resolve<FileManager>().ToString());
+            Logger.LogMessage("Communication systems detected: {0}", MessageType.Debug, Bootstrapper.Resolve<CommunicationManager>().ToString());
             Logger.LogMessage("Starting pre start tasks", MessageType.Info);
             Bootstrapper.Resolve<TaskManager>().Run(RunTime.PreStart);
         }

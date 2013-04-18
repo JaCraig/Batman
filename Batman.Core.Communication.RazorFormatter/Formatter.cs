@@ -27,6 +27,8 @@ using System.Dynamic;
 using Batman.Core.Communication.Interfaces;
 using RazorEngine.Templating;
 using Batman.Core.FileSystem;
+using System.Linq;
+using System.IO;
 #endregion
 
 namespace Batman.Core.Communication.SMTP
@@ -40,12 +42,17 @@ namespace Batman.Core.Communication.SMTP
 
         public IMessage Format<T>(IMessage Message, string Template, T Model)
         {
-            return Format(Message, BatComputer.Bootstrapper.Resolve<FileManager>().File("~/Templates/" + Template + ".cshtml"), Model);
+            return Format(Message,
+                          BatComputer.Bootstrapper.Resolve<FileManager>()
+                                                  .Directory("~/Templates/")
+                                                  .EnumerateFiles(new string[] { Template + ".cshtml" }, SearchOption.AllDirectories)
+                                                  .FirstOrDefault(),
+                          Model);
         }
 
         public IMessage Format<T>(IMessage Message, FileSystem.Interfaces.IFile Template, T Model)
         {
-            Message.Body = RazorEngine.Razor.Run<dynamic>(Template.FullName, Model);
+            Message.Body = RazorEngine.Razor.Run(Template.FullName, Model);
             return Message;
         }
     }

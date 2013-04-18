@@ -49,7 +49,7 @@ namespace Batman.Core.Communication.SMTP
             EmailMessage Message = Message2 as EmailMessage;
             if (Message == null)
                 return;
-            if (!string.IsNullOrEmpty(Message.Body))
+            if (string.IsNullOrEmpty(Message.Body))
                 Message.Body = " ";
             using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
             {
@@ -79,7 +79,8 @@ namespace Batman.Core.Communication.SMTP
                     }
                 }
                 message.Subject = Message.Subject;
-                message.From = new System.Net.Mail.MailAddress(Message.From);
+                if (!string.IsNullOrEmpty(Message.From))
+                    message.From = new System.Net.Mail.MailAddress(Message.From);
                 using (AlternateView BodyView = AlternateView.CreateAlternateViewFromString(Message.Body, null, MediaTypeNames.Text.Html))
                 {
                     foreach (LinkedResource Resource in Message.EmbeddedResources)
@@ -95,19 +96,31 @@ namespace Batman.Core.Communication.SMTP
                     {
                         message.Attachments.Add(TempAttachment);
                     }
-                    using (System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient(Message.Server, Message.Port))
+                    if (!string.IsNullOrEmpty(Message.Server))
                     {
-                        if (!string.IsNullOrEmpty(Message.UserName) && !string.IsNullOrEmpty(Message.Password))
-                        {
-                            smtp.Credentials = new System.Net.NetworkCredential(Message.UserName, Message.Password);
-                        }
-                        if (Message.UseSSL)
-                            smtp.EnableSsl = true;
-                        else
-                            smtp.EnableSsl = false;
-                        smtp.Send(message);
+                        SendMessage(new System.Net.Mail.SmtpClient(Message.Server, Message.Port), Message, message);
+                    }
+                    else
+                    {
+                        SendMessage(new SmtpClient(), Message, message);
                     }
                 }
+            }
+        }
+
+        private void SendMessage(SmtpClient smtpClient, EmailMessage Message, MailMessage message)
+        {
+            using (System.Net.Mail.SmtpClient smtp = smtpClient)
+            {
+                if (!string.IsNullOrEmpty(Message.UserName) && !string.IsNullOrEmpty(Message.Password))
+                {
+                    smtp.Credentials = new System.Net.NetworkCredential(Message.UserName, Message.Password);
+                }
+                if (Message.UseSSL)
+                    smtp.EnableSsl = true;
+                else
+                    smtp.EnableSsl = false;
+                smtp.Send(message);
             }
         }
     }

@@ -82,5 +82,18 @@ namespace Batman.Core.Communication
         public ICommunicator this[Type MessageType] { get { return Communicators[MessageType]; } }
 
         #endregion
+
+        #region Functions
+
+        public override string ToString()
+        {
+            return new StringBuilder()
+                        .AppendLine()
+                        .AppendLineFormat("Formatters: {0}", Formatters.ToString(x => x.ToString()))
+                        .AppendFormat("Communicators: {0}", Communicators.ToString(x => x.Value.ToString()))
+                        .ToString();
+        }
+
+        #endregion
     }
 }

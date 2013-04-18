@@ -11,6 +11,10 @@ namespace Batman.Core
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using Batman.Core.Logging.BaseClasses;
+    using Batman.Core.Logging;
+    using Utilities.IO.Logging.Enums;
+    using Batman.MVC.Assets;
 
     #endregion
 
@@ -22,6 +26,8 @@ namespace Batman.Core
         public static void PreStart()
         {
             BatComputer.PreStart();
+            LogBase Logger = BatComputer.Bootstrapper.Resolve<LogBase>(new NullLogger());
+            Logger.LogMessage("Current asset helpers: {0}", MessageType.Debug, BatComputer.Bootstrapper.Resolve<AssetManager>().ToString());
             DependencyResolver.SetResolver(new Bootstrapper.DependencyResolver(BatComputer.Bootstrapper));
         }
 

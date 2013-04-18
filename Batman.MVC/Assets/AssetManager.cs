@@ -38,6 +38,7 @@ using System.Web;
 using Utilities.DataTypes;
 using Batman.MVC.Assets.Transformers;
 using Batman.Core;
+using System.Text;
 #endregion
 
 namespace Batman.MVC.Assets
@@ -199,6 +200,15 @@ namespace Batman.MVC.Assets
             {
                 CreateBundles(SubDirectory);
             }
+        }
+
+        public override string ToString()
+        {
+            return new StringBuilder().AppendLine()
+                                      .AppendLineFormat("Filters: {0}", Filters.ToString(x => x.ToString()))
+                                      .AppendLineFormat("Translators: {0}", Translators.ToString(x => x.ToString()))
+                                      .AppendFormat("Content Filters: {0}", ContentFilters.ToString(x => x.ToString()))
+                                      .ToString();
         }
 
         #endregion
