@@ -35,6 +35,11 @@ namespace Batman.MVC.Assets.Interfaces
     public interface IFilter
     {
         /// <summary>
+        /// Name of the filter
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// When this filter should be run
         /// </summary>
         RunTime TimeToRun { get; }

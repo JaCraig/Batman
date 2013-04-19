@@ -89,8 +89,8 @@ namespace Batman.Core.Communication
         {
             return new StringBuilder()
                         .AppendLine()
-                        .AppendLineFormat("Formatters: {0}", Formatters.ToString(x => x.ToString()))
-                        .AppendFormat("Communicators: {0}", Communicators.ToString(x => x.Value.ToString()))
+                        .AppendLineFormat("Formatters: {0}", Formatters.ToString(x => x.Name))
+                        .AppendFormat("Communicators: {0}", Communicators.ToString(x => x.Value.Name))
                         .ToString();
         }
 

@@ -34,38 +34,67 @@ using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
-using System.Net.Mail;
-using Batman.Core.FileSystem.Interfaces;
+using Batman.Core.Communication;
+using Batman.Core.Profiling.Interfaces;
 #endregion
 
-namespace Batman.Core.Communication.Interfaces
+namespace Batman.Core.Profiling.BaseClasses
 {
-    /// <summary>
-    /// Formatter interface
-    /// </summary>
-    public interface IFormatter
+    public abstract class ProfilerBase : IProfiler
     {
         /// <summary>
-        /// Name of the formatter
+        /// Constructor
         /// </summary>
-        string Name { get; }
+        protected ProfilerBase()
+        {
+        }
 
         /// <summary>
-        /// Formats the message
+        /// Creates a new profiler that is a sub section of the current profiler
         /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, string Template, T Model);
+        /// <param name="Name">Name associated with the step</param>
+        /// <returns>A new profiler</returns>
+        public abstract IProfiler Step(string Name="");
 
         /// <summary>
-        /// Formats the message
+        /// Starts the profiler
         /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, IFile Template, T Model);
+        /// <returns>this</returns>
+        public abstract IProfiler Start();
+
+        /// <summary>
+        /// Stops the profiler
+        /// </summary>
+        /// <param name="DiscardResults">Should the results be discarded?</param>
+        /// <returns>this</returns>
+        public abstract IProfiler Stop(bool DiscardResults);
+
+        /// <summary>
+        /// Name of the profiler
+        /// </summary>
+        public abstract string Name { get; }
+
+        /// <summary>
+        /// Disposes of the object
+        /// </summary>
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        /// <summary>
+        /// Disposes of the object
+        /// </summary>
+        /// <param name="Managed">Determines if all objects should be disposed or just managed objects</param>
+        public abstract void Dispose(bool Managed);
+
+        /// <summary>
+        /// Destructor
+        /// </summary>
+        ~ProfilerBase()
+        {
+            Dispose(false);
+        }
     }
 }

@@ -40,6 +40,11 @@ namespace Batman.MVC.Assets.Filters
     public class RemoveUselessFiles : IFilter
     {
         /// <summary>
+        /// Filter name
+        /// </summary>
+        public string Name { get { return "Useless file removal"; } }
+
+        /// <summary>
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PreTranslate; } }

@@ -44,6 +44,11 @@ namespace Batman.MVC.Assets.Filters
     public class JSSetupImports : IFilter
     {
         /// <summary>
+        /// Filter name
+        /// </summary>
+        public string Name { get { return "JS reference fix"; } }
+
+        /// <summary>
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PostTranslate; } }

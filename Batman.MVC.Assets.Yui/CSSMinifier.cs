@@ -39,6 +39,8 @@ namespace Batman.MVC.Assets.Yui
     /// </summary>
     public class CSSMinifier:IFilter
     {
+        public string Name { get { return "YUI CSS Minifier"; } }
+
         public RunTime TimeToRun
         {
             get { return RunTime.Minify; }

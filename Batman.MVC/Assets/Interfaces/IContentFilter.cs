@@ -35,6 +35,11 @@ namespace Batman.MVC.Assets.Interfaces
     public interface IContentFilter
     {
         /// <summary>
+        /// Name of the filter
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Processes the content of the assets once combined
         /// </summary>
         /// <param name="Content">Content to filter</param>

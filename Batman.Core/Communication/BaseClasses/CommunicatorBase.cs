@@ -60,6 +60,11 @@ namespace Batman.Core.Communication.BaseClasses
         #region Properties
 
         /// <summary>
+        /// Name of the communicator
+        /// </summary>
+        public abstract string Name { get; }
+
+        /// <summary>
         /// Message type used by the communicator
         /// </summary>
         public abstract Type MessageType { get; }

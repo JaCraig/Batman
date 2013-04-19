@@ -42,6 +42,9 @@ using Batman.Core;
 using System.Configuration;
 using Batman.Core.Communication;
 using Batman.Core.Communication.Interfaces;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Profiling.Interfaces;
 #endregion
 
 namespace Batman.MVC.BaseClasses
@@ -94,6 +97,29 @@ namespace Batman.MVC.BaseClasses
         protected IDirectory DirectoryInfo(string Path)
         {
             return DependencyResolver.Current.GetService<FileManager>().Directory(Path);
+        }
+
+        /// <summary>
+        /// Logs a message to the Batman log file
+        /// </summary>
+        /// <param name="Message">Message to log</param>
+        /// <param name="Type">Message level/type</param>
+        /// <param name="args">Extra args used to format the message</param>
+        /// <returns>this</returns>
+        protected ControllerBase Log(string Message,MessageType Type,params object[] args)
+        {
+            DependencyResolver.Current.GetService<LogBase>().LogMessage(Message, Type, args);
+            return this;
+        }
+
+        /// <summary>
+        /// Starts profiling the section starting with this call and stopping when the profiler is disposed of
+        /// </summary>
+        /// <param name="Name">Name of the section to profile</param>
+        /// <returns>The profiler object</returns>
+        protected IDisposable StartProfiling(string Name)
+        {
+            return DependencyResolver.Current.GetService<IProfiler>().Step(Name);
         }
 
         #endregion

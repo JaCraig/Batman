@@ -25,47 +25,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
-using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
 using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
-using System.Net.Mail;
-using Batman.Core.FileSystem.Interfaces;
+using Batman.Core.Communication;
+using Batman.Core.Profiling.BaseClasses;
+using StackExchange.Profiling;
+using Batman.Core.Profiling.Interfaces;
 #endregion
 
-namespace Batman.Core.Communication.Interfaces
+namespace Batman.Core.Profiling.MiniProfiler
 {
     /// <summary>
-    /// Formatter interface
+    /// Profiler module
     /// </summary>
-    public interface IFormatter
+    public class ProfilerModule : IModule
     {
-        /// <summary>
-        /// Name of the formatter
-        /// </summary>
-        string Name { get; }
-
-        /// <summary>
-        /// Formats the message
-        /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, string Template, T Model);
-
-        /// <summary>
-        /// Formats the message
-        /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, IFile Template, T Model);
+        public void Load(IBootstrapper Bootstrapper)
+        {
+            Bootstrapper.Register<IProfiler>(() => new Profile());
+        }
     }
 }

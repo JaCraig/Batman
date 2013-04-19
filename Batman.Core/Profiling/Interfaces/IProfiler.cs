@@ -34,38 +34,38 @@ using System.IO;
 using Batman.Core.Tasks;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.FileSystem;
-using System.Net.Mail;
-using Batman.Core.FileSystem.Interfaces;
+using Batman.Core.Communication;
 #endregion
 
-namespace Batman.Core.Communication.Interfaces
+namespace Batman.Core.Profiling.Interfaces
 {
     /// <summary>
-    /// Formatter interface
+    /// Profiler interface
     /// </summary>
-    public interface IFormatter
+    public interface IProfiler : IDisposable
     {
         /// <summary>
-        /// Name of the formatter
+        /// Name of the profiler
         /// </summary>
         string Name { get; }
 
         /// <summary>
-        /// Formats the message
+        /// Creates a new profiler that is a sub section of the current profiler
         /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, string Template, T Model);
+        /// <returns>A new profiler</returns>
+        IProfiler Step(string Name="");
 
         /// <summary>
-        /// Formats the message
+        /// Starts the profiler
         /// </summary>
-        /// <param name="Template">Template to use</param>
-        /// <param name="Message">Message to format</param>
-        /// <param name="Model">Model object used to format the message</param>
-        /// <returns>The formatted message</returns>
-        IMessage Format<T>(IMessage Message, IFile Template, T Model);
+        /// <returns>this</returns>
+        IProfiler Start();
+
+        /// <summary>
+        /// Stops the profiler
+        /// </summary>
+        /// <param name="DiscardResults">Should the results be discarded?</param>
+        /// <returns>this</returns>
+        IProfiler Stop(bool DiscardResults);
     }
 }

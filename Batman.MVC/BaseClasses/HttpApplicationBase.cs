@@ -29,35 +29,56 @@ using Batman.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
 using Utilities.DataTypes.ExtensionMethods;
 using System.Linq;
+using System.Web.Optimization;
+using System.IO;
+using Batman.MVC.Assets.Utils;
+using Utilities.Reflection.ExtensionMethods;
+using Batman.Core.FileSystem.Interfaces;
+using System.Web;
+using Utilities.DataTypes;
+using Batman.Core.Tasks.Interfaces;
+using Batman.MVC.Assets;
+using Batman.Core;
+using System.Configuration;
+using Batman.Core.Communication;
+using Batman.Core.Communication.Interfaces;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Profiling.Interfaces;
 #endregion
 
-namespace Batman.MVC.Assets.Filters
+namespace Batman.MVC.BaseClasses
 {
     /// <summary>
-    /// Filters a list of assets and returns only a unique set of assets
+    /// HttpApplication base class that auto attaches a couple items (profiler, etc)
     /// </summary>
-    public class RemoveDuplicates : IFilter
+    public abstract class HttpApplicationBase : System.Web.HttpApplication
     {
-        /// <summary>
-        /// Filter name
-        /// </summary>
-        public string Name { get { return "Duplicate removal"; } }
-
-        /// <summary>
-        /// Time to run the filter
-        /// </summary>
-        public RunTime TimeToRun { get { return RunTime.PreTranslate; } }
-
-        /// <summary>
-        /// Filters the assets
-        /// </summary>
-        /// <param name="Assets">Assets to filter</param>
-        /// <returns>The filtered assets</returns>
-        public IList<IAsset> Filter(IList<IAsset> Assets)
+        protected virtual void Application_BeginRequest()
         {
-            if (Assets == null || Assets.Count == 0)
-                return new List<IAsset>();
-            return Assets.Distinct().ToList();
+            DependencyResolver.Current.GetService<IProfiler>().Start();
+        }
+
+        protected virtual void Application_EndRequest()
+        {
+            DependencyResolver.Current.GetService<IProfiler>().Stop(false);
+        }
+
+        protected virtual void Application_AuthenticateRequest(Object sender, EventArgs e)
+        {
+            if (!UserCanProfile())
+            {
+                DependencyResolver.Current.GetService<IProfiler>().Stop(true);
+            }
+        }
+
+        /// <summary>
+        /// Determines if the user can see profiling data
+        /// </summary>
+        /// <returns>True if they can see profiling data, false otherwise</returns>
+        protected virtual bool UserCanProfile()
+        {
+            return Request.IsLocal;
         }
     }
 }

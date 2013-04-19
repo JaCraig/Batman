@@ -45,6 +45,11 @@ namespace Batman.MVC.Assets.Filters
     public class CSSFixImagesAndFonts : IFilter
     {
         /// <summary>
+        /// Filter name
+        /// </summary>
+        public string Name { get { return "CSS Embed Images"; } }
+
+        /// <summary>
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PreCombine; } }

@@ -37,6 +37,8 @@ namespace Batman.Core.Communication.SMTP
     {
         public Emailer() { }
 
+        public override string Name { get { return "SMTP"; } }
+
         public override Type MessageType { get { return typeof(EmailMessage); } }
 
         public override Interfaces.IMessage CreateMessage()

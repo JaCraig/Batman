@@ -205,9 +205,9 @@ namespace Batman.MVC.Assets
         public override string ToString()
         {
             return new StringBuilder().AppendLine()
-                                      .AppendLineFormat("Filters: {0}", Filters.ToString(x => x.ToString()))
-                                      .AppendLineFormat("Translators: {0}", Translators.ToString(x => x.ToString()))
-                                      .AppendFormat("Content Filters: {0}", ContentFilters.ToString(x => x.ToString()))
+                                      .AppendLineFormat("Filters: {0}", Filters.ToString(x => x.Name))
+                                      .AppendLineFormat("Translators: {0}", Translators.ToString(x => x.Name))
+                                      .AppendFormat("Content Filters: {0}", ContentFilters.ToString(x => x.Name))
                                       .ToString();
         }
 

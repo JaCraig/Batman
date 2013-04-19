@@ -35,6 +35,11 @@ namespace Batman.MVC.Assets.Interfaces
     public interface ITranslator
     {
         /// <summary>
+        /// Name of the translator
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Processes a list of assets
         /// </summary>
         /// <param name="Assets">Assets to process</param>

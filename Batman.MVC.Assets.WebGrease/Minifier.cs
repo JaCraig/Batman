@@ -39,6 +39,8 @@ namespace Batman.MVC.Assets.WebGrease
     /// </summary>
     public class Minifier : IFilter
     {
+        public string Name { get { return "WebGrease CSS Minifier"; } }
+
         public RunTime TimeToRun
         {
             get { return RunTime.Minify; }

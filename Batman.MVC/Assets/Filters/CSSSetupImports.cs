@@ -44,6 +44,11 @@ namespace Batman.MVC.Assets.Filters
     public class CSSSetupImports : IFilter
     {
         /// <summary>
+        /// Filter name
+        /// </summary>
+        public string Name { get { return "CSS import fix"; } }
+
+        /// <summary>
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PostTranslate; } }

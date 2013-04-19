@@ -40,6 +40,8 @@ namespace Batman.Core.Communication.SMTP
     {
         public Formatter() { }
 
+        public string Name { get { return "Razor"; } }
+
         public IMessage Format<T>(IMessage Message, string Template, T Model)
         {
             return Format(Message,
@@ -52,6 +54,8 @@ namespace Batman.Core.Communication.SMTP
 
         public IMessage Format<T>(IMessage Message, FileSystem.Interfaces.IFile Template, T Model)
         {
+            if (Template == null || !Template.Exists)
+                return Message;
             Message.Body = RazorEngine.Razor.Run(Template.FullName, Model);
             return Message;
         }

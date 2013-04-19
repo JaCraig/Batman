@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Communication.S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Communication.RazorFormatter", "Batman.Core.Communication.RazorFormatter\Batman.Core.Communication.RazorFormatter.csproj", "{B07A14D4-FEEA-41ED-B6CF-310D9A622480}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profilers", "Profilers", "{09D82355-6335-4233-BFA5-BFFC1920C341}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Profiling.MiniProfiler", "Batman.Core.Profiling.MiniProfiler\Batman.Core.Profiling.MiniProfiler.csproj", "{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +95,10 @@ Global
 		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B07A14D4-FEEA-41ED-B6CF-310D9A622480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,5 +114,6 @@ Global
 		{8D08470C-D294-4F75-8405-DAF69B1B897F} = {B1397D76-1B00-4C4A-BBF6-354D0F949C09}
 		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
 		{B07A14D4-FEEA-41ED-B6CF-310D9A622480} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
+		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC} = {09D82355-6335-4233-BFA5-BFFC1920C341}
 	EndGlobalSection
 EndGlobal

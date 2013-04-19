@@ -40,6 +40,8 @@ namespace Batman.MVC.Assets.Yui
     /// </summary>
     public class JSMinifier : IFilter
     {
+        public string Name { get { return "YUI JS Minifier"; } }
+
         public RunTime TimeToRun
         {
             get { return RunTime.Minify; }

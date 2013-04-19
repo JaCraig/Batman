@@ -38,6 +38,8 @@ namespace Batman.MVC.Assets.Less
     /// </summary>
     public class Translator:ITranslator
     {
+        public string Name { get { return "Less to CSS"; } }
+
         public IList<IAsset> Translate(IList<IAsset> Assets)
         {
             if (Assets == null || Assets.Count == 0)

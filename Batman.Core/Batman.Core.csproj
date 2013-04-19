@@ -68,6 +68,8 @@
     <Compile Include="FileSystem\FileManager.cs" />
     <Compile Include="Logging\BaseClasses\LogBase.cs" />
     <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Profiling\BaseClasses\ProfilerBase.cs" />
+    <Compile Include="Profiling\Interfaces\IProfiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tasks\Enums\RunTime.cs" />
     <Compile Include="Tasks\Interfaces\ITask.cs" />
