@@ -58,5 +58,13 @@ namespace Batman.Core.Serialization.Interfaces
         /// <param name="ObjectType">Type of the data</param>
         /// <returns>The serialized data</returns>
         ActionResult Serialize(Type ObjectType, object Data);
+
+        /// <summary>
+        /// Serializes the data to a string
+        /// </summary>
+        /// <typeparam name="T">Type of the data to serialize</typeparam>
+        /// <param name="Data">Data to serialize</param>
+        /// <returns>The serialized data</returns>
+        ActionResult Serialize<T>(T Data);
     }
 }

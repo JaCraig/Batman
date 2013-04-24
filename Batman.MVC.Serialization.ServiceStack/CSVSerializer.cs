@@ -32,33 +32,39 @@ using System.Web;
 using Batman.MVC.Assets;
 using Batman.Core;
 using Batman.Core.Serialization.Interfaces;
+using System.Text;
 #endregion
 
 namespace Batman.MVC.Serialization.ServiceStackSerializers
 {
     /// <summary>
-    /// ServiceStack based Json serializer
+    /// ServiceStack based CSV serializer
     /// </summary>
-    public class JsonSerializer : ISerializer
+    public class CSVSerializer : ISerializer
     {
-        public string ContentType { get { return "application/json"; } }
+        public string ContentType { get { return "text/csv"; } }
 
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)
                 return new ContentResult();
             ContentResult Result = new ContentResult();
-            Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data, ObjectType);
-            Result.ContentType = ContentType;
-            return Result;
+            using (MemoryStream Stream = new MemoryStream())
+            {
+                ServiceStack.Text.CsvSerializer.SerializeToStream(Data, Stream);
+                Result.Content = Encoding.ASCII.GetString(Stream.ToArray());
+                Result.ContentType = ContentType;
+                return Result;
+            }
         }
+
 
         public ActionResult Serialize<T>(T Data)
         {
             if (Data == null)
                 return new ContentResult();
             ContentResult Result = new ContentResult();
-            Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data);
+            Result.Content = ServiceStack.Text.CsvSerializer.SerializeToString(Data);
             Result.ContentType = ContentType;
             return Result;
         }
