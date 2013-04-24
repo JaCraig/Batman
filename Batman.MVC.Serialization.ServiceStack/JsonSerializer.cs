@@ -20,24 +20,37 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
-using Batman.Core.Tasks;
+using System;
+using System.Web.Mvc;
+using System.Collections.Generic;
+using Batman.MVC.Assets.Interfaces;
+using Batman.MVC.Assets.Enums;
+using System.Linq;
+using System.IO;
+using Batman.MVC.Assets.Utils;
+using System.Web;
 using Batman.MVC.Assets;
-using Batman.Core.Serialization;
+using Batman.Core;
+using Batman.Core.Serialization.Interfaces;
 #endregion
 
-namespace Batman.MVC.Bootstrapper
+namespace Batman.MVC.Serialization.ServiceStackSerializers
 {
     /// <summary>
-    /// Module for registering the asset module
+    /// ServiceStack based Json serializer
     /// </summary>
-    public class AssetModule : IModule
+    public class JsonSerializer : ISerializer
     {
-        public void Load(IBootstrapper Bootstrapper)
+        public string ContentType { get { return "application/json"; } }
+
+        public ActionResult Serialize(Type ObjectType, object Data)
         {
-            Bootstrapper.Register<AssetManager>(new AssetManager());
-            Bootstrapper.Register<SerializationManager>(new SerializationManager());
+            if (Data == null)
+                return new ContentResult();
+            ContentResult Result = new ContentResult();
+            Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data, ObjectType);
+            Result.ContentType = "application/json";
+            return Result;
         }
     }
 }

@@ -41,6 +41,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Profilers", "Profilers", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.Core.Profiling.MiniProfiler", "Batman.Core.Profiling.MiniProfiler\Batman.Core.Profiling.MiniProfiler.csproj", "{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serializers", "Serializers", "{33AD3968-8E7C-4195-BD2A-680D9F110F21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Batman.MVC.Serialization.ServiceStack", "Batman.MVC.Serialization.ServiceStack\Batman.MVC.Serialization.ServiceStack.csproj", "{B61684F5-0FA0-4C8B-9F14-0908F2F7067C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,5 +123,6 @@ Global
 		{D0FBD592-DDE1-45B3-98FB-AB7735AE7214} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
 		{B07A14D4-FEEA-41ED-B6CF-310D9A622480} = {AF179E4E-7BDE-4D90-908F-F3D42EC40D93}
 		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC} = {09D82355-6335-4233-BFA5-BFFC1920C341}
+		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C} = {33AD3968-8E7C-4195-BD2A-680D9F110F21}
 	EndGlobalSection
 EndGlobal

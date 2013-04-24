@@ -20,24 +20,43 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.FileSystem;
+using Utilities.Reflection.ExtensionMethods;
+using Utilities.DataTypes.ExtensionMethods;
+using Batman.Core.Logging.BaseClasses;
+using Utilities.IO.Logging.Enums;
+using Batman.Core.Logging;
+using System.IO;
 using Batman.Core.Tasks;
-using Batman.MVC.Assets;
-using Batman.Core.Serialization;
+using Batman.Core.Tasks.Enums;
+using Batman.Core.FileSystem;
+using Batman.Core.Communication;
+using Batman.Core.Profiling.Interfaces;
+using System.Web.Mvc;
 #endregion
 
-namespace Batman.MVC.Bootstrapper
+namespace Batman.Core.Serialization.Interfaces
 {
     /// <summary>
-    /// Module for registering the asset module
+    /// Serializer interface
     /// </summary>
-    public class AssetModule : IModule
+    public interface ISerializer
     {
-        public void Load(IBootstrapper Bootstrapper)
-        {
-            Bootstrapper.Register<AssetManager>(new AssetManager());
-            Bootstrapper.Register<SerializationManager>(new SerializationManager());
-        }
+        /// <summary>
+        /// Content type associated with this serializer
+        /// </summary>
+        string ContentType { get; }
+
+        /// <summary>
+        /// Serializes the data to a string
+        /// </summary>
+        /// <param name="Data">Data to serialize</param>
+        /// <param name="ObjectType">Type of the data</param>
+        /// <returns>The serialized data</returns>
+        ActionResult Serialize(Type ObjectType, object Data);
     }
 }
