@@ -100,6 +100,16 @@ namespace Batman.Core.Serialization
             return Serializers[ContentType].Serialize(ObjectType, Object);
         }
 
+        /// <summary>
+        /// Outputs information about the serializers the system is using
+        /// </summary>
+        /// <returns>String version of the object</returns>
+        public override string ToString()
+        {
+            return new StringBuilder().AppendLineFormat(Serializers.ToString(x => x.Value.Name))
+                                      .ToString();
+        }
+
         #endregion
     }
 }

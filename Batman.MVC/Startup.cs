@@ -15,6 +15,7 @@ namespace Batman.Core
     using Batman.Core.Logging;
     using Utilities.IO.Logging.Enums;
     using Batman.MVC.Assets;
+    using Batman.Core.Serialization;
 
     #endregion
 
@@ -28,6 +29,7 @@ namespace Batman.Core
             BatComputer.PreStart();
             LogBase Logger = BatComputer.Bootstrapper.Resolve<LogBase>(new NullLogger());
             Logger.LogMessage("Current asset helpers: {0}", MessageType.Debug, BatComputer.Bootstrapper.Resolve<AssetManager>().ToString());
+            Logger.LogMessage("Current serializers: {0}", MessageType.Debug, BatComputer.Bootstrapper.Resolve<SerializationManager>().ToString());
             DependencyResolver.SetResolver(new Bootstrapper.DependencyResolver(BatComputer.Bootstrapper));
         }
 

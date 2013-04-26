@@ -52,6 +52,11 @@ namespace Batman.Core.Serialization.Interfaces
         string ContentType { get; }
 
         /// <summary>
+        /// Name of the serializer
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
         /// Serializes the data to a string
         /// </summary>
         /// <param name="Data">Data to serialize</param>

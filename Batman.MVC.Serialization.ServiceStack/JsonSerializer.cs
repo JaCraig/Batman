@@ -43,6 +43,8 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
     {
         public string ContentType { get { return "application/json"; } }
 
+        public string Name { get { return "ServiceStack.JSON"; } }
+
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)

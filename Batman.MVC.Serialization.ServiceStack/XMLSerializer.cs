@@ -44,6 +44,8 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
     {
         public string ContentType { get { return "text/xml"; } }
 
+        public string Name { get { return "ServiceStack.XML"; } }
+
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)
@@ -51,7 +53,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
             ContentResult Result = new ContentResult();
             using (MemoryStream Stream = new MemoryStream())
             {
-                ServiceStack.Text.CsvSerializer.SerializeToStream(Data, Stream);
+                ServiceStack.Text.XmlSerializer.SerializeToStream(Data, Stream);
                 Result.Content = Encoding.ASCII.GetString(Stream.ToArray());
                 Result.ContentType = ContentType;
                 return Result;
@@ -64,7 +66,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
             if (Data == null)
                 return new ContentResult();
             ContentResult Result = new ContentResult();
-            Result.Content = ServiceStack.Text.CsvSerializer.SerializeToString(Data);
+            Result.Content = ServiceStack.Text.XmlSerializer.SerializeToString(Data);
             Result.ContentType = ContentType;
             return Result;
         }

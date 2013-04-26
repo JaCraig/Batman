@@ -45,6 +45,7 @@ using Batman.Core.Communication.Interfaces;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Profiling.Interfaces;
+using Batman.Core.Serialization;
 #endregion
 
 namespace Batman.MVC.BaseClasses
@@ -117,9 +118,21 @@ namespace Batman.MVC.BaseClasses
         /// </summary>
         /// <param name="Name">Name of the section to profile</param>
         /// <returns>The profiler object</returns>
-        protected IDisposable StartProfiling(string Name)
+        protected IProfiler StartProfiling(string Name)
         {
             return DependencyResolver.Current.GetService<IProfiler>().Step(Name);
+        }
+
+        /// <summary>
+        /// Serializes the object into an action result
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="Object">Object to serialize</param>
+        /// <param name="ContentType">Content type to serialize it as (defaults to json)</param>
+        /// <returns>Action result</returns>
+        protected ActionResult Serialize<T>(T Object, string ContentType = "application/json")
+        {
+            return DependencyResolver.Current.GetService<SerializationManager>().Serialize(Object, ContentType);
         }
 
         #endregion
