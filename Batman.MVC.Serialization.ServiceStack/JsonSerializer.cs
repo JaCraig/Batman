@@ -45,12 +45,20 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
 
         public string Name { get { return "ServiceStack.JSON"; } }
 
+        public string FileType { get { return ".json"; } }
+
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)
                 return new ContentResult();
             ContentResult Result = new ContentResult();
             Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data, ObjectType);
+            HttpRequest Request = HttpContext.Current.Request;
+            if (!string.IsNullOrEmpty(Request.QueryString["callback"]) || !string.IsNullOrEmpty(Request.QueryString["jsonp"]))
+            {
+                string Callback = Request.QueryString["callback"] ?? Request.QueryString["jsonp"];
+                Result.Content = string.Format("{0}({1});", Callback, Result.Content);
+            }
             Result.ContentType = ContentType;
             return Result;
         }
@@ -61,6 +69,12 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
                 return new ContentResult();
             ContentResult Result = new ContentResult();
             Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data);
+            HttpRequest Request = HttpContext.Current.Request;
+            if (!string.IsNullOrEmpty(Request.QueryString["callback"]) || !string.IsNullOrEmpty(Request.QueryString["jsonp"]))
+            {
+                string Callback = Request.QueryString["callback"] ?? Request.QueryString["jsonp"];
+                Result.Content = string.Format("{0}({1});", Callback, Result.Content);
+            }
             Result.ContentType = ContentType;
             return Result;
         }

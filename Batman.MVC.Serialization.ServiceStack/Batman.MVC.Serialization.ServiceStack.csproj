@@ -36,16 +36,24 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSVSerializer.cs" />
     <Compile Include="JsonSerializer.cs" />
+    <Compile Include="JsonValueProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLSerializer.cs" />
   </ItemGroup>

@@ -83,32 +83,34 @@ namespace Batman.MVC.Assets.Filters
                         IFile AssetFile = FileSystem.File(Asset.Path);
                         File = FileSystem.File(AssetFile.Directory.FullName + "\\" + TempFile);
                     }
-
-                    if (File.Extension.ToUpperInvariant() == ".TTF"
-                        || File.Extension.ToUpperInvariant() == ".OTF"
-                        || File.Extension.ToUpperInvariant() == ".WOFF"
-                        || File.Extension.ToUpperInvariant() == ".SVG"
-                        || File.Extension.ToUpperInvariant() == ".EOT")
+                    if (File.Exists)
                     {
-                        string MIME ="";
-                        if (File.Extension.ToUpperInvariant() == ".WOFF")
-                            MIME = "application/x-font-woff";
-                        else if (File.Extension.ToUpperInvariant() == ".OTF")
-                            MIME = "application/x-font-opentype";
-                        else if (File.Extension.ToUpperInvariant() == ".TTF")
-                            MIME = "application/x-font-ttf";
-                        else if (File.Extension.ToUpperInvariant() == ".SVG")
-                            MIME = "image/svg+xml";
-                        else if (File.Extension.ToUpperInvariant() == ".EOT")
-                            MIME = "application/vnd.ms-fontobject";
-
-                        Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIME + ";base64," + File.ReadBinary().ToBase64String() + ")");
-                    }
-                    else
-                    {
-                        using (Bitmap TempImage = new Bitmap(File.FullName))
+                        if (File.Extension.ToUpperInvariant() == ".TTF"
+                            || File.Extension.ToUpperInvariant() == ".OTF"
+                            || File.Extension.ToUpperInvariant() == ".WOFF"
+                            || File.Extension.ToUpperInvariant() == ".SVG"
+                            || File.Extension.ToUpperInvariant() == ".EOT")
                         {
-                            Asset.Content = Asset.Content.Replace(MatchString, "url(data:image/png;base64," + TempImage.ToBase64(ImageFormat.Png) + ")");
+                            string MIME = "";
+                            if (File.Extension.ToUpperInvariant() == ".WOFF")
+                                MIME = "application/x-font-woff";
+                            else if (File.Extension.ToUpperInvariant() == ".OTF")
+                                MIME = "application/x-font-opentype";
+                            else if (File.Extension.ToUpperInvariant() == ".TTF")
+                                MIME = "application/x-font-ttf";
+                            else if (File.Extension.ToUpperInvariant() == ".SVG")
+                                MIME = "image/svg+xml";
+                            else if (File.Extension.ToUpperInvariant() == ".EOT")
+                                MIME = "application/vnd.ms-fontobject";
+
+                            Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIME + ";base64," + File.ReadBinary().ToBase64String() + ")");
+                        }
+                        else
+                        {
+                            using (Bitmap TempImage = new Bitmap(File.FullName))
+                            {
+                                Asset.Content = Asset.Content.Replace(MatchString, "url(data:image/png;base64," + TempImage.ToBase64(ImageFormat.Png) + ")");
+                            }
                         }
                     }
                 }

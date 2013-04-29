@@ -52,6 +52,11 @@ namespace Batman.Core.Serialization.Interfaces
         string ContentType { get; }
 
         /// <summary>
+        /// File ending associated with the serializer
+        /// </summary>
+        string FileType { get; }
+
+        /// <summary>
         /// Name of the serializer
         /// </summary>
         string Name { get; }

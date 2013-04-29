@@ -53,11 +53,20 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utilities.Compression">
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.Compression.dll</HintPath>
+    </Reference>
     <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Encryption">
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.Encryption.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.FileFormats">
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.FileFormats.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Math">
       <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Math.dll</HintPath>
@@ -65,11 +74,14 @@
     <Reference Include="Utilities.Media">
       <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Media.dll</HintPath>
     </Reference>
-    <Reference Include="Utilities.Random">
-      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Random.dll</HintPath>
+    <Reference Include="Utilities.Random, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7171cc3be6ac60dc, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.Random.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.3.0227\lib\net40\Utilities.Reflection.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Utilities.Web">
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.3.0227\lib\net40\Utilities.Web.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx">
       <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
@@ -80,6 +92,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilters\AutoRefresh.cs" />
+    <Compile Include="ActionFilters\ByPassCSRF.cs" />
+    <Compile Include="ActionFilters\CacheClientSide.cs" />
+    <Compile Include="ActionFilters\Compress.cs" />
+    <Compile Include="ActionFilters\ContentType.cs" />
+    <Compile Include="ActionFilters\CSRF.cs" />
+    <Compile Include="ActionFilters\DoNotCompress.cs" />
+    <Compile Include="ActionFilters\RequireSSL.cs" />
+    <Compile Include="ActionFilters\ResponseHeader.cs" />
     <Compile Include="Assets\Asset.cs" />
     <Compile Include="Assets\AssetManager.cs" />
     <Compile Include="Assets\Filters\CSSFixImagesAndFonts.cs" />
@@ -95,8 +116,10 @@
     <Compile Include="Assets\Interfaces\IFilter.cs" />
     <Compile Include="Assets\Interfaces\ITranslator.cs" />
     <Compile Include="Assets\Utils\FileInfoComparer.cs" />
+    <Compile Include="BaseClasses\APIControllerBase.cs" />
     <Compile Include="BaseClasses\ControllerBase.cs" />
     <Compile Include="BaseClasses\HttpApplicationBase.cs" />
+    <Compile Include="BaseClasses\PageControllerBase.cs" />
     <Compile Include="Bootstrapper\AssetModule.cs" />
     <Compile Include="Bootstrapper\DependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +127,8 @@
     <Compile Include="Serialization\SerializationManager.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Tasks\AssetBundlerTask.cs" />
+    <Compile Include="Tasks\ValueProviderTask.cs" />
+    <Compile Include="VPFactories\VPFactoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Batman.Core\Batman.Core.csproj">

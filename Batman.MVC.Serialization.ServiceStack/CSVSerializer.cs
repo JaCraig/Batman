@@ -46,6 +46,8 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
 
         public string Name { get { return "ServiceStack.CSV"; } }
 
+        public string FileType { get { return ".csv"; } }
+
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)

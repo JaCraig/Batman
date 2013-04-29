@@ -46,6 +46,7 @@ using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
 using Batman.Core.Profiling.Interfaces;
 using Batman.Core.Serialization;
+using System.Text;
 #endregion
 
 namespace Batman.MVC.BaseClasses
@@ -67,7 +68,26 @@ namespace Batman.MVC.BaseClasses
 
         #endregion
 
+        #region Properties
+
+        /// <summary>
+        /// Encoding used for the controller (defaults to UTF8)
+        /// </summary>
+        protected Encoding Encoding { get; set; }
+
+        #endregion
+
         #region Functions
+
+        /// <summary>
+        /// Initializes the controller
+        /// </summary>
+        /// <param name="requestContext">Request context</param>
+        protected override void Initialize(System.Web.Routing.RequestContext requestContext)
+        {
+            requestContext.HttpContext.Response.ContentEncoding = Encoding.NullCheck(new UTF8Encoding());
+            base.Initialize(requestContext);
+        }
 
         /// <summary>
         /// Creates a message object
@@ -128,11 +148,28 @@ namespace Batman.MVC.BaseClasses
         /// </summary>
         /// <typeparam name="T">Object type</typeparam>
         /// <param name="Object">Object to serialize</param>
-        /// <param name="ContentType">Content type to serialize it as (defaults to json)</param>
+        /// <param name="ContentType">Content type to serialize it as</param>
         /// <returns>Action result</returns>
-        protected ActionResult Serialize<T>(T Object, string ContentType = "application/json")
+        protected virtual ActionResult Serialize<T>(T Object, string ContentType)
         {
             return DependencyResolver.Current.GetService<SerializationManager>().Serialize(Object, ContentType);
+        }
+
+        /// <summary>
+        /// Serializes the object into an action result based on the content type requested by the user (defaults to json)
+        /// </summary>
+        /// <typeparam name="T">Object type</typeparam>
+        /// <param name="Object">Object to serialize</param>
+        /// <returns>Action result</returns>
+        protected virtual ActionResult Serialize<T>(T Object)
+        {
+            SerializationManager Manager = DependencyResolver.Current.GetService<SerializationManager>();
+            string ContentType = Request.AcceptTypes.Length > 0 ? Request.AcceptTypes.FirstOrDefault(x => Manager.Serializers.ContainsKey(x)) : "";
+            if (string.IsNullOrEmpty(ContentType))
+                ContentType = Manager.Serializers.FirstOrDefault(x => Request.Path.ToUpperInvariant().EndsWith(x.Value.FileType.ToUpperInvariant())).Chain(x => x.Key, "");
+            if (string.IsNullOrEmpty(ContentType))
+                ContentType = "application/json";
+            return Manager.Serialize(Object, ContentType);
         }
 
         #endregion

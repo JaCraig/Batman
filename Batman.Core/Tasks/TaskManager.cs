@@ -88,6 +88,11 @@ namespace Batman.Core.Tasks
             }
         }
 
+        public override string ToString()
+        {
+            return Tasks.ToString(x => x.Value.ToString(y => y.Name, "\n"));
+        }
+
         #endregion
     }
 }

@@ -46,6 +46,8 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
 
         public string Name { get { return "ServiceStack.XML"; } }
 
+        public string FileType { get { return ".xml"; } }
+
         public ActionResult Serialize(Type ObjectType, object Data)
         {
             if (Data == null)
