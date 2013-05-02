@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Batman Framework by JaCraig</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/JaCraig/Batman">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/JaCraig/Batman/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/JaCraig/Batman/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Batman Framework</h1>
+          <p>I am vengence, I am the night, I am Batman</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/JaCraig">JaCraig</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h2>Batman</h2>
+
+<p>One of the things that has always annoyed me about C#, .Net, etc. is the glue code. There have been days that I've spent more time plugging in various libraries into my application than actually building the application. I'm tired of this and decided to do something about it. This framework is designed to handle the grunt work, the boring bits of code that no one should have to write.</p>
+
+<h2>I am vengence, I am the night, I am Batman</h2>
+
+<p>Batman is based around a few key principles:</p>
+
+<h3>Libraries should be pluggable</h3>
+
+<p>With that in mind, let's look at how Batman works. Let's say you download the Batman MVC core project from NuGet (when that's up). With this plugged into your project, you gain very little but it sets the stage for the awesomesauce. Want to set up serialization using ServiceStack.Text? Just download the nuget package and it's set up for you. Want to replace it with Json.Net? Just remove the one package and replace it with the other. Your code doesn't need to change at all. Want to switch between NLog and log4net to see which you like more? Just switch the package. And from the shadows, Batman will make it work.</p>
+
+<p>Batman takes care of all of that for you and gives a unified layer for dealing with the various libraries. Let's see an example:
+<strong>Logging with NLog</strong></p>
+
+<pre><code>    public class DefaultController : Batman.MVC.BaseClasses.ControllerBase
+    {
+        //
+        // GET: /Default/
+
+        public ActionResult Index()
+        {
+            Log("This is a test", MessageType.Info);
+        }
+    }
+</code></pre>
+
+<p><strong>Logging with log4net</strong></p>
+
+<pre><code>    public class DefaultController : Batman.MVC.BaseClasses.ControllerBase
+    {
+        //
+        // GET: /Default/
+
+        public ActionResult Index()
+        {
+            Log("This is a test", MessageType.Info);
+        }
+    }
+</code></pre>
+
+<h3>Convention over configuration</h3>
+
+<p>One of the main things that Batman is designed to do is to make it so that you don't have to worry about the small stuff. In keeping with that goal, when a task is straightforward and Batman has enough info to act, it acts. When serializing an object, if the client specifies a type that it wants, Batman will automatically handle the content negotiation and return what is requested. By default Batman handles JSON/JSONP, CSV, and XML without issue but other formats can easily be added.</p>
+
+<h3>Speed is key</h3>
+
+<p>Batman itself is a thin layer that goes on top of 3rd party libraries. As such, what is important are those libraries. If you choose the default package, Batman comes with some of the fastest libraries around. We want to make sure that you end up with the best experience overall and your code needs to be fast for that to happen. So if we find a library that has similar features that is faster, we'll switch ours out for the better library.</p>
+
+<h2>To the Batmobile</h2>
+
+<p>The basic makeup of Batman can be seen in its various namespaces:</p>
+
+<ul>
+<li>
+<strong>Bootstrapper</strong> - This is the DI layer of Batman. It connects everything within Batman. It's the heart. Without it, there is no Batman.</li>
+<li>
+<strong>Communication</strong> - This is how Batman communicates with the outside world. Want to send an email? This is the place to look. It houses a system that allows templates to be created, similar to Ruby on Rails, thus allowing reuse and better maintainability of your communications. By default it uses the Razor engine for this but can be set up to use others.</li>
+<li>
+<strong>FileSystem</strong> - This is how Batman finds and opens a file. It's a unified system that allows you to specify a string and it figures out how to get you that file. For instance, "~/Test.txt","C:\Test.txt", and "<a href="http://www.google.com/Test.txt">http://www.google.com/Test.txt</a>" can all be specified to the system and it will figure out where it is and how to download the data for you.</li>
+<li>
+<strong>Logging</strong> - Batman offers a unified experience for various logging frameworks.</li>
+<li>
+<strong>Profiling</strong> - Batman automatically sets up your system so you can easily profile your code, find the bottlenecks, and fix them.</li>
+<li>
+<strong>Tasks</strong> - Batman offers an easy way to tie into various events within its system.</li>
+<li>
+<strong>Assets</strong> - Batman's MVC addons add automatic bundling and minification of your JS/CSS files. It also adds support for LESS. The system lays on top of Microsoft's System.Web.Optimization framework and adds a pipeline to the process, thus allowing a lot more control for the minification process. It also fixes a number of issues, such as importing CSS and JS files appropriately (the system respects the <a href="https://github.com/import" class="user-mention">@import</a> and ///  items when building your bundled file), and adds improvements, such as reducing calls to the server by embedding images within CSS files.</li>
+<li>
+<strong>Serialization</strong> - Batman automatically deals with content negotiation and will serialize your data based on what is requested by the end user. And adding new formats is a snap.</li>
+</ul><h2>The true crime fighter always carries everything he needs in his utility belt</h2>
+
+<p>The one thing that Batman comes with, is utilities. First it starts off with one of the largest utility libraries for .Net in <a href="https://cul.codeplex.com">Craig's Utility Library</a>. Then Batman adds on to it with platform specific utilities (at present that just means MVC).</p>
+
+<h2>Why so serious?</h2>
+
+<p>OK, now for the boring stuff:</p>
+
+<ul>
+<li>Maintained by <a href="https://github.com/JaCraig">James Craig</a>
+</li>
+<li>Uses the MIT license.</li>
+<li>If you would like to contribute, please contact me as help is always appreciated.</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
