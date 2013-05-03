@@ -23,5 +23,6 @@
     <files>
         <file src="bin\Release\Batman.Core.dll" target="lib\net40\Batman.Core.dll" />
         <file src="bin\Release\Batman.Core.pdb" target="lib\net40\Batman.Core.pdb" />
+        <file src="bin\Release\Batman.Core.XML" target="lib\net40\Batman.Core.XML" />
     </files>
 </package>

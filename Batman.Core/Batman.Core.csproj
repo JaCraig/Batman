@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\Batman.Core.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\BatmanCustom.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Batman.Core.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -40,14 +42,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Utilities.DataTypes">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.DataTypes.dll</HintPath>
+    <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
-    <Reference Include="Utilities.IO">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.IO.dll</HintPath>
+    <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
-    <Reference Include="Utilities.Reflection">
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0222\lib\net40\Utilities.Reflection.dll</HintPath>
+    <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.3.0227\lib\net40\Utilities.Reflection.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

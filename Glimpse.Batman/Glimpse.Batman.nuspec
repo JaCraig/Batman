@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Glimpse.Batman</id>
+        <version>1.0.0</version>
+        <title>Batman Info Tab for Glimpse</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This is a Glimpse addon that adds a tab containing information from the Batman framework.</description>
+        <summary>This is a Glimpse addon that adds a tab containing information from the Batman framework.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman framework mvc servicestack</tags>
+        <dependencies>
+            <dependency id="Glimpse.AspNet" version="1.2.1" />
+            <dependency id="Glimpse" version="1.3.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\Glimpse.Batman.dll" target="lib\net40\Glimpse.Batman.dll" />
+        <file src="bin\Release\Glimpse.Batman.pdb" target="lib\net40\Glimpse.Batman.pdb" />
+    </files>
+</package>
