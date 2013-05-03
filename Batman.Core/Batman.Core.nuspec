@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Batman.Core</id>
+        <version>1.0.0</version>
+        <title>Batman Framework Core</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>The Batman framework is designed to simplify application development and tries to put the focus back on your application. This is the core project that is used in other packages.</description>
+        <summary>The Batman framework is designed to simplify application development and tries to put the focus back on your application. This is the core project that is used in other packages.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman, framework</tags>
+        <dependencies>
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-IO" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Reflection" version="3.3.0227" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="bin\Release\Batman.Core.dll" target="lib\net40\Batman.Core.dll" />
+        <file src="bin\Release\Batman.Core.pdb" target="lib\net40\Batman.Core.pdb" />
+    </files>
+</package>
