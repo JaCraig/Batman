@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Batman.MVC</id>
+        <version>1.0.0</version>
+        <title>Batman Framework MVC Core</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This is the MVC Core package. However no functionality is included in this package.</description>
+        <summary>This is the MVC Core package. However no functionality is included in this package.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman framework mvc</tags>
+        <dependencies>
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-IO" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Encryption" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-FileFormats" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Reflection" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Random" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Math" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Media" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-Web" version="3.3.0227" />
+            <dependency id="Microsoft.AspNet.Web.Optimization" version="1.0.0" />
+            <dependency id="WebActivatorEx" version="2.0.1" />
+            <dependency id="WebGrease" version="1.3.0" />
+            <dependency id="Microsoft.Web.Infrastructure" version="1.0.0.0" />
+			<dependency id="Batman.Core" version="1.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\Batman.MVC.dll" target="lib\net40\Batman.MVC.dll" />
+        <file src="lib\Batman.MVC.pdb" target="lib\net40\Batman.MVC.pdb" />
+        <file src="lib\Batman.MVC.XML" target="lib\net40\Batman.MVC.XML" />
+    </files>
+</package>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Batman.Core.Profiling.MiniProfiler</id>
+        <version>1.0.0</version>
+        <title>Batman Framework MiniProfiler</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This adds MiniProfiler to Batman.</description>
+        <summary>This adds MiniProfiler to Batman.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman framework miniprofiler</tags>
+        <dependencies>
+            <dependency id="MiniProfiler" version="2.1.0" />
+			<dependency id="Batman.Core" version="1.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\Batman.Core.Profiling.MiniProfiler.dll" target="lib\net40\Batman.Core.Profiling.MiniProfiler.dll" />
+        <file src="lib\Batman.Core.Profiling.MiniProfiler.pdb" target="lib\net40\Batman.Core.Profiling.MiniProfiler.pdb" />
+    </files>
+</package>

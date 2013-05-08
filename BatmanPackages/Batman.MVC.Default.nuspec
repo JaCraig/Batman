@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Batman.MVC.Default</id>
+        <version>1.0.1</version>
+        <title>Batman Framework MVC Default Setup</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>The Batman framework is designed to simplify application development and tries to put the focus back on your application. This is the default setup package for the MVC platform. This package sets up the following items: smtp email, bootstrapper (SimpleInjector), auto bundling of JS and CSS (using YUI), LESS support, logging (NLog), profiling (MiniProfiler), default file systems, serialization (ServiceStack.Text), and Glimpse plugin.</description>
+        <summary>The Batman framework is designed to simplify application development and tries to put the focus back on your application. This is the default setup package.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman framework mvc</tags>
+        <dependencies>
+            <dependency id="Batman.MVC" version="1.0.0" />
+            <dependency id="Batman.Core" version="1.0.0" />
+            <dependency id="Batman.Core.Bootstrapper.SimpleInjector" version="1.0.1" />
+            <dependency id="Batman.Core.Communication.RazorFormatter" version="1.0.0" />
+            <dependency id="Batman.Core.Communication.SMTP" version="1.0.0" />
+            <dependency id="Batman.Core.Logging.NLog" version="1.0.0" />
+            <dependency id="Batman.Core.Profiling.MiniProfiler" version="1.0.0" />
+            <dependency id="Batman.MVC.Assets.Less" version="1.0.0" />
+            <dependency id="Batman.MVC.Assets.Yui" version="1.0.0" />
+            <dependency id="Batman.MVC.Serialization.ServiceStack" version="1.0.1" />
+            <dependency id="Batman.Core.FileSystem.Default" version="1.0.0" />
+            <dependency id="Glimpse.Batman" version="1.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="content\Templates\Example.cshtml" target="content\Templates\Example.cshtml" />
+        <file src="readme.txt" target="readme.txt" />
+    </files>
+</package>

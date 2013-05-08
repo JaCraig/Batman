@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Batman.MVC.Serialization.ServiceStack</id>
+        <version>1.0.1</version>
+        <title>Batman Framework ServiceStack Serializers</title>
+        <authors>James Craig</authors>
+        <owners>James Craig</owners>
+        <licenseUrl>https://github.com/JaCraig/Batman/blob/master/LICENSE</licenseUrl>
+        <projectUrl>http://jacraig.github.io/Batman/</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>This adds the ServiceStack set of serializers (JSON, CSV, and XML) to Batman.</description>
+        <summary>This adds the ServiceStack set of serializers (JSON, CSV, and XML) to Batman.</summary>
+        <copyright>Copyright 2013 James Craig</copyright>
+        <language>en-US</language>
+        <tags>batman framework mvc servicestack</tags>
+        <dependencies>
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="3.3.0227" />
+            <dependency id="CraigsUtilityLibrary-IO" version="3.3.0227" />
+            <dependency id="ServiceStack.Text" version="3.9.44" />
+			<dependency id="Batman.Core" version="1.0.0" />
+			<dependency id="Batman.MVC" version="1.0.0" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="lib\Batman.MVC.Serialization.ServiceStackSerializers.dll" target="lib\net40\Batman.MVC.Serialization.ServiceStackSerializers.dll" />
+        <file src="lib\Batman.MVC.Serialization.ServiceStackSerializers.pdb" target="lib\net40\Batman.MVC.Serialization.ServiceStackSerializers.pdb" />
+    </files>
+</package>
