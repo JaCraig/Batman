@@ -56,6 +56,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4FA528
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{0C250196-B414-4A0C-87D7-D24A140CA0A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NuspecUpdater", "NuspecUpdater\NuspecUpdater.csproj", "{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +126,10 @@ Global
 		{A4701502-D4CC-42D9-AB31-9082ACE2B75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4701502-D4CC-42D9-AB31-9082ACE2B75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4701502-D4CC-42D9-AB31-9082ACE2B75A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -140,5 +148,6 @@ Global
 		{624EAD4E-EDB1-4AE4-9894-4389642E1DFC} = {09D82355-6335-4233-BFA5-BFFC1920C341}
 		{B61684F5-0FA0-4C8B-9F14-0908F2F7067C} = {33AD3968-8E7C-4195-BD2A-680D9F110F21}
 		{A4701502-D4CC-42D9-AB31-9082ACE2B75A} = {C036715A-2C67-4114-9947-9175D5B9BE0F}
+		{E07C2CB0-605B-44F0-9DB6-FECC311D4AD4} = {0C250196-B414-4A0C-87D7-D24A140CA0A7}
 	EndGlobalSection
 EndGlobal

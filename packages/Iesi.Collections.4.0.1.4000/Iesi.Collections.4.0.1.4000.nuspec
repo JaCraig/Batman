@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Iesi.Collections</id>
-    <version>4.0.1.4000</version>
+    <version>4.0.0002</version>
     <authors>Aidant Systems,  Jason Smith,  NHibernate community</authors>
     <owners>Aidant Systems,  Jason Smith,  NHibernate community</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
