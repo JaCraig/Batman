@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core</id>
-        <version>1.0.0001</version>
+        <version>1.0.0005</version>
         <title>Batman Framework Core</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>

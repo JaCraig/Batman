@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,9 @@ namespace NuspecUpdater
                     NewVersion += "0001";
                 File.Save(Regex.Replace(FileContents, "<version>(?<VersionNumber>.*)</version>", "<version>" + NewVersion + "</version>"));
             }
-            new FileInfo("..\\..\\..\\BatmanPackages\\Package.bat").Execute();
+            Process PackagingProcess = new FileInfo("..\\..\\..\\BatmanPackages\\Package.bat").Execute();
+            PackagingProcess.WaitForExit();
+
             foreach (FileInfo File in new DirectoryInfo("..\\..\\..\\BatmanPackages\\").EnumerateFiles("*.nupkg", SearchOption.AllDirectories))
             {
                 File.Delete();

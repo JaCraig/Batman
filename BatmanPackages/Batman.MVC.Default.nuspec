@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC.Default</id>
-        <version>1.0.0002</version>
+        <version>1.0.0005</version>
         <title>Batman Framework MVC Default Setup</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -17,14 +17,14 @@
         <dependencies>
             <dependency id="Batman.MVC" version="1.0.0" />
             <dependency id="Batman.Core" version="1.0.0" />
-            <dependency id="Batman.Core.Bootstrapper.SimpleInjector" version="1.0.1" />
+            <dependency id="Batman.Core.Bootstrapper.SimpleInjector" version="1.0.0" />
             <dependency id="Batman.Core.Communication.RazorFormatter" version="1.0.0" />
             <dependency id="Batman.Core.Communication.SMTP" version="1.0.0" />
             <dependency id="Batman.Core.Logging.NLog" version="1.0.0" />
             <dependency id="Batman.Core.Profiling.MiniProfiler" version="1.0.0" />
             <dependency id="Batman.MVC.Assets.Less" version="1.0.0" />
             <dependency id="Batman.MVC.Assets.Yui" version="1.0.0" />
-            <dependency id="Batman.MVC.Serialization.ServiceStack" version="1.0.1" />
+            <dependency id="Batman.MVC.Serialization.ServiceStack" version="1.0.0" />
             <dependency id="Batman.Core.FileSystem.Default" version="1.0.0" />
             <dependency id="Glimpse.Batman" version="1.0.0" />
         </dependencies>

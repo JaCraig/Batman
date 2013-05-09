@@ -109,7 +109,34 @@ namespace Batman.MVC.Assets.Filters
                         {
                             using (Bitmap TempImage = new Bitmap(File.FullName))
                             {
-                                Asset.Content = Asset.Content.Replace(MatchString, "url(data:image/png;base64," + TempImage.ToBase64(ImageFormat.Png) + ")");
+                                string MIMEType = "image/jpeg";
+                                string Content = "";
+                                if (File.FullName.ToUpperInvariant().EndsWith(".PNG"))
+                                {
+                                    MIMEType = "image/png";
+                                    Content = TempImage.ToBase64(ImageFormat.Png);
+                                }
+                                else if (File.FullName.ToUpperInvariant().EndsWith(".JPG") || File.FullName.ToUpperInvariant().EndsWith(".JPEG"))
+                                {
+                                    MIMEType = "image/jpeg";
+                                    Content = TempImage.ToBase64(ImageFormat.Jpeg);
+                                }
+                                else if (File.FullName.ToUpperInvariant().EndsWith(".GIF"))
+                                {
+                                    MIMEType = "image/gif";
+                                    Content = TempImage.ToBase64(ImageFormat.Gif);
+                                }
+                                else if (File.FullName.ToUpperInvariant().EndsWith(".TIFF"))
+                                {
+                                    MIMEType = "image/tiff";
+                                    Content = TempImage.ToBase64(ImageFormat.Tiff);
+                                }
+                                else if (File.FullName.ToUpperInvariant().EndsWith(".BMP"))
+                                {
+                                    MIMEType = "image/bmp";
+                                    Content = TempImage.ToBase64(ImageFormat.Bmp);
+                                }
+                                Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIMEType + ";base64," + Content + ")");
                             }
                         }
                     }
