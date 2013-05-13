@@ -68,7 +68,7 @@ mkdir lib
 mkdir tools
 mkdir content
 
-copy ..\Batman.Core.FileSystem.Local\bin\Release lib
+copy ..\Batman.Core.FileSystem.Default\bin\Release lib
 ..\.nuget\nuget pack Batman.Core.FileSystem.Default.nuspec
 
 rd /s/q lib

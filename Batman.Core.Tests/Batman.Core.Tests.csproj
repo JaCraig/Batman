@@ -67,10 +67,6 @@
       <Project>{A45865D2-BA36-4832-828B-6C6CD7C09BF4}</Project>
       <Name>Batman.Core.Bootstrapper.TinyIoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Batman.Core.FileSystem.Local\Batman.Core.FileSystem.Default.csproj">
-      <Project>{2BD04D9A-6A49-493E-9F5C-C670B56F7E53}</Project>
-      <Name>Batman.Core.FileSystem.Default</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Batman.MVC\Batman.MVC.csproj">
       <Project>{D149447D-5393-4E74-B873-3E52C6AD1217}</Project>
       <Name>Batman.MVC</Name>
