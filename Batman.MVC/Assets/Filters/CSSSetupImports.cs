@@ -83,6 +83,7 @@ namespace Batman.MVC.Assets.Filters
                         string TempFile = Import.Groups["File"].Value;
                         string MatchString = Import.Value;
                         IFile File = FileSystem.File(TempFile);
+                        File = DetermineFile(File, FileSystem, Asset, TempFile);
                         if (File == null||!File.Exists)
                         {
                             IFile AssetFile = FileSystem.File(Asset.Path);
@@ -107,6 +108,25 @@ namespace Batman.MVC.Assets.Filters
                 }
             }
             return Assets;
+        }
+
+        private IFile DetermineFile(IFile File, FileManager FileSystem, IAsset Asset, string TempFile)
+        {
+            if (File == null || !File.Exists)
+            {
+                IFile AssetFile = FileSystem.File(Asset.Path);
+                File = FileSystem.File(AssetFile.Directory.FullName + "\\" + TempFile);
+            }
+            if (File == null || !File.Exists)
+            {
+                foreach (IAsset SubAsset in Asset.Included)
+                {
+                    IFile Temp = DetermineFile(File, FileSystem, SubAsset, TempFile);
+                    if (Temp.Exists)
+                        return Temp;
+                }
+            }
+            return File;
         }
     }
 }
