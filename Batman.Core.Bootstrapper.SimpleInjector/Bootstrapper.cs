@@ -27,22 +27,22 @@ using System.Collections.Generic;
 using SimpleInjector;
 #endregion
 
-namespace Batman.Core.Bootstrapper.TinyIoC
+namespace Batman.Core.Bootstrapper.SimpleInjector
 {
     /// <summary>
     /// Simple Injector based bootstrapper
     /// </summary>
-    public class Bootstrapper : BootstrapperBase<SimpleInjector.Container>
+    public class Bootstrapper : BootstrapperBase<Container>
     {
         public Bootstrapper()
             : base()
         {
-            _Container = new SimpleInjector.Container();
+            _Container = new Container();
         }
 
-        private SimpleInjector.Container _Container = null;
+        private Container _Container = null;
 
-        protected override SimpleInjector.Container AppContainer { get { return _Container; } }
+        protected override Container AppContainer { get { return _Container; } }
 
         public override string Name { get { return "Simple Injector"; } }
 

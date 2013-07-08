@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC</id>
-        <version>1.0.0013</version>
+        <version>1.0.0015</version>
         <title>Batman Framework MVC Core</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -25,10 +25,10 @@
             <dependency id="CraigsUtilityLibrary-Media" version="[3.3.0227]" />
             <dependency id="CraigsUtilityLibrary-Web" version="[3.3.0227]" />
             <dependency id="Microsoft.AspNet.Web.Optimization" version="[1.0.0]" />
-            <dependency id="WebActivatorEx" version="[2.0.1]" />
+            <dependency id="WebActivatorEx" version="[2.0.2]" />
             <dependency id="WebGrease" version="[1.3.0]" />
             <dependency id="Microsoft.Web.Infrastructure" version="[1.0.0.0]" />
-			<dependency id="Batman.Core" version="[1.0.0013]" />
+			<dependency id="Batman.Core" version="[1.0.0015]" />
         </dependencies>
     </metadata>
     <files>
