@@ -32,7 +32,7 @@ using System.Linq;
 using System.Web.Optimization;
 using System.IO;
 using Batman.MVC.Assets.Utils;
-using Utilities.Reflection.ExtensionMethods;
+
 using Batman.Core.FileSystem.Interfaces;
 using System.Web;
 using Utilities.DataTypes;
@@ -49,19 +49,28 @@ namespace Batman.MVC.Tasks
     /// </summary>
     public class ValueProviderTask : ITask
     {
+        /// <summary>
+        /// Time to run the task
+        /// </summary>
         public Core.Tasks.Enums.RunTime TimeToRun
         {
             get { return Batman.Core.Tasks.Enums.RunTime.PostStart; }
         }
 
+        /// <summary>
+        /// Name of the task
+        /// </summary>
         public string Name
         {
             get { return "Add value providers"; }
         }
 
+        /// <summary>
+        /// Runs the task
+        /// </summary>
         public void Run()
         {
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<VPFactoryBase>().ForEach(x => x.AddFactory());
+            AppDomain.CurrentDomain.GetAssemblies().Objects<VPFactoryBase>().ForEach(x => x.AddFactory());
         }
     }
 }

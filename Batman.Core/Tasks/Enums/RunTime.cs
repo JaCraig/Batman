@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -40,8 +40,17 @@ namespace Batman.Core.Tasks.Enums
     /// </summary>
     public enum RunTime
     {
+        /// <summary>
+        /// Before start is called
+        /// </summary>
         PreStart,
+        /// <summary>
+        /// After start is called
+        /// </summary>
         PostStart,
+        /// <summary>
+        /// When the application is ending
+        /// </summary>
         End
     }
 }

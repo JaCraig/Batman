@@ -25,6 +25,7 @@ using Batman.Core.Bootstrapper.BaseClasses;
 using System;
 using System.Collections.Generic;
 using StructureMap;
+using System.Linq;
 #endregion
 
 namespace Batman.Core.Bootstrapper.TinyIoC
@@ -46,49 +47,49 @@ namespace Batman.Core.Bootstrapper.TinyIoC
 
         public override void Register<T>(Func<T> Function, string Name)
         {
-            ObjectFactory.Initialize(
+            ObjectFactory.Initialize(x => x.For<T>().Use(Function));
         }
 
         public override void Register<T1, T2>(string Name)
         {
-            AppContainer.Register<T1, T2>(Name);
+            ObjectFactory.Initialize(x => x.For<T1>().Use<T2>());
         }
 
         public override void Register<T>(string Name)
         {
-            AppContainer.Register<T>(Name);
+            ObjectFactory.Initialize(x => x.For<T>().Use<T>());
         }
 
         public override void Register<T>(T Object, string Name)
         {
-            AppContainer.Register<T>(Object, Name);
+            ObjectFactory.Initialize(x => x.For<T>().Use(Object));
         }
 
         public override void Register<T>(Func<T> Function)
         {
-            AppContainer.Register<T>((x, y) => Function());
+            ObjectFactory.Initialize(x => x.For<T>().Use(Function));
         }
 
         public override void Register<T1, T2>()
         {
-            AppContainer.Register<T1, T2>();
+            ObjectFactory.Initialize(x => x.For<T1>().Use<T2>());
         }
 
         public override void Register<T>()
         {
-            AppContainer.Register<T>();
+            ObjectFactory.Initialize(x => x.For<T>().Use<T>());
         }
 
         public override void Register<T>(T Object)
         {
-            AppContainer.Register<T>(Object);
+            ObjectFactory.Initialize(x => x.For<T>().Use(Object));
         }
 
         public override object Resolve(Type ObjectType, string Name,object DefaultObject=null)
         {
             try
             {
-                return AppContainer.Resolve(ObjectType, Name);
+                return ObjectFactory.GetInstance(ObjectType);
             }
             catch { return DefaultObject; }
         }
@@ -97,7 +98,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-                return AppContainer.Resolve(ObjectType);
+                return ObjectFactory.GetInstance(ObjectType);
             }
             catch { return DefaultObject; }
         }
@@ -106,7 +107,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-                return AppContainer.Resolve<T>(Name);
+                return ObjectFactory.GetInstance<T>();
             }
             catch { return DefaultObject; }
         }
@@ -115,7 +116,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-                return AppContainer.Resolve<T>();
+                return ObjectFactory.GetInstance<T>();
             }
             catch { return DefaultObject; }
         }
@@ -124,7 +125,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-                return AppContainer.ResolveAll(ObjectType);
+                return ObjectFactory.GetAllInstances(ObjectType).OfType<object>();
             }
             catch { return new List<object>(); }
         }
@@ -133,14 +134,13 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-            return AppContainer.ResolveAll<T>();
+                return ObjectFactory.GetAllInstances<T>();
             }
             catch { return new List<T>(); }
         }
 
         public override void Dispose(bool Managed)
         {
-            AppContainer.Dispose();
         }
     }
 }

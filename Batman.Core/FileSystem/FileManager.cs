@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -52,7 +52,7 @@ namespace Batman.Core.FileSystem
         {
             FileSystems = new Dictionary<string, IFileSystem>();
             IEnumerable<Assembly> Assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            foreach (IFileSystem FileSystem in Assemblies.GetObjects<IFileSystem>())
+            foreach (IFileSystem FileSystem in Assemblies.Objects<IFileSystem>())
             {
                 FileSystems.Add(FileSystem.Name, FileSystem);
             }

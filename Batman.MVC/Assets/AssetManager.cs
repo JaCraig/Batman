@@ -32,7 +32,7 @@ using System.Linq;
 using System.Web.Optimization;
 using System.IO;
 using Batman.MVC.Assets.Utils;
-using Utilities.Reflection.ExtensionMethods;
+
 using Batman.Core.FileSystem.Interfaces;
 using System.Web;
 using Utilities.DataTypes;
@@ -55,9 +55,9 @@ namespace Batman.MVC.Assets
         /// </summary>
         public AssetManager()
         {
-            Filters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IFilter>();
-            ContentFilters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IContentFilter>();
-            Translators = AppDomain.CurrentDomain.GetAssemblies().GetObjects<ITranslator>();
+            Filters = AppDomain.CurrentDomain.GetAssemblies().Objects<IFilter>();
+            ContentFilters = AppDomain.CurrentDomain.GetAssemblies().Objects<IContentFilter>();
+            Translators = AppDomain.CurrentDomain.GetAssemblies().Objects<ITranslator>();
             FileTypes = new ListMapping<AssetType, string>();
             RunOrder = new System.Collections.Generic.List<RunTime>();
             Translators.ForEach(x => FileTypes.Add(x.TranslatesTo, x.FileTypeAccepts));

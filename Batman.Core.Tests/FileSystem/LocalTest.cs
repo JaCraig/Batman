@@ -6,7 +6,7 @@ using Xunit;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
 using System.IO;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 
 namespace Batman.Core.Tests.FileSystem

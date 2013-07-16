@@ -60,7 +60,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
             if (!Request.ContentType.StartsWith("application/json", StringComparison.OrdinalIgnoreCase))
                 return null;
             string Body = Request.InputStream.ReadAll();
-            return Body.IsNullOrEmpty() ? null : new DictionaryValueProvider<object>(ServiceStack.Text.JsonSerializer.DeserializeFromString<ExpandoObject>(Body), CultureInfo.CurrentCulture);
+            return Body.Is(x => string.IsNullOrEmpty(x)) ? null : new DictionaryValueProvider<object>(ServiceStack.Text.JsonSerializer.DeserializeFromString<ExpandoObject>(Body), CultureInfo.CurrentCulture);
         }
 
         /// <summary>

@@ -24,7 +24,7 @@ using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
 using Batman.Core.Tasks;
 using System;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using System.Linq;
 using Batman.Core.Communication;

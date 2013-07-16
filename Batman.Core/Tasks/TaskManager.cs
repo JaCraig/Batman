@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -52,7 +52,7 @@ namespace Batman.Core.Tasks
         public TaskManager()
         {
             Tasks = new ListMapping<RunTime, ITask>();
-            foreach (ITask Task in AppDomain.CurrentDomain.GetAssemblies().GetObjects<ITask>())
+            foreach (ITask Task in AppDomain.CurrentDomain.GetAssemblies().Objects<ITask>())
             {
                 Tasks.Add(Task.TimeToRun, Task);
             }

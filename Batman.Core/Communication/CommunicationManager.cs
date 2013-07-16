@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -55,9 +55,9 @@ namespace Batman.Core.Communication
         /// </summary>
         public CommunicationManager()
         {
-            Formatters = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IFormatter>();
+            Formatters = AppDomain.CurrentDomain.GetAssemblies().Objects<IFormatter>();
             Communicators = new Dictionary<Type, ICommunicator>();
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.MessageType, x); });
+            AppDomain.CurrentDomain.GetAssemblies().Objects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.MessageType, x); });
         }
 
         #endregion

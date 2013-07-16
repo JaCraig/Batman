@@ -32,7 +32,7 @@ using System.Linq;
 using System.Web.Optimization;
 using System.IO;
 using Batman.MVC.Assets.Utils;
-using Utilities.Reflection.ExtensionMethods;
+
 using Batman.Core.FileSystem.Interfaces;
 using System.Web;
 using Utilities.DataTypes;
@@ -85,7 +85,7 @@ namespace Batman.MVC.BaseClasses
         /// <param name="requestContext">Request context</param>
         protected override void Initialize(System.Web.Routing.RequestContext requestContext)
         {
-            requestContext.HttpContext.Response.ContentEncoding = Encoding.NullCheck(new UTF8Encoding());
+            requestContext.HttpContext.Response.ContentEncoding = Encoding.Check(new UTF8Encoding());
             base.Initialize(requestContext);
         }
 

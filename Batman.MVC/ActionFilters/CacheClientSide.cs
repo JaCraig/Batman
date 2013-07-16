@@ -36,6 +36,9 @@ namespace Batman.MVC.ActionFilters
     {
         #region Properties
 
+        /// <summary>
+        /// Days that the item should be cached
+        /// </summary>
         public virtual int DaysToCache { get; set; }
 
         #endregion

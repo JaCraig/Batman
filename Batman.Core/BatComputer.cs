@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -62,9 +62,9 @@ namespace Batman.Core
         public static void PreStart()
         {
             new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory).LoadAssemblies(false).ForEach(x => x);
-            Bootstrapper = AppDomain.CurrentDomain.GetAssemblies().GetObjects<IBootstrapper>().FirstOrDefault();
+            Bootstrapper = AppDomain.CurrentDomain.GetAssemblies().Objects<IBootstrapper>().FirstOrDefault();
             Bootstrapper.Register<IBootstrapper>(Bootstrapper);
-            AppDomain.CurrentDomain.GetAssemblies().GetObjects<IModule>().ForEach(x => x.Load(Bootstrapper));
+            AppDomain.CurrentDomain.GetAssemblies().Objects<IModule>().ForEach(x => x.Load(Bootstrapper));
             LogBase Logger = Bootstrapper.Resolve<LogBase>(new NullLogger());
             Logger.LogMessage("Batman starting", MessageType.Info);
             Logger.LogMessage("Current bootstrapper: {0}", MessageType.Debug, Bootstrapper.Name);

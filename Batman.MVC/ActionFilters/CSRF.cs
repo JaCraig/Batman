@@ -22,7 +22,7 @@ THE SOFTWARE.*/
 #region Usings
 using System;
 using System.Web.Mvc;
-using Utilities.Reflection.ExtensionMethods;
+using Utilities.DataTypes.ExtensionMethods;
 #endregion
 
 namespace Batman.MVC.ActionFilters
@@ -53,8 +53,8 @@ namespace Batman.MVC.ActionFilters
         private bool ShouldValidate(AuthorizationContext Context)
         {
             return (string.Compare(Context.HttpContext.Request.HttpMethod, System.Net.WebRequestMethods.Http.Post, true) == 0
-                && Context.ActionDescriptor.GetAttributes<ValidateAntiForgeryTokenAttribute>().Length == 0
-                && Context.ActionDescriptor.GetAttributes<ByPassCRSF>().Length == 0);
+                && Context.ActionDescriptor.Attributes<ValidateAntiForgeryTokenAttribute>().Length == 0
+                && Context.ActionDescriptor.Attributes<ByPassCRSF>().Length == 0);
         }
 
         #endregion

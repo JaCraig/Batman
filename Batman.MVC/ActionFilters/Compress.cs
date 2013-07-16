@@ -22,7 +22,7 @@ THE SOFTWARE.*/
 #region Usings
 using System;
 using System.Web.Mvc;
-using Utilities.Reflection.ExtensionMethods;
+using Utilities.DataTypes.ExtensionMethods;
 using Utilities.Web.ExtensionMethods;
 #endregion
 
@@ -70,7 +70,7 @@ namespace Batman.MVC.ActionFilters
         /// <param name="filterContext">filter context</param>
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (filterContext.ActionDescriptor.GetAttributes<DoNotCompress>().Length == 0)
+            if (filterContext.ActionDescriptor.Attributes<DoNotCompress>().Length == 0)
                 filterContext.HttpContext.HTTPCompress(Minify, Type);
             base.OnActionExecuting(filterContext);
         }

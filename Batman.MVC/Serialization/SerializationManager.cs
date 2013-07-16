@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.Reflection.ExtensionMethods;
+
 using Utilities.DataTypes.ExtensionMethods;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
@@ -55,7 +55,7 @@ namespace Batman.Core.Serialization
         public SerializationManager()
         {
             Serializers = new Dictionary<string, ISerializer>();
-            foreach (ISerializer Serializer in AppDomain.CurrentDomain.GetAssemblies().GetObjects<ISerializer>())
+            foreach (ISerializer Serializer in AppDomain.CurrentDomain.GetAssemblies().Objects<ISerializer>())
             {
                 Serializers.Add(Serializer.ContentType, Serializer);
             }

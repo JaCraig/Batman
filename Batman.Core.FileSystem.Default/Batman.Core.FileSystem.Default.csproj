@@ -44,10 +44,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0227\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.3.4.0020\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
-      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.3.0227\lib\net40\Utilities.IO.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.4.0020\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -64,13 +66,13 @@
     <Compile Include="WebFile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Batman.Core\Batman.Core.csproj">
       <Project>{BF07F4E5-BFCC-4F09-A225-84689E2C9850}</Project>
       <Name>Batman.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

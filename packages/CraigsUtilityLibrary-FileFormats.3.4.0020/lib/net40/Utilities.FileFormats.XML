@@ -1,0 +1,3108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.FileFormats</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.FileFormats.BlogML.Author">
+            <summary>
+            Individual author
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Author.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Author.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element containing the author info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Author.ToString">
+            <summary>
+            Converts the author to a string
+            </summary>
+            <returns>The author as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.ID">
+            <summary>
+            ID of the author
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.Email">
+            <summary>
+            Email address of the author
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.Title">
+            <summary>
+            The person's title (most likely their name)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.REF">
+            <summary>
+            Determines if this should be a reference to an author
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.DateCreated">
+            <summary>
+            Date created
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Author.DateModified">
+            <summary>
+            Date modified
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Authors">
+            <summary>
+            Authors list
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Authors.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Authors.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the authors information</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Authors.ToString">
+            <summary>
+            Converts the authors to a string
+            </summary>
+            <returns>The authors as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Authors.AuthorList">
+            <summary>
+            List of authors
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Authors.Item(System.Int32)">
+            <summary>
+            Gets a specific author
+            </summary>
+            <param name="index">Index within the list</param>
+            <returns>The author specified</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Authors.Item(System.String)">
+            <summary>
+            Gets a specific author
+            </summary>
+            <param name="index">Author's ID that you want</param>
+            <returns>The author specified</returns>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.BlogML">
+            <summary>
+            BlogML class
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BaseClasses.StringFormatBase`1">
+            <summary>
+            Format base class for objects that are string based
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BaseClasses.FormatBase`2">
+            <summary>
+            Format base class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.CompareTo(System.Object)">
+            <summary>
+            Compares the object to another object
+            </summary>
+            <param name="obj">Object to compare to</param>
+            <returns>0 if they are equal, -1 if this is smaller, 1 if it is larger</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.CompareTo(`0)">
+            <summary>
+            Compares the object to another object
+            </summary>
+            <param name="other">Object to compare to</param>
+            <returns>0 if they are equal, -1 if this is smaller, 1 if it is larger</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.Equals(`0)">
+            <summary>
+            Determines if the objects are equal
+            </summary>
+            <param name="other">Other object to compare to</param>
+            <returns>True if they are equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.Load(System.String)">
+            <summary>
+            Loads the object from the location specified
+            </summary>
+            <param name="Location">Location of the file to load</param>
+            <returns>The object specified in the location</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.InternalLoad(System.String)">
+            <summary>
+            Loads the object from the location specified
+            </summary>
+            <param name="Location">Location of the file to load</param>
+            <returns>This</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.Save(System.String)">
+            <summary>
+            Saves the object
+            </summary>
+            <param name="Location">Location to save it to</param>
+            <returns>This</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.Clone">
+            <summary>
+            Clones the object
+            </summary>
+            <returns>A newly cloned object</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.Equals(System.Object)">
+            <summary>
+            Determines if the objects are equal
+            </summary>
+            <param name="obj">Other object to compare to</param>
+            <returns>True if they are equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.FormatBase`2.GetHashCode">
+            <summary>
+            Gets the hash code for the object
+            </summary>
+            <returns>The hash code for the object</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.CompareTo(`0)">
+            <summary>
+            Compares the object to another object
+            </summary>
+            <param name="other">Object to compare to</param>
+            <returns>0 if they are equal, -1 if this is smaller, 1 if it is larger</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.Save(System.String)">
+            <summary>
+            Saves the object
+            </summary>
+            <param name="Location">Location to save it to</param>
+            <returns>This</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.Equals(`0)">
+            <summary>
+            Determines if the objects are equal
+            </summary>
+            <param name="other">Other object to compare to</param>
+            <returns>True if they are equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.InternalLoad(System.String)">
+            <summary>
+            Loads the object from the location specified
+            </summary>
+            <param name="Location">Location of the file to load</param>
+            <returns>This</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.Clone">
+            <summary>
+            Clones the object
+            </summary>
+            <returns>A newly cloned object</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.op_Implicit(Utilities.FileFormats.BaseClasses.StringFormatBase{`0})~System.String">
+            <summary>
+            Converts the format to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringFormatBase`1.op_Implicit(System.String)~Utilities.FileFormats.BaseClasses.StringFormatBase{`0}">
+            <summary>
+            Converts the string to the format specified
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The string as an object</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.BlogML.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.BlogML.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Location">Location of the XML file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.BlogML.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.BlogML.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.Title">
+            <summary>
+            Title of the blog
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.SubTitle">
+            <summary>
+            Sub title of the blog
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.Authors">
+            <summary>
+            Authors of the blog
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.Categories">
+            <summary>
+            Categories of the blog (doesn't include tags)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.Posts">
+            <summary>
+            Posts of the blog
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.DateCreated">
+            <summary>
+            Date created
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.BlogML.RootURL">
+            <summary>
+            Root URL
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Categories">
+            <summary>
+            Categories
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Categories.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Categories.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Categories element</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Categories.ToString">
+            <summary>
+            Converts the categories to a formatted string
+            </summary>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Categories.CategoryList">
+            <summary>
+            Categories list
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Categories.Item(System.String)">
+            <summary>
+            Gets a specified category
+            </summary>
+            <param name="index">The ID of the category</param>
+            <returns>The category specified</returns>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Category">
+            <summary>
+            Category class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Category.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Category.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element with the category info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Category.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.ID">
+            <summary>
+            ID of the category
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.Title">
+            <summary>
+            Title of the cateogry (its name)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.REF">
+            <summary>
+            Determines if this is a reference to a category
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.ParentREF">
+            <summary>
+            Parent ref
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.DateCreated">
+            <summary>
+            Date createed
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Category.DateModified">
+            <summary>
+            Date modified
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Post">
+            <summary>
+            Post class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Post.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Post.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the post info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Post.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.ID">
+            <summary>
+            ID of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.PostURL">
+            <summary>
+            URL of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Title">
+            <summary>
+            Title of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Content">
+            <summary>
+            Content of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Excerpt">
+            <summary>
+            Excerpt of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.PostName">
+            <summary>
+            Name of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.DateCreated">
+            <summary>
+            Date the post was created
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.DateModified">
+            <summary>
+            Date the post was modified
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Authors">
+            <summary>
+            Authors of the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Categories">
+            <summary>
+            Categories associated with the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Tags">
+            <summary>
+            Tags associated with the post
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Post.Comments">
+            <summary>
+            Comments associated with the post
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Posts">
+            <summary>
+            Posts class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Posts.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Posts.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing post info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Posts.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Posts.PostList">
+            <summary>
+            List of posts
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Tag">
+            <summary>
+            Tag class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tag.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tag.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the tag info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tag.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Tag.REF">
+            <summary>
+            Gets the REF info for the tag (usually just the tag's name)
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Tags">
+            <summary>
+            Tags information
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tags.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tags.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing tags info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Tags.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Tags.TagList">
+            <summary>
+            Tags list
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Tags.Item(System.Int32)">
+            <summary>
+            gets a specific tag
+            </summary>
+            <param name="index">Index of the tag</param>
+            <returns>A specific tag</returns>
+        </member>
+        <member name="T:Utilities.FileFormats.CSV.CSV">
+            <summary>
+            CSV loader
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Delimited.Delimited`1">
+            <summary>
+            Base classs for delimited files (CSV, etc.)
+            </summary>
+            <typeparam name="T">Delimited</typeparam>
+        </member>
+        <member name="T:Utilities.FileFormats.BaseClasses.StringListFormatBase`2">
+            <summary>
+            Format base class for objects that are string based and list of records
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.GetEnumerator">
+            <summary>
+            Gets the enumerator for the delimited file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator for the delimited file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Add(`1)">
+            <summary>
+            Adds a Record to the file
+            </summary>
+            <param name="item">Record to add</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Clear">
+            <summary>
+            Clears the file
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Contains(`1)">
+            <summary>
+            Determines if the file contains a Record
+            </summary>
+            <param name="item">Record to check for</param>
+            <returns>True if it does, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.CopyTo(`1[],System.Int32)">
+            <summary>
+            Copies the delimited file to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Index to start at</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Remove(`1)">
+            <summary>
+            Removes a Record from the file
+            </summary>
+            <param name="item">Record to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.IndexOf(`1)">
+            <summary>
+            Index of a specific Record
+            </summary>
+            <param name="item">Record to search for</param>
+            <returns>The index of a specific Record</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Insert(System.Int32,`1)">
+            <summary>
+            Inserts a Record at a specific index
+            </summary>
+            <param name="index">Index to insert at</param>
+            <param name="item">Record to insert</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.RemoveAt(System.Int32)">
+            <summary>
+            Removes a Record at a specific index
+            </summary>
+            <param name="index">Index of the Record to remove</param>
+        </member>
+        <member name="P:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Records">
+            <summary>
+            The list of records
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Item(System.Int32)">
+            <summary>
+            Individual records
+            </summary>
+            <param name="Position">The record that you want to get</param>
+            <returns>The record requested</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.Count">
+            <summary>
+            Count of records
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BaseClasses.StringListFormatBase`2.IsReadOnly">
+            <summary>
+            Is read only?
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileContent">File content</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.Parse(System.String)">
+            <summary>
+            Parses file content and adds it to the delimited file
+            </summary>
+            <param name="FileContent">File content</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.ToDataTable(System.Boolean,System.String[])">
+            <summary>
+            Converts the delimited file to a DataTable
+            </summary>
+            <param name="FirstRowIsHeader">Determines if the first row should be treated as a header or not</param>
+            <param name="Headers">Headers for the columns if the first row is not a header</param>
+            <returns>The delimited file as a DataTable</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>A string containing the file information</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Delimited`1.op_Implicit(System.Data.DataTable)~Utilities.FileFormats.Delimited.Delimited{`0}">
+            <summary>
+            Converts the string to the format specified
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The string as an object</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Delimited`1.Delimiter">
+            <summary>
+            The delimiter used to seperate values (must be overridden)
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.CSV.CSV.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.CSV.CSV.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileContent">File content</param>
+        </member>
+        <member name="P:Utilities.FileFormats.CSV.CSV.Delimiter">
+            <summary>
+            Delimiter used in the CSV
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1">
+            <summary>
+            Field base class
+            </summary>
+            <typeparam name="T">Field type</typeparam>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.Interfaces.IField`1">
+            <summary>
+            Field interface
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.Interfaces.IField`1.Parse(System.String,System.Int32,System.String)">
+            <summary>
+            Parses the string into fields
+            </summary>
+            <param name="Value">The string value</param>
+            <param name="Length">Max length of the value</param>
+            <param name="FillerCharacter">Filler character used to fill
+            the rest of the field</param>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.Interfaces.IField`1.Length">
+            <summary>
+            Field length
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.Interfaces.IField`1.Value">
+            <summary>
+            Field value
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1.Parse(System.String,System.Int32,System.String)">
+            <summary>
+            Parses the field
+            </summary>
+            <param name="Value">Value to place in the field</param>
+            <param name="Length">Length of the field</param>
+            <param name="FillerCharacter">Filler character to use</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1.ToString">
+            <summary>
+            Converts the field to a string
+            </summary>
+            <returns>The field as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1.Length">
+            <summary>
+            Length of the field
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.FieldBase`1.Value">
+            <summary>
+            Value of the field
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.BaseClasses.FixedLengthBase`2">
+            <summary>
+            Parses and creates a fixed length file
+            </summary>
+            <typeparam name="ObjectType">Object Type</typeparam>
+            <typeparam name="FieldType">Field Type</typeparam>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FixedLengthBase`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FixedLengthBase`2.Parse(System.String,System.Int32)">
+            <summary>
+            Parses the string into fields
+            </summary>
+            <param name="Value">The string value</param>
+            <param name="Length">Max length for the record</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FixedLengthBase`2.ToString">
+            <summary>
+            Converts the file to a string
+            </summary>
+            <returns>The file as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.FixedLengthBase`2.LoadFromData(System.String)">
+            <summary>
+            Loads the data into the object
+            </summary>
+            <param name="Data">The data to load</param>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1">
+            <summary>
+            Record base class
+            </summary>
+            <typeparam name="T">Field type</typeparam>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.Interfaces.IRecord`1">
+            <summary>
+            Record interface
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.Interfaces.IRecord`1.Parse(System.String,System.Int32)">
+            <summary>
+            Parses the string into fields
+            </summary>
+            <param name="Value">The string value</param>
+            <param name="Length">Max length of the value</param>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.Interfaces.IRecord`1.Length">
+            <summary>
+            Length of the record
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Parse(System.String,System.Int32)">
+            <summary>
+            Parses the record
+            </summary>
+            <param name="Value">Value</param>
+            <param name="Length">Length of the record</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.ToString">
+            <summary>
+            Converts the record to a string
+            </summary>
+            <returns>The record as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.GetEnumerator">
+            <summary>
+            Gets the enumerator for the file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator for the file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Add(Utilities.FileFormats.FixedLength.Interfaces.IField{`0})">
+            <summary>
+            Adds a Field to the file
+            </summary>
+            <param name="item">Field to add</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Clear">
+            <summary>
+            Clears the file
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Contains(Utilities.FileFormats.FixedLength.Interfaces.IField{`0})">
+            <summary>
+            Determines if the file contains a Field
+            </summary>
+            <param name="item">Field to check for</param>
+            <returns>True if it does, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.CopyTo(Utilities.FileFormats.FixedLength.Interfaces.IField{`0}[],System.Int32)">
+            <summary>
+            Copies the delimited file to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Index to start at</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Remove(Utilities.FileFormats.FixedLength.Interfaces.IField{`0})">
+            <summary>
+            Removes a Field from the file
+            </summary>
+            <param name="item">Field to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.IndexOf(Utilities.FileFormats.FixedLength.Interfaces.IField{`0})">
+            <summary>
+            Index of a specific Field
+            </summary>
+            <param name="item">Field to search for</param>
+            <returns>The index of a specific Field</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Insert(System.Int32,Utilities.FileFormats.FixedLength.Interfaces.IField{`0})">
+            <summary>
+            Inserts a Field at a specific index
+            </summary>
+            <param name="index">Index to insert at</param>
+            <param name="item">Field to insert</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes a Field at a specific index
+            </summary>
+            <param name="index">Index of the Field to remove</param>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Fields">
+            <summary>
+            The list of fields
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Item(System.Int32)">
+            <summary>
+            Individual records
+            </summary>
+            <param name="Position">The record that you want to get</param>
+            <returns>The record requested</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.Count">
+            <summary>
+            Number of Fields
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.FixedLength.BaseClasses.RecordBase`1.IsReadOnly">
+            <summary>
+            Is the file read only
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.FixedLength.StringField">
+            <summary>
+            Field containing string info (used in text based files)
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.StringField.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Value">Value to place in the field</param>
+            <param name="Length">Max length of the value</param>
+        </member>
+        <member name="M:Utilities.FileFormats.FixedLength.StringField.Parse(System.String,System.Int32,System.String)">
+            <summary>
+            Parses the string field
+            </summary>
+            <param name="Value">Value</param>
+            <param name="Length">Max length allowed</param>
+            <param name="FillerCharacter">Filler character</param>
+        </member>
+        <member name="T:Utilities.FileFormats.INI.INI">
+            <summary>
+            Class for helping with INI files
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileName">Name of the file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.WriteToINI(System.String,System.String,System.String)">
+            <summary>
+            Writes a change to an INI file
+            </summary>
+            <param name="Section">Section</param>
+            <param name="Key">Key</param>
+            <param name="Value">Value</param>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.ReadFromINI(System.String,System.String,System.String)">
+            <summary>
+            Reads a value from an INI file
+            </summary>
+            <param name="Section">Section</param>
+            <param name="Key">Key</param>
+            <param name="DefaultValue">Default value if it does not exist</param>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.ToXML">
+            <summary>
+            Returns an XML representation of the INI file
+            </summary>
+            <returns>An XML representation of the INI file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.DeleteFromINI(System.String)">
+            <summary>
+            Deletes a section from the INI file
+            </summary>
+            <param name="Section">Section to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.DeleteFromINI(System.String,System.String)">
+            <summary>
+            Deletes a key from the INI file
+            </summary>
+            <param name="Section">Section the key is under</param>
+            <param name="Key">Key to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.ToString">
+            <summary>
+            Convert the INI to a string
+            </summary>
+            <returns>The INI file as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.INI.INI.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="P:Utilities.FileFormats.INI.INI.FileName">
+            <summary>
+            Name of the file
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.OPMLHelper.Body">
+            <summary>
+            Body class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Body.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Body.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XmlElement containing the body information</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Body.ToString">
+            <summary>
+            Converts the body to a string
+            </summary>
+            <returns>The body as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Body.Outlines">
+            <summary>
+            List of outlines
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.OPMLHelper.Head">
+            <summary>
+            Head class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Head.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Head.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XmlElement containing the header information</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Head.ToString">
+            <summary>
+            Converts the head to a string
+            </summary>
+            <returns>The head as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.Title">
+            <summary>
+            Title of the OPML document
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.DateCreated">
+            <summary>
+            Date it was created
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.DateModified">
+            <summary>
+            Date it was last modified
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.OwnerName">
+            <summary>
+            Owner of the file
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.OwnerEmail">
+            <summary>
+            Owner's email address
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Head.Docs">
+            <summary>
+            Location of the OPML spec
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.OPMLHelper.OPML">
+            <summary>
+            OPML class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.OPML.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.OPML.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Location">Location of the OPML file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.OPML.#ctor(System.Xml.Linq.XDocument)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Document">XmlDocument containing the OPML file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.OPML.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.OPML.ToString">
+            <summary>
+            Converts the file to a string
+            </summary>
+            <returns>The file as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.OPML.Body">
+            <summary>
+            Body of the file
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.OPML.Head">
+            <summary>
+            Header information
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.OPMLHelper.Outline">
+            <summary>
+            Outline class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Outline.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Outline.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructors
+            </summary>
+            <param name="Element">Element containing outline information</param>
+        </member>
+        <member name="M:Utilities.FileFormats.OPMLHelper.Outline.ToString">
+            <summary>
+            Converts the outline to a string
+            </summary>
+            <returns>The outline as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Outlines">
+            <summary>
+            Outline list
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.XMLUrl">
+            <summary>
+            Url of the XML file
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Version">
+            <summary>
+            Version number
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Title">
+            <summary>
+            Title of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Language">
+            <summary>
+            Language used
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Type">
+            <summary>
+            Type
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.HTMLUrl">
+            <summary>
+            HTML Url
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.OPMLHelper.Outline.Description">
+            <summary>
+            Description
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSD.API">
+            <summary>
+            API class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.API.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.API.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the API info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.API.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>The API info</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.API.Name">
+            <summary>
+            Name of the API
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.API.Preferred">
+            <summary>
+            Is this API preferred?
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.API.APILink">
+            <summary>
+            Link to the API
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.API.BlogID">
+            <summary>
+            Link to the blog
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSD.APIs">
+            <summary>
+            APIs for the RSD format
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.APIs.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.APIs.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.APIs.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>APIs list</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.APIs.APIList">
+            <summary>
+            List of APIs
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSD.RSD">
+            <summary>
+            Basic helper for RSD
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.RSD.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.RSD.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileContent">Content of the RSD file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.RSD.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSD.RSD.ToString">
+            <summary>
+            Outputs the RSD file
+            </summary>
+            <returns>return the properly formatted RSD file</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.RSD.EngineName">
+            <summary>
+            Engine name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.RSD.EngineLink">
+            <summary>
+            Link to the engine
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.RSD.HomePageLink">
+            <summary>
+            Link to the home page
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSD.RSD.APIs">
+            <summary>
+            API definitions
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.Channel">
+            <summary>
+            Channel item for RSS feeds
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Channel.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Channel.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML representation of the channel</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Channel.ToString">
+            <summary>
+            Converts the channel to a string
+            </summary>
+            <returns>The channel as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Explicit">
+            <summary>
+            Determines if this is explicit or not
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Items">
+            <summary>
+            Items for this channel
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Title">
+            <summary>
+            Title of the channel
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Link">
+            <summary>
+            Link to the website
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Description">
+            <summary>
+            Description of the channel
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Copyright">
+            <summary>
+            Copyright info
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Language">
+            <summary>
+            Language it is in
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.WebMaster">
+            <summary>
+            Web Master info
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.PubDate">
+            <summary>
+            Date the channel was published
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Categories">
+            <summary>
+            Categories associated with this channel
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Docs">
+            <summary>
+            Document describing the file format
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.Cloud">
+            <summary>
+            Cloud information
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.TTL">
+            <summary>
+            Time to live... Amount of time between updates.
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Channel.ImageUrl">
+            <summary>
+            Url pointing to the image/logo associated with the channel
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.Document">
+            <summary>
+            RSS document class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Location">Location of the RSS feed to load</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Document">XML document containing an RSS feed</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.ToString">
+            <summary>
+            string representation of the RSS feed.
+            </summary>
+            <returns>An rss formatted string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.Copy(Utilities.FileFormats.RSSHelper.Document)">
+            <summary>
+            Copies one document's channels to another
+            </summary>
+            <param name="CopyFrom">RSS document to copy from</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Document.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Document.Channels">
+            <summary>
+            Channels for the RSS feed
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.Enclosure">
+            <summary>
+            Enclosure class for RSS feeds (used for pod casting)
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Enclosure.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Enclosure.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element holding info for the enclosure</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Enclosure.ToString">
+            <summary>
+            to string item. Used for outputting the item to RSS.
+            </summary>
+            <returns>A string formatted for RSS output</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Enclosure.Url">
+            <summary>
+            Location of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Enclosure.Length">
+            <summary>
+            Size in bytes
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Enclosure.Type">
+            <summary>
+            File type
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.GUID">
+            <summary>
+            GUID info holder
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.GUID.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.GUID.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element holding info for the enclosure</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.GUID.ToString">
+            <summary>
+            to string item. Used for outputting the item to RSS.
+            </summary>
+            <returns>A string formatted for RSS output</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.GUID.PermaLink">
+            <summary>
+            Is this a perma link?
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.GUID.GUIDText">
+            <summary>
+            GUID Text
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.Item">
+            <summary>
+            Item class for RSS feeds
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Item.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Item.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element containing the item content</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Item.ToString">
+            <summary>
+            Outputs a string ready for RSS
+            </summary>
+            <returns>A string formatted for RSS</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.GUID">
+            <summary>
+            GUID for the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Thumbnail">
+            <summary>
+            Thumbnail information
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Title">
+            <summary>
+            Title of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Link">
+            <summary>
+            Link to its location
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Description">
+            <summary>
+            Description of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Author">
+            <summary>
+            Author of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Categories">
+            <summary>
+            Categories associated with the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.PubDate">
+            <summary>
+            Date it was published
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Item.Enclosure">
+            <summary>
+            Enclosure (used for podcasting)
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.RSS">
+            <summary>
+            Utility class used by RSS classes.
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.RSS.StripIllegalCharacters(System.String)">
+            <summary>
+            Strips illegal characters from RSS items
+            </summary>
+            <param name="Original">Original text</param>
+            <returns>string stripped of certain characters.</returns>
+        </member>
+        <member name="T:Utilities.FileFormats.RSSHelper.Thumbnail">
+            <summary>
+            Thumbnail info holder
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Thumbnail.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Thumbnail.#ctor(System.Xml.XmlElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">XML element holding info for the enclosure</param>
+        </member>
+        <member name="M:Utilities.FileFormats.RSSHelper.Thumbnail.ToString">
+            <summary>
+            to string item. Used for outputting the item to RSS.
+            </summary>
+            <returns>A string formatted for RSS output</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Thumbnail.Url">
+            <summary>
+            Location of the item
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Thumbnail.Width">
+            <summary>
+            Image width
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.RSSHelper.Thumbnail.Height">
+            <summary>
+            Image height
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.VCalendar">
+            <summary>
+            Creates a VCalendar item
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.GetVCalendar">
+            <summary>
+            Returns the VCalendar item
+            </summary>
+            <returns>a string output of the VCalendar item</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.GetICalendar">
+            <summary>
+            Returns the ICalendar item
+            </summary>
+            <returns>a string output of the ICalendar item</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.GetHCalendar">
+            <summary>
+            Returns the HCalendar item
+            </summary>
+            <returns>A string output of the HCalendar item</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.GetText">
+            <summary>
+            Returns the text version of the appointment
+            </summary>
+            <returns>A text version of the appointement</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCalendar.ToString">
+            <summary>
+            Returns the text version of the appointment
+            </summary>
+            <returns>A text version of the appointement</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.CurrentTimeZone">
+            <summary>
+            The time zone for the calendar event
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.StartTime">
+            <summary>
+            The start time
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.EndTime">
+            <summary>
+            The end time
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Location">
+            <summary>
+            The location of the event
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Subject">
+            <summary>
+            The subject of the item to send
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Description">
+            <summary>
+            The description of the event
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.AttendeeList">
+            <summary>
+            List of attendees
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Organizer">
+            <summary>
+            Organizer
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Status">
+            <summary>
+            Sets the status for the appointment (FREE, BUSY, etc.)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCalendar.Cancel">
+            <summary>
+            Determines if the calendar item is being canceled
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.VCard">
+            <summary>
+            Class for creating vCards
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.VCard.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.VCard.GetVCard">
+            <summary>
+            Gets the vCard
+            </summary>
+            <returns>A vCard in string format</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCard.GetHCard">
+            <summary>
+            Gets the hCard version of the vCard
+            </summary>
+            <returns>A hCard in string format</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCard.ToString">
+            <summary>
+            Gets the VCard as a string
+            </summary>
+            <returns>VCard as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.VCard.LoadFromData(System.String)">
+            <summary>
+            Loads the object from the data specified
+            </summary>
+            <param name="Data">Data to load into the object</param>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.FirstName">
+            <summary>
+            First name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.LastName">
+            <summary>
+            Last name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.MiddleName">
+            <summary>
+            Middle name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Prefix">
+            <summary>
+            Prefix
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Suffix">
+            <summary>
+            Suffix
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.DirectDial">
+            <summary>
+            Work phone number of the individual
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Email">
+            <summary>
+            Email of the individual
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Title">
+            <summary>
+            Title of the person
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Organization">
+            <summary>
+            Organization the person belongs to
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Relationships">
+            <summary>
+            Relationship to the person (uses XFN)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.VCard.Url">
+            <summary>
+            Url to the person's site
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Relationship">
+            <summary>
+            Enum defining relationships (used for XFN markup)
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Friend">
+            <summary>
+            Friend
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Acquaintance">
+            <summary>
+            Acquaintance
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Contact">
+            <summary>
+            Contact
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Met">
+            <summary>
+            Met
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.CoWorker">
+            <summary>
+            Coworker
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Colleague">
+            <summary>
+            Colleague
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.CoResident">
+            <summary>
+            Coresident
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Neighbor">
+            <summary>
+            Neighbor
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Child">
+            <summary>
+            Child
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Parent">
+            <summary>
+            Parent
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Sibling">
+            <summary>
+            Sibling
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Spouse">
+            <summary>
+            Spouse
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Kin">
+            <summary>
+            Kin
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Muse">
+            <summary>
+            Muse
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Crush">
+            <summary>
+            Crush
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Sweetheart">
+            <summary>
+            Sweetheart
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Relationship.Me">
+            <summary>
+            Me
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.XFN.People">
+            <summary>
+            Contains an individual's information
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XFN.People.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XFN.People.ToString">
+            <summary>
+            Returns an HTML formatted string containing the information
+            </summary>
+            <returns>An HTML formatted string containing the information</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.XFN.People.Name">
+            <summary>
+            Person's name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.XFN.People.URL">
+            <summary>
+            Person's URL
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.XFN.People.Relationships">
+            <summary>
+            Person's relationships
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.XFN.XFNList">
+            <summary>
+            List used for displaying XFN data
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XFN.XFNList.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XFN.XFNList.ToString">
+            <summary>
+            Returns an HTML formatted string containing the information
+            </summary>
+            <returns>An HTML formatted string containing the information</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.XFN.XFNList.People">
+            <summary>
+            List of people
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.XFN.Relationship">
+            <summary>
+            Enum defining relationships (used for XFN markup)
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Friend">
+            <summary>
+            Friend
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Acquaintance">
+            <summary>
+            Acquaintance
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Contact">
+            <summary>
+            Contact
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Met">
+            <summary>
+            Met
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.CoWorker">
+            <summary>
+            Coworker
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Colleague">
+            <summary>
+            Colleague
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.CoResident">
+            <summary>
+            Coresident
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Neighbor">
+            <summary>
+            Neighbor
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Child">
+            <summary>
+            Child
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Parent">
+            <summary>
+            Parent
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Sibling">
+            <summary>
+            Sibling
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Spouse">
+            <summary>
+            Spouse
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Kin">
+            <summary>
+            Kin
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Muse">
+            <summary>
+            Muse
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Crush">
+            <summary>
+            Crush
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Date">
+            <summary>
+            Date
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Sweetheart">
+            <summary>
+            Sweetheart
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.XFN.Relationship.Me">
+            <summary>
+            Me
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.XMDP.Property">
+            <summary>
+            Class for holding the individual properties and their
+            descriptions.
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XMDP.Property.#ctor">
+            <summary>
+            Constructors
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XMDP.Property.ToString">
+            <summary>
+            Converts the property to a string
+            </summary>
+            <returns>The property as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.XMDP.Property.Name">
+            <summary>
+            Name of the property
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.XMDP.Property.Description">
+            <summary>
+            Description of the property
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.XMDP.Property.Properties">
+            <summary>
+            List of sub properties (only used for rel type when you need to
+            define new link types)
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.XMDP.XMDP">
+            <summary>
+            Class for creating XMDP pages
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XMDP.XMDP.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.XMDP.XMDP.ToString">
+            <summary>
+            Converts the file to a string
+            </summary>
+            <returns>The XMDP file as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.XMDP.XMDP.Properties">
+            <summary>
+            Properties to be included
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Comment">
+            <summary>
+            Comment class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comment.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comment.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing the post info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comment.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.Title">
+            <summary>
+            Title of the comment
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.Content">
+            <summary>
+            Actual content of the comment
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.DateCreated">
+            <summary>
+            Date created
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.Approved">
+            <summary>
+            Determines if the comment is approved
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.UserName">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.UserEmail">
+            <summary>
+            User email
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.UserIP">
+            <summary>
+            User IP
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.UserURL">
+            <summary>
+            User URL
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comment.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.BlogML.Comments">
+            <summary>
+            Comments class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comments.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comments.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Element">Element containing post info</param>
+        </member>
+        <member name="M:Utilities.FileFormats.BlogML.Comments.ToString">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <returns>The object as a string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.BlogML.Comments.CommentList">
+            <summary>
+            List of comments
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Delimited.Cell">
+            <summary>
+            Cell within a delimited file
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Cell.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Cell.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Content">Value within the cell</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Cell.op_Implicit(Utilities.FileFormats.Delimited.Cell)~System.String">
+            <summary>
+            Converts the cell to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Cell.op_Implicit(System.String)~Utilities.FileFormats.Delimited.Cell">
+            <summary>
+            Converts the string to a cell
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The string as a cell</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Cell.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>The value of the cell</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Cell.Value">
+            <summary>
+            Value within the cell
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Delimited.Row">
+            <summary>
+            Individual row within a delimited file
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Delimiter">Delimiter to parse the individual cells</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Content">Content of the row</param>
+            <param name="Delimiter">Delimiter to parse the individual cells</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.ToString">
+            <summary>
+            To string function
+            </summary>
+            <returns>The content of the row in string form</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.GetEnumerator">
+            <summary>
+            Gets the enumerator for the delimited file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator for the delimited file
+            </summary>
+            <returns>The enumerator for this file</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.Add(Utilities.FileFormats.Delimited.Cell)">
+            <summary>
+            Adds a Cell to the file
+            </summary>
+            <param name="item">Cell to add</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.Clear">
+            <summary>
+            Clears the file
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.Contains(Utilities.FileFormats.Delimited.Cell)">
+            <summary>
+            Determines if the file contains a Cell
+            </summary>
+            <param name="item">Cell to check for</param>
+            <returns>True if it does, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.CopyTo(Utilities.FileFormats.Delimited.Cell[],System.Int32)">
+            <summary>
+            Copies the delimited file to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Index to start at</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.Remove(Utilities.FileFormats.Delimited.Cell)">
+            <summary>
+            Removes a Cell from the file
+            </summary>
+            <param name="item">Cell to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.IndexOf(Utilities.FileFormats.Delimited.Cell)">
+            <summary>
+            Index of a specific Cell
+            </summary>
+            <param name="item">Cell to search for</param>
+            <returns>The index of a specific Cell</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.Insert(System.Int32,Utilities.FileFormats.Delimited.Cell)">
+            <summary>
+            Inserts a Cell at a specific index
+            </summary>
+            <param name="index">Index to insert at</param>
+            <param name="item">Cell to insert</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Delimited.Row.RemoveAt(System.Int32)">
+            <summary>
+            Removes a Cell at a specific index
+            </summary>
+            <param name="index">Index of the Cell to remove</param>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Row.Cells">
+            <summary>
+            Cells within the row
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Row.Item(System.Int32)">
+            <summary>
+            Returns a cell within the row
+            </summary>
+            <param name="Position">The position of the cell</param>
+            <returns>The specified cell</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Row.Delimiter">
+            <summary>
+            Delimiter used
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Row.Count">
+            <summary>
+            Number of Cells
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Delimited.Row.IsReadOnly">
+            <summary>
+            Is the file read only
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.PipeDelimited.PipeDelimited">
+            <summary>
+            Pipe delimited loader
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.PipeDelimited.PipeDelimited.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.PipeDelimited.PipeDelimited.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileContent">File content</param>
+        </member>
+        <member name="P:Utilities.FileFormats.PipeDelimited.PipeDelimited.Delimiter">
+            <summary>
+            Delimiter used
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Zip.ZipFile">
+            <summary>
+            Helper class for dealing with zip files
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.#ctor(System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FilePath">Path to the zip file</param>
+            <param name="Overwrite">Should the zip file be overwritten?</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.AddFolder(System.String)">
+            <summary>
+            Adds a folder to the zip file
+            </summary>
+            <param name="Folder">Folder to add</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.AddFile(System.String)">
+            <summary>
+            Adds a file to the zip file
+            </summary>
+            <param name="File">File to add</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.UncompressFile(System.String)">
+            <summary>
+            Uncompresses the zip file to the specified folder
+            </summary>
+            <param name="Folder">Folder to uncompress the file in</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.Extract(System.IO.Packaging.PackagePart,System.String)">
+            <summary>
+            Extracts an individual file
+            </summary>
+            <param name="Document">Document to extract</param>
+            <param name="Folder">Folder to extract it into</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.AddFile(System.String,System.IO.FileInfo,System.IO.Packaging.Package)">
+            <summary>
+            Adds a file to the zip file
+            </summary>
+            <param name="File">File to add</param>
+            <param name="FileInfo">File information</param>
+            <param name="Package">Package to add the file to</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.Dispose">
+            <summary>
+            Disposes the object
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the objects
+            </summary>
+            <param name="Disposing">True to dispose of all resources, false only disposes of native resources</param>
+        </member>
+        <member name="M:Utilities.FileFormats.Zip.ZipFile.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Zip.ZipFile.ZipFileStream">
+            <summary>
+            Zip file's FileStream
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Directory">
+            <summary>
+            Directory class
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Interfaces.IDisplay">
+            <summary>
+            Displayable item interface
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Interfaces.IDisplay.SoftKeys">
+            <summary>
+            Softkey items
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Directory.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Directory.ToString">
+            <summary>
+            The formatted string version of the directory
+            </summary>
+            <returns>The formatted string output</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Directory.DirectoryEntries">
+            <summary>
+            Directory entries
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Directory.Prompt">
+            <summary>
+            Prompt
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Directory.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Directory.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.DirectoryEntry">
+            <summary>
+            Directory entry
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.DirectoryEntry.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.DirectoryEntry.ToString">
+            <summary>
+            Exports the directory entry to a formatted string
+            </summary>
+            <returns>Formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.DirectoryEntry.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.DirectoryEntry.Telephone">
+            <summary>
+            Telephone
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Error">
+            <summary>
+            Error class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Error.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Error.ToString">
+            <summary>
+            Exports the error as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Error.Text">
+            <summary>
+            Error text
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Error.Number">
+            <summary>
+            Error Number
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Execute">
+            <summary>
+            Execute class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Execute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Execute.ToString">
+            <summary>
+            Exports the properly formatted version of the execute object
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Execute.ExecuteItems">
+            <summary>
+            Execute items
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.ExecuteItem">
+            <summary>
+            Execute item
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.ExecuteItem.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.ExecuteItem.ToString">
+            <summary>
+            Exports the execute item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.ExecuteItem.Priority">
+            <summary>
+            Priority
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.ExecuteItem.URL">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.GraphicMenuItem">
+            <summary>
+            Graphic menu item
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Interfaces.IMenuItem">
+            <summary>
+            Menu item interface
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.GraphicMenuItem.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.GraphicMenuItem.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.Name">
+            <summary>
+            Name of the Graphic menu
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.URL">
+            <summary>
+            Invoked when area touched
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.X1">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.X2">
+            <summary>
+            Right
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.Y1">
+            <summary>
+            Top
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.GraphicMenuItem.Y2">
+            <summary>
+            Bottom
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Image">
+            <summary>
+            Image class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Image.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Image.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.Prompt">
+            <summary>
+            Prompt
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.X">
+            <summary>
+            X location
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.Y">
+            <summary>
+            Y location
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.URL">
+            <summary>
+            URL to the image
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Image.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Input">
+            <summary>
+            Input class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Input.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Input.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Input.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Input.Prompt">
+            <summary>
+            Prompt
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Input.URL">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Input.InputItems">
+            <summary>
+            Input items
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Input.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.InputFlag">
+            <summary>
+            Input type flags
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.ASCII">
+            <summary>
+            ASCII
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.TelephoneNumber">
+            <summary>
+            Telephone number
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.Numeric">
+            <summary>
+            Numeric
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.Equation">
+            <summary>
+            Equation
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.Uppercase">
+            <summary>
+            Uppercase
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.Lowercase">
+            <summary>
+            Lowercase
+            </summary>
+        </member>
+        <member name="F:Utilities.FileFormats.Cisco.InputFlag.Password">
+            <summary>
+            Password
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.InputItem">
+            <summary>
+            Input item
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.InputItem.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.InputItem.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.InputItem.DisplayName">
+            <summary>
+            Display name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.InputItem.QueryStringParam">
+            <summary>
+            Query string parameter
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.InputItem.DefaultValue">
+            <summary>
+            Default value
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.InputItem.InputFlags">
+            <summary>
+            input flags
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.MenuItem">
+            <summary>
+            Menu item class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.MenuItem.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.MenuItem.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.MenuItem.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.MenuItem.URL">
+            <summary>
+            URL
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Menu">
+            <summary>
+            Phone menu class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Menu.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Menu.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.Title">
+            <summary>
+            Title of the menu
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.Prompt">
+            <summary>
+            Prompt of the menu
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.MenuItems">
+            <summary>
+            Menu items for the menu
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.X">
+            <summary>
+            X location of backgroun image (if present)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.Y">
+            <summary>
+            Y location of backgroun image (if present)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.ImageURL">
+            <summary>
+            URL for background image (if needed)
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Menu.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.SoftKeyItem">
+            <summary>
+            Softkey class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.SoftKeyItem.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.SoftKeyItem.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.SoftKeyItem.Name">
+            <summary>
+            Name of the softkey
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.SoftKeyItem.URL">
+            <summary>
+            URL action for release event
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.SoftKeyItem.URLDown">
+            <summary>
+            URL action for press event
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.SoftKeyItem.Position">
+            <summary>
+            position of softkey
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Status">
+            <summary>
+            Status class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Status.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Status.ToString">
+            <summary>
+            Converts the status to a formatted string
+            </summary>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.Text">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.Timer">
+            <summary>
+            Timer value in seconds
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.X">
+            <summary>
+            X location
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.Y">
+            <summary>
+            Y location
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.URL">
+            <summary>
+            Location of the image
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Status.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.Cisco.Text">
+            <summary>
+            Text class
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Text.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.Cisco.Text.ToString">
+            <summary>
+            Exports the item as a properly formatted string
+            </summary>
+            <returns>The properly formatted string</returns>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Text.Title">
+            <summary>
+            Title
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Text.Prompt">
+            <summary>
+            Prompt
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Text.Content">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.Cisco.Text.SoftKeys">
+            <summary>
+            Soft keys
+            </summary>
+        </member>
+        <member name="T:Utilities.FileFormats.ExtensionMethods.ExtensionMethods">
+            <summary>
+            Extension methods pertaining to file formats
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.ExtensionMethods.ExtensionMethods.ToCSV``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Converts an IEnumerable to a CSV file
+            </summary>
+            <typeparam name="T">Type of the items within the list</typeparam>
+            <param name="List">The list to convert</param>
+            <returns>The CSV file containing the list</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.ExtensionMethods.ExtensionMethods.ToDelimitedFile``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Converts an IEnumerable to a delimited file
+            </summary>
+            <typeparam name="T">Type of the items within the list</typeparam>
+            <param name="List">The list to convert</param>
+            <param name="Delimiter">Delimiter to use</param>
+            <returns>The delimited file containing the list</returns>
+        </member>
+        <member name="M:Utilities.FileFormats.ExtensionMethods.ExtensionMethods.ToDelimitedFile(System.Data.DataTable,System.String)">
+            <summary>
+            Converts an IEnumerable to a delimited file
+            </summary>
+            <param name="Data">The DataTable to convert</param>
+            <param name="Delimiter">Delimiter to use</param>
+            <returns>The delimited file containing the list</returns>
+        </member>
+        <member name="T:Utilities.FileFormats.GenericDelimited.GenericDelimited">
+            <summary>
+            Generic delimited loader
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.GenericDelimited.GenericDelimited.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.FileFormats.GenericDelimited.GenericDelimited.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Delimiter">Delimiter used to parse the file</param>
+        </member>
+        <member name="M:Utilities.FileFormats.GenericDelimited.GenericDelimited.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FileContent">File content</param>
+            <param name="Delimiter">Delimiter used to parse the file</param>
+        </member>
+        <member name="F:Utilities.FileFormats.GenericDelimited.GenericDelimited.Delimiter_">
+            <summary>
+            Delimiter using
+            </summary>
+        </member>
+        <member name="P:Utilities.FileFormats.GenericDelimited.GenericDelimited.Delimiter">
+            <summary>
+            Delimiter
+            </summary>
+        </member>
+    </members>
+</doc>

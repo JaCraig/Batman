@@ -104,7 +104,7 @@ namespace Batman.MVC.Assets.Filters
                             else if (File.Extension.ToUpperInvariant() == ".EOT")
                                 MIME = "application/vnd.ms-fontobject";
 
-                            Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIME + ";base64," + File.ReadBinary().ToBase64String() + ")");
+                            Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIME + ";base64," + File.ReadBinary().ToString(Base64FormattingOptions.None) + ")");
                         }
                         else
                         {
