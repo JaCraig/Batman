@@ -183,16 +183,22 @@ namespace Batman.MVC.Assets
             StyleBundle Bundle = new StyleBundle(BundleDirectory + "/bundle/css");
             Bundle.Transforms.Clear();
             Bundle.Transforms.Add(new Transformer());
-            foreach (string Value in FileTypes[AssetType.CSS])
+            if (Directory.Exists)
             {
-                Bundle.IncludeDirectory(BundleDirectory, "*." + Value, true);
+                foreach (string Value in FileTypes[AssetType.CSS])
+                {
+                    Bundle.IncludeDirectory(BundleDirectory, "*." + Value, true);
+                }
             }
             ScriptBundle Bundle2 = new ScriptBundle(BundleDirectory + "/bundle/js");
             Bundle2.Transforms.Clear();
             Bundle2.Transforms.Add(new Transformer());
-            foreach (string Value in FileTypes[AssetType.Javascript])
+            if (Directory.Exists)
             {
-                Bundle2.IncludeDirectory(BundleDirectory, "*." + Value, true);
+                foreach (string Value in FileTypes[AssetType.Javascript])
+                {
+                    Bundle2.IncludeDirectory(BundleDirectory, "*." + Value, true);
+                }
             }
             BundleTable.Bundles.Add(Bundle);
             BundleTable.Bundles.Add(Bundle2);
