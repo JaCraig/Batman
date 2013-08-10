@@ -55,16 +55,16 @@ namespace Batman.MVC.Assets.WebGrease
             IEnumerable<IAsset> Processable = Assets.Where(x => !x.Minified);
             if (Processable.FirstOrDefault() == null)
                 return Assets;
-            CssMinifier Minifier = new CssMinifier() { ShouldMinify = true };
-            foreach (IAsset Asset in Processable)
-            {
-                try
-                {
-                    Asset.Content = Minifier.Minify(Asset.Content);
-                    Asset.Minified = true;
-                }
-                catch { }
-            }
+            //CssMinifier Minifier = new CssMinifier(new WebGreaseContext(new global::WebGrease.Configuration.PreprocessingConfig.CssSpritingConfig())) { ShouldMinify = true };
+            //foreach (IAsset Asset in Processable)
+            //{
+            //    try
+            //    {
+            //        Asset.Content = Minifier.Minify(Asset.Content);
+            //        Asset.Minified = true;
+            //    }
+            //    catch { }
+            //}
             return Assets;
         }
     }

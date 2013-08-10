@@ -72,6 +72,11 @@ namespace Batman.MVC.BaseClasses
             }
         }
 
+        protected virtual void Application_Error()
+        {
+            Response.Filter = null;
+        }
+
         /// <summary>
         /// Determines if the user can see profiling data
         /// </summary>

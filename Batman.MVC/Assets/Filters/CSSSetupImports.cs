@@ -92,7 +92,7 @@ namespace Batman.MVC.Assets.Filters
                         IAsset SubAsset = Assets.FirstOrDefault(x => x.Path.ToUpperInvariant() == File.FullName.ToUpperInvariant());
                         if (SubAsset == null)
                         {
-                            SubAsset = new Asset(File.FullName);
+                            SubAsset = new Asset(File.FullName.Replace(FileSystem.Directory("~/").FullName, "~/").Replace("\\", "/"));
                         }
                         Asset.Included.Add(SubAsset);
                         Asset.Content = Asset.Content.Replace(MatchString, SubAsset.Content);

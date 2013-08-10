@@ -39,6 +39,7 @@ using Utilities.DataTypes;
 using Batman.MVC.Assets.Transformers;
 using Batman.Core;
 using System.Text;
+using System.Web.Hosting;
 #endregion
 
 namespace Batman.MVC.Assets
@@ -152,14 +153,14 @@ namespace Batman.MVC.Assets
             {
                 Content = Filter.Filter(Content);
             }
-            System.Collections.Generic.List<FileInfo> Files = new System.Collections.Generic.List<FileInfo>();
+            System.Collections.Generic.List<BundleFile> Files = new System.Collections.Generic.List<BundleFile>();
             foreach (IAsset Asset in Assets)
             {
-                Files.Add(new FileInfo(Asset.Path));
-                Files.Add(Asset.Included.Select(x => new FileInfo(x.Path)));
+                Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
+                Files.Add(Asset.Included.Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
             }
             Response.Content = Content;
-            Response.Files = Files.OrderBy(x => x.FullName);
+            Response.Files = Files.OrderBy(x => x.VirtualFile.VirtualPath);
             Response.ContentType = Assets.First().Type == AssetType.CSS ? "text/css" : "text/javascript";
             Response.Cacheability = HttpCacheability.ServerAndPrivate;
         }
@@ -218,5 +219,21 @@ namespace Batman.MVC.Assets
         }
 
         #endregion
+
+        public class VirtualFileHack:VirtualFile
+        {
+            public VirtualFileHack(string Location)
+                : base(Location)
+            {
+                this.File = BatComputer.Bootstrapper.Resolve<FileManager>().File(Location);
+            }
+
+            protected IFile File { get; set; }
+
+            public override Stream Open()
+            {
+                return new MemoryStream(File.ReadBinary());
+            }
+        }
     }
 }
