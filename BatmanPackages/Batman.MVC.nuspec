@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC</id>
-        <version>1.0.0023</version>
+        <version>1.0.0025</version>
         <title>Batman Framework MVC Core</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -28,7 +28,7 @@
             <dependency id="WebActivatorEx" version="[2.0.3]" />
             <dependency id="WebGrease" version="[1.5.2]" />
             <dependency id="Microsoft.Web.Infrastructure" version="[1.0.0.0]" />
-			<dependency id="Batman.Core" version="[1.0.0023]" />
+			<dependency id="Batman.Core" version="[1.0.0025]" />
         </dependencies>
     </metadata>
     <files>
