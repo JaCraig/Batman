@@ -2052,7 +2052,8 @@
         </member>
         <member name="T:SimpleInjector.Registration">
             <summary>
-            A <b>Registration</b> implements lifestyle based caching for a single service.
+            A <b>Registration</b> implements lifestyle based caching for a single service and allows building an
+            <see cref="T:System.Linq.Expressions.Expression"/> that describes the creation of the service.
             </summary>
             <remarks>
             <see cref="P:SimpleInjector.Registration.Lifestyle"/> implementations create a new <b>Registration</b> instance for each registered
@@ -2062,7 +2063,7 @@
             <see cref="M:SimpleInjector.Container.RegisterInitializer``1(System.Action{``0})">initializers</see> applied, and the caching 
             particular to its lifestyle have been applied. Interception using the 
             <see cref="E:SimpleInjector.Container.ExpressionBuilt">Container.ExpressionBuilt</see> will <b>not</b> 
-            be applied.</remarks>
+            be applied in the <b>Registration</b>, but will be applied in <see cref="T:SimpleInjector.InstanceProducer"/>.</remarks>
             <example>
             See the <see cref="P:SimpleInjector.Registration.Lifestyle"/> documentation for an example.
             </example>
@@ -2927,6 +2928,45 @@
             container when calling one of the <b>Register</b> overloads. Instances can be retrieved by calling
             <see cref="M:SimpleInjector.Container.GetCurrentRegistrations"/> or <see cref="M:SimpleInjector.Container.GetRegistration(System.Type,System.Boolean)"/>.
             </summary>
+            <remarks>
+            The <b>Register</b> method overloads create <b>InstanceProducer</b> instances internally, but
+            <b>InstanceProducer</b>s can be created manually to implement special scenarios. An 
+            <b>InstanceProducer</b> wraps <see cref="P:SimpleInjector.InstanceProducer.Registration"/> instance. The <b>Registration</b> builds an
+            <see cref="T:System.Linq.Expressions.Expression"/> that describes the intend to create the instance according to a certain
+            lifestyle. The <b>InstanceProducer</b> on the other hand transforms this <b>Expression</b> to a
+            delegate and allows the actual instance to be created. A <b>Registration</b> itself can't create any
+            instance. The <b>InsanceProducer</b> allows intercepting created instances by hooking onto the
+            <see cref="E:SimpleInjector.Container.ExpressionBuilt">Container.ExpressionBuilt</see> event. The
+            <see cref="M:SimpleInjector.Extensions.DecoratorExtensions.RegisterDecorator(SimpleInjector.Container,System.Type,System.Type)">RegisterDecorator</see>
+            extension methods for instance work by hooking onto the <b>ExpressionBuilt</b> event and allow
+            wrapping the returned instance with a decorator.
+            </remarks>
+            <example>
+            The following example shows the creation of two different <b>InstanceProducer</b> instances that wrap
+            the same <b>Registration</b> instance. Since the <b>Registration</b> is created using the 
+            <see cref="F:SimpleInjector.Lifestyle.Singleton">Singleton</see> lifestyle, both producers will return 
+            the same instance. The <b>InstanceProducer</b> for the <code>Interface1</code> however, will wrap that
+            instance in a (transient) <code>Interface1Decorator</code>.
+            <code lang="cs"><![CDATA[
+            var container = new Container();
+            
+            // ServiceImpl implements both Interface1 and Interface2.
+            var registration = Lifestyle.Singleton.CreateRegistration<ServiceImpl, ServiceImpl>(container);
+            
+            var producer1 = new InstanceProducer(typeof(Interface1), registration);
+            var producer2 = new InstanceProducer(typeof(Interface2), registration);
+            
+            container.RegisterDecorator(typeof(Interface1), typeof(Interface1Decorator));
+            
+            var instance1 = (Interface1)producer1.GetInstance();
+            var instance2 = (Interface2)producer2.GetInstance();
+            
+            Assert.IsInstanceOfType(instance1, typeof(Interface1Decorator));
+            Assert.IsInstanceOfType(instance2, typeof(ServiceImpl));
+            
+            Assert.AreSame(((Interface1Decorator)instance1).DecoratedInstance, instance2);
+            ]]></code>
+            </example>
         </member>
         <member name="M:SimpleInjector.InstanceProducer.#ctor(System.Type,SimpleInjector.Registration)">
             <summary>Initializes a new instance of the <see cref="T:SimpleInjector.InstanceProducer"/> class.</summary>
@@ -3223,6 +3263,14 @@
             <returns>A new <see cref="T:SimpleInjector.Registration"/> instance.</returns>
             <exception cref="T:System.ArgumentNullException">Thrown when on of the supplied arguments is a null 
             reference (Nothing in VB).</exception>
+        </member>
+        <member name="M:SimpleInjector.Lifestyle.Initialize(SimpleInjector.Container)">
+            <summary>Initializes the lifestyle for use in the supplied container.</summary>
+            <remarks>
+            This method may be called multiple times for the same container. This method is called by the
+            container.</remarks>
+            <param name="container">The container.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="container"/> is null.</exception>
         </member>
         <member name="M:SimpleInjector.Lifestyle.CreateRegistrationCore``2(SimpleInjector.Container)">
             <summary>
