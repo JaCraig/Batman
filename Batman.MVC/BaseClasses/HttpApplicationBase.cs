@@ -74,7 +74,11 @@ namespace Batman.MVC.BaseClasses
 
         protected virtual void Application_Error()
         {
-            Response.Filter = null;
+            try
+            {
+                Response.Filter = null;
+            }
+            catch { }
         }
 
         /// <summary>
