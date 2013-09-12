@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Communication.SMTP</id>
-        <version>1.0.0025</version>
+        <version>1.0.0031</version>
         <title>Batman Framework SMTP Emailer</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,7 +15,7 @@
         <language>en-US</language>
         <tags>batman framework smtp</tags>
 		<dependencies>
-			<dependency id="Batman.Core" version="[1.0.0025]" />
+			<dependency id="Batman.Core" version="[1.0.0031]" />
         </dependencies>
     </metadata>
     <files>

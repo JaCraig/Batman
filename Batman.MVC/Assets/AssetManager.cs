@@ -156,8 +156,11 @@ namespace Batman.MVC.Assets
             System.Collections.Generic.List<BundleFile> Files = new System.Collections.Generic.List<BundleFile>();
             foreach (IAsset Asset in Assets)
             {
-                Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
-                Files.Add(Asset.Included.Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
+                if (Asset.Path.StartsWith("~"))
+                {
+                    Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
+                    Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~")).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
+                }
             }
             Response.Content = Content;
             Response.Files = Files.OrderBy(x => x.VirtualFile.VirtualPath);
