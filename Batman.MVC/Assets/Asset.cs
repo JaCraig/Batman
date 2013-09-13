@@ -29,6 +29,9 @@ using Batman.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
 using Batman.Core;
+using Batman.Core.Logging.BaseClasses;
+using Batman.Core.Logging;
+using Utilities.DataTypes.ExtensionMethods;
 #endregion
 
 namespace Batman.MVC.Assets

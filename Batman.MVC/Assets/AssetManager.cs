@@ -40,6 +40,8 @@ using Batman.MVC.Assets.Transformers;
 using Batman.Core;
 using System.Text;
 using System.Web.Hosting;
+using Batman.Core.Logging.BaseClasses;
+using Batman.Core.Logging;
 #endregion
 
 namespace Batman.MVC.Assets
@@ -156,10 +158,10 @@ namespace Batman.MVC.Assets
             System.Collections.Generic.List<BundleFile> Files = new System.Collections.Generic.List<BundleFile>();
             foreach (IAsset Asset in Assets)
             {
-                if (Asset.Path.StartsWith("~"))
+                if (Asset.Path.StartsWith("~")||Asset.Path.StartsWith("/"))
                 {
                     Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
-                    Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~")).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
+                    Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~") || x.Path.StartsWith("/")).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
                 }
             }
             Response.Content = Content;

@@ -69,7 +69,7 @@ namespace Batman.MVC.Assets.Transformers
         {
             if (!context.EnableInstrumentation)
             {
-                Manager.Process(response.Files.Select(x => new Asset("~" + x.VirtualFile.VirtualPath)).ToList<IAsset>(), context, response);
+                Manager.Process(response.Files.Select(x => new Asset(x.IncludedVirtualPath)).ToList<IAsset>(), context, response);
             }
         }
 

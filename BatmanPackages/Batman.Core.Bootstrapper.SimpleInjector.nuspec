@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Bootstrapper.SimpleInjector</id>
-        <version>1.0.0031</version>
+        <version>1.0.0032</version>
         <title>Batman Framework SimpleInjector Bootstrapper</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -16,7 +16,7 @@
         <tags>batman framework simpleinjector</tags>
         <dependencies>
             <dependency id="SimpleInjector" version="[2.3.5]" />
-			<dependency id="Batman.Core" version="[1.0.0031]" />
+			<dependency id="Batman.Core" version="[1.0.0032]" />
         </dependencies>
     </metadata>
     <files>
