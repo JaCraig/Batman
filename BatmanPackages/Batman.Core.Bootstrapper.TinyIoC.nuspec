@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Bootstrapper.TinyIoC</id>
-        <version>1.0.0032</version>
+        <version>1.0.0034</version>
         <title>Batman Framework TinyIoC Bootstrapper</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -16,7 +16,7 @@
         <tags>batman framework tinyioc</tags>
         <dependencies>
             <dependency id="TinyIoC" version="[1.2]" />
-			<dependency id="Batman.Core" version="[1.0.0032]" />
+			<dependency id="Batman.Core" version="[1.0.0034]" />
         </dependencies>
     </metadata>
     <files>

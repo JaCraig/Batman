@@ -80,7 +80,10 @@ namespace NuspecUpdater
             string CurrentVersion = Regex.Match(FileContent, "<version>(?<VersionNumber>.*)</version>").Groups["VersionNumber"].Value;
             foreach (Match TempMatch in Regex.Matches(FileContent, @"<dependency id=""(?<Dependency>[^""]*)"" version=""(?<VersionNumber>[^""]*)"" />"))
             {
-                FileContent = FileContent.Replace(TempMatch.Value, "<dependency id=\"" + TempMatch.Groups["Dependency"] + "\" version=\"[" + CurrentVersion + "]\" />");
+                if (TempMatch.Value.Contains("Batman"))
+                {
+                    FileContent = FileContent.Replace(TempMatch.Value, "<dependency id=\"" + TempMatch.Groups["Dependency"] + "\" version=\"[" + CurrentVersion + "]\" />");
+                }
             }
             new FileInfo("..\\..\\..\\BatmanPackages\\Batman.MVC.Default.nuspec").Save(FileContent);
         }
