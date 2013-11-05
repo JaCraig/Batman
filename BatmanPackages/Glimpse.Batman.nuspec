@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Glimpse.Batman</id>
-        <version>1.0.0035</version>
+        <version>1.0.0038</version>
         <title>Batman Info Tab for Glimpse</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,9 +15,9 @@
         <language>en-US</language>
         <tags>batman framework mvc servicestack</tags>
         <dependencies>
-            <dependency id="Glimpse.AspNet" version="[1.4.1]" />
-            <dependency id="Glimpse" version="[1.6.1]" />
-			<dependency id="Batman.MVC" version="[1.0.0035]" />
+            <dependency id="Glimpse.AspNet" version="[1.5.0]" />
+            <dependency id="Glimpse" version="[1.7.0]" />
+			<dependency id="Batman.MVC" version="[1.0.0038]" />
         </dependencies>
     </metadata>
     <files>
