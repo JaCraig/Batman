@@ -56,20 +56,32 @@ namespace Batman.MVC.BaseClasses
     {
         protected virtual void Application_BeginRequest()
         {
-            DependencyResolver.Current.GetService<IProfiler>().Start();
+            try
+            {
+                DependencyResolver.Current.GetService<IProfiler>().Start();
+            }
+            catch { }
         }
 
         protected virtual void Application_EndRequest()
         {
-            DependencyResolver.Current.GetService<IProfiler>().Stop(false);
+            try
+            {
+                DependencyResolver.Current.GetService<IProfiler>().Stop(false);
+            }
+            catch { }
         }
 
         protected virtual void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
-            if (!UserCanProfile())
+            try
             {
-                DependencyResolver.Current.GetService<IProfiler>().Stop(true);
+                if (!UserCanProfile())
+                {
+                    DependencyResolver.Current.GetService<IProfiler>().Stop(true);
+                }
             }
+            catch { }
         }
 
         protected virtual void Application_Error()
