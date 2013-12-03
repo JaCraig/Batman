@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Communication.RazorFormatter</id>
-        <version>1.0.0042</version>
+        <version>1.0.0044</version>
         <title>Batman Framework Razor Templates</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,9 +15,9 @@
         <language>en-US</language>
         <tags>batman framework razor</tags>
         <dependencies>
-            <dependency id="RazorEngine" version="[3.3.0]" />
-            <dependency id="Microsoft.AspNet.Razor" version="[2.0.30506.0]" />
-			<dependency id="Batman.Core" version="[1.0.0042]" />
+            <dependency id="RazorEngine" version="[3.4.0]" />
+            <dependency id="Microsoft.AspNet.Razor" version="[3.0.0]" />
+			<dependency id="Batman.Core" version="[1.0.0044]" />
         </dependencies>
     </metadata>
     <files>
