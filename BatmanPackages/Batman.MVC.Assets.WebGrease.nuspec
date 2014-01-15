@@ -3,9 +3,9 @@
     <metadata>
         <id>Batman.MVC.Assets.WebGrease</id>
 <<<<<<< HEAD
-        <version>1.0.0043</version>
+        <version>1.0.0045</version>
 =======
-        <version>1.0.0044</version>
+        <version>1.0.0045</version>
 >>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
         <title>Batman Framework WebGrease Support</title>
         <authors>James Craig</authors>
@@ -21,11 +21,11 @@
         <dependencies>
             <dependency id="WebGrease" version="[1.5.2]" />
 <<<<<<< HEAD
-			<dependency id="Batman.Core" version="[1.0.0043]" />
-			<dependency id="Batman.MVC" version="[1.0.0043]" />
+			<dependency id="Batman.Core" version="[1.0.0045]" />
+			<dependency id="Batman.MVC" version="[1.0.0045]" />
 =======
-			<dependency id="Batman.Core" version="[1.0.0044]" />
-			<dependency id="Batman.MVC" version="[1.0.0044]" />
+			<dependency id="Batman.Core" version="[1.0.0045]" />
+			<dependency id="Batman.MVC" version="[1.0.0045]" />
 >>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
         </dependencies>
     </metadata>

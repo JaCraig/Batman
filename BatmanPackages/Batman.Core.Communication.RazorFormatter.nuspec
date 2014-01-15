@@ -3,9 +3,9 @@
     <metadata>
         <id>Batman.Core.Communication.RazorFormatter</id>
 <<<<<<< HEAD
-        <version>1.0.0043</version>
+        <version>1.0.0045</version>
 =======
-        <version>1.0.0044</version>
+        <version>1.0.0045</version>
 >>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
         <title>Batman Framework Razor Templates</title>
         <authors>James Craig</authors>
@@ -22,9 +22,9 @@
             <dependency id="RazorEngine" version="[3.4.0]" />
             <dependency id="Microsoft.AspNet.Razor" version="[3.0.0]" />
 <<<<<<< HEAD
-			<dependency id="Batman.Core" version="[1.0.0043]" />
+			<dependency id="Batman.Core" version="[1.0.0045]" />
 =======
-			<dependency id="Batman.Core" version="[1.0.0044]" />
+			<dependency id="Batman.Core" version="[1.0.0045]" />
 >>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
         </dependencies>
     </metadata>

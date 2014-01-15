@@ -3,9 +3,9 @@
     <metadata>
         <id>Batman.Core</id>
 <<<<<<< HEAD
-        <version>1.0.0043</version>
+        <version>1.0.0045</version>
 =======
-        <version>1.0.0044</version>
+        <version>1.0.0045</version>
 >>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
         <title>Batman Framework Core</title>
         <authors>James Craig</authors>
