@@ -2,11 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Profiling.MiniProfiler</id>
-<<<<<<< HEAD
-        <version>1.0.0045</version>
-=======
-        <version>1.0.0045</version>
->>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
+        <version>1.0.0048</version>
         <title>Batman Framework MiniProfiler</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -20,11 +16,7 @@
         <tags>batman framework miniprofiler</tags>
         <dependencies>
             <dependency id="MiniProfiler" version="[2.1.0]" />
-<<<<<<< HEAD
-			<dependency id="Batman.Core" version="[1.0.0045]" />
-=======
-			<dependency id="Batman.Core" version="[1.0.0045]" />
->>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
+			<dependency id="Batman.Core" version="[1.0.0048]" />
         </dependencies>
     </metadata>
     <files>

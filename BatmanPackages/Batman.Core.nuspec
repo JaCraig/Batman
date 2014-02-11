@@ -2,11 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core</id>
-<<<<<<< HEAD
-        <version>1.0.0045</version>
-=======
-        <version>1.0.0045</version>
->>>>>>> dc24bba92e6f423bc1c71fc016c5bbd97a62e95c
+        <version>1.0.0048</version>
         <title>Batman Framework Core</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -19,9 +15,9 @@
         <language>en-US</language>
         <tags>batman, framework</tags>
         <dependencies>
-            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0080]" />
-            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0080]" />
-            <dependency id="CraigsUtilityLibrary-Reflection" version="[3.4.0080]" />
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0090]" />
+            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0090]" />
+            <dependency id="CraigsUtilityLibrary-Reflection" version="[3.4.0090]" />
         </dependencies>
     </metadata>
     <files>
