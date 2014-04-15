@@ -20,13 +20,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.Bootstrapper.BaseClasses;
+
 using System;
 using System.Collections.Generic;
-using StructureMap;
 using System.Linq;
-#endregion
+using Batman.Core.Bootstrapper.BaseClasses;
+using Batman.Core.Bootstrapper.Interfaces;
+using StructureMap;
+
+#endregion Usings
 
 namespace Batman.Core.Bootstrapper.TinyIoC
 {
@@ -38,16 +40,19 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         public Bootstrapper()
             : base()
         {
-            
         }
-
-        protected override Container AppContainer { get { return new Container(); } }
 
         public override string Name { get { return "StructureMap"; } }
 
+        protected override Container AppContainer { get { return new Container(); } }
+
+        public override void Dispose(bool Managed)
+        {
+        }
+
         public override void Register<T>(Func<T> Function, string Name)
         {
-            ObjectFactory.Initialize(x => x.For<T>().Use(Function));
+            ObjectFactory.Initialize(x => x.For<T>().Use(Name, Function));
         }
 
         public override void Register<T1, T2>(string Name)
@@ -67,7 +72,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
 
         public override void Register<T>(Func<T> Function)
         {
-            ObjectFactory.Initialize(x => x.For<T>().Use(Function));
+            ObjectFactory.Initialize(x => x.For<T>().Use("", Function));
         }
 
         public override void Register<T1, T2>()
@@ -85,7 +90,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             ObjectFactory.Initialize(x => x.For<T>().Use(Object));
         }
 
-        public override object Resolve(Type ObjectType, string Name,object DefaultObject=null)
+        public override object Resolve(Type ObjectType, string Name, object DefaultObject = null)
         {
             try
             {
@@ -94,7 +99,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override object Resolve(Type ObjectType,object DefaultObject=null)
+        public override object Resolve(Type ObjectType, object DefaultObject = null)
         {
             try
             {
@@ -103,7 +108,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>(string Name,T DefaultObject=default(T))
+        public override T Resolve<T>(string Name, T DefaultObject = default(T))
         {
             try
             {
@@ -112,7 +117,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>(T DefaultObject=default(T))
+        public override T Resolve<T>(T DefaultObject = default(T))
         {
             try
             {
@@ -137,10 +142,6 @@ namespace Batman.Core.Bootstrapper.TinyIoC
                 return ObjectFactory.GetAllInstances<T>();
             }
             catch { return new List<T>(); }
-        }
-
-        public override void Dispose(bool Managed)
-        {
         }
     }
 }
