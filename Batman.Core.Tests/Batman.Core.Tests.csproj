@@ -44,15 +44,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.3.4.0111\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.3.4.0116\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.4.0111\lib\net40\Utilities.IO.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.4.0116\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.4.0111\lib\net40\Utilities.Reflection.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.4.0116\lib\net40\Utilities.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="xunit, Version=1.9.2.1705, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -20,12 +20,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
+
 using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
+using Batman.Core.Serialization;
 using Batman.Core.Tasks;
 using Batman.MVC.Assets;
-using Batman.Core.Serialization;
-#endregion
+
+#endregion Usings
 
 namespace Batman.MVC.Bootstrapper
 {
@@ -34,6 +36,10 @@ namespace Batman.MVC.Bootstrapper
     /// </summary>
     public class AssetModule : IModule
     {
+        /// <summary>
+        /// Loads the module using the bootstrapper
+        /// </summary>
+        /// <param name="Bootstrapper">Bootstrapper used to register various objects</param>
         public void Load(IBootstrapper Bootstrapper)
         {
             Bootstrapper.Register<AssetManager>(new AssetManager());

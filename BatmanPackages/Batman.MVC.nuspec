@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC</id>
-        <version>1.0.0055</version>
+        <version>1.0.0056</version>
         <title>Batman Framework MVC Core</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,20 +15,20 @@
         <language>en-US</language>
         <tags>batman framework mvc</tags>
         <dependencies>
-            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Encryption" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-FileFormats" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Reflection" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Random" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Math" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Media" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-Web" version="[3.4.0111]" />
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Encryption" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-FileFormats" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Reflection" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Random" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Math" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Media" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-Web" version="[3.4.0116]" />
             <dependency id="Microsoft.AspNet.Web.Optimization" version="[1.1.3]" />
             <dependency id="WebActivatorEx" version="[2.0.5]" />
             <dependency id="WebGrease" version="[1.6.0]" />
             <dependency id="Microsoft.Web.Infrastructure" version="[1.0.0.0]" />
-			<dependency id="Batman.Core" version="[1.0.0055]" />
+			<dependency id="Batman.Core" version="[1.0.0056]" />
         </dependencies>
     </metadata>
     <files>

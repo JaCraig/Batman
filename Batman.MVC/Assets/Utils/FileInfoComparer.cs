@@ -20,14 +20,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using System;
-using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Enums;
-using System.IO;
-#endregion
 
+using Batman.Core.Bootstrapper.Interfaces;
+using Batman.MVC.Assets.Enums;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Web.Mvc;
+
+#endregion Usings
 
 namespace Batman.MVC.Assets.Utils
 {
@@ -36,6 +37,12 @@ namespace Batman.MVC.Assets.Utils
     /// </summary>
     public class FileInfoComparer : IEqualityComparer<FileInfo>
     {
+        /// <summary>
+        /// Determines whether the specified objects are equal.
+        /// </summary>
+        /// <param name="x">The first object of type <see cref="FileInfo">FileInfo</see> to compare.</param>
+        /// <param name="y">The second object of type <see cref="FileInfo">FileInfo</see> to compare.</param>
+        /// <returns>true if the specified objects are equal; otherwise, false.</returns>
         public bool Equals(FileInfo x, FileInfo y)
         {
             if (x == y)
@@ -47,6 +54,14 @@ namespace Batman.MVC.Assets.Utils
             return string.Equals(x.FullName, y.FullName, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Returns a hash code for this instance.
+        /// </summary>
+        /// <param name="obj">The object.</param>
+        /// <returns>
+        /// A hash code for this instance, suitable for use in hashing algorithms and data
+        /// structures like a hash table.
+        /// </returns>
         public int GetHashCode(FileInfo obj)
         {
             return obj.FullName.GetHashCode();

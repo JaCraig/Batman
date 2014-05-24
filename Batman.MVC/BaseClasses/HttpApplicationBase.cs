@@ -20,32 +20,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using System;
-using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
-using Batman.MVC.Assets.Enums;
-using Batman.Core.FileSystem;
-using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using System.Web.Optimization;
-using System.IO;
-using Batman.MVC.Assets.Utils;
 
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
-using Utilities.DataTypes;
-using Batman.Core.Tasks.Interfaces;
-using Batman.MVC.Assets;
 using Batman.Core;
-using System.Configuration;
+using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.Communication;
 using Batman.Core.Communication.Interfaces;
+using Batman.Core.FileSystem;
+using Batman.Core.FileSystem.Interfaces;
 using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
 using Batman.Core.Profiling.Interfaces;
-#endregion
+using Batman.Core.Tasks.Interfaces;
+using Batman.MVC.Assets;
+using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using Batman.MVC.Assets.Utils;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using Utilities.DataTypes;
+using Utilities.DataTypes.ExtensionMethods;
+using Utilities.IO.Logging.Enums;
+
+#endregion Usings
 
 namespace Batman.MVC.BaseClasses
 {
@@ -54,24 +55,11 @@ namespace Batman.MVC.BaseClasses
     /// </summary>
     public abstract class HttpApplicationBase : System.Web.HttpApplication
     {
-        protected virtual void Application_BeginRequest()
-        {
-            try
-            {
-                DependencyResolver.Current.GetService<IProfiler>().Start();
-            }
-            catch { }
-        }
-
-        protected virtual void Application_EndRequest()
-        {
-            try
-            {
-                DependencyResolver.Current.GetService<IProfiler>().Stop(false);
-            }
-            catch { }
-        }
-
+        /// <summary>
+        /// Handles the AuthenticateRequest event of the Application control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs" /> instance containing the event data.</param>
         protected virtual void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
             try
@@ -84,6 +72,33 @@ namespace Batman.MVC.BaseClasses
             catch { }
         }
 
+        /// <summary>
+        /// Called at the beginning of the application request
+        /// </summary>
+        protected virtual void Application_BeginRequest()
+        {
+            try
+            {
+                DependencyResolver.Current.GetService<IProfiler>().Start();
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Called at the end of the application request
+        /// </summary>
+        protected virtual void Application_EndRequest()
+        {
+            try
+            {
+                DependencyResolver.Current.GetService<IProfiler>().Stop(false);
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Called when the application has an error
+        /// </summary>
         protected virtual void Application_Error()
         {
             try

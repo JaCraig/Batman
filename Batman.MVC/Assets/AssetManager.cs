@@ -20,29 +20,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using System;
-using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
-using Batman.MVC.Assets.Enums;
-using Batman.Core.FileSystem;
-using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using System.Web.Optimization;
-using System.IO;
-using Batman.MVC.Assets.Utils;
 
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
-using Utilities.DataTypes;
-using Batman.MVC.Assets.Transformers;
 using Batman.Core;
-using System.Text;
-using System.Web.Hosting;
-using Batman.Core.Logging.BaseClasses;
+using Batman.Core.Bootstrapper.Interfaces;
+using Batman.Core.FileSystem;
+using Batman.Core.FileSystem.Interfaces;
 using Batman.Core.Logging;
-#endregion
+using Batman.Core.Logging.BaseClasses;
+using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using Batman.MVC.Assets.Transformers;
+using Batman.MVC.Assets.Utils;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Web;
+using System.Web.Hosting;
+using System.Web.Mvc;
+using System.Web.Optimization;
+using Utilities.DataTypes;
+using Utilities.DataTypes.ExtensionMethods;
+
+#endregion Usings
 
 namespace Batman.MVC.Assets
 {
@@ -73,19 +74,9 @@ namespace Batman.MVC.Assets
             RunOrder.Add(RunTime.PreCombine);
         }
 
-        #endregion
+        #endregion Constructor
 
         #region Properties
-
-        /// <summary>
-        /// Filters
-        /// </summary>
-        protected IEnumerable<IFilter> Filters { get; private set; }
-
-        /// <summary>
-        /// Translators
-        /// </summary>
-        protected IEnumerable<ITranslator> Translators { get; private set; }
 
         /// <summary>
         /// Content filters
@@ -93,23 +84,42 @@ namespace Batman.MVC.Assets
         protected IEnumerable<IContentFilter> ContentFilters { get; private set; }
 
         /// <summary>
+        /// File manager
+        /// </summary>
+        protected FileManager FileManager { get { return BatComputer.Bootstrapper.Resolve<FileManager>(); } }
+
+        /// <summary>
         /// File types that the system recognizes
         /// </summary>
         protected ListMapping<AssetType, string> FileTypes { get; private set; }
 
         /// <summary>
-        /// File manager
+        /// Filters
         /// </summary>
-        protected FileManager FileManager { get { return BatComputer.Bootstrapper.Resolve<FileManager>(); } }
+        protected IEnumerable<IFilter> Filters { get; private set; }
 
         /// <summary>
         /// Order that the filters are run in
         /// </summary>
         protected System.Collections.Generic.List<RunTime> RunOrder { get; private set; }
 
-        #endregion
+        /// <summary>
+        /// Translators
+        /// </summary>
+        protected IEnumerable<ITranslator> Translators { get; private set; }
+
+        #endregion Properties
 
         #region Functions
+
+        /// <summary>
+        /// Auto creates the bundles for the given directory
+        /// </summary>
+        public void CreateBundles()
+        {
+            CreateBundles(FileManager.Directory("~/Scripts"));
+            CreateBundles(FileManager.Directory("~/Content"));
+        }
 
         /// <summary>
         /// Determines the asset type
@@ -158,7 +168,7 @@ namespace Batman.MVC.Assets
             System.Collections.Generic.List<BundleFile> Files = new System.Collections.Generic.List<BundleFile>();
             foreach (IAsset Asset in Assets)
             {
-                if (Asset.Path.StartsWith("~")||Asset.Path.StartsWith("/"))
+                if (Asset.Path.StartsWith("~") || Asset.Path.StartsWith("/"))
                 {
                     Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
                     Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~") || x.Path.StartsWith("/")).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
@@ -171,12 +181,16 @@ namespace Batman.MVC.Assets
         }
 
         /// <summary>
-        /// Auto creates the bundles for the given directory
+        /// Returns a <see cref="System.String" /> that represents this instance.
         /// </summary>
-        public void CreateBundles()
+        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        public override string ToString()
         {
-            CreateBundles(FileManager.Directory("~/Scripts"));
-            CreateBundles(FileManager.Directory("~/Content"));
+            return new StringBuilder().AppendLine()
+                                      .AppendLineFormat("Filters: {0}", Filters.ToString(x => x.Name))
+                                      .AppendLineFormat("Translators: {0}", Translators.ToString(x => x.Name))
+                                      .AppendFormat("Content Filters: {0}", ContentFilters.ToString(x => x.Name))
+                                      .ToString();
         }
 
         /// <summary>
@@ -214,27 +228,33 @@ namespace Batman.MVC.Assets
             }
         }
 
-        public override string ToString()
-        {
-            return new StringBuilder().AppendLine()
-                                      .AppendLineFormat("Filters: {0}", Filters.ToString(x => x.Name))
-                                      .AppendLineFormat("Translators: {0}", Translators.ToString(x => x.Name))
-                                      .AppendFormat("Content Filters: {0}", ContentFilters.ToString(x => x.Name))
-                                      .ToString();
-        }
+        #endregion Functions
 
-        #endregion
-
-        public class VirtualFileHack:VirtualFile
+        /// <summary>
+        /// Virtual file hacky system
+        /// </summary>
+        public class VirtualFileHack : VirtualFile
         {
+            /// <summary>
+            /// Initializes a new instance of the <see cref="VirtualFileHack" /> class.
+            /// </summary>
+            /// <param name="Location">The location.</param>
             public VirtualFileHack(string Location)
                 : base(Location)
             {
                 this.File = BatComputer.Bootstrapper.Resolve<FileManager>().File(Location);
             }
 
+            /// <summary>
+            /// Gets or sets the file.
+            /// </summary>
+            /// <value>The file.</value>
             protected IFile File { get; set; }
 
+            /// <summary>
+            /// When overridden in a derived class, returns a read-only stream to the virtual resource.
+            /// </summary>
+            /// <returns>A read-only stream to the virtual file.</returns>
             public override Stream Open()
             {
                 return new MemoryStream(File.ReadBinary());
