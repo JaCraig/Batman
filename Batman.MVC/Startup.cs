@@ -6,24 +6,42 @@ namespace Batman.Core
 {
     #region Usings
 
-    using System.Web.Mvc;
     using Batman.Core.Bootstrapper.Interfaces;
+    using Batman.Core.Logging;
+    using Batman.Core.Logging.BaseClasses;
+    using Batman.Core.Serialization;
+    using Batman.MVC.Assets;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Batman.Core.Logging.BaseClasses;
-    using Batman.Core.Logging;
+    using System.Web.Mvc;
     using Utilities.IO.Logging.Enums;
-    using Batman.MVC.Assets;
-    using Batman.Core.Serialization;
 
-    #endregion
+    #endregion Usings
 
     /// <summary>
-    /// 
     /// </summary>
     public static class AppHelper
     {
+        /// <summary>
+        /// Ends this instance.
+        /// </summary>
+        public static void End()
+        {
+            BatComputer.End();
+        }
+
+        /// <summary>
+        /// Called post application start
+        /// </summary>
+        public static void PostStart()
+        {
+            BatComputer.PostStart();
+        }
+
+        /// <summary>
+        /// Called pre application start
+        /// </summary>
         public static void PreStart()
         {
             BatComputer.PreStart();
@@ -31,16 +49,6 @@ namespace Batman.Core
             Logger.LogMessage("Current asset helpers: {0}", MessageType.Debug, BatComputer.Bootstrapper.Resolve<AssetManager>().ToString());
             Logger.LogMessage("Current serializers: {0}", MessageType.Debug, BatComputer.Bootstrapper.Resolve<SerializationManager>().ToString());
             DependencyResolver.SetResolver(new Bootstrapper.DependencyResolver(BatComputer.Bootstrapper));
-        }
-
-        public static void PostStart()
-        {
-            BatComputer.PostStart();
-        }
-
-        public static void End()
-        {
-            BatComputer.End();
         }
     }
 }

@@ -20,20 +20,22 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 #region Usings
-using System;
+
+using Batman.Core;
 using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
-using Batman.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
+using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web.Mvc;
 using System.Web.Optimization;
 using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using System.IO;
 using Utilities.IO.ExtensionMethods;
-using Batman.Core;
-#endregion
+
+#endregion Usings
 
 namespace Batman.MVC.Assets.Transformers
 {
@@ -52,7 +54,7 @@ namespace Batman.MVC.Assets.Transformers
             Manager = BatComputer.Bootstrapper.Resolve<AssetManager>();
         }
 
-        #endregion
+        #endregion Constructor
 
         #region Properties
 
@@ -61,10 +63,15 @@ namespace Batman.MVC.Assets.Transformers
         /// </summary>
         protected AssetManager Manager { get; private set; }
 
-        #endregion
+        #endregion Properties
 
         #region Functions
 
+        /// <summary>
+        /// Transforms the content in the <see cref="T:System.Web.Optimization.BundleResponse" /> object.
+        /// </summary>
+        /// <param name="context">The bundle context.</param>
+        /// <param name="response">The bundle response.</param>
         public void Process(BundleContext context, BundleResponse response)
         {
             if (!context.EnableInstrumentation)
@@ -73,6 +80,6 @@ namespace Batman.MVC.Assets.Transformers
             }
         }
 
-        #endregion
+        #endregion Functions
     }
 }
