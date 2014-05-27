@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.Logging.NLog</id>
-        <version>1.0.0055</version>
+        <version>1.0.0056</version>
         <title>Batman Framework NLog Logger</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,10 +15,10 @@
         <language>en-US</language>
         <tags>batman framework nlog</tags>
         <dependencies>
-            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0111]" />
-            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0111]" />
+            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0116]" />
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0116]" />
             <dependency id="NLog" version="[2.1.0]" />
-			<dependency id="Batman.Core" version="[1.0.0055]" />
+			<dependency id="Batman.Core" version="[1.0.0056]" />
 			<dependency id="NLog.Config" version="2.0.1.2" />
         </dependencies>
     </metadata>
