@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Compression</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Compression.ExtensionMethods.CompressionExtensions">
+            <summary>
+            Extension methods dealing with compression
+            </summary>
+        </member>
+        <member name="M:Utilities.Compression.ExtensionMethods.CompressionExtensions.Compress(System.Byte[],Utilities.Compression.ExtensionMethods.Enums.CompressionType)">
+            <summary>
+            Compresses the data using the specified compression type
+            </summary>
+            <param name="Data">Data to compress</param>
+            <param name="CompressionType">Compression type</param>
+            <returns>The compressed data</returns>
+        </member>
+        <member name="M:Utilities.Compression.ExtensionMethods.CompressionExtensions.Compress(System.String,System.Text.Encoding,Utilities.Compression.ExtensionMethods.Enums.CompressionType)">
+            <summary>
+            Compresses a string of data
+            </summary>
+            <param name="Data">Data to Compress</param>
+            <param name="EncodingUsing">Encoding that the data uses (defaults to UTF8)</param>
+            <param name="CompressionType">The compression type used</param>
+            <returns>The data Compressed</returns>
+        </member>
+        <member name="M:Utilities.Compression.ExtensionMethods.CompressionExtensions.Decompress(System.Byte[],Utilities.Compression.ExtensionMethods.Enums.CompressionType)">
+            <summary>
+            Decompresses the byte array that is sent in
+            </summary>
+            <param name="Data">Data to decompress</param>
+            <param name="CompressionType">The compression type used</param>
+            <returns>The data decompressed</returns>
+        </member>
+        <member name="M:Utilities.Compression.ExtensionMethods.CompressionExtensions.Decompress(System.String,System.Text.Encoding,Utilities.Compression.ExtensionMethods.Enums.CompressionType)">
+            <summary>
+            Decompresses a string of data
+            </summary>
+            <param name="Data">Data to decompress</param>
+            <param name="EncodingUsing">Encoding that the result should use (defaults to UTF8)</param>
+            <param name="CompressionType">The compression type used</param>
+            <returns>The data decompressed</returns>
+        </member>
+        <member name="T:Utilities.Compression.ExtensionMethods.Enums.CompressionType">
+            <summary>
+            Defines the various compression types that are available
+            </summary>
+        </member>
+        <member name="F:Utilities.Compression.ExtensionMethods.Enums.CompressionType.Deflate">
+            <summary>
+            Deflate
+            </summary>
+        </member>
+        <member name="F:Utilities.Compression.ExtensionMethods.Enums.CompressionType.GZip">
+            <summary>
+            GZip
+            </summary>
+        </member>
+    </members>
+</doc>

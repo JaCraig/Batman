@@ -1,0 +1,2418 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Web.Email.Message">
+            <summary>
+            Base message class used for emails
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Message.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Message.To">
+            <summary>
+            Whom the message is to
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Message.Subject">
+            <summary>
+            The subject of the email
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Message.From">
+            <summary>
+            Whom the message is from
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Message.Body">
+            <summary>
+            Body of the text
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.Attribute">
+            <summary>
+            Attributes associated with fields
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Attribute.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Attribute.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="AttributeText">Text of the attribute</param>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Attribute.Name">
+            <summary>
+            Name of the attribute
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Attribute.Value">
+            <summary>
+            Value of the attribtue
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.Code">
+            <summary>
+            Base coder class
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Code.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Code.Decode(System.String,System.Byte[]@)">
+            <summary>
+            Decodes a string to bytes
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Output">Bytes once decoded</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Code.Decode(System.String,System.String@)">
+            <summary>
+            Decodes a string to another string
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Output">Output string</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Code.Encode(System.Byte[])">
+            <summary>
+            Encodes a byte array
+            </summary>
+            <param name="Input">Input array</param>
+            <returns>A string of the bytes encoded</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Code.Encode(System.String)">
+            <summary>
+            Encodes a string into a string
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>An encoded string</returns>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Code.CharacterSet">
+            <summary>
+            Character set this coder is using
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeManager">
+            <summary>
+            Manager in charge of the various decode/encode classes.
+            Is a singleton.
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeManager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeManager.Load">
+            <summary>
+            Loads the basic information for the class
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeManager.Instance">
+            <summary>
+            Instance of the class
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeManager.Item(System.String)">
+            <summary>
+            Gets the coder assocaited with the type specified
+            </summary>
+            <param name="Key">Content type</param>
+            <returns>The coder associated with the type</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeTypes.CodeAddress">
+            <summary>
+            Address coder
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeTypes.CodeBase">
+            <summary>
+            Default base coder
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.Decode(System.String,System.String@)">
+            <summary>
+            Decodes a string
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Output">Output string</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.Encode(System.String)">
+            <summary>
+            Encodes a string
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>encoded string</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.EncodeDelimeter(System.String)">
+            <summary>
+            Encodes a string based on delimeters specified
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>A string encoded based off of delimeters</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.EncodeNoDelimeter(System.String)">
+            <summary>
+            Encodes a string without the use of delimeters
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>An encoded string</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.SelectEncoding(System.String)">
+            <summary>
+            Selects an encoding type
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>A string containing the encoding type that should be used</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase.IsNonASCIICharacter(System.Char)">
+            <summary>
+            Determines if this is a non ASCII character (greater than 255)
+            </summary>
+            <param name="Input"></param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeBase.FoldCharacters">
+            <summary>
+            Fold characters
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeBase.IsAutoFold">
+            <summary>
+            Is folding used
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeBase.DelimeterNeeded">
+            <summary>
+            Are delimeter's needed
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeBase.DelimeterCharacters">
+            <summary>
+            Delimeter characters
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeAddress.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeAddress.FoldCharacters">
+            <summary>
+            Fold characters
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeAddress.IsAutoFold">
+            <summary>
+            Should this auto fold
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeAddress.DelimeterNeeded">
+            <summary>
+            Is a delimiter needed
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeAddress.DelimeterCharacters">
+            <summary>
+            Delimeter characters
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeTypes.CodeBase64">
+            <summary>
+            Base 64 coder
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase64.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase64.Decode(System.String,System.Byte[]@)">
+            <summary>
+            Decodes from base64
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Output">output array</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeBase64.Encode(System.Byte[])">
+            <summary>
+            Encodes to Base64
+            </summary>
+            <param name="Input">Input</param>
+            <returns>byte array as base64</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeTypes.CodeParameter">
+            <summary>
+            Coder for parameters
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeParameter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeParameter.FoldCharacters">
+            <summary>
+            Fold character
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeParameter.IsAutoFold">
+            <summary>
+            Is auto folded
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeParameter.DelimeterNeeded">
+            <summary>
+            Delimiter needed
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.CodeTypes.CodeParameter.DelimeterCharacters">
+            <summary>
+            Delimiter characters
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.CodeTypes.CodeQP">
+            <summary>
+            Quoted-printable coder
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.CodeTypes.CodeQP.MAX_CHAR_LEN">
+            <summary>
+            Max char length
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.Decode(System.String,System.Byte[]@)">
+            <summary>
+            Decodes the string
+            </summary>
+            <param name="Input">String to decode</param>
+            <param name="Output">Output in bytes</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.Encode(System.Byte[])">
+            <summary>
+            Encodes the data
+            </summary>
+            <param name="Input">Input data</param>
+            <returns>The encoded string</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.DecodeOneLine(System.IO.Stream,System.String)">
+            <summary>
+            Decodes a single line
+            </summary>
+            <param name="Stream">Input stream</param>
+            <param name="CurrentLine">The current line</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.IsHex(System.Char)">
+            <summary>
+            Determines if a character is possibly hexidecimal
+            </summary>
+            <param name="Input">Input character</param>
+            <returns>true if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.CodeTypes.CodeQP.FormatEncodedString(System.String)">
+            <summary>
+            Formats the encoded string
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>An encoded string</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.Constants">
+            <summary>
+            Class containing constant used by the MIME parser
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MimeVersion">
+            <summary>
+            MIME version
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.ContentType">
+            <summary>
+            Content type
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.TransferEncoding">
+            <summary>
+            Transfer encoding
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.ContentID">
+            <summary>
+            Content ID
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.ContentDescription">
+            <summary>
+            Content Description
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.ContentDisposition">
+            <summary>
+            Content disposition
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Charset">
+            <summary>
+            Charset
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Subject">
+            <summary>
+            Subject
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.To">
+            <summary>
+            To
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.From">
+            <summary>
+            From
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Filename">
+            <summary>
+            Filename
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Boundary">
+            <summary>
+            Boundary
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Encoding7Bit">
+            <summary>
+            Encoding 7bit
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.Encoding8Bit">
+            <summary>
+            Encoding 8bit
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.EncodingBinary">
+            <summary>
+            Encoding binary
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.EncodingQP">
+            <summary>
+            Encoding QP
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.EncodingBase64">
+            <summary>
+            Encoding base64
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaText">
+            <summary>
+            Media text
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaImage">
+            <summary>
+            Media image
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaAudio">
+            <summary>
+            Media audio
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaVideo">
+            <summary>
+            Media video
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaApplication">
+            <summary>
+            Media application
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaMultiPart">
+            <summary>
+            Media multi part
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Constants.MediaMessage">
+            <summary>
+            Media message
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.Field">
+            <summary>
+            Fields within the header
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Field.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.Field.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="FieldText">Field text</param>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Field.Name">
+            <summary>
+            Name of the field
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Field.Attributes">
+            <summary>
+            Attributes associated with the field
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Field.CharacterSet">
+            <summary>
+            Character set used by the field
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.Field.Item(System.String)">
+            <summary>
+            Can be used to get specific attributes' values
+            </summary>
+            <param name="Key">Name of the attribute</param>
+            <returns>A string containing the value of the attribute</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MediaEnum">
+            <summary>
+            Enum defining media types
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_TEXT">
+            <summary>
+            Media text
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_IMAGE">
+            <summary>
+            Media image
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_AUDIO">
+            <summary>
+            Media audio
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_VIDEO">
+            <summary>
+            Media Video
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_APPLICATION">
+            <summary>
+            Media application
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_MULTIPART">
+            <summary>
+            Media multipart
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_MESSAGE">
+            <summary>
+            Media message
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaEnum.MEDIA_UNKNOWN">
+            <summary>
+            Media unknown
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MediaType">
+            <summary>
+            Media type struct
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaType.MediaEnum">
+            <summary>
+            Enum associated with the sub type and file extension
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaType.SubType">
+            <summary>
+            Sub type
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MediaType.FileExtension">
+            <summary>
+            File extension
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MediaType.#ctor(Utilities.Web.Email.MIME.MediaEnum,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="MediaEnum">The media type</param>
+            <param name="SubType">The sub type</param>
+            <param name="FileExtension">File extension associated with the media type and sub type</param>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MIMEBody">
+            <summary>
+            Body of the MIME message
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEBody.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEBody.#ctor(System.String,Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Input">Body text</param>
+            <param name="Header">Header of the message</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEBody.GetMediaType(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the media type of the message
+            </summary>
+            <param name="Header">Header of the message</param>
+            <returns>The media type</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEBody.GetContentType(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the content type
+            </summary>
+            <param name="Header">Header of the message</param>
+            <returns>A string containing the content type</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEBody.GetBoundryMarker(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the boundary marker
+            </summary>
+            <param name="Header">Header of the message</param>
+            <returns>A string containing the boundary marker</returns>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEBody.Boundries">
+            <summary>
+            Boundaries found within this item (files/messages)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEBody.Content">
+            <summary>
+            Content of this boundary/message
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MIMEHeader">
+            <summary>
+            Header of the MIME message
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEHeader.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEHeader.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="HeaderText">Text for the header</param>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEHeader.Fields">
+            <summary>
+            The individual fields for the header
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEHeader.Item(System.String)">
+            <summary>
+            Can be used to get a specific field based on its name
+            </summary>
+            <param name="Key">Name of the field</param>
+            <returns>Field specified</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MIMEMessage">
+            <summary>
+            Base message class for MIME messages
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Input">string containing the MIME message</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.LoadMessage(System.String)">
+            <summary>
+            Loads the message
+            </summary>
+            <param name="Input">string containing the message</param>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.GetContentType(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the content type
+            </summary>
+            <param name="Header">Header of the message</param>
+            <returns>A string stating the content type</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.GetMediaType(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the media type for the body
+            </summary>
+            <param name="Header">The header of the message</param>
+            <returns>An enum value indicating the media type of the boundary</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.GetContentSubType(Utilities.Web.Email.MIME.MIMEHeader)">
+            <summary>
+            Gets the sub type (used to determine if the item is HTML or plain text)
+            </summary>
+            <param name="Header">Header for this boundary/message</param>
+            <returns>a string indicating the sub type of the boundary/message</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.MIME.MIMEMessage.ToString">
+            <summary>
+            To string function returns the content of the message (including header)
+            </summary>
+            <returns>A string containing the initial message</returns>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.Header">
+            <summary>
+            Header of the message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.Body">
+            <summary>
+            Body of the message (may contain sub messages/boundries)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.Subject">
+            <summary>
+            Subject of the message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.To">
+            <summary>
+            Whom the message is to
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.From">
+            <summary>
+            Whom the message is from
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.BodyText">
+            <summary>
+            The text of the message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.HTMLBodyText">
+            <summary>
+            Gets the HTML version of the text
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.MIME.MIMEMessage.PlainBodyText">
+            <summary>
+            Gets the plain version of the text
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.MIME.MIMEType">
+            <summary>
+            Defines basic MIME Types
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MIMEType.TypeTable">
+            <summary>
+            Defines the types in string form
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Email.MIME.MIMEType.TypeCvtTable">
+            <summary>
+            Defines the sub types, file extensions, and media types
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.Pop3.Message">
+            <summary>
+            Class for containing the messages
+            returned by the Pop3Client class.
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Message.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Message.Dispose(System.Boolean)">
+            <summary>
+            Does nothing in this instance
+            </summary>
+            <param name="Managed"></param>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.MessageNumber">
+            <summary>
+            The number associated with the message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.MessageSize">
+            <summary>
+            Size of the message in bytes
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.Retrieved">
+            <summary>
+            If true, we've retrieved this message from the server
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.MessageBody">
+            <summary>
+            MIME version of the email
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.Body">
+            <summary>
+            Body of the text
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.From">
+            <summary>
+            Whom the message is from
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.To">
+            <summary>
+            Whom the message is to
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Message.Subject">
+            <summary>
+            The subject of the email
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.Pop3.Pop3Client">
+            <summary>
+            Class for implemented basic Pop3 client
+            functionality.
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.Connect(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Connects to a server
+            </summary>
+            <param name="UserName">Username used to log into the server</param>
+            <param name="Password">Password used to log into the server</param>
+            <param name="Server">Server location</param>
+            <param name="Port">Port on the server to use</param>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.Disconnect">
+            <summary>
+            Disconnects from the server
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.GetMessageList">
+            <summary>
+            Gets a list of messages from the server
+            </summary>
+            <returns>A list of messages (only contains message number and size)</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.GetMessage(Utilities.Web.Email.Pop3.Message)">
+            <summary>
+            Gets a specific message from the server
+            </summary>
+            <param name="MessageWanted">The message that you want to pull down from the server</param>
+            <returns>A new message containing the content</returns>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.Delete(Utilities.Web.Email.Pop3.Message)">
+            <summary>
+            Deletes a message from the server
+            </summary>
+            <param name="MessageToDelete">Message to delete</param>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.WriteMessage(System.String)">
+            <summary>
+            Writes a message to the server
+            </summary>
+            <param name="Message">Information to send to the server</param>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Client.GetResponse">
+            <summary>
+            Gets the response from the server
+            Note that this uses TCP/IP to get the
+            messages, which means that the entire message
+            may not be found in the returned string
+            (it may only be a partial message)
+            </summary>
+            <returns>The response from the server</returns>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Pop3Client.UseSSL">
+            <summary>
+            Decides whether or not we are using
+            SSL to connect to the server
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Pop3Client.Server">
+            <summary>
+            Server location
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Pop3Client.UserName">
+            <summary>
+            User name used to log in
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Pop3Client.Password">
+            <summary>
+            Password used to log in
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.Pop3.Pop3Client.Port">
+            <summary>
+            Port on which to connect
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Email.Pop3.Pop3Exception">
+            <summary>
+            Exception class used by the Pop3Client class
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Exception.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Exception.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ExceptionText">Message</param>
+            <param name="Exception">Inner exception</param>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Exception.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ExceptionText">Text to put inside the exception</param>
+        </member>
+        <member name="M:Utilities.Web.Email.Pop3.Pop3Exception.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Info">Serialization info</param>
+            <param name="Context">Streaming context</param>
+        </member>
+        <member name="T:Utilities.Web.Email.SMTP.EmailSender">
+            <summary>
+            Utility for sending an email
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.EmailSender.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.EmailSender.SendMail(System.String)">
+            <summary>
+            Sends an email
+            </summary>
+            <param name="MessageBody">The body of the message</param>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.EmailSender.SendMailAsync(System.String)">
+            <summary>
+            Sends a piece of mail asynchronous
+            </summary>
+            <param name="MessageBody">The body of the message</param>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.EmailSender.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the object
+            </summary>
+            <param name="Managed">Ignored in this object</param>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Attachments">
+            <summary>
+            Any attachments that are included with this message.
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Bcc">
+            <summary>
+            Blind carbon copy send (seperate email addresses with a comma)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.CC">
+            <summary>
+            Carbon copy send (seperate email addresses with a comma)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.EmbeddedResources">
+            <summary>
+            Any attachment (usually images) that need to be embedded in the message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Password">
+            <summary>
+            Password for the server
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Port">
+            <summary>
+            Port to send the information on
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Priority">
+            <summary>
+            The priority of this message
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.Server">
+            <summary>
+            Server Location
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.UserName">
+            <summary>
+            User Name for the server
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.EmailSender.UseSSL">
+            <summary>
+            Decides whether we are using STARTTLS (SSL) or not
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.PingBack.Manager">
+            <summary>
+            Handles ping backs, track backs, and pinging services
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.Manager.PingServices(System.Collections.Generic.IEnumerable{System.Uri},System.Uri,System.String,System.Boolean)">
+            <summary>
+            Pings services such as technorati, etc.
+            </summary>
+            <param name="Services">List of services</param>
+            <param name="Blog">URI of your blog</param>
+            <param name="BlogName">Name of the blog</param>
+            <param name="Threaded">If true this is done in a seperate thread,
+            if false it will wait for it to end</param>
+        </member>
+        <member name="T:Utilities.Web.PingBack.PingBack">
+            <summary>
+            Handles ping backs
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.SendPingBack(Utilities.Web.PingBack.PingBackMessage)">
+            <summary>
+            Sends a ping back
+            </summary>
+            <param name="Message">Message to send</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.GetPingBack(System.Web.HttpContext)">
+            <summary>
+            Gets a ping back
+            </summary>
+            <param name="Context">The HttpContext for this item</param>
+            <returns>The ping back message</returns>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.GetPingBack(System.Web.HttpRequest)">
+            <summary>
+            Gets a ping back
+            </summary>
+            <param name="Request">The HttpRequest for this item</param>
+            <returns>The ping back message</returns>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.SendSuccess(System.Web.HttpContext)">
+            <summary>
+            Sends a success message.
+            </summary>
+            <param name="Context">HttpContext of the item</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.SendError(System.Web.HttpContext,System.Int32,System.String)">
+            <summary>
+            Sends an error message
+            </summary>
+            <param name="Context">Context of the item</param>
+            <param name="Code">Error code</param>
+            <param name="ErrorMessage">Error Message</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.SendSuccess(System.Web.HttpResponse)">
+            <summary>
+            Sends a success message.
+            </summary>
+            <param name="Response">Response for the item</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBack.SendError(System.Web.HttpResponse,System.Int32,System.String)">
+            <summary>
+            Sends an error message
+            </summary>
+            <param name="Response">Response object</param>
+            <param name="Code">Error code</param>
+            <param name="ErrorMessage">Error message</param>
+        </member>
+        <member name="T:Utilities.Web.PingBack.PingBackMessage">
+            <summary>
+            Message class used for pingbacks
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.PingBackMessage.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.PingBackMessage.Source">
+            <summary>
+            Source Location
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.PingBackMessage.Target">
+            <summary>
+            Target location
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.PingBack.TrackBack">
+            <summary>
+            Handles track backs
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.SendTrackBack(Utilities.Web.PingBack.TrackBackMessage)">
+            <summary>
+            Sends a track back message
+            </summary>
+            <param name="Message">Message to send</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.GetTrackBack(System.Web.HttpContext)">
+            <summary>
+            Gets a trackback message
+            </summary>
+            <param name="Context">Context object</param>
+            <returns>A trackback message</returns>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.GetTrackBack(System.Web.HttpRequest)">
+            <summary>
+            Gets a trackback message
+            </summary>
+            <param name="Request">Request object</param>
+            <returns>A trackback message</returns>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.SendSuccess(System.Web.HttpContext)">
+            <summary>
+            Send a success message
+            </summary>
+            <param name="Context">Context object</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.SendSuccess(System.Web.HttpResponse)">
+            <summary>
+            Send a success message
+            </summary>
+            <param name="Response">Response object</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.SendError(System.Web.HttpContext,System.String)">
+            <summary>
+            Sends an error message
+            </summary>
+            <param name="Context">Context Object</param>
+            <param name="ErrorMessage">Error message to send</param>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBack.SendError(System.Web.HttpResponse,System.String)">
+            <summary>
+            Sends an error message
+            </summary>
+            <param name="Response">Response Object</param>
+            <param name="ErrorMessage">Error message to send</param>
+        </member>
+        <member name="T:Utilities.Web.PingBack.TrackBackMessage">
+            <summary>
+            Track back message class
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBackMessage.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.PingBack.TrackBackMessage.ToString">
+            <summary>
+            Writes out the message (used for sending)
+            </summary>
+            <returns>A string with the message information</returns>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.ID">
+            <summary>
+            ID of the item (most likely this is not set)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.Title">
+            <summary>
+            Title of the post linking to you
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.PostUrl">
+            <summary>
+            URL of the post linking to you
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.Excerpt">
+            <summary>
+            Excerpt from the post linking to you
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.BlogName">
+            <summary>
+            Name of the blog linking to you
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.PingBack.TrackBackMessage.NotificationURL">
+            <summary>
+            URL to send the message notification to.
+            Only used for sending the message and filled in
+            automatically.
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Ping.Ping">
+            <summary>
+            Class used to ping another computer
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Ping.Ping.PingHost(System.String,System.Int32)">
+            <summary>
+            Does a ping against the host specified
+            </summary>
+            <param name="Address">Address of the host</param>
+            <param name="TimeOut">Timeout in ms (optional)</param>
+            <returns>True if a response is received, false otherwise</returns>
+        </member>
+        <member name="T:Utilities.Web.REST.REST">
+            <summary>
+            Class designed to help with calling REST based applications
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.GET">
+            <summary>
+            Does a GET to the REST service
+            </summary>
+            <returns>a string containing the data returned by the service</returns>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.POST">
+            <summary>
+            Does a POST to the REST service
+            </summary>
+            <returns>a string containing the data returned by the service</returns>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.DELETE">
+            <summary>
+            Does a DELETE on the REST service
+            </summary>
+            <returns>a string containing the data returned by the service</returns>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.PUT">
+            <summary>
+            Does a PUT on the REST service
+            </summary>
+            <returns>a string containing the data returned by the service</returns>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.SetupData(System.Net.HttpWebRequest)">
+            <summary>
+            Sets up any data that needs to be sent
+            </summary>
+            <param name="Request">The web request object</param>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.SetupCredentials(System.Net.HttpWebRequest)">
+            <summary>
+            Sets up any credentials (basic authentication,
+            for OAuth, please use the OAuth class to create the
+            URL)
+            </summary>
+            <param name="Request">The web request object</param>
+        </member>
+        <member name="M:Utilities.Web.REST.REST.SendRequest(System.Net.HttpWebRequest)">
+            <summary>
+            Sends the request to the URL specified
+            </summary>
+            <param name="Request">The web request object</param>
+            <returns>The string returned by the service</returns>
+        </member>
+        <member name="P:Utilities.Web.REST.REST.Url">
+            <summary>
+            URL to send the request to
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.REST.REST.Data">
+            <summary>
+            Any data that needs to be appended to the request
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.REST.REST.UserName">
+            <summary>
+            User name (basic authentication)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.REST.REST.Password">
+            <summary>
+            Password (basic authentication
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.WebBrowserHelper.WebBrowserHelper">
+            <summary>
+            Class for clearing the cache
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.FindFirstUrlCacheGroup(System.Int32,System.Int32,System.IntPtr,System.Int32,System.Int64@,System.IntPtr)">
+            <summary>
+            Finds first url cache group
+            </summary>
+            <param name="dwFlags"></param>
+            <param name="dwFilter"></param>
+            <param name="lpSearchCondition"></param>
+            <param name="dwSearchCondition"></param>
+            <param name="lpGroupId"></param>
+            <param name="lpReserved"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.FindNextUrlCacheGroup(System.IntPtr,System.Int64@,System.IntPtr)">
+            <summary>
+            Finds next URL Cache Group
+            </summary>
+            <param name="hFind"></param>
+            <param name="lpGroupId"></param>
+            <param name="lpReserved"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.DeleteUrlCacheGroup(System.Int64,System.Int32,System.IntPtr)">
+            <summary>
+            Deletes an URL from a Cache group
+            </summary>
+            <param name="GroupId"></param>
+            <param name="dwFlags"></param>
+            <param name="lpReserved"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.FindFirstUrlCacheEntry(System.String,System.IntPtr,System.Int32@)">
+            <summary>
+            Find first URL cache entry
+            </summary>
+            <param name="lpszUrlSearchPattern"></param>
+            <param name="lpFirstCacheEntryInfo"></param>
+            <param name="lpdwFirstCacheEntryInfoBufferSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.FindNextUrlCacheEntry(System.IntPtr,System.IntPtr,System.Int32@)">
+            <summary>
+            Find nexxt URL cache entry
+            </summary>
+            <param name="hFind"></param>
+            <param name="lpNextCacheEntryInfo"></param>
+            <param name="lpdwNextCacheEntryInfoBufferSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.DeleteUrlCacheEntry(System.IntPtr)">
+            <summary>
+            Deletes an URL cache entry
+            </summary>
+            <param name="lpszUrlName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.WebBrowserHelper.WebBrowserHelper.ClearCache">
+            <summary>
+            Clears the cache of the web browser
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA">
+            <summary>
+            For PInvoke: Contains information about an entry in the Internet cache
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwStructSize">
+            <summary>
+            Struct size
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.lpszSourceUrlName">
+            <summary>
+            Source URL name
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.lpszLocalFileName">
+            <summary>
+            Local file name
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.CacheEntryType">
+            <summary>
+            Entry type
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwUseCount">
+            <summary>
+            Use count
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwHitRate">
+            <summary>
+            Hit rate
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwSizeLow">
+            <summary>
+            Size low
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwSizeHigh">
+            <summary>
+            Size high
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.LastModifiedTime">
+            <summary>
+            Last modified time
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.ExpireTime">
+            <summary>
+            Expire time
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.LastAccessTime">
+            <summary>
+            Last access time
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.LastSyncTime">
+            <summary>
+            Last sync time
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.lpHeaderInfo">
+            <summary>
+            Header info
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwHeaderInfoSize">
+            <summary>
+            Header info size
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.lpszFileExtension">
+            <summary>
+            File extension
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwReserved">
+            <summary>
+            Reserved
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.WebBrowserHelper.WebBrowserHelper.INTERNET_CACHE_ENTRY_INFOA.dwExemptDelta">
+            <summary>
+            Exempt delta
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.WebPageThumbnail.WebPageThumbnail">
+            <summary>
+            Class for taking a screen shot of a web page
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.WebPageThumbnail.WebPageThumbnail.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.WebPageThumbnail.WebPageThumbnail.GenerateBitmap(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Generates a screen shot of a web site
+            </summary>
+            <param name="FileName">File name to save as</param>
+            <param name="Url">Url to take the screen shot of</param>
+            <param name="Width">Width of the image (-1 for full size)</param>
+            <param name="Height">Height of the image (-1 for full size)</param>
+        </member>
+        <member name="M:Utilities.Web.WebPageThumbnail.WebPageThumbnail.CreateBrowser">
+            <summary>
+            Creates the browser
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.WebPageThumbnail.WebPageThumbnail.Browser_DocumentCompleted(System.Object,System.Windows.Forms.WebBrowserDocumentCompletedEventArgs)">
+            <summary>
+            Called when the browser is completed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Utilities.Web.Gravatar.Gravatar">
+            <summary>
+            Helper for getting Gravatar images
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Gravatar.Gravatar.GetImageLink(System.String,System.Boolean)">
+            <summary>
+            Gets a Gravatar image link
+            </summary>
+            <param name="Email">Email identifier</param>
+            <param name="AppendJPG">Should jpg be appended to the link?</param>
+            <returns>The full path to the Gravatar image link</returns>
+        </member>
+        <member name="T:Utilities.Web.Akismet.Akismet">
+            <summary>
+            Akismet helper class
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Akismet.Akismet.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Key">API Key</param>
+            <param name="Site">Site using Akismet</param>
+        </member>
+        <member name="M:Utilities.Web.Akismet.Akismet.VerifyKey">
+            <summary>
+            Verifies the Key
+            </summary>
+            <returns>True if the key is valid, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.Akismet.Akismet.IsSpam(Utilities.Web.Akismet.Comment)">
+            <summary>
+            Checks if a comment is spam or ham
+            </summary>
+            <param name="Comment">Comment to check</param>
+            <returns>True if it is spam, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.Akismet.Akismet.SubmitSpam(Utilities.Web.Akismet.Comment)">
+            <summary>
+            Submits a spam message
+            </summary>
+            <param name="Comment">Comment to submit</param>
+        </member>
+        <member name="M:Utilities.Web.Akismet.Akismet.SubmitHam(Utilities.Web.Akismet.Comment)">
+            <summary>
+            Submits a ham message
+            </summary>
+            <param name="Comment">Comment to submit</param>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.Key">
+            <summary>
+            API Key
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.Website">
+            <summary>
+            Website
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.VerifyKeyData">
+            <summary>
+            Data sent to verify the API key
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.CommentCheckUrl">
+            <summary>
+            Comment check url
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.SubmitSpamUrl">
+            <summary>
+            Submit spam url
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.SubmitHamUrl">
+            <summary>
+            Submit ham url
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Akismet.CommentCheckData">
+            <summary>
+            Comment check data string
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Akismet.Comment">
+            <summary>
+            Holds comment data
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.UserIP">
+            <summary>
+            User IP
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.UserAgent">
+            <summary>
+            User Agent
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.Referrer">
+            <summary>
+            Referrer
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.Permalink">
+            <summary>
+            Permalink
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.CommentType">
+            <summary>
+            Comment type
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.UserName">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.UserEmail">
+            <summary>
+            User email
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.UserUrl">
+            <summary>
+            User URL
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Akismet.Comment.Content">
+            <summary>
+            Content
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.HTMLExtensions">
+            <summary>
+            Set of HTML related extensions (and HTTP related)
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.AbsoluteRoot(System.Web.HttpContextBase)">
+            <summary>
+            Returns the absolute root
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.AbsoluteRoot(System.Web.HttpContext)">
+            <summary>
+            Returns the absolute root
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.AddScriptFile(System.Web.UI.Page,System.IO.FileInfo)">
+            <summary>
+            Adds a script file to the header of the current page
+            </summary>
+            <param name="File">Script file</param>
+            <param name="Page">Page to add it to</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.ContainsHTML(System.String)">
+            <summary>
+            Decides if the string contains HTML
+            </summary>
+            <param name="Input">Input string to check</param>
+            <returns>false if it does not contain HTML, true otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.ContainsHTML(System.IO.FileInfo)">
+            <summary>
+            Decides if the file contains HTML
+            </summary>
+            <param name="Input">Input file to check</param>
+            <returns>false if it does not contain HTML, true otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.HTTPCompress(System.Web.HttpContextBase,System.Boolean,Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Adds HTTP compression to the current context
+            </summary>
+            <param name="Context">Current context</param>
+            <param name="RemovePrettyPrinting">Sets the response filter to a special stream that
+            removes pretty printing from content</param>
+            <param name="Type">The minification type to use (defaults to HTML if RemovePrettyPrinting 
+            is set to true, but can also deal with CSS and Javascript)</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.HTTPCompress(System.Web.HttpContext,System.Boolean,Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Adds HTTP compression to the current context
+            </summary>
+            <param name="Context">Current context</param>
+            <param name="RemovePrettyPrinting">Sets the response filter to a special stream that
+            removes pretty printing from content</param>
+            <param name="Type">The minification type to use (defaults to HTML if RemovePrettyPrinting 
+            is set to true, but can also deal with CSS and Javascript)</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.IsEncodingAccepted(System.Web.HttpContextBase,System.String)">
+            <summary>
+            Checks the request headers to see if the specified
+            encoding is accepted by the client.
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.IsEncodingAccepted(System.Web.HttpContext,System.String)">
+            <summary>
+            Checks the request headers to see if the specified
+            encoding is accepted by the client.
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.RelativeRoot(System.Web.HttpContextBase)">
+            <summary>
+            Gets the relative root of the web site
+            </summary>
+            <param name="Context">Current context</param>
+            <returns>The relative root of the web site</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.RelativeRoot(System.Web.HttpContext)">
+            <summary>
+            Gets the relative root of the web site
+            </summary>
+            <param name="Context">Current context</param>
+            <returns>The relative root of the web site</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.RemoveURLIllegalCharacters(System.String)">
+            <summary>
+            Removes illegal characters (used in uri's, etc.)
+            </summary>
+            <param name="Input">string to be converted</param>
+            <returns>A stripped string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.SetEncoding(System.Web.HttpContextBase,System.String)">
+            <summary>
+            Adds the specified encoding to the response headers.
+            </summary>
+            <param name="Encoding">Encoding to set</param>
+            <param name="Context">Context to set the encoding on</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.SetEncoding(System.Web.HttpContext,System.String)">
+            <summary>
+            Adds the specified encoding to the response headers.
+            </summary>
+            <param name="Encoding">Encoding to set</param>
+            <param name="Context">Context to set the encoding on</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.StripHTML(System.String)">
+            <summary>
+            Removes HTML elements from a string
+            </summary>
+            <param name="HTML">HTML laiden string</param>
+            <returns>HTML-less string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.StripHTML(System.IO.FileInfo)">
+            <summary>
+            Removes HTML elements from a string
+            </summary>
+            <param name="HTML">HTML laiden file</param>
+            <returns>HTML-less string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.URLDecode(System.String)">
+            <summary>
+            URL decodes a string
+            </summary>
+            <param name="Input">Input to decode</param>
+            <returns>A decoded string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.URLEncode(System.String)">
+            <summary>
+            URL encodes a string
+            </summary>
+            <param name="Input">Input to encode</param>
+            <returns>An encoded string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.RemoveExtraHyphen(System.String)">
+            <summary>
+            Removes extra hyphens from a string
+            </summary>
+            <param name="Input">string to be stripped</param>
+            <returns>Stripped string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTMLExtensions.RemoveDiacritics(System.String)">
+            <summary>
+            Removes special characters (Diacritics) from the string
+            </summary>
+            <param name="Input">String to strip</param>
+            <returns>Stripped string</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.IPAddressExtensions">
+            <summary>
+            Extensions related to IP addresses
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.IPAddressExtensions.GetHostName(System.Net.IPAddress)">
+            <summary>
+            Gets the host name based off of an IP address
+            </summary>
+            <param name="IP">IP address</param>
+            <returns>the host name associated with the IP</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.IPAddressExtensions.GetHostName(System.String)">
+            <summary>
+            Gets the host name based off of an IP address
+            </summary>
+            <param name="IP">IP address</param>
+            <returns>the host name associated with the IP</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.Minification">
+            <summary>
+            Extensions dealing with minification of data
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Minification.Combine(System.Collections.Generic.IEnumerable{System.String},Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Combines and minifies various files
+            </summary>
+            <param name="Input">input strings (file contents)</param>
+            <param name="Type">Type of minification</param>
+            <returns>A minified/packed string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Minification.Combine(System.Collections.Generic.IEnumerable{System.IO.FileInfo},Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Combines and minifies various files
+            </summary>
+            <param name="Input">input strings (file contents)</param>
+            <param name="Type">Type of minification</param>
+            <returns>A minified/packed string</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Minification.Minify(System.String,Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Minifies the file based on the data type specified
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Type">Type of minification to run</param>
+            <returns>A stripped file</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Minification.Minify(System.IO.FileInfo,Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Minifies the file based on the data type specified
+            </summary>
+            <param name="Input">Input file</param>
+            <param name="Type">Type of minification to run</param>
+            <returns>A stripped file</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.MinificationType">
+            <summary>
+            Defines the type of data that is being minified
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.MinificationType.CSS">
+            <summary>
+            CSS
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.MinificationType.JavaScript">
+            <summary>
+            Javascript
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.MinificationType.HTML">
+            <summary>
+            HTML
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.NameValueCollectionExtensions">
+            <summary>
+            Extensions for NameValueCollection
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.NameValueCollectionExtensions.ToQueryString(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Converts the NameValueCollection to a query string
+            </summary>
+            <param name="Input">Input</param>
+            <returns>The NameValueCollection expressed as a string</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.DictionaryExtensions">
+            <summary>
+            Extensions for Dictionary classes
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.DictionaryExtensions.ToQueryString(System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            Converts the IDictionary to a query string
+            </summary>
+            <param name="Input">Input</param>
+            <returns>The IDictionary expressed as a string</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.HTTPRequestExtensions">
+            <summary>
+            Extensions for HttpRequest classes
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.UserIPAddress(System.Web.HttpRequestBase)">
+            <summary>
+            Gets the user's IP address if it exists, null is returned otherwise
+            </summary>
+            <param name="Request">Request</param>
+            <returns>The IPAddress object if it exists, null otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.UserIPAddress(System.Web.HttpRequest)">
+            <summary>
+            Gets the user's IP address if it exists, null is returned otherwise
+            </summary>
+            <param name="Request">Request</param>
+            <returns>The IPAddress object if it exists, null otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.IfModifiedSince(System.Web.HttpRequestBase)">
+            <summary>
+            Converts the If-Modified-Since header value to a DateTime object
+            </summary>
+            <param name="Request">Request</param>
+            <returns>The If-Modified-Since header value expressed as a DateTime object</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.IfModifiedSince(System.Web.HttpRequest)">
+            <summary>
+            Converts the If-Modified-Since header value to a DateTime object
+            </summary>
+            <param name="Request">Request</param>
+            <returns>The If-Modified-Since header value expressed as a DateTime object</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.IsMobile(System.Web.HttpRequestBase)">
+            <summary>
+            Detects if a browser is on a mobile device or not (does a more thorough job than simply Request.Browser.IsMobileDevice)
+            </summary>
+            <param name="Request">Request object</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPRequestExtensions.IsMobile(System.Web.HttpRequest)">
+            <summary>
+            Detects if a browser is on a mobile device or not (does a more thorough job than simply Request.Browser.IsMobileDevice)
+            </summary>
+            <param name="Request">Request object</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.Streams.UglyStream">
+            <summary>
+            Removes "pretty printing" from HTML
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.#ctor(System.IO.Stream,Utilities.Compression.ExtensionMethods.Enums.CompressionType,Utilities.Web.ExtensionMethods.MinificationType)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="StreamUsing">The stream for the page</param>
+            <param name="Compression">The compression we're using (gzip or deflate)</param>
+            <param name="Type">Minification type to use (defaults to HTML)</param>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.Streams.UglyStream.Compression">
+            <summary>
+            Compression using
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.Streams.UglyStream.StreamUsing">
+            <summary>
+            Stream using
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.ExtensionMethods.Streams.UglyStream.FinalString">
+            <summary>
+            Final output string
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.Flush">
+            <summary>
+            Nothing to flush
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Don't worry about
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Once again not implemented
+            </summary>
+            <param name="offset"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.SetLength(System.Int64)">
+            <summary>
+            Don't worry about
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Actually writes out the data
+            </summary>
+            <param name="buffer">the page's data in byte form</param>
+            <param name="offset">offset of the data</param>
+            <param name="count">the amount of data</param>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.Streams.UglyStream.Evaluate(System.Text.RegularExpressions.Match)">
+            <summary>
+            Evaluates whether the text has spaces, page breaks, etc. and removes them.
+            </summary>
+            <param name="Matcher">Match found</param>
+            <returns>The string minus any extra white space</returns>
+        </member>
+        <member name="P:Utilities.Web.ExtensionMethods.Streams.UglyStream.CanRead">
+            <summary>
+            Doesn't deal with reading
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.ExtensionMethods.Streams.UglyStream.CanSeek">
+            <summary>
+            No seeking
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.ExtensionMethods.Streams.UglyStream.CanWrite">
+            <summary>
+            Can write out though
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.ExtensionMethods.Streams.UglyStream.Length">
+            <summary>
+            Don't worry about
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.ExtensionMethods.Streams.UglyStream.Position">
+            <summary>
+            No position to take care of
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.BaseClasses.APIBase">
+            <summary>
+            Google API base class
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.BaseClasses.APIBase.ToString">
+            <summary>
+            Converts the API base class to a string
+            </summary>
+            <returns>The API base class as a string</returns>
+        </member>
+        <member name="P:Utilities.Web.Google.BaseClasses.APIBase.Key">
+            <summary>
+            API Key
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.BaseClasses.APIBase.APILocation">
+            <summary>
+            API Location
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.BaseClasses.APIBase.UseHTTPS">
+            <summary>
+            Should this use https?
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.Enums.ImageFormat">
+            <summary>
+            Image formats supported
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.PNG8">
+            <summary>
+            8 bit PNG
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.PNG">
+            <summary>
+            8 bit PNG
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.PNG32">
+            <summary>
+            32 bit PNG
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.GIF">
+            <summary>
+            GIF
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.JPG">
+            <summary>
+            JPEG
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.ImageFormat.JPGBaseline">
+            <summary>
+            non-progressive JPEG
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.Enums.MapType">
+            <summary>
+            Map types supported
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MapType.RoadMap">
+            <summary>
+            Road map
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MapType.Satellite">
+            <summary>
+            Satellite map
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MapType.Terrain">
+            <summary>
+            Terrain map
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MapType.Hybrid">
+            <summary>
+            Hybrid map
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.Enums.MarkerSize">
+            <summary>
+            Marker sizes
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MarkerSize.Tiny">
+            <summary>
+            Tiny
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MarkerSize.Mid">
+            <summary>
+            Medium
+            </summary>
+        </member>
+        <member name="F:Utilities.Web.Google.Enums.MarkerSize.Small">
+            <summary>
+            Small
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.HelperClasses.Address">
+            <summary>
+            Designates an address
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.Interfaces.ILocation">
+            <summary>
+            Location interface
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.Address.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.Address.ToString">
+            <summary>
+            Converts the location to a string
+            </summary>
+            <returns>The address as a string</returns>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Address.PhysicalAddress">
+            <summary>
+            Physical address
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.HelperClasses.LongLat">
+            <summary>
+            Location based on longitude and latitude
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.LongLat.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.LongLat.ToString">
+            <summary>
+            Exports the location as a string
+            </summary>
+            <returns>String of the location</returns>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.LongLat.Longitude">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.LongLat.Latitude">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.HelperClasses.Markers">
+            <summary>
+            Holds data for displaying a set of markers on a map
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.Markers.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.HelperClasses.Markers.ToString">
+            <summary>
+            Exports the location as an url encoded string
+            </summary>
+            <returns>Url encoded string of the location</returns>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.MarkerList">
+            <summary>
+            Marker list
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.Size">
+            <summary>
+            Marker size
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.Color">
+            <summary>
+            Marker color (24 bit hex color values)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.Label">
+            <summary>
+            Single uppercase alphanumeric character
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.CustomIcon">
+            <summary>
+            Custom icon (may be PNG, JPEG, or GIF but PNG is recommended)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.HelperClasses.Markers.CustomIconShadow">
+            <summary>
+            Should a shadow be generated from the custom icon?
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.Google.StaticMaps.Map">
+            <summary>
+            Static Maps API helper
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.StaticMaps.Map.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Google.StaticMaps.Map.ToString">
+            <summary>
+            Converts the map data to a URL
+            </summary>
+            <returns>The map as a URL</returns>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.APILocation">
+            <summary>
+            API location
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Center">
+            <summary>
+            Center of the map
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Zoom">
+            <summary>
+            Zoom level (should be between 0 and 21
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Width">
+            <summary>
+            Width of the map
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Height">
+            <summary>
+            Height of the map
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Scale">
+            <summary>
+            Scale of the map (values are 1, 2, and 4 for business customers)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Format">
+            <summary>
+            Image format
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.MapType">
+            <summary>
+            Map type
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Language">
+            <summary>
+            Language for the map to use
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Region">
+            <summary>
+            Displays appropriate borders based on geo-political sensitivities (uses two-character ccTLD values)
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Markers">
+            <summary>
+            A list of markers
+            </summary>
+        </member>
+        <member name="P:Utilities.Web.Google.StaticMaps.Map.Sensor">
+            <summary>
+            Determines if a sensor is used to determine the user's location
+            </summary>
+        </member>
+        <member name="T:Utilities.Web.ExtensionMethods.HTTPContextExtensions">
+            <summary>
+            HttpContext extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpAllInformation(System.Web.HttpContext,System.Boolean)">
+            <summary>
+            Dumps a lot of information about the request to a string (Request, Response, Session, Cookies, Cache, and Application state)
+            </summary>
+            <param name="Context">HttpContext</param>
+            <param name="HTMLOutput">Determines if this should be HTML output or not</param>
+            <returns>The exported data</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpApplicationState(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps the values found in the Application State
+            </summary>
+            <param name="Page">Page in which to dump</param>
+            <param name="HTMLOutput">Should html output be used?</param>
+            <returns>A string containing the application state information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpApplicationState(System.Web.HttpApplicationState,System.Boolean)">
+            <summary>
+            Dumps the values found in the application state
+            </summary>
+            <param name="Input">Application state variable</param>
+            <param name="HTMLOutput">Should html output be used?</param>
+            <returns>A string containing the application state information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpCache(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps the values found in the cache
+            </summary>
+            <param name="Page">Page in which to dump</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>A string containing the cache information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpCache(System.Web.Caching.Cache,System.Boolean)">
+            <summary>
+            Dumps the values found in the cache
+            </summary>
+            <param name="Input">Cache variable</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>A string containing the cache information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpCookies(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps the values found in the cookies sent by the user
+            </summary>
+            <param name="Page">Page in which to dump</param>
+            <param name="HTMLOutput">Should html output be used</param>
+            <returns>A string containing the cookie information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpCookies(System.Web.HttpCookieCollection,System.Boolean)">
+            <summary>
+            Dumps the values found in the cookies sent by the user
+            </summary>
+            <param name="Input">Cookies</param>
+            <param name="HTMLOutput">Should html output be used</param>
+            <returns>A string containing the cookie information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpRequestVariable(System.Web.HttpRequest,System.Boolean)">
+            <summary>
+            Dumps information about the request variable
+            </summary>
+            <param name="Request">Request to dump the information about</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>a string containing the information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpRequestVariable(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps information about the request variable
+            </summary>
+            <param name="Page">Page to dump the information about</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>a string containing the information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpResponseVariable(System.Web.HttpResponse,System.Boolean)">
+            <summary>
+            Dumps information about the response variable
+            </summary>
+            <param name="Response">Response to dump the information about</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>a string containing the information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpResponseVariable(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps information about the response variable
+            </summary>
+            <param name="Page">Page to dump the information about</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>a string containing the information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpServerVars(System.Web.HttpRequest,System.Boolean)">
+            <summary>
+            Gets the server variables and dumps them out
+            </summary>
+            <param name="Request">request to get server variables from</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>a string containing an HTML formatted list of the server variables</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpServerVars(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Gets the server variables and dumps them out
+            </summary>
+            <param name="Page">page to get server variables from</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>A string containing an HTML formatted list of the server variables</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpSession(System.Web.UI.Page,System.Boolean)">
+            <summary>
+            Dumps the values found in the session
+            </summary>
+            <param name="Page">Page in which to dump</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>A string containing the session information</returns>
+        </member>
+        <member name="M:Utilities.Web.ExtensionMethods.HTTPContextExtensions.DumpSession(System.Web.SessionState.HttpSessionState,System.Boolean)">
+            <summary>
+            Dumps the values found in the session
+            </summary>
+            <param name="Input">Session variable</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>A string containing the session information</returns>
+        </member>
+        <member name="T:Utilities.Web.Email.SMTP.AppointmentSender">
+            <summary>
+            Sends appointments through SMTP
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.AppointmentSender.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Web.Email.SMTP.AppointmentSender.SendMail(System.String)">
+            <summary>
+            Sends an email
+            </summary>
+            <param name="MessageBody">The body of the message</param>
+        </member>
+        <member name="P:Utilities.Web.Email.SMTP.AppointmentSender.AppointmentInfo">
+            <summary>
+            Contains all of the appointment info
+            </summary>
+        </member>
+    </members>
+</doc>

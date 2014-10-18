@@ -1,0 +1,2654 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.Reflection</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.Reflection.Emit.Assembly">
+            <summary>
+            Assembly class
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.#ctor(System.String,System.String,Utilities.Reflection.Emit.Enums.AssemblyType)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Name">Assembly name</param>
+            <param name="Directory">Directory to save the assembly (if left blank, the assembly is run only and will not be saved)</param>
+            <param name="Type">Assembly type (exe or dll)</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.Setup(System.String,System.String,Utilities.Reflection.Emit.Enums.AssemblyType)">
+            <summary>
+            Sets up the assembly
+            </summary>
+            <param name="Name">Assembly name</param>
+            <param name="Directory">Directory to save the assembly (if left blank, the assembly is run only and will not be saved)</param>
+            <param name="Type">Assembly type (dll or exe)</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.CreateType(System.String,System.Reflection.TypeAttributes,System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a type builder
+            </summary>
+            <param name="Name">Name of the type</param>
+            <param name="Attributes">Attributes associated with the type</param>
+            <param name="BaseClass">Base class for this type</param>
+            <param name="Interfaces">Interfaces used by this type</param>
+            <returns>A TypeBuilder class</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.CreateEnum(System.String,System.Type,System.Reflection.TypeAttributes)">
+            <summary>
+            Creates an enum builder
+            </summary>
+            <param name="Name">Name of the enum</param>
+            <param name="EnumBaseType">Base type of the enum (defaults to int)</param>
+            <param name="Attributes">Attributes associated with the type</param>
+            <returns>An EnumBuilder class</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.Create">
+            <summary>
+            Creates all types associated with the assembly and saves the assembly to disk
+            if a directory is specified.
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Assembly.ToString">
+            <summary>
+            Converts the assembly to a string
+            </summary>
+            <returns>The string version of the assembly</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Module">
+            <summary>
+            ModuleBuilder object
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Name">
+            <summary>
+            Name of the assembly
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Directory">
+            <summary>
+            Directory of the assembly
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Classes">
+            <summary>
+            List of classes associated with this assembly
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Enums">
+            <summary>
+            List of enums associated with this assembly
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Type">
+            <summary>
+            Assembly type (exe or dll)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Assembly.Builder">
+            <summary>
+            Assembly builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.TypeBuilder">
+            <summary>
+            Helper class for defining types
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Interfaces.IType">
+            <summary>
+            Type interface
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IType.Create">
+            <summary>
+            Creates the type
+            </summary>
+            <returns>The generated type defined by the object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.#ctor(Utilities.Reflection.Emit.Assembly,System.String,System.Collections.Generic.IEnumerable{System.Type},System.Type,System.Reflection.TypeAttributes)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Assembly">Assembly to generate the type within</param>
+            <param name="Name">Name of the type</param>
+            <param name="Interfaces">Interfaces that the type implements</param>
+            <param name="Attributes">Attributes for the type (public, private, etc.)</param>
+            <param name="BaseClass">Base class for the type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.Create">
+            <summary>
+            Creates the type
+            </summary>
+            <returns>The type defined by this TypeBuilder</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateMethod(System.String,System.Reflection.MethodAttributes,System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a method
+            </summary>
+            <param name="Name">Method name</param>
+            <param name="Attributes">Attributes for the method (public, virtual, etc.)</param>
+            <param name="ReturnType">Return type</param>
+            <param name="ParameterTypes">Parameter types</param>
+            <returns>Method builder for the method</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateField(System.String,System.Type,System.Reflection.FieldAttributes)">
+            <summary>
+            Creates a field
+            </summary>
+            <param name="Name">Name of the field</param>
+            <param name="FieldType">Type of the field</param>
+            <param name="Attributes">Attributes for the field (public, private, etc.)</param>
+            <returns>Field builder for the field</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateProperty(System.String,System.Type,System.Reflection.PropertyAttributes,System.Reflection.MethodAttributes,System.Reflection.MethodAttributes,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a property
+            </summary>
+            <param name="Name">Name of the property</param>
+            <param name="PropertyType">Type of the property</param>
+            <param name="Attributes">Attributes for the property (special name, etc.)</param>
+            <param name="GetMethodAttributes">Get method's attributes (public, private, etc.)</param>
+            <param name="SetMethodAttributes">Set method's attributes (public, private, etc.)</param>
+            <param name="Parameters">Parameter types</param>
+            <returns>Property builder for the property</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateDefaultProperty(System.String,System.Type,System.Reflection.PropertyAttributes,System.Reflection.MethodAttributes,System.Reflection.MethodAttributes,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a default property (ex int Property{get;set;}
+            </summary>
+            <param name="Name">Name of the property</param>
+            <param name="PropertyType">Type of the property</param>
+            <param name="Attributes">Attributes for the property (special name, etc.)</param>
+            <param name="GetMethodAttributes">Get method's attributes (public, private, etc.)</param>
+            <param name="SetMethodAttributes">Set method's attributes (public, private, etc.)</param>
+            <param name="Parameters">Parameter types</param>
+            <returns>Property builder for the property</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateConstructor(System.Reflection.MethodAttributes,System.Collections.Generic.IEnumerable{System.Type},System.Reflection.CallingConventions)">
+            <summary>
+            Creates a constructor
+            </summary>
+            <param name="Attributes">Attributes for the constructor (public, private, etc.)</param>
+            <param name="ParameterTypes">The types for the parameters</param>
+            <param name="CallingConventions">The calling convention used</param>
+            <returns>Constructor builder for the constructor</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.CreateDefaultConstructor(System.Reflection.MethodAttributes)">
+            <summary>
+            Creates a default constructor
+            </summary>
+            <param name="Attributes">Attributes for the constructor (public, private, etc.)</param>
+            <returns>Constructor builder for the constructor</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.TypeBuilder.ToString">
+            <summary>
+            Writes out the type builder to a readable string
+            </summary>
+            <returns>Code version of the type builder</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.DefinedType">
+            <summary>
+            The type defined by this TypeBuilder (filled once Create is called)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Methods">
+            <summary>
+            List of methods defined by this TypeBuilder 
+            (does not include methods defined in base classes unless overridden)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Fields">
+            <summary>
+            List of fields defined by the TypeBuilder
+            (does not include fields defined in base classes)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Properties">
+            <summary>
+            List of properties defined by the TypeBuilder
+            (does not include properties defined in base classes)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Constructors">
+            <summary>
+            Constructors defined by the TypeBuilder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Interfaces">
+            <summary>
+            List of interfaces used by this type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.BaseClass">
+            <summary>
+            Base class used by this type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Builder">
+            <summary>
+            Builder used by this type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Attributes">
+            <summary>
+            TypeAttributes for this type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Name">
+            <summary>
+            Name of this type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.TypeBuilder.Assembly">
+            <summary>
+            Assembly builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.MethodBuilder">
+            <summary>
+            Helper class for defining a method within a type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.BaseClasses.MethodBase">
+            <summary>
+            Method base class
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Interfaces.IMethodBuilder">
+            <summary>
+            Interface for methods
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.SetCurrentMethod">
+            <summary>
+            Sets the method as the current method
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.CreateLocal(System.String,System.Type)">
+            <summary>
+            Defines a local variable
+            </summary>
+            <param name="Name">Name of the local variable</param>
+            <param name="LocalType">The Type of the local variable</param>
+            <returns>The LocalBuilder associated with the variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.CreateConstant(System.Object)">
+            <summary>
+            Constant value
+            </summary>
+            <param name="Value">Value of the constant</param>
+            <returns>The ConstantBuilder associated with the variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.NewObj(System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Creates new object
+            </summary>
+            <param name="Constructor">Constructor</param>
+            <param name="Variables">Variables to send to the constructor</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.NewObj(System.Type,System.Object[])">
+            <summary>
+            Creates new object
+            </summary>
+            <param name="ObjectType">object type</param>
+            <param name="Variables">Variables to send to the constructor</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Assign(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Assigns the value to the left hand side variable
+            </summary>
+            <param name="LeftHandSide">Left hand side variable</param>
+            <param name="Value">Value to store (may be constant or VariableBase object)</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Return(System.Object)">
+            <summary>
+            Returns a specified value
+            </summary>
+            <param name="ReturnValue">Variable to return</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Return">
+            <summary>
+            Returns from the method (used if void is the return type)
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Call(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Calls a function on an object
+            </summary>
+            <param name="ObjectCallingOn">Object calling on</param>
+            <param name="MethodCalling">Method calling</param>
+            <param name="Parameters">Parameters sending</param>
+            <returns>The return value</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Call(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Calls a function on an object
+            </summary>
+            <param name="ObjectCallingOn">Object calling on</param>
+            <param name="MethodCalling">Method calling</param>
+            <param name="Parameters">Parameters sending</param>
+            <returns>The return value</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.If(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Defines an if statement
+            </summary>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">Left hand side of the if statement</param>
+            <param name="RightHandSide">Right hand side of the if statement</param>
+            <returns>The if command</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.EndIf(Utilities.Reflection.Emit.Commands.If)">
+            <summary>
+            Defines the end of an if statement
+            </summary>
+            <param name="IfCommand">If command</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.While(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Defines a while statement
+            </summary>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">Left hand side of the while statement</param>
+            <param name="RightHandSide">Right hand side of the while statement</param>
+            <returns>The while command</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.EndWhile(Utilities.Reflection.Emit.Commands.While)">
+            <summary>
+            Defines the end of a while statement
+            </summary>
+            <param name="WhileCommand">While command</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Add(System.Object,System.Object)">
+            <summary>
+            Adds two variables and returns the result
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Subtract(System.Object,System.Object)">
+            <summary>
+            Subtracts two variables and returns the result
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Multiply(System.Object,System.Object)">
+            <summary>
+            Multiplies two variables and returns the result
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Divide(System.Object,System.Object)">
+            <summary>
+            Divides two variables and returns the result
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Modulo(System.Object,System.Object)">
+            <summary>
+            Mods (%) two variables and returns the result
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The result</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Try">
+            <summary>
+            Starts a try block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Catch(System.Type)">
+            <summary>
+            Ends a try block and starts a catch block
+            </summary>
+            <param name="ExceptionType">Exception type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.EndTry">
+            <summary>
+            Ends a try/catch block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Box(System.Object)">
+            <summary>
+            Boxes a value
+            </summary>
+            <param name="Value">Value to box</param>
+            <returns>The resulting boxed variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.UnBox(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Unboxes a value
+            </summary>
+            <param name="Value">Value to unbox</param>
+            <param name="ValueType">Type to unbox to</param>
+            <returns>The resulting unboxed variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Cast(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Casts an object to another type
+            </summary>
+            <param name="Value">Value to cast</param>
+            <param name="ValueType">Value type to cast to</param>
+            <returns>The resulting casted value</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Throw(Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Throws an exception
+            </summary>
+            <param name="Exception">Exception to throw</param>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Name">
+            <summary>
+            Method name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.ReturnType">
+            <summary>
+            Return type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Parameters">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Attributes">
+            <summary>
+            Attributes for the method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.Generator">
+            <summary>
+            IL generator for this method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IMethodBuilder.This">
+            <summary>
+            Returns the this object for this object
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.CreateLocal(System.String,System.Type)">
+            <summary>
+            Creates a local variable
+            </summary>
+            <param name="Name">Name of the local</param>
+            <param name="LocalType">Object type</param>
+            <returns>The variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.CreateConstant(System.Object)">
+            <summary>
+            Creates a constant
+            </summary>
+            <param name="Value">Constant value</param>
+            <returns>The constant</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.NewObj(System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Creates a new object
+            </summary>
+            <param name="Constructor">Constructor to use</param>
+            <param name="Variables">Variables to use</param>
+            <returns>The new object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.NewObj(System.Type,System.Object[])">
+            <summary>
+            Creates a new object
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Variables">Variables to use</param>
+            <returns>The new object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Call(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Calls a method
+            </summary>
+            <param name="ObjectCallingOn">Object to call the method on</param>
+            <param name="MethodCalling">Method to call</param>
+            <param name="Parameters">Parameters to use</param>
+            <returns>The result of the method call</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Call(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Calls a constructor
+            </summary>
+            <param name="ObjectCallingOn">Object to call the constructor on</param>
+            <param name="MethodCalling">Constructor to call</param>
+            <param name="Parameters">Parameters to use</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Assign(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Assigns a value to a variable
+            </summary>
+            <param name="LeftHandSide">Variable to assign to</param>
+            <param name="Value">Value to assign</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Return(System.Object)">
+            <summary>
+            Returns a value back from the method
+            </summary>
+            <param name="ReturnValue">Value to return</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Return">
+            <summary>
+            Returns from the method
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.If(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Creates an if statement
+            </summary>
+            <param name="LeftHandSide">Left hand side variable</param>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="RightHandSide">Right hand side variable</param>
+            <returns>The if object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.EndIf(Utilities.Reflection.Emit.Commands.If)">
+            <summary>
+            Ends an if statement
+            </summary>
+            <param name="IfCommand">If command to end</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.While(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Creates a while statement
+            </summary>
+            <param name="LeftHandSide">Left hand side variable</param>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="RightHandSide">Right hand side variable</param>
+            <returns>The while object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.EndWhile(Utilities.Reflection.Emit.Commands.While)">
+            <summary>
+            Ends a while statement
+            </summary>
+            <param name="WhileCommand">While statement to end</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Add(System.Object,System.Object)">
+            <summary>
+            Adds two objects
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Subtract(System.Object,System.Object)">
+            <summary>
+            Subtracts two objects
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Multiply(System.Object,System.Object)">
+            <summary>
+            Multiply two objects
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Divide(System.Object,System.Object)">
+            <summary>
+            Divides two objects
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Modulo(System.Object,System.Object)">
+            <summary>
+            Modulo operator
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Try">
+            <summary>
+            Starts a try block
+            </summary>
+            <returns>The resulting try block</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Catch(System.Type)">
+            <summary>
+            Starts a catch block
+            </summary>
+            <param name="ExceptionType">Exception type to catch</param>
+            <returns>The resulting catch block</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.EndTry">
+            <summary>
+            Ends a try block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Box(System.Object)">
+            <summary>
+            Boxes an object
+            </summary>
+            <param name="Value">Variable to box</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.UnBox(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Unboxes an object
+            </summary>
+            <param name="Value">Value to unbox</param>
+            <param name="ValueType">Type to unbox to</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Cast(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Casts an object as a specific type
+            </summary>
+            <param name="Value">Value to cast</param>
+            <param name="ValueType">Type to cast to</param>
+            <returns>The resulting variable</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.Throw(Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Throws an exception
+            </summary>
+            <param name="Exception">Exception to throw</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.MethodBase.SetCurrentMethod">
+            <summary>
+            Sets the current method to this
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.Name">
+            <summary>
+            Name of the method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.ReturnType">
+            <summary>
+            Return type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.Parameters">
+            <summary>
+            Parameters
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.Attributes">
+            <summary>
+            Attributes for the method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.Generator">
+            <summary>
+            IL Generator for the method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.CurrentMethod">
+            <summary>
+            Current method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.Commands">
+            <summary>
+            Commands used in the method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.ObjectCounter">
+            <summary>
+            Object counter
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.MethodBase.This">
+            <summary>
+            The this object
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.MethodBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.String,System.Reflection.MethodAttributes,System.Collections.Generic.IEnumerable{System.Type},System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Name">Name of the method</param>
+            <param name="Attributes">Attributes for the method (public, private, etc.)</param>
+            <param name="Parameters">Parameter types for the method</param>
+            <param name="ReturnType">Return type for the method</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.MethodBuilder.ToString">
+            <summary>
+            Outputs the method to a string
+            </summary>
+            <returns>The string representation of the method</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.MethodBuilder.Builder">
+            <summary>
+            Method builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.MethodBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.FieldBuilder">
+            <summary>
+            Helper class for defining a field within a type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.BaseClasses.VariableBase">
+            <summary>
+            Variable base class
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Assign(System.Object)">
+            <summary>
+            Assigns the value to the variable
+            </summary>
+            <param name="Value">Value to assign</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads the variable onto the stack
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the top item from the stack onto the variable
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.GetDefinition">
+            <summary>
+            Gets the definition of the variable
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(System.String,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="MethodName">Method name</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(Utilities.Reflection.Emit.MethodBuilder,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="Method">Method</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(System.Reflection.Emit.MethodBuilder,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="Method">Method</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="Method">Method</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="Method">Method</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.Call(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,System.Object[])">
+            <summary>
+            Calls a method on this variable
+            </summary>
+            <param name="Method">Method</param>
+            <param name="Parameters">Parameters sent in</param>
+            <returns>Variable returned by the function (if one exists, null otherwise)</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Addition(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Subtraction(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Subtraction operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Multiply(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Multiplication operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Division(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Division operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Modulus(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Modulo operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Addition(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Subtraction(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Subtraction operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Multiply(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Multiplication operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Division(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Division operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Modulus(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Modulo operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Addition(System.Object,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Subtraction(System.Object,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Subtraction operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Multiply(System.Object,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Multiplication operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Division(System.Object,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Division operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Modulus(System.Object,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Modulo operator
+            </summary>
+            <param name="Left">Left side</param>
+            <param name="Right">Right side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Increment(Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Plus one operator
+            </summary>
+            <param name="Left">Left side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.VariableBase.op_Decrement(Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Subtract one operator
+            </summary>
+            <param name="Left">Left side</param>
+            <returns>The resulting object</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.VariableBase.Name">
+            <summary>
+            Variable name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.VariableBase.DataType">
+            <summary>
+            Variable data type
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.String,System.Type,System.Reflection.FieldAttributes)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Name">Name of the method</param>
+            <param name="Attributes">Attributes for the field (public, private, etc.)</param>
+            <param name="FieldType">Type for the field</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads the field
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the field
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.GetDefinition">
+            <summary>
+            Gets the definition of the field
+            </summary>
+            <returns>The field's definition</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.ToString">
+            <summary>
+            The field as a string
+            </summary>
+            <returns>The field as a string</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.op_Increment(Utilities.Reflection.Emit.FieldBuilder)">
+            <summary>
+            Increments the field by one
+            </summary>
+            <param name="Left">Field to increment</param>
+            <returns>The field</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.FieldBuilder.op_Decrement(Utilities.Reflection.Emit.FieldBuilder)">
+            <summary>
+            Decrements the field by one
+            </summary>
+            <param name="Left">Field to decrement</param>
+            <returns>The field</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.FieldBuilder.Builder">
+            <summary>
+            Field builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.FieldBuilder.Attributes">
+            <summary>
+            Attributes for the field (private, public, etc.)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.FieldBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.PropertyBuilder">
+            <summary>
+            Helper class for defining a property
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder">
+            <summary>
+            Interface for properties
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.GetDefinition">
+            <summary>
+            Gets the definition of the variable
+            </summary>
+            <returns>string representation of the variable definition</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.Name">
+            <summary>
+            Property name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.DataType">
+            <summary>
+            Data type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.Builder">
+            <summary>
+            Property builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.Attributes">
+            <summary>
+            Attributes for the property
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.GetMethodAttributes">
+            <summary>
+            Attributes for the get method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.SetMethodAttributes">
+            <summary>
+            Attributes for the set method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.GetMethod">
+            <summary>
+            Method builder for the get method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Interfaces.IPropertyBuilder.SetMethod">
+            <summary>
+            Method builder for the set method
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.String,System.Reflection.PropertyAttributes,System.Reflection.MethodAttributes,System.Reflection.MethodAttributes,System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Name">Name of the property</param>
+            <param name="Attributes">Attributes for the property (public, private, etc.)</param>
+            <param name="GetMethodAttributes">Get method attributes</param>
+            <param name="SetMethodAttributes">Set method attributes</param>
+            <param name="PropertyType">Property type for the property</param>
+            <param name="Parameters">Parameter types for the property</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads a property
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the property
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.GetDefinition">
+            <summary>
+            Gets the definition
+            </summary>
+            <returns>String version of what this object generates</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.ToString">
+            <summary>
+            Returns the property name
+            </summary>
+            <returns>The property name</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.op_Increment(Utilities.Reflection.Emit.PropertyBuilder)">
+            <summary>
+            Adds one to the property
+            </summary>
+            <param name="Left">Property object</param>
+            <returns>The property builder</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.PropertyBuilder.op_Decrement(Utilities.Reflection.Emit.PropertyBuilder)">
+            <summary>
+            Subtracts one from the property builder
+            </summary>
+            <param name="Left">Property builder</param>
+            <returns>The property builder</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.Parameters">
+            <summary>
+            Parameter list
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.Builder">
+            <summary>
+            Builder object
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.Attributes">
+            <summary>
+            Attribute object
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.GetMethodAttributes">
+            <summary>
+            Get method attributes
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.SetMethodAttributes">
+            <summary>
+            Set method attributes
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.GetMethod">
+            <summary>
+            Get method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.SetMethod">
+            <summary>
+            Set method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.PropertyBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.DefaultPropertyBuilder">
+            <summary>
+            Helper class for defining default properties
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.String,System.Reflection.PropertyAttributes,System.Reflection.MethodAttributes,System.Reflection.MethodAttributes,System.Type,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Name">Name of the property</param>
+            <param name="Attributes">Attributes for the property (public, private, etc.)</param>
+            <param name="GetMethodAttributes">Get method attributes</param>
+            <param name="SetMethodAttributes">Set method attributes</param>
+            <param name="PropertyType">Property type for the property</param>
+            <param name="Parameters">Parameter types for the property</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads the property
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the property
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.GetDefinition">
+            <summary>
+            Gets the definition of the property
+            </summary>
+            <returns>The definition of the property</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.ToString">
+            <summary>
+            property as a string
+            </summary>
+            <returns>Property as a string</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.op_Increment(Utilities.Reflection.Emit.DefaultPropertyBuilder)">
+            <summary>
+            Increments the property by one
+            </summary>
+            <param name="Left">The property to increment</param>
+            <returns>The property</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultPropertyBuilder.op_Decrement(Utilities.Reflection.Emit.DefaultPropertyBuilder)">
+            <summary>
+            Decrements the property by one
+            </summary>
+            <param name="Left">The property to decrement</param>
+            <returns>The property</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.Parameters">
+            <summary>
+            Parameter types
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.Builder">
+            <summary>
+            Method builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.Attributes">
+            <summary>
+            Attributes for the property
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.GetMethodAttributes">
+            <summary>
+            Attributes for the get method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.SetMethodAttributes">
+            <summary>
+            Attributes for the set method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.GetMethod">
+            <summary>
+            Method builder for the get method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.SetMethod">
+            <summary>
+            Method builder for the set method
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.Field">
+            <summary>
+            Field builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultPropertyBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.ConstructorBuilder">
+            <summary>
+            Helper class for defining/creating constructors
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstructorBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.Reflection.MethodAttributes,System.Collections.Generic.IEnumerable{System.Type},System.Reflection.CallingConventions)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Attributes">Attributes for the constructor (public, private, etc.)</param>
+            <param name="Parameters">Parameter types for the constructor</param>
+            <param name="CallingConventions">Calling convention for the constructor</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstructorBuilder.ToString">
+            <summary>
+            The definition of the constructor as a string
+            </summary>
+            <returns>The constructor as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.ConstructorBuilder.CallingConventions">
+            <summary>
+            Calling conventions for the constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.ConstructorBuilder.Builder">
+            <summary>
+            Constructor builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.ConstructorBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.EnumBuilder">
+            <summary>
+            Helper class for defining enums
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.EnumBuilder.#ctor(Utilities.Reflection.Emit.Assembly,System.String,System.Type,System.Reflection.TypeAttributes)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Assembly">Assembly builder</param>
+            <param name="Name">Name of the enum</param>
+            <param name="Attributes">Attributes for the enum (public, private, etc.)</param>
+            <param name="EnumType">Type for the enum</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.EnumBuilder.AddLiteral(System.String,System.Object)">
+            <summary>
+            Adds a literal to the enum (an entry)
+            </summary>
+            <param name="Name">Name of the entry</param>
+            <param name="Value">Value associated with it</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.EnumBuilder.Create">
+            <summary>
+            Creates the enum
+            </summary>
+            <returns>The type defined by this EnumBuilder</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.EnumBuilder.ToString">
+            <summary>
+            Enum definition as a string
+            </summary>
+            <returns>The enum as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.Name">
+            <summary>
+            Field name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.Literals">
+            <summary>
+            Literals defined within the enum
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.Builder">
+            <summary>
+            Field builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.EnumType">
+            <summary>
+            Base enum type (int32, etc.)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.DefinedType">
+            <summary>
+            Type defined by this enum
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.Attributes">
+            <summary>
+            Attributes for the enum (private, public, etc.)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.EnumBuilder.Assembly">
+            <summary>
+            Assembly builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.LocalBuilder">
+            <summary>
+            Helper class for defining a local variable
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.#ctor(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,System.String,System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="MethodBuilder">Method builder</param>
+            <param name="Name">Name of the local</param>
+            <param name="LocalType">Type of the local</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads the local object
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the local object
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.ToString">
+            <summary>
+            The local item as a string
+            </summary>
+            <returns>The local item as a string</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.op_Increment(Utilities.Reflection.Emit.LocalBuilder)">
+            <summary>
+            Increments the local object by one
+            </summary>
+            <param name="Left">Local object to increment</param>
+            <returns>The local object</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.LocalBuilder.op_Decrement(Utilities.Reflection.Emit.LocalBuilder)">
+            <summary>
+            Decrements the local object by one
+            </summary>
+            <param name="Left">Local object to decrement</param>
+            <returns>The local object</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.LocalBuilder.Builder">
+            <summary>
+            Local builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.LocalBuilder.MethodBuilder">
+            <summary>
+            Method builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.DefaultConstructorBuilder">
+            <summary>
+            Helper class for defining/creating default constructors
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultConstructorBuilder.#ctor(Utilities.Reflection.Emit.TypeBuilder,System.Reflection.MethodAttributes)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="TypeBuilder">Type builder</param>
+            <param name="Attributes">Attributes for the constructor (public, private, etc.)</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.DefaultConstructorBuilder.ToString">
+            <summary>
+            The constructor definition as a string
+            </summary>
+            <returns>The constructor as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultConstructorBuilder.CallingConventions">
+            <summary>
+            Calling conventions for the constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultConstructorBuilder.Builder">
+            <summary>
+            Constructor builder
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.DefaultConstructorBuilder.Type">
+            <summary>
+            Type builder
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.NewObj">
+            <summary>
+            Command for creating a new object
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.BaseClasses.CommandBase">
+            <summary>
+            Command base class
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Interfaces.ICommand">
+            <summary>
+            Interface for a command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.CommandBase.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.BaseClasses.CommandBase.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.CommandBase.ConversionOpCodes">
+            <summary>
+            Used to store conversion opcodes
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.CommandBase.ComparisonOpCodes">
+            <summary>
+            Used to store comparison opcodes
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.CommandBase.ComparisonTextEquivalent">
+            <summary>
+            Used to store text equivalent of comparison types
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.BaseClasses.CommandBase.Result">
+            <summary>
+            Return value (set to null if not used by the command)
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.NewObj.#ctor(System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Constructor">Constructor to use</param>
+            <param name="Parameters">Variables sent to the constructor</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.NewObj.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.NewObj.ToString">
+            <summary>
+            Converts the command to the string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.NewObj.Constructor">
+            <summary>
+            Constructor used
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.NewObj.Parameters">
+            <summary>
+            Variables sent to the Constructor
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.ConstantBuilder">
+            <summary>
+            Helper class for defining a constant value
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstantBuilder.#ctor(System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Value">Value of the constant</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstantBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves the constant
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstantBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads the constant
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstantBuilder.GetDefinition">
+            <summary>
+            Get the definition of the constant
+            </summary>
+            <returns>The definition of the constant</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ConstantBuilder.ToString">
+            <summary>
+            The definition of the constant as a string
+            </summary>
+            <returns>The constant as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.ConstantBuilder.Value">
+            <summary>
+            Value of the constant
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Assign">
+            <summary>
+            Assignment command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Assign.#ctor(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="Value">Value to store</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Assign.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Assign.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Assign.LeftHandSide">
+            <summary>
+            Left hand side of the assignment
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Assign.RightHandSide">
+            <summary>
+            Value to assign
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Return">
+            <summary>
+            Return command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Return.#ctor(System.Type,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ReturnType">Return type</param>
+            <param name="ReturnValue">Return value</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Return.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Return.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Return.ReturnType">
+            <summary>
+            Return type
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Return.ReturnValue">
+            <summary>
+            Return value
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.ParameterBuilder">
+            <summary>
+            Used to define a parameter
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.#ctor(System.Type,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ParameterType">Parameter type</param>
+            <param name="Number">Position in parameter order</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.Load(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Loads from the parameter
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.Save(System.Reflection.Emit.ILGenerator)">
+            <summary>
+            Saves to the parameter
+            </summary>
+            <param name="Generator">IL Generator</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.ToString">
+            <summary>
+            Outputs the parameter as a string
+            </summary>
+            <returns>The parameter</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.op_Increment(Utilities.Reflection.Emit.ParameterBuilder)">
+            <summary>
+            Increments by one
+            </summary>
+            <param name="Left">Parameter to increment</param>
+            <returns>The parameter</returns>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.ParameterBuilder.op_Decrement(Utilities.Reflection.Emit.ParameterBuilder)">
+            <summary>
+            Decrements by one
+            </summary>
+            <param name="Left">Parameter to decrement</param>
+            <returns>The parameter</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.ParameterBuilder.Number">
+            <summary>
+            Order in the parameter list
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.DefineLocal">
+            <summary>
+            Defines a local variable
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.DefineLocal.#ctor(System.String,System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Name">Local object name</param>
+            <param name="LocalType">Local type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.DefineLocal.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.DefineLocal.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Call">
+            <summary>
+            Call command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Call.#ctor(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ObjectCallingOn">Object calling on</param>
+            <param name="Method">Method builder</param>
+            <param name="MethodCalling">Method calling on the object</param>
+            <param name="Parameters">List of parameters to send in</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Call.#ctor(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Reflection.ConstructorInfo,System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ObjectCallingOn">Object calling on</param>
+            <param name="Method">Method builder</param>
+            <param name="MethodCalling">Method calling on the object</param>
+            <param name="Parameters">List of parameters to send in</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Call.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Call.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Call.ObjectCallingOn">
+            <summary>
+            Object calling on
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Call.MethodCalling">
+            <summary>
+            Method calling
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Call.ConstructorCalling">
+            <summary>
+            Method calling
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Call.Parameters">
+            <summary>
+            Parameters sent in
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Call.MethodCallingFrom">
+            <summary>
+            Method calling from
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.If">
+            <summary>
+            If command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.#ctor(Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.EndIf">
+            <summary>
+            Ends the if statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.ElseIf(Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Defines an else if statement
+            </summary>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">left hand side value</param>
+            <param name="RightHandSide">right hand side value</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.Else">
+            <summary>
+            Defines an else statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.If.ToString">
+            <summary>
+            Converts the command to the string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.If.EndIfLabel">
+            <summary>
+            End if label
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.If.EndIfFinalLabel">
+            <summary>
+            End if label
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.If.LeftHandSide">
+            <summary>
+            Left hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.If.RightHandSide">
+            <summary>
+            Right hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.If.ComparisonType">
+            <summary>
+            Comparison type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Enums.AssemblyType">
+            <summary>
+            Assembly type
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.AssemblyType.DLL">
+            <summary>
+            DLL assembly
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.AssemblyType.EXE">
+            <summary>
+            EXE assembly
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Enums.Comparison">
+            <summary>
+            Comparison type
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.Equal">
+            <summary>
+            Equal
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.NotEqual">
+            <summary>
+            Not equal
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.LessThan">
+            <summary>
+            Less than
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.GreaterThan">
+            <summary>
+            Greater than
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.LessThanOrEqual">
+            <summary>
+            Less than or equal
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.Emit.Enums.Comparison.GreaterThenOrEqual">
+            <summary>
+            Greater than or equal
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.EndIf">
+            <summary>
+            End If command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndIf.#ctor(Utilities.Reflection.Emit.Commands.If)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="IfCommand">If command</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndIf.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndIf.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.EndIf.IfCommand">
+            <summary>
+            If command
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Else">
+            <summary>
+            Else command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Else.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Else.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Else.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.ElseIf">
+            <summary>
+            Else if command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.ElseIf.#ctor(System.Reflection.Emit.Label,Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="EndIfLabel">End if label (for this else if)</param>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.ElseIf.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.ElseIf.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.ElseIf.EndIfLabel">
+            <summary>
+            End if label
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.ElseIf.LeftHandSide">
+            <summary>
+            Left hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.ElseIf.RightHandSide">
+            <summary>
+            Right hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.ElseIf.ComparisonType">
+            <summary>
+            Comparison type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.EndWhile">
+            <summary>
+            End While command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndWhile.#ctor(Utilities.Reflection.Emit.Commands.While)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="WhileCommand">While command</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndWhile.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndWhile.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.EndWhile.WhileCommand">
+            <summary>
+            While command
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.While">
+            <summary>
+            While command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.While.#ctor(Utilities.Reflection.Emit.Enums.Comparison,Utilities.Reflection.Emit.BaseClasses.VariableBase,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ComparisonType">Comparison type</param>
+            <param name="LeftHandSide">Left hand side</param>
+            <param name="RightHandSide">Right hand side</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.While.EndWhile">
+            <summary>
+            Ends the while statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.While.Setup">
+            <summary>
+            Sets up the while statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.While.ToString">
+            <summary>
+            The while statement as a string
+            </summary>
+            <returns>The string representation of the while statement</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.While.StartWhileLabel">
+            <summary>
+            Start while label
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.While.EndWhileLabel">
+            <summary>
+            End while label
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.While.LeftHandSide">
+            <summary>
+            Left hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.While.RightHandSide">
+            <summary>
+            Right hand side of the comparison
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.While.ComparisonType">
+            <summary>
+            Comparison type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Add">
+            <summary>
+            Adds two variables
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Add.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left variable</param>
+            <param name="RightHandSide">Right variable</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Add.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Add.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Add.LeftHandSide">
+            <summary>
+            Left hand side of the addition
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Add.RightHandSide">
+            <summary>
+            Right hand side of the addition
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Subtract">
+            <summary>
+            Subtracts two variables
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Subtract.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left variable</param>
+            <param name="RightHandSide">Right variable</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Subtract.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Subtract.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Subtract.LeftHandSide">
+            <summary>
+            Left hand side of the subtraction
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Subtract.RightHandSide">
+            <summary>
+            Right hand side of the subtraction
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Multiply">
+            <summary>
+            Multiply two variables
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Multiply.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left variable</param>
+            <param name="RightHandSide">Right variable</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Multiply.Setup">
+            <summary>
+            Set up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Multiply.ToString">
+            <summary>
+            Converts the command to the string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Multiply.LeftHandSide">
+            <summary>
+            Left hand side of the multiplication
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Multiply.RightHandSide">
+            <summary>
+            Right hand side of the multiplication
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Divide">
+            <summary>
+            Divide two variables
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Divide.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left variable</param>
+            <param name="RightHandSide">Right variable</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Divide.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Divide.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Divide.LeftHandSide">
+            <summary>
+            Left hand side of the division
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Divide.RightHandSide">
+            <summary>
+            Right hand side of the division
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Modulo">
+            <summary>
+            Mods two variables
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Modulo.#ctor(System.Object,System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="LeftHandSide">Left variable</param>
+            <param name="RightHandSide">Right variable</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Modulo.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Modulo.ToString">
+            <summary>
+            Converts the command to the string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Modulo.LeftHandSide">
+            <summary>
+            Left hand side of the modulo
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Modulo.RightHandSide">
+            <summary>
+            Right hand side of the modulo
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Catch">
+            <summary>
+            Catch block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Catch.#ctor(System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ExceptionType">Exception type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Catch.Rethrow">
+            <summary>
+            Rethrows the error
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Catch.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Catch.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Catch.Exception">
+            <summary>
+            Exception caught in exception block
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Catch.ExceptionType">
+            <summary>
+            Exception type
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.EndTry">
+            <summary>
+            Ends a try/catch block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndTry.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndTry.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.EndTry.ToString">
+            <summary>
+            To string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Try">
+            <summary>
+            Starts a try block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Try.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Try.StartCatchBlock(System.Type)">
+            <summary>
+            Ends the try and starts a catch block
+            </summary>
+            <param name="ExceptionType">Exception type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Try.EndTryBlock">
+            <summary>
+            Ends the try/catch block
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Try.Setup">
+            <summary>
+            Sets up the try statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Try.ToString">
+            <summary>
+            The try statement as a string
+            </summary>
+            <returns>The try statement as a string</returns>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Box">
+            <summary>
+            Boxes an object
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Box.#ctor(System.Object)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Value">Value to box</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Box.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Box.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Box.Value">
+            <summary>
+            Value to box
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Cast">
+            <summary>
+            Casts a class object to another class
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Cast.#ctor(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Value">Value to cast</param>
+            <param name="ValueType">Desired type to cast to</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Cast.Setup">
+            <summary>
+            Sets up the command
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Cast.ToString">
+            <summary>
+            Converts the command to a string
+            </summary>
+            <returns>The string version of the command</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Cast.Value">
+            <summary>
+            Value to cast
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Cast.ValueType">
+            <summary>
+            Desired type to cast to
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.UnBox">
+            <summary>
+            Unboxes an object
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.UnBox.#ctor(Utilities.Reflection.Emit.BaseClasses.VariableBase,System.Type)">
+            <summary>
+            Unboxes a value to a specified type
+            </summary>
+            <param name="Value">Value to unbox</param>
+            <param name="ValueType">Value type</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.UnBox.Setup">
+            <summary>
+            Sets up the unbox statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.UnBox.ToString">
+            <summary>
+            Unbox statement as a string
+            </summary>
+            <returns>The unbox statement as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.UnBox.Value">
+            <summary>
+            Value to unbox
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.UnBox.ValueType">
+            <summary>
+            Value type to unbox to
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.Emit.Commands.Throw">
+            <summary>
+            Throws an exception
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Throw.#ctor(Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Exception">Exception to throw</param>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Throw.Setup">
+            <summary>
+            Sets up the throw statement
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.Emit.Commands.Throw.ToString">
+            <summary>
+            The throw statement as a string
+            </summary>
+            <returns>The throw statement as a string</returns>
+        </member>
+        <member name="P:Utilities.Reflection.Emit.Commands.Throw.Exception">
+            <summary>
+            Exception to throw
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.AOPManager">
+            <summary>
+            AOP interface manager
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.#ctor(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="AspectLocation">Aspect DLL location (optional)</param>
+            <param name="AssemblyDirectory">Directory to save the generated types (optional)</param>
+            <param name="AssemblyName">Assembly name to save the generated types as (optional)</param>
+            <param name="RegenerateAssembly">Should this assembly be regenerated if found? (optional)</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.Destroy">
+            <summary>
+            Clears out the AOP data (really only used in testing)
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.AddAspect(Utilities.Reflection.AOP.Interfaces.IAspect)">
+            <summary>
+            Adds an aspect to the manager (only needed if loading aspects manually)
+            </summary>
+            <param name="Aspect">Aspect to load</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.Save">
+            <summary>
+            Saves the assembly to the directory
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.Setup(System.Type)">
+            <summary>
+            Sets up a type so it can be used in the system later
+            </summary>
+            <param name="Type">Type to set up</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.Create``1">
+            <summary>
+            Creates an object of the specified base type, registering the type if necessary
+            </summary>
+            <typeparam name="T">The base type</typeparam>
+            <returns>Returns an object of the specified base type</returns>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.AOPManager.Create(System.Type)">
+            <summary>
+            Creates an object of the specified base type, registering the type if necessary
+            </summary>
+            <param name="BaseType">The base type</param>
+            <returns>Returns an object of the specified base type</returns>
+        </member>
+        <member name="F:Utilities.Reflection.AOP.AOPManager.Classes">
+            <summary>
+            Dictionary containing generated types and associates it with original type
+            </summary>
+        </member>
+        <member name="F:Utilities.Reflection.AOP.AOPManager.Aspects">
+            <summary>
+            The list of aspects that are being used
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.AOPManager.AssemblyBuilder">
+            <summary>
+            Assembly containing generated types
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.AOPManager.AssemblyDirectory">
+            <summary>
+            Assembly directory
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.AOPManager.AssemblyName">
+            <summary>
+            Assembly name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.AOPManager.RegenerateAssembly">
+            <summary>
+            Determines if the assembly needs to be regenerated
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.EventArgs.Ending">
+            <summary>
+            EventArgs used in ending event
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.EventArgs.Ending.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Ending.MethodName">
+            <summary>
+            Method name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Ending.Parameters">
+            <summary>
+            Parameters list
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Ending.ReturnValue">
+            <summary>
+            Return value
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.EventArgs.Exception">
+            <summary>
+            EventArgs used during the exception event
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Exception.InternalException">
+            <summary>
+            Exception that was thrown
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.EventArgs.Starting">
+            <summary>
+            EventArgs used during the start event
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.EventArgs.Starting.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Starting.MethodName">
+            <summary>
+            Method Name
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Starting.Parameters">
+            <summary>
+            Parameter list
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.EventArgs.Starting.ReturnValue">
+            <summary>
+            Return value
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.Interfaces.IAspect">
+            <summary>
+            Aspect interface
+            </summary>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.Interfaces.IAspect.SetupStartMethod(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,System.Type)">
+            <summary>
+            Used to insert IL code at the beginning of the method
+            </summary>
+            <param name="Method">Overridding Method</param>
+            <param name="BaseType">Base type</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.Interfaces.IAspect.SetupEndMethod(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,System.Type,Utilities.Reflection.Emit.BaseClasses.VariableBase)">
+            <summary>
+            Used to insert IL code at the end of the method
+            </summary>
+            <param name="Method">Overridding Method</param>
+            <param name="BaseType">Base type</param>
+            <param name="ReturnValue">Local holder for the value returned by the function</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.Interfaces.IAspect.SetupExceptionMethod(Utilities.Reflection.Emit.Interfaces.IMethodBuilder,System.Type)">
+            <summary>
+            Used to insert IL code within the catch portion of the try/catch portion of the method
+            </summary>
+            <param name="Method">Overridding Method</param>
+            <param name="BaseType">Base type</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.Interfaces.IAspect.Setup(System.Object)">
+            <summary>
+            Used to hook into the object once it has been created
+            </summary>
+            <param name="Object">Object created by the system</param>
+        </member>
+        <member name="M:Utilities.Reflection.AOP.Interfaces.IAspect.SetupInterfaces(Utilities.Reflection.Emit.TypeBuilder)">
+            <summary>
+            Used to set up any interfaces, extra fields, methods, etc. prior to overridding any methods.
+            </summary>
+            <param name="TypeBuilder">Type builder object</param>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.Interfaces.IAspect.InterfacesUsing">
+            <summary>
+            List of interfaces that need to be injected by this aspect
+            </summary>
+        </member>
+        <member name="T:Utilities.Reflection.AOP.Interfaces.IEvents">
+            <summary>
+            Events interface (injected into all objects)
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.Interfaces.IEvents.Aspectus_Ending">
+            <summary>
+            Called when property/function is ending
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.Interfaces.IEvents.Aspectus_Starting">
+            <summary>
+            Called when property/function is starting
+            </summary>
+        </member>
+        <member name="P:Utilities.Reflection.AOP.Interfaces.IEvents.Aspectus_Exception">
+            <summary>
+            Called when an error is caught
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3727 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Utilities.DataTypes</name>
+    </assembly>
+    <members>
+        <member name="T:Utilities.DataTypes.Bag`1">
+            <summary>
+            Used to count the number of times something is added to the list
+            </summary>
+            <typeparam name="T">Type of data within the bag</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.Add(`0)">
+            <summary>
+            Adds an item to the bag
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.Clear">
+            <summary>
+            Clears the bag
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.Contains(`0)">
+            <summary>
+            Determines if the bag contains an item
+            </summary>
+            <param name="item">Item to check</param>
+            <returns>True if it does, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the bag to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Index to start at</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.Remove(`0)">
+            <summary>
+            Removes an item from the bag
+            </summary>
+            <param name="item">Item to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Bag`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Bag`1.Count">
+            <summary>
+            Number of items in the bag
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Bag`1.IsReadOnly">
+            <summary>
+            Is this read only?
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Bag`1.Item(`0)">
+            <summary>
+            Gets a specified item
+            </summary>
+            <param name="index">Item to get</param>
+            <returns>The number of this item in the bag</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Bag`1.Items">
+            <summary>
+            Actual internal container
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.BinaryTree`1">
+            <summary>
+            Binary tree
+            </summary>
+            <typeparam name="T">The type held by the nodes</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.#ctor(Utilities.DataTypes.TreeNode{`0})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Root">Root of the binary tree</param>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Add(`0)">
+            <summary>
+            Adds an item to a binary tree
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Clear">
+            <summary>
+            Clears all items from the tree
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Contains(`0)">
+            <summary>
+            Determines if the tree contains an item
+            </summary>
+            <param name="item">Item to check</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the tree to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Index to start at</param>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Remove(`0)">
+            <summary>
+            Removes an item from the tree
+            </summary>
+            <param name="item">Item to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Find(`0)">
+            <summary>
+            Finds a specific object
+            </summary>
+            <param name="item">The item to find</param>
+            <returns>The node if it is found</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Traversal(Utilities.DataTypes.TreeNode{`0})">
+            <summary>
+            Traverses the list
+            </summary>
+            <param name="Node">The node to start the search from</param>
+            <returns>The individual items from the tree</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.Insert(`0)">
+            <summary>
+            Inserts a value
+            </summary>
+            <param name="item">item to insert</param>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.ToString">
+            <summary>
+            Outputs the tree as a string
+            </summary>
+            <returns>The string representation of the tree</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.BinaryTree`1.op_Implicit(Utilities.DataTypes.BinaryTree{`0})~System.String">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.Root">
+            <summary>
+            The root value
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.NumberOfNodes">
+            <summary>
+            The number of nodes in the tree
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.IsEmpty">
+            <summary>
+            Is the tree empty
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.MinValue">
+            <summary>
+            Gets the minimum value of the tree
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.MaxValue">
+            <summary>
+            Gets the maximum value of the tree
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.Count">
+            <summary>
+            Number of items in the tree
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.BinaryTree`1.IsReadOnly">
+            <summary>
+            Is this read only?
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.TreeNode`1">
+            <summary>
+            Node class for the Binary tree
+            </summary>
+            <typeparam name="T">The value type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.TreeNode`1.#ctor(`0,Utilities.DataTypes.TreeNode{`0},Utilities.DataTypes.TreeNode{`0},Utilities.DataTypes.TreeNode{`0})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Value">Value of the node</param>
+            <param name="Parent">Parent node</param>
+            <param name="Left">Left node</param>
+            <param name="Right">Right node</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TreeNode`1.ToString">
+            <summary>
+            Returns the node as a string
+            </summary>
+            <returns>String representation of the node</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.Value">
+            <summary>
+            Value of the node
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.Parent">
+            <summary>
+            Parent node
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.Left">
+            <summary>
+            Left node
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.Right">
+            <summary>
+            Right node
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.IsRoot">
+            <summary>
+            Is this the root
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.IsLeaf">
+            <summary>
+            Is this a leaf
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TreeNode`1.Visited">
+            <summary>
+            Visited?
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ListMapping`2">
+            <summary>
+            Maps a key to a list of data
+            </summary>
+            <typeparam name="T1">Key value</typeparam>
+            <typeparam name="T2">Type that the list should contain</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Add(`0,`1)">
+            <summary>
+            Adds an item to the mapping
+            </summary>
+            <param name="Key">Key value</param>
+            <param name="Value">The value to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Add(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.ICollection{`1}})">
+            <summary>
+            Adds a key value pair
+            </summary>
+            <param name="item">Key value pair to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Add(`0,System.Collections.Generic.ICollection{`1})">
+            <summary>
+            Adds a list of items to the mapping
+            </summary>
+            <param name="Key">Key value</param>
+            <param name="Value">The values to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.ContainsKey(`0)">
+            <summary>
+            Determines if a key exists
+            </summary>
+            <param name="key">Key to check on</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Remove(`0)">
+            <summary>
+            Remove a list of items associated with a key
+            </summary>
+            <param name="key">Key to use</param>
+            <returns>True if the key is found, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Remove(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.ICollection{`1}})">
+            <summary>
+            Removes a key value pair from the list mapping
+            </summary>
+            <param name="item">items to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Remove(`0,`1)">
+            <summary>
+            Removes a key value pair from the list mapping
+            </summary>
+            <param name="Key">Key to remove</param>
+            <param name="Value">Value to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Clear">
+            <summary>
+            Clears all items from the listing
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.TryGetValue(`0,System.Collections.Generic.ICollection{`1}@)">
+            <summary>
+            Tries to get the value associated with the key
+            </summary>
+            <param name="Key">Key value</param>
+            <param name="Value">The values getting</param>
+            <returns>True if it was able to get the value, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Contains(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.ICollection{`1}})">
+            <summary>
+            Does this contain the key value pairs?
+            </summary>
+            <param name="item">Key value pair to check</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Contains(`0,System.Collections.Generic.ICollection{`1})">
+            <summary>
+            Does the list mapping contain the key value pairs?
+            </summary>
+            <param name="Key">Key value</param>
+            <param name="Values">Value</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.Contains(`0,`1)">
+            <summary>
+            Does the list mapping contain the key value pair?
+            </summary>
+            <param name="Key">Key</param>
+            <param name="Value">Value</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.ICollection{`1}}[],System.Int32)">
+            <summary>
+            Not implemented
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">array index</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator for this object</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ListMapping`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator for this object</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.Items">
+            <summary>
+            Container holding the data
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.Values">
+            <summary>
+            List that contains the list of values
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.Count">
+            <summary>
+            The number of items in the listing
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.Item(`0)">
+            <summary>
+            Gets a list of values associated with a key
+            </summary>
+            <param name="key">Key to look for</param>
+            <returns>The list of values</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.Keys">
+            <summary>
+            The list of keys within the mapping
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.ListMapping`2.IsReadOnly">
+            <summary>
+            Not read only
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Patterns.BaseClasses.Singleton`1">
+            <summary>
+            Base class used for singletons
+            </summary>
+            <typeparam name="T">The class type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.BaseClasses.Singleton`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Patterns.BaseClasses.Singleton`1.Instance">
+            <summary>
+            Gets the instance of the singleton
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Patterns.Factory`2">
+            <summary>
+            Factory class
+            </summary>
+            <typeparam name="Key">The "message" type</typeparam>
+            <typeparam name="T">The class type that you want created</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.Factory`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.Factory`2.Register(`0,`1)">
+            <summary>
+            Registers an item
+            </summary>
+            <param name="Key">Item to register</param>
+            <param name="Result">The object to be returned</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.Factory`2.Register(`0,System.Func{`1})">
+            <summary>
+            Registers an item
+            </summary>
+            <param name="Key">Item to register</param>
+            <param name="Constructor">The function to call when creating the item</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.Factory`2.Create(`0)">
+            <summary>
+            Creates an instance associated with the key
+            </summary>
+            <param name="Key">Registered item</param>
+            <returns>The type returned by the initializer</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.Factory`2.Exists(`0)">
+            <summary>
+            Determines if a key has been registered
+            </summary>
+            <param name="Key">Key to check</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Patterns.Factory`2.Constructors">
+            <summary>
+            List of constructors/initializers
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.PriorityQueue`1">
+            <summary>
+            Helper class that implements a priority queue
+            </summary>
+            <typeparam name="T">The type of the values placed in the queue</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.Peek">
+            <summary>
+            Peek at the next thing in the queue
+            </summary>
+            <returns>The next item in queue or default(T) if it is empty</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.Add(System.Int32,System.Collections.Generic.ICollection{`0})">
+            <summary>
+            Adds an item to the queue
+            </summary>
+            <param name="Priority">Priority</param>
+            <param name="Value">Items to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.Add(System.Collections.Generic.KeyValuePair{System.Int32,System.Collections.Generic.ICollection{`0}})">
+            <summary>
+            Adds an item to the queue
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.Add(System.Int32,`0)">
+            <summary>
+            Adds an item to the queue
+            </summary>
+            <param name="Priority">Priority</param>
+            <param name="Value">Item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.PriorityQueue`1.Pop">
+            <summary>
+            Removes an item from the queue and returns it
+            </summary>
+            <returns>The next item in the queue</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.PriorityQueue`1.HighestKey">
+            <summary>
+            Highest value key
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Comparison.GenericComparer`1">
+            <summary>
+            Generic IComparable class
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Comparison.GenericComparer`1.Compare(`0,`0)">
+            <summary>
+            Compares the two objects
+            </summary>
+            <param name="x">Object 1</param>
+            <param name="y">Object 2</param>
+            <returns>0 if they're equal, any other value they are not</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Comparison.GenericEqualityComparer`1">
+            <summary>
+            Generic equality comparer
+            </summary>
+            <typeparam name="T">Data type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Comparison.GenericEqualityComparer`1.Equals(`0,`0)">
+            <summary>
+            Determines if the two items are equal
+            </summary>
+            <param name="x">Object 1</param>
+            <param name="y">Object 2</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Comparison.GenericEqualityComparer`1.GetHashCode(`0)">
+            <summary>
+            Get hash code
+            </summary>
+            <param name="obj">Object to get the hash code of</param>
+            <returns>The object's hash code</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Patterns.IFluentInterface">
+            <summary>
+            Helps in fluent interface design to hide
+            ToString, Equals, and GetHashCode
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.IFluentInterface.Equals(System.Object)">
+            <summary>
+            Hides equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.IFluentInterface.GetHashCode">
+            <summary>
+            Hides GetHashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.IFluentInterface.ToString">
+            <summary>
+            Hides ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.IFluentInterface.GetType">
+            <summary>
+            Hides GetType
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Utilities.DataTypes.DateSpan">
+            <summary>
+            Represents a date span
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Start">Start of the date span</param>
+            <param name="End">End of the date span</param>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.Intersection(Utilities.DataTypes.DateSpan)">
+            <summary>
+            Returns the intersecting time span between the two values
+            </summary>
+            <param name="Span">Span to use</param>
+            <returns>The intersection of the two time spans</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.Overlap(Utilities.DataTypes.DateSpan)">
+            <summary>
+            Determines if two DateSpans overlap
+            </summary>
+            <param name="Span">The span to compare to</param>
+            <returns>True if they overlap, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.op_Addition(Utilities.DataTypes.DateSpan,Utilities.DataTypes.DateSpan)">
+            <summary>
+            Addition operator
+            </summary>
+            <param name="Span1">Span 1</param>
+            <param name="Span2">Span 2</param>
+            <returns>The combined date span</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.op_Equality(Utilities.DataTypes.DateSpan,Utilities.DataTypes.DateSpan)">
+            <summary>
+            Determines if two DateSpans are equal
+            </summary>
+            <param name="Span1">Span 1</param>
+            <param name="Span2">Span 2</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.op_Inequality(Utilities.DataTypes.DateSpan,Utilities.DataTypes.DateSpan)">
+            <summary>
+            Determines if two DateSpans are not equal
+            </summary>
+            <param name="Span1">Span 1</param>
+            <param name="Span2">Span 2</param>
+            <returns>True if they are not equal, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.op_Implicit(Utilities.DataTypes.DateSpan)~System.String">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.ToString">
+            <summary>
+            Converts the DateSpan to a string
+            </summary>
+            <returns>The DateSpan as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.Equals(System.Object)">
+            <summary>
+            Determines if two objects are equal
+            </summary>
+            <param name="obj">Object to check</param>
+            <returns>True if they are, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.DateSpan.GetHashCode">
+            <summary>
+            Gets the hash code for the date span
+            </summary>
+            <returns>The hash code</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Start">
+            <summary>
+            Start date
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.End">
+            <summary>
+            End date
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Years">
+            <summary>
+            Years between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Months">
+            <summary>
+            Months between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Days">
+            <summary>
+            Days between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Hours">
+            <summary>
+            Hours between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Minutes">
+            <summary>
+            Minutes between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.Seconds">
+            <summary>
+            Seconds between the two dates
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.DateSpan.MilliSeconds">
+            <summary>
+            Milliseconds between the two dates
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions">
+            <summary>
+            DateTime extension methods
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.AddWeeks(System.DateTime,System.Int32)">
+            <summary>
+            Adds the number of weeks to the date
+            </summary>
+            <param name="Date">Date input</param>
+            <param name="NumberOfWeeks">Number of weeks to add</param>
+            <returns>The date after the number of weeks are added</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.Age(System.DateTime,System.DateTime)">
+            <summary>
+            Calculates age based on date supplied
+            </summary>
+            <param name="Date">Birth date</param>
+            <param name="CalculateFrom">Date to calculate from</param>
+            <returns>The total age in years</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.BeginningOf(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.Globalization.CultureInfo)">
+            <summary>
+            Beginning of a specific time frame
+            </summary>
+            <param name="Date">Date to base off of</param>
+            <param name="TimeFrame">Time frame to use</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <returns>The beginning of a specific time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.BeginningOf(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Beginning of a specific time frame
+            </summary>
+            <param name="Date">Date to base off of</param>
+            <param name="TimeFrame">Time frame to use</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <param name="StartOfQuarter1">Start of the first quarter</param>
+            <returns>The beginning of a specific time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.DaysIn(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the number of days in the time frame specified based on the date
+            </summary>
+            <param name="Date">Date</param>
+            <param name="TimeFrame">Time frame to calculate the number of days from</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <returns>The number of days in the time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.DaysIn(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the number of days in the time frame specified based on the date
+            </summary>
+            <param name="Date">Date</param>
+            <param name="TimeFrame">Time frame to calculate the number of days from</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <param name="StartOfQuarter1">Start of the first quarter</param>
+            <returns>The number of days in the time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.DaysLeftIn(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the number of days left in the time frame specified based on the date
+            </summary>
+            <param name="Date">Date</param>
+            <param name="TimeFrame">Time frame to calculate the number of days left</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <returns>The number of days left in the time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.DaysLeftIn(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the number of days left in the time frame specified based on the date
+            </summary>
+            <param name="Date">Date</param>
+            <param name="TimeFrame">Time frame to calculate the number of days left</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <param name="StartOfQuarter1">Start of the first quarter</param>
+            <returns>The number of days left in the time frame</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.EndOf(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.Globalization.CultureInfo)">
+            <summary>
+            End of a specific time frame
+            </summary>
+            <param name="Date">Date to base off of</param>
+            <param name="TimeFrame">Time frame to use</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <returns>The end of a specific time frame (TimeFrame.Day is the only one that sets the time to 12:59:59 PM, all else are the beginning of the day)</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.EndOf(System.DateTime,Utilities.DataTypes.ExtensionMethods.TimeFrame,System.DateTime,System.Globalization.CultureInfo)">
+            <summary>
+            End of a specific time frame
+            </summary>
+            <param name="Date">Date to base off of</param>
+            <param name="TimeFrame">Time frame to use</param>
+            <param name="Culture">Culture to use for calculating (defaults to the current culture)</param>
+            <param name="StartOfQuarter1">Start of the first quarter</param>
+            <returns>The end of a specific time frame (TimeFrame.Day is the only one that sets the time to 12:59:59 PM, all else are the beginning of the day)</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.Is(System.DateTime,Utilities.DataTypes.ExtensionMethods.DateCompare)">
+            <summary>
+            Determines if the date fulfills the comparison
+            </summary>
+            <param name="Date">Date to check</param>
+            <param name="Comparison">Comparison type (can be combined, so you can do weekday in the future, etc)</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.LocalTimeZone(System.DateTime)">
+            <summary>
+            Gets the local time zone
+            </summary>
+            <param name="Date">Date object</param>
+            <returns>The local time zone</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.SetTime(System.DateTime,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets the time portion of a specific date
+            </summary>
+            <param name="Date">Date input</param>
+            <param name="Hour">Hour to set</param>
+            <param name="Minutes">Minutes to set</param>
+            <param name="Seconds">Seconds to set</param>
+            <returns>Sets the time portion of the specified date</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.SetTime(System.DateTime,System.TimeSpan)">
+            <summary>
+            Sets the time portion of a specific date
+            </summary>
+            <param name="Date">Date input</param>
+            <param name="Time">Time to set</param>
+            <returns>Sets the time portion of the specified date</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.To(System.DateTime,System.TimeZoneInfo)">
+            <summary>
+            Converts a DateTime to a specific time zone
+            </summary>
+            <param name="Date">DateTime to convert</param>
+            <param name="TimeZone">Time zone to convert to</param>
+            <returns>The converted DateTime</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.To(System.DateTime,System.DateTime)">
+            <summary>
+            Returns the date in int format based on an Epoch (defaults to unix epoch of 1/1/1970)
+            </summary>
+            <param name="Date">Date to convert</param>
+            <param name="Epoch">Epoch to use (defaults to unix epoch of 1/1/1970)</param>
+            <returns>The date in Unix format</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.To(System.Int32,System.DateTime)">
+            <summary>
+            Returns the date in DateTime format based on an Epoch (defaults to unix epoch of 1/1/1970)
+            </summary>
+            <param name="Date">Date to convert</param>
+            <param name="Epoch">Epoch to use (defaults to unix epoch of 1/1/1970)</param>
+            <returns>The Unix Date in DateTime format</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.To(System.Int64,System.DateTime)">
+            <summary>
+            Returns the date in DateTime format based on an Epoch (defaults to unix epoch of 1/1/1970)
+            </summary>
+            <param name="Date">Date to convert</param>
+            <param name="Epoch">Epoch to use (defaults to unix epoch of 1/1/1970)</param>
+            <returns>The Unix Date in DateTime format</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.ToString(System.DateTime,System.DateTime)">
+            <summary>
+            Converts the DateTime object to string describing, relatively how long ago or how far in the future
+            the input is based off of another DateTime object specified.
+            ex: 
+            Input=March 21, 2013
+            Epoch=March 22, 2013
+            returns "1 day ago"
+            Input=March 22, 2013
+            Epoch=March 21, 2013
+            returns "1 day from now"
+            </summary>
+            <param name="Input">Input</param>
+            <param name="Epoch">DateTime object that the input is comparred to</param>
+            <returns>The difference between the input and epoch expressed as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DateTimeExtensions.UTCOffset(System.DateTime)">
+            <summary>
+            Gets the UTC offset
+            </summary>
+            <param name="Date">Date to get the offset of</param>
+            <returns>UTC offset</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.DateCompare">
+            <summary>
+            Date comparison type
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.DateCompare.InFuture">
+            <summary>
+            In the future
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.DateCompare.InPast">
+            <summary>
+            In the past
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.DateCompare.Today">
+            <summary>
+            Today
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.DateCompare.WeekDay">
+            <summary>
+            Weekday
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.DateCompare.WeekEnd">
+            <summary>
+            Weekend
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.TimeFrame">
+            <summary>
+            Time frame
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.TimeFrame.Day">
+            <summary>
+            Day
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.TimeFrame.Week">
+            <summary>
+            Week
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.TimeFrame.Month">
+            <summary>
+            Month
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.TimeFrame.Quarter">
+            <summary>
+            Quarter
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.TimeFrame.Year">
+            <summary>
+            Year
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.StringExtensions">
+            <summary>
+            String and StringBuilder extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.AppendLineFormat(System.Text.StringBuilder,System.String,System.Object[])">
+            <summary>
+            Does an AppendFormat and then an AppendLine on the StringBuilder
+            </summary>
+            <param name="Builder">Builder object</param>
+            <param name="Format">Format string</param>
+            <param name="Objects">Objects to format</param>
+            <returns>The StringBuilder passed in</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Center(System.String,System.Int32,System.String)">
+            <summary>
+            Centers the input string (if it's longer than the length) and pads it using the padding string
+            </summary>
+            <param name="Input"></param>
+            <param name="Length"></param>
+            <param name="Padding"></param>
+            <returns>The centered string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Encode(System.String,System.Text.Encoding,System.Text.Encoding)">
+            <summary>
+            Converts a string to a string of another encoding
+            </summary>
+            <param name="Input">input string</param>
+            <param name="OriginalEncodingUsing">The type of encoding the string is currently using (defaults to ASCII)</param>
+            <param name="EncodingUsing">The type of encoding the string is converted into (defaults to UTF8)</param>
+            <returns>string of the byte array</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.FromBase64(System.String,System.Text.Encoding)">
+            <summary>
+            Converts base 64 string based on the encoding passed in
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="EncodingUsing">The type of encoding the string is using (defaults to UTF8)</param>
+            <returns>string in the encoding format</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.FromBase64(System.String)">
+            <summary>
+            Converts base 64 string to a byte array
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>A byte array equivalent of the base 64 string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Is(System.String,Utilities.DataTypes.ExtensionMethods.StringCompare)">
+            <summary>
+            Is this value of the specified type
+            </summary>
+            <param name="Value">Value to compare</param>
+            <param name="ComparisonType">Comparison type</param>
+            <returns>True if it is of the type specified, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Is(System.String,System.String,Utilities.DataTypes.ExtensionMethods.StringCompare)">
+            <summary>
+            Is this value of the specified type
+            </summary>
+            <param name="Value1">Value 1 to compare</param>
+            <param name="Value2">Value 2 to compare</param>
+            <param name="ComparisonType">Comparison type</param>
+            <returns>True if it is of the type specified, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Keep(System.String,System.String)">
+            <summary>
+            Removes everything that is not in the filter text from the input.
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Filter">Regex expression of text to keep</param>
+            <returns>The input text minus everything not in the filter text.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Keep(System.String,Utilities.DataTypes.ExtensionMethods.StringFilter)">
+            <summary>
+            Removes everything that is not in the filter text from the input.
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Filter">Predefined filter to use (can be combined as they are flags)</param>
+            <returns>The input text minus everything not in the filter text.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Gets the first x number of characters from the left hand side
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Length">x number of characters to return</param>
+            <returns>The resulting string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.LevenshteinDistance(System.String,System.String)">
+            <summary>
+            Calculates the Levenshtein distance
+            </summary>
+            <param name="Value1">Value 1</param>
+            <param name="Value2">Value 2</param>
+            <returns>The Levenshtein distance</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.MaskLeft(System.String,System.Int32,System.Char)">
+            <summary>
+            Masks characters to the left ending at a specific character
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="EndPosition">End position (counting from the left)</param>
+            <param name="Mask">Mask character to use</param>
+            <returns>The masked string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.MaskRight(System.String,System.Int32,System.Char)">
+            <summary>
+            Masks characters to the right starting at a specific character
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="StartPosition">Start position (counting from the left)</param>
+            <param name="Mask">Mask character to use</param>
+            <returns>The masked string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.NumberTimesOccurs(System.String,System.String)">
+            <summary>
+            returns the number of times a string occurs within the text
+            </summary>
+            <param name="Input">input text</param>
+            <param name="Match">The string to match (can be regex)</param>
+            <returns>The number of times the string occurs</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Pluralize(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Pluralizes a word
+            </summary>
+            <param name="Word">Word to pluralize</param>
+            <param name="Culture">Culture info used to pluralize the word (defaults to current culture)</param>
+            <returns>The word pluralized</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Remove(System.String,System.String)">
+            <summary>
+            Removes everything that is in the filter text from the input.
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Filter">Regex expression of text to remove</param>
+            <returns>Everything not in the filter text.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Remove(System.String,Utilities.DataTypes.ExtensionMethods.StringFilter)">
+            <summary>
+            Removes everything that is in the filter text from the input.
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Filter">Predefined filter to use (can be combined as they are flags)</param>
+            <returns>Everything not in the filter text.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Replace(System.String,Utilities.DataTypes.ExtensionMethods.StringFilter,System.String)">
+            <summary>
+            Replaces everything that is in the filter text with the value specified.
+            </summary>
+            <param name="Input">Input text</param>
+            <param name="Value">Value to fill in</param>
+            <param name="Filter">Predefined filter to use (can be combined as they are flags)</param>
+            <returns>The input text with the various items replaced</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Reverse(System.String)">
+            <summary>
+            Reverses a string
+            </summary>
+            <param name="Input">Input string</param>
+            <returns>The reverse of the input string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Gets the last x number of characters from the right hand side
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Length">x number of characters to return</param>
+            <returns>The resulting string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.Singularize(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Singularizes a word
+            </summary>
+            <param name="Word">Word to singularize</param>
+            <param name="Culture">Culture info used to singularize the word (defaults to current culture)</param>
+            <returns>The word singularized</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.StripLeft(System.String,System.String)">
+            <summary>
+            Strips out any of the characters specified starting on the left side of the input string (stops when a character not in the list is found)
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Characters">Characters to strip (defaults to a space)</param>
+            <returns>The Input string with specified characters stripped out</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.StripRight(System.String,System.String)">
+            <summary>
+            Strips out any of the characters specified starting on the right side of the input string (stops when a character not in the list is found)
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Characters">Characters to strip (defaults to a space)</param>
+            <returns>The Input string with specified characters stripped out</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.StripIllegalXML(System.String)">
+            <summary>
+            Strips illegal characters for XML content
+            </summary>
+            <param name="Content">Content</param>
+            <returns>The stripped string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToBase64(System.String,System.Text.Encoding)">
+            <summary>
+            Converts from the specified encoding to a base 64 string
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="OriginalEncodingUsing">The type of encoding the string is using (defaults to UTF8)</param>
+            <returns>Bas64 string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToByteArray(System.String,System.Text.Encoding)">
+            <summary>
+            Converts a string to a byte array
+            </summary>
+            <param name="Input">input string</param>
+            <param name="EncodingUsing">The type of encoding the string is using (defaults to UTF8)</param>
+            <returns>the byte array representing the string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToString(System.String,Utilities.DataTypes.ExtensionMethods.StringCase)">
+            <summary>
+            Formats the string based on the capitalization specified
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Case">Capitalization type to use</param>
+            <returns>Capitalizes the string based on the case specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToString(System.String,System.String,Utilities.DataTypes.Formatters.Interfaces.IStringFormatter)">
+            <summary>
+            Formats a string based on a format string passed in.
+            The default formatter uses the following format:
+            # = digits
+            @ = alpha characters
+            \ = escape char
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Format">Format of the output string</param>
+            <param name="Provider">String formatter provider (defaults to GenericStringFormatter)</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToString(System.String,System.Object,System.String,System.String)">
+            <summary>
+            Formats a string based on the object's properties
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Object">Object to use to format the string</param>
+            <param name="StartSeperator">Seperator character/string to use to describe the start of the property name</param>
+            <param name="EndSeperator">Seperator character/string to use to describe the end of the property name</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToString(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">
+            <summary>
+            Formats a string based on the key/value pairs that are sent in
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Pairs">Key/value pairs. Replaces the key with the corresponding value.</param>
+            <returns>The string after the changes have been made</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StringExtensions.ToString(System.String,System.String,System.String,System.Text.RegularExpressions.RegexOptions)">
+            <summary>
+            Uses a regex to format the input string
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="Format">Regex string used to</param>
+            <param name="OutputFormat">Output format</param>
+            <param name="Options">Regex options</param>
+            <returns>The input string formatted by using the regex string</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.StringCase">
+            <summary>
+            What sort of string capitalization should be used?
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCase.SentenceCapitalize">
+            <summary>
+            Sentence capitalization
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCase.FirstCharacterUpperCase">
+            <summary>
+            First character upper case
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCase.TitleCase">
+            <summary>
+            Title case
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.StringCompare">
+            <summary>
+            What type of string comparison are we doing?
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCompare.CreditCard">
+            <summary>
+            Is this a credit card number?
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCompare.Anagram">
+            <summary>
+            Is this an anagram?
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringCompare.Unicode">
+            <summary>
+            Is this Unicode
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.StringFilter">
+            <summary>
+            Predefined filters
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringFilter.Alpha">
+            <summary>
+            Alpha characters
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringFilter.Numeric">
+            <summary>
+            Numeric characters
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringFilter.FloatNumeric">
+            <summary>
+            Numbers with period, basically allows for decimal point
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.StringFilter.ExtraSpaces">
+            <summary>
+            Multiple spaces
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.TypeConversionExtensions">
+            <summary>
+            Extensions converting between types, checking if something is null, etc.
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TypeConversionExtensions.FormatToString(System.Object,System.String)">
+            <summary>
+            Calls the object's ToString function passing in the formatting
+            </summary>
+            <param name="Input">Input object</param>
+            <param name="Format">Format of the output string</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TypeConversionExtensions.ToList``1(System.Data.DataTable,System.Func{``0})">
+            <summary>
+            Attempts to convert the DataTable to a list of objects
+            </summary>
+            <typeparam name="T">Type the objects should be in the list</typeparam>
+            <param name="Data">DataTable to convert</param>
+            <param name="Creator">Function used to create each object</param>
+            <returns>The DataTable converted to a list of objects</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TypeConversionExtensions.To``2(``0,``1)">
+            <summary>
+            Attempts to convert the object to another type and returns the value
+            </summary>
+            <typeparam name="T">Type to convert from</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="Object">Object to convert</param>
+            <param name="DefaultValue">Default value to return if there is an issue or it can't be converted</param>
+            <returns>The object converted to the other type or the default value if there is an error or can't be converted</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TypeConversionExtensions.To``1(``0,System.Type,System.Object)">
+            <summary>
+            Attempts to convert the object to another type and returns the value
+            </summary>
+            <typeparam name="T">Type to convert from</typeparam>
+            <param name="ResultType">Result type</param>
+            <param name="Object">Object to convert</param>
+            <param name="DefaultValue">Default value to return if there is an issue or it can't be converted</param>
+            <returns>The object converted to the other type or the default value if there is an error or can't be converted</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.ValueTypeExtensions">
+            <summary>
+            Value type extension methods
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ValueTypeExtensions.ToString(System.Byte[],System.Base64FormattingOptions,System.Int32,System.Int32)">
+            <summary>
+            Converts a byte array into a base 64 string
+            </summary>
+            <param name="Input">Input array</param>
+            <param name="Count">Number of bytes starting at the index to convert (use -1 for the entire array starting at the index)</param>
+            <param name="Index">Index to start at</param>
+            <param name="Options">Base 64 formatting options</param>
+            <returns>The equivalent byte array in a base 64 string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ValueTypeExtensions.ToString(System.Byte[],System.Text.Encoding,System.Int32,System.Int32)">
+            <summary>
+            Converts a byte array to a string
+            </summary>
+            <param name="Input">input array</param>
+            <param name="EncodingUsing">The type of encoding the string is using (defaults to UTF8)</param>
+            <param name="Count">Number of bytes starting at the index to convert (use -1 for the entire array starting at the index)</param>
+            <param name="Index">Index to start at</param>
+            <returns>string of the byte array</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ValueTypeExtensions.Is(System.Char,Utilities.DataTypes.ExtensionMethods.CharIs)">
+            <summary>
+            Is the character of a specific type
+            </summary>
+            <param name="Value">Value to check</param>
+            <param name="CharacterType">Character type</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ValueTypeExtensions.IsUnicode(System.Byte[])">
+            <summary>
+            Determines if a byte array is unicode
+            </summary>
+            <param name="Input">Input array</param>
+            <returns>True if it's unicode, false otherwise</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.CharIs">
+            <summary>
+            What type of character is this
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.WhiteSpace">
+            <summary>
+            White space
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Upper">
+            <summary>
+            Upper case
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Symbol">
+            <summary>
+            Symbol
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Surrogate">
+            <summary>
+            Surrogate
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Punctuation">
+            <summary>
+            Punctuation
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Number">
+            <summary>
+            Number
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.LowSurrogate">
+            <summary>
+            Low surrogate
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Lower">
+            <summary>
+            Lower
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.LetterOrDigit">
+            <summary>
+            letter or digit
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Letter">
+            <summary>
+            Letter
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.HighSurrogate">
+            <summary>
+            High surrogate
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Digit">
+            <summary>
+            Digit
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.CharIs.Control">
+            <summary>
+            Control
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.ArrayExtensions">
+            <summary>
+            Array extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ArrayExtensions.Clear(System.Array)">
+            <summary>
+            Clears the array completely
+            </summary>
+            <param name="Array">Array to clear</param>
+            <returns>The final array</returns>
+            <example>
+            <code>
+             int[] TestObject = new int[] { 1, 2, 3, 4, 5, 6 };
+             TestObject.Clear();
+            </code>
+            </example>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ArrayExtensions.Clear``1(``0[])">
+            <summary>
+            Clears the array completely
+            </summary>
+            <param name="Array">Array to clear</param>
+            <typeparam name="ArrayType">Array type</typeparam>
+            <returns>The final array</returns>
+            <example>
+            <code>
+             int[] TestObject = new int[] { 1, 2, 3, 4, 5, 6 };
+             TestObject.Clear();
+            </code>
+            </example>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ArrayExtensions.Concat``1(``0[],``0[][])">
+            <summary>
+            Combines two arrays and returns a new array containing both values
+            </summary>
+            <typeparam name="ArrayType">Type of the data in the array</typeparam>
+            <param name="Array1">Array 1</param>
+            <param name="Additions">Arrays to concat onto the first item</param>
+            <returns>A new array containing both arrays' values</returns>
+            <example>
+            <code>
+             int[] TestObject1 = new int[] { 1, 2, 3 };
+             int[] TestObject2 = new int[] { 4, 5, 6 };
+             int[] TestObject3 = new int[] { 7, 8, 9 };
+             TestObject1 = TestObject1.Combine(TestObject2, TestObject3);
+            </code>
+            </example>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions">
+            <summary>
+            ICollection extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.Add``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds a list of items to the collection
+            </summary>
+            <typeparam name="T">The type of the items in the collection</typeparam>
+            <param name="Collection">Collection</param>
+            <param name="Items">Items to add</param>
+            <returns>The collection with the added items</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.Add``1(System.Collections.Generic.ICollection{``0},``0[])">
+            <summary>
+            Adds a list of items to the collection
+            </summary>
+            <typeparam name="T">The type of the items in the collection</typeparam>
+            <param name="Collection">Collection</param>
+            <param name="Items">Items to add</param>
+            <returns>The collection with the added items</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.AddAndReturn``1(System.Collections.Generic.ICollection{``0},``0)">
+            <summary>
+            Adds an item to a list and returns the item
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Collection">Collection to add to</param>
+            <param name="Item">Item to add to the collection</param>
+            <returns>The original item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.AddIf``1(System.Collections.Generic.ICollection{``0},System.Predicate{``0},``0[])">
+            <summary>
+            Adds items to the collection if it passes the predicate test
+            </summary>
+            <typeparam name="T">Collection type</typeparam>
+            <param name="Collection">Collection to add to</param>
+            <param name="Items">Items to add to the collection</param>
+            <param name="Predicate">Predicate that an item needs to satisfy in order to be added</param>
+            <returns>True if any are added, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.AddIf``1(System.Collections.Generic.ICollection{``0},System.Predicate{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds an item to the collection if it isn't already in the collection
+            </summary>
+            <typeparam name="T">Collection type</typeparam>
+            <param name="Collection">Collection to add to</param>
+            <param name="Items">Items to add to the collection</param>
+            <param name="Predicate">Predicate that an item needs to satisfy in order to be added</param>
+            <returns>True if it is added, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.AddIfUnique``1(System.Collections.Generic.ICollection{``0},``0[])">
+            <summary>
+            Adds an item to the collection if it isn't already in the collection
+            </summary>
+            <typeparam name="T">Collection type</typeparam>
+            <param name="Collection">Collection to add to</param>
+            <param name="Items">Items to add to the collection</param>
+            <returns>True if it is added, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.AddIfUnique``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Adds an item to the collection if it isn't already in the collection
+            </summary>
+            <typeparam name="T">Collection type</typeparam>
+            <param name="Collection">Collection to add to</param>
+            <param name="Items">Items to add to the collection</param>
+            <returns>True if it is added, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.Remove``1(System.Collections.Generic.ICollection{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Removes all items that fit the predicate passed in
+            </summary>
+            <typeparam name="T">The type of the items in the collection</typeparam>
+            <param name="Collection">Collection to remove items from</param>
+            <param name="Predicate">Predicate used to determine what items to remove</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ICollectionExtensions.Remove``1(System.Collections.Generic.ICollection{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Removes all items in the list from the collection
+            </summary>
+            <typeparam name="T">The type of the items in the collection</typeparam>
+            <param name="Collection">Collection</param>
+            <param name="Items">Items to remove</param>
+            <returns>The collection with the items removed</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.IComparableExtensions">
+            <summary>
+            IComparable extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IComparableExtensions.Between``1(``0,``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Checks if an item is between two values
+            </summary>
+            <typeparam name="T">Type of the value</typeparam>
+            <param name="Value">Value to check</param>
+            <param name="Min">Minimum value</param>
+            <param name="Max">Maximum value</param>
+            <param name="Comparer">Comparer used to compare the values (defaults to GenericComparer)"</param>
+            <returns>True if it is between the values, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IComparableExtensions.Clamp``1(``0,``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Clamps a value between two values
+            </summary>
+            <param name="Value">Value sent in</param>
+            <param name="Max">Max value it can be (inclusive)</param>
+            <param name="Min">Min value it can be (inclusive)</param>
+            <param name="Comparer">Comparer to use (defaults to GenericComparer)</param>
+            <returns>The value set between Min and Max</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IComparableExtensions.Max``1(``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns the maximum value between the two
+            </summary>
+            <param name="InputA">Input A</param>
+            <param name="InputB">Input B</param>
+            <param name="Comparer">Comparer to use (defaults to GenericComparer)</param>
+            <returns>The maximum value</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IComparableExtensions.Min``1(``0,``0,System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Returns the minimum value between the two
+            </summary>
+            <param name="InputA">Input A</param>
+            <param name="InputB">Input B</param>
+            <param name="Comparer">Comparer to use (defaults to GenericComparer)</param>
+            <returns>The minimum value</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.IDictionaryExtensions">
+            <summary>
+            IDictionary extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IDictionaryExtensions.GetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Gets the value from a dictionary or the default value if it isn't found
+            </summary>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
+            <param name="Dictionary">Dictionary to get the value from</param>
+            <param name="Key">Key to look for</param>
+            <param name="Default">Default value if the key is not found</param>
+            <returns>The value associated with the key or the default value if the key is not found</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if the dictionary is null</exception>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IDictionaryExtensions.SetValue``2(System.Collections.Generic.IDictionary{``0,``1},``0,``1)">
+            <summary>
+            Sets the value in a dictionary
+            </summary>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
+            <param name="Dictionary">Dictionary to set the value in</param>
+            <param name="Key">Key to look for</param>
+            <param name="Value">Value to add</param>
+            <returns>The dictionary</returns>
+            <exception cref="T:System.ArgumentNullException">Thrown if the dictionary is null</exception>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IDictionaryExtensions.Sort``2(System.Collections.Generic.IDictionary{``0,``1},System.Collections.Generic.IComparer{``0})">
+            <summary>
+            Sorts a dictionary
+            </summary>
+            <typeparam name="T1">Key type</typeparam>
+            <typeparam name="T2">Value type</typeparam>
+            <param name="Dictionary">Dictionary to sort</param>
+            <param name="Comparer">Comparer used to sort (defaults to GenericComparer)</param>
+            <returns>The sorted dictionary</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IDictionaryExtensions.Sort``3(System.Collections.Generic.IDictionary{``0,``1},System.Func{System.Collections.Generic.KeyValuePair{``0,``1},``2},System.Collections.Generic.IComparer{``2})">
+            <summary>
+            Sorts a dictionary
+            </summary>
+            <typeparam name="T1">Key type</typeparam>
+            <typeparam name="T2">Value type</typeparam>
+            <typeparam name="T3">Order by type</typeparam>
+            <param name="Dictionary">Dictionary to sort</param>
+            <param name="OrderBy">Function used to order the dictionary</param>
+            <param name="Comparer">Comparer used to sort (defaults to GenericComparer)</param>
+            <returns>The sorted dictionary</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions">
+            <summary>
+            IEnumerable extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.Concat``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}[])">
+            <summary>
+            Combines multiple IEnumerables together and returns a new IEnumerable containing all of the values
+            </summary>
+            <typeparam name="T">Type of the data in the IEnumerable</typeparam>
+            <param name="Enumerable1">IEnumerable 1</param>
+            <param name="Additions">IEnumerables to concat onto the first item</param>
+            <returns>A new IEnumerable containing all values</returns>
+            <example>
+            <code>
+             int[] TestObject1 = new int[] { 1, 2, 3 };
+             int[] TestObject2 = new int[] { 4, 5, 6 };
+             int[] TestObject3 = new int[] { 7, 8, 9 };
+             TestObject1 = TestObject1.Concat(TestObject2, TestObject3).ToArray();
+            </code>
+            </example>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ElementsBetween``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32)">
+            <summary>
+            Returns elements starting at the index and ending at the end index
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">List to search</param>
+            <param name="Start">Start index (inclusive)</param>
+            <param name="End">End index (exclusive)</param>
+            <returns>The items between the start and end index</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.For``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Action{``0})">
+            <summary>
+            Does an action for each item in the IEnumerable between the start and end indexes
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Start">Item to start with</param>
+            <param name="End">Item to end with</param>
+            <param name="Action">Action to do</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.For``2(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Func{``0,``1})">
+            <summary>
+            Does a function for each item in the IEnumerable between the start and end indexes and returns an IEnumerable of the results
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Start">Item to start with</param>
+            <param name="End">Item to end with</param>
+            <param name="Function">Function to do</param>
+            <returns>The resulting list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Does an action for each item in the IEnumerable
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Action">Action to do</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEach``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Does a function for each item in the IEnumerable, returning a list of the results
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Function">Function to do</param>
+            <returns>The resulting list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.Action{``0,System.Exception})">
+            <summary>
+            Does an action for each item in the IEnumerable
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Action">Action to do</param>
+            <param name="CatchAction">Action that occurs if an exception occurs</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEach``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Action{``0,System.Exception})">
+            <summary>
+            Does a function for each item in the IEnumerable, returning a list of the results
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Function">Function to do</param>
+            <param name="CatchAction">Action that occurs if an exception occurs</param>
+            <returns>The resulting list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForParallel``1(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Action{``0})">
+            <summary>
+            Does an action for each item in the IEnumerable between the start and end indexes in parallel
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Start">Item to start with</param>
+            <param name="End">Item to end with</param>
+            <param name="Action">Action to do</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForParallel``2(System.Collections.Generic.IEnumerable{``0},System.Int32,System.Int32,System.Func{``0,``1})">
+            <summary>
+            Does an action for each item in the IEnumerable between the start and end indexes in parallel
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Results type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Start">Item to start with</param>
+            <param name="End">Item to end with</param>
+            <param name="Function">Function to do</param>
+            <returns>The resulting list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEachParallel``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Does an action for each item in the IEnumerable in parallel
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Action">Action to do</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEachParallel``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Does an action for each item in the IEnumerable in parallel
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Results type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Function">Function to do</param>
+            <returns>The results in an IEnumerable list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEachParallel``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0},System.Action{``0,System.Exception})">
+            <summary>
+            Does an action for each item in the IEnumerable
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Action">Action to do</param>
+            <param name="CatchAction">Action that occurs if an exception occurs</param>
+            <returns>The original list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ForEachParallel``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Action{``0,System.Exception})">
+            <summary>
+            Does a function for each item in the IEnumerable, returning a list of the results
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Function">Function to do</param>
+            <param name="CatchAction">Action that occurs if an exception occurs</param>
+            <returns>The resulting list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.Last``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Returns the last X number of items from the list
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">IEnumerable to iterate over</param>
+            <param name="Count">Numbers of items to return</param>
+            <returns>The last X items from the list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.PositionOf``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines the position of an object if it is present, otherwise it returns -1
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="List">List of objects to search</param>
+            <param name="Object">Object to find the position of</param>
+            <param name="EqualityComparer">Equality comparer used to determine if the object is present</param>
+            <returns>The position of the object if it is present, otherwise -1</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.Remove``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Removes values from a list that meet the criteria set forth by the predicate
+            </summary>
+            <typeparam name="T">Value type</typeparam>
+            <param name="Value">List to cull items from</param>
+            <param name="Predicate">Predicate that determines what items to remove</param>
+            <returns>An IEnumerable with the objects that meet the criteria removed</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ToArray``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Converts a list to an array
+            </summary>
+            <typeparam name="Source">Source type</typeparam>
+            <typeparam name="Target">Target type</typeparam>
+            <param name="List">List to convert</param>
+            <param name="ConvertingFunction">Function used to convert each item</param>
+            <returns>The array containing the items from the list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ToDataTable``1(System.Collections.Generic.IEnumerable{``0},System.String[])">
+            <summary>
+            Converts the IEnumerable to a DataTable
+            </summary>
+            <typeparam name="T">Type of the objects in the IEnumerable</typeparam>
+            <param name="List">List to convert</param>
+            <param name="Columns">Column names (if empty, uses property names)</param>
+            <returns>The list as a DataTable</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ToList``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Converts an IEnumerable to a list
+            </summary>
+            <typeparam name="Source">Source type</typeparam>
+            <typeparam name="Target">Target type</typeparam>
+            <param name="List">IEnumerable to convert</param>
+            <param name="ConvertingFunction">Function used to convert each item</param>
+            <returns>The list containing the items from the IEnumerable</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String)">
+            <summary>
+            Converts the list to a string where each item is seperated by the Seperator
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="List">List to convert</param>
+            <param name="ItemOutput">Used to convert the item to a string (defaults to calling ToString)</param>
+            <param name="Seperator">Seperator to use between items (defaults to ,)</param>
+            <returns>The string version of the list</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ThrowIfAll``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},System.Func{System.Exception})">
+            <summary>
+            Throws the specified exception if the predicate is true for all items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="List">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ThrowIfAll``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},System.Exception)">
+            <summary>
+            Throws the specified exception if the predicate is true for all items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="List">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ThrowIfAny``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},System.Func{System.Exception})">
+            <summary>
+            Throws the specified exception if the predicate is true for any items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="List">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.IEnumerableExtensions.ThrowIfAny``1(System.Collections.Generic.IEnumerable{``0},System.Predicate{``0},System.Exception)">
+            <summary>
+            Throws the specified exception if the predicate is true for any items
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="List">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Formatters.GenericStringFormatter">
+            <summary>
+            Generic string formatter
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Formatters.Interfaces.IStringFormatter">
+            <summary>
+            String formatter
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.Interfaces.IStringFormatter.Format(System.String,System.String)">
+            <summary>
+            Formats the string based on the pattern
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="FormatPattern">Format pattern</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.GetFormat(System.Type)">
+            <summary>
+            Gets the format associated with the type
+            </summary>
+            <param name="formatType">Format type</param>
+            <returns>The appropriate formatter based on the type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.Format(System.String,System.Object,System.IFormatProvider)">
+            <summary>
+            Formats the string
+            </summary>
+            <param name="format">Format to use</param>
+            <param name="arg">Argument object to use</param>
+            <param name="formatProvider">Format provider to use</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.Format(System.String,System.String)">
+            <summary>
+            Formats the string based on the pattern
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="FormatPattern">Format pattern</param>
+            <returns>The formatted string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.GetMatchingInput(System.String,System.Char,System.Char@)">
+            <summary>
+            Gets matching input
+            </summary>
+            <param name="Input">Input string</param>
+            <param name="FormatChar">Current format character</param>
+            <param name="MatchChar">The matching character found</param>
+            <returns>The remainder of the input string left</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Formatters.GenericStringFormatter.IsValid(System.String)">
+            <summary>
+            Checks if the format pattern is valid
+            </summary>
+            <param name="FormatPattern">Format pattern</param>
+            <returns>Returns true if it's valid, otherwise false</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Formatters.GenericStringFormatter.DigitChar">
+            <summary>
+            Represents digits (defaults to #)
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Formatters.GenericStringFormatter.AlphaChar">
+            <summary>
+            Represents alpha characters (defaults to @)
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Formatters.GenericStringFormatter.EscapeChar">
+            <summary>
+            Represents the escape character (defaults to \)
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.MatchCollectionExtensions">
+            <summary>
+            MatchCollection extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.MatchCollectionExtensions.Where(System.Text.RegularExpressions.MatchCollection,System.Predicate{System.Text.RegularExpressions.Match})">
+            <summary>
+            Gets a list of items that satisfy the predicate from the collection
+            </summary>
+            <param name="Collection">Collection to search through</param>
+            <param name="Predicate">Predicate that the items must satisfy</param>
+            <returns>The matches that satisfy the predicate</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions">
+            <summary>
+            Generic extensions dealing with objects
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Chain``1(``0,System.Action{``0},``0)">
+            <summary>
+            Allows actions to be chained together with the caveat that if Object is null,
+            it is replaced with the DefaultObjectValue specified.
+            If the Action or Object (once replaced with the default object value) is null, it will return the object.
+            </summary>
+            <typeparam name="T">The type of the object</typeparam>
+            <param name="Object">Object to run the action on</param>
+            <param name="Action">Action to run</param>
+            <param name="DefaultObjectValue">Default object value</param>
+            <returns>The original object</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Chain``2(``0,System.Func{``0,``1},``1,``0)">
+            <summary>
+            Allows actions to be chained together. It also has a couple of checks in there:
+            1) If the function is null, it returns the default return value specified.
+            2) If the object is null, it will replace it with the default object value specified.
+            3) If the object, once replaced with the default object value specified, is null, it will return the default return value specified.
+            4) If the return value from the function is null, it returns the default return value specified.
+            </summary>
+            <typeparam name="T">The type of the object</typeparam>
+            <typeparam name="R">Return type</typeparam>
+            <param name="Object">Object to run the action on</param>
+            <param name="Function">Function to run</param>
+            <param name="DefaultObjectValue">Default object value</param>
+            <param name="DefaultReturnValue">Default return value</param>
+            <returns>The result from the function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Execute``1(System.Func{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Executes a function, repeating it a number of times in case it fails
+            </summary>
+            <typeparam name="T">Return type</typeparam>
+            <param name="Function">Function to run</param>
+            <param name="Attempts">Number of times to attempt it</param>
+            <param name="RetryDelay">The amount of milliseconds to wait between tries</param>
+            <param name="TimeOut">Max amount of time to wait for the function to run (waits for the current attempt to finish before checking)</param>
+            <returns>The returned value from the function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Execute(System.Action,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Executes an action, repeating it a number of times in case it fails
+            </summary>
+            <param name="Action">Action to run</param>
+            <param name="Attempts">Number of times to attempt it</param>
+            <param name="RetryDelay">The amount of milliseconds to wait between tries</param>
+            <param name="TimeOut">Max amount of time to wait for the function to run (waits for the current attempt to finish before checking)</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Check``1(``0,System.Predicate{``0},``0)">
+            <summary>
+            Checks to see if the object meets all the criteria. If it does, it returns the object. If it does not, it returns the default object
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to check</param>
+            <param name="DefaultValue">The default value to return</param>
+            <param name="Predicate">Predicate to check the object against</param>
+            <returns>The default object if it fails the criteria, the object otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Check``1(``0,System.Predicate{``0},System.Func{``0})">
+            <summary>
+            Checks to see if the object meets all the criteria. If it does, it returns the object. If it does not, it returns the default object
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to check</param>
+            <param name="DefaultValue">The default value to return</param>
+            <param name="Predicate">Predicate to check the object against</param>
+            <returns>The default object if it fails the criteria, the object otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Check``1(``0,``0)">
+            <summary>
+            Checks to see if the object is null. If it is, it returns the default object, otherwise the object is returned.
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to check</param>
+            <param name="DefaultValue">The default value to return</param>
+            <returns>The default object if it is null, the object otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Check``1(``0,System.Func{``0})">
+            <summary>
+            Checks to see if the object is null. If it is, it returns the default object, otherwise the object is returned.
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to check</param>
+            <param name="DefaultValue">The default value to return</param>
+            <returns>The default object if it is null, the object otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Is``1(``0,System.Predicate{``0})">
+            <summary>
+            Determines if the object passes the predicate passed in
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to test</param>
+            <param name="Predicate">Predicate to test</param>
+            <returns>True if the object passes the predicate, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Is``1(``0,``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines if the object is equal to a specific value
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+            <param name="Object">Object to test</param>
+            <param name="ComparisonObject">Comparison object</param>
+            <param name="Comparer">Comparer</param>
+            <returns>True if the object passes the predicate, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIf``1(``0,System.Predicate{``0},System.Func{System.Exception})">
+            <summary>
+            Throws the specified exception if the predicate is true for the item
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIf``1(``0,System.Predicate{``0},System.Exception)">
+            <summary>
+            Throws the specified exception if the predicate is true for the item
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is true</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfDefault``1(``0,System.String,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines if the object is equal to default value and throws an ArgumentNullException if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="EqualityComparer">Equality comparer used to determine if the object is equal to default</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfDefault``1(``0,System.Exception,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines if the object is equal to default value and throws the exception that is passed in if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="EqualityComparer">Equality comparer used to determine if the object is equal to default</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotDefault``1(``0,System.String,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines if the object is not equal to default value and throws an ArgumentException if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="EqualityComparer">Equality comparer used to determine if the object is equal to default</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotDefault``1(``0,System.Exception,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Determines if the object is not equal to default value and throws the exception that is passed in if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="EqualityComparer">Equality comparer used to determine if the object is equal to default</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNot``1(``0,System.Predicate{``0},System.Exception)">
+            <summary>
+            Throws the specified exception if the predicate is false for the item
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The item</param>
+            <param name="Predicate">Predicate to check</param>
+            <param name="Exception">Exception to throw if predicate is false</param>
+            <returns>the original Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotNull``1(``0,System.String)">
+            <summary>
+            Determines if the object is not null and throws an ArgumentException if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotNull``1(``0,System.Exception)">
+            <summary>
+            Determines if the object is not null and throws the exception passed in if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNull``1(``0,System.String)">
+            <summary>
+            Determines if the object is null and throws an ArgumentNullException if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNull``1(``0,System.Exception)">
+            <summary>
+            Determines if the object is null and throws the exception passed in if it is
+            </summary>
+            <param name="Item">The object to check</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Determines if the IEnumerable is not null or empty and throws an ArgumentException if it is
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The object to check</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.Exception)">
+            <summary>
+            Determines if the IEnumerable is not null or empty and throws the exception passed in if it is
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The object to check</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Determines if the IEnumerable is null or empty and throws an ArgumentNullException if it is
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The object to check</param>
+            <param name="Name">Name of the argument</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.ThrowIfNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0},System.Exception)">
+            <summary>
+            Determines if the IEnumerable is null or empty and throws the exception passed in if it is
+            </summary>
+            <typeparam name="T">Item type</typeparam>
+            <param name="Item">The object to check</param>
+            <param name="Exception">Exception to throw</param>
+            <returns>Returns Item</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Times``1(System.Int32,System.Func{System.Int32,``0})">
+            <summary>
+            Runs a function based on the number of times specified and returns the results
+            </summary>
+            <typeparam name="T">Type that gets returned</typeparam>
+            <param name="Count">Number of times the function should run</param>
+            <param name="Function">The function that should run</param>
+            <returns>The results from the function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.GenericObjectExtensions.Times(System.Int32,System.Action{System.Int32})">
+            <summary>
+            Runs an action based on the number of times specified
+            </summary>
+            <param name="Count">Number of times to run the action</param>
+            <param name="Action">Action to run</param>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.TimeSpanExtensions">
+            <summary>
+            TimeSpan extension methods
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TimeSpanExtensions.DaysRemainder(System.TimeSpan)">
+            <summary>
+            Days in the TimeSpan minus the months and years
+            </summary>
+            <param name="Span">TimeSpan to get the days from</param>
+            <returns>The number of days minus the months and years that the TimeSpan has</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TimeSpanExtensions.Months(System.TimeSpan)">
+            <summary>
+            Months in the TimeSpan
+            </summary>
+            <param name="Span">TimeSpan to get the months from</param>
+            <returns>The number of months that the TimeSpan has</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TimeSpanExtensions.Years(System.TimeSpan)">
+            <summary>
+            Years in the TimeSpan
+            </summary>
+            <param name="Span">TimeSpan to get the years from</param>
+            <returns>The number of years that the TimeSpan has</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.TimeSpanExtensions.ToStringFull(System.TimeSpan)">
+            <summary>
+            Converts the input to a string in this format:
+            (Years) years, (Months) months, (DaysRemainder) days, (Hours) hours, (Minutes) minutes, (Seconds) seconds
+            </summary>
+            <param name="Input">Input TimeSpan</param>
+            <returns>The TimeSpan as a string</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.StreamExtensions">
+            <summary>
+            Extension methods for Streams
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StreamExtensions.ReadAllBinary(System.IO.Stream)">
+            <summary>
+            Takes all of the data in the stream and returns it as an array of bytes
+            </summary>
+            <param name="Input">Input stream</param>
+            <returns>A byte array</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.StreamExtensions.ReadAll(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Takes all of the data in the stream and returns it as a string
+            </summary>
+            <param name="Input">Input stream</param>
+            <param name="EncodingUsing">Encoding that the string should be in (defaults to UTF8)</param>
+            <returns>A string containing the content of the stream</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.RingBuffer`1">
+            <summary>
+            Implements a ring buffer
+            </summary>
+            <typeparam name="T">Type of the data it holds</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.#ctor(System.Int32,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="MaxCapacity">Max capacity for the circular buffer</param>
+            <param name="AllowOverflow">Is overflow allowed (defaults to false)</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Add(`0)">
+            <summary>
+            Adds an item to the buffer
+            </summary>
+            <param name="item">Item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Add(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Adds a number of items to the buffer
+            </summary>
+            <param name="Items">Items to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Add(`0[],System.Int32,System.Int32)">
+            <summary>
+            Adds a number of items to the buffer
+            </summary>
+            <param name="buffer">Items to add</param>
+            <param name="count">Number of items to add</param>
+            <param name="offset">Offset to start at</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Clear">
+            <summary>
+            Clears the buffer
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Contains(`0)">
+            <summary>
+            Determines if the buffer contains the item
+            </summary>
+            <param name="item">Item to check</param>
+            <returns>True if the item is present, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the buffer to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="arrayIndex">Array index to start at</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the buffer to an array
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="index">Array index to start at</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.GetEnumerator">
+            <summary>
+            Gets the enumerator for the buffer
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator for the buffer
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Remove">
+            <summary>
+            Reads the next item from the buffer
+            </summary>
+            <returns>The next item from the buffer</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Remove(System.Int32)">
+            <summary>
+            Reads the next X number of items from the buffer
+            </summary>
+            <param name="Amount">Number of items to return</param>
+            <returns>The next X items from the buffer</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Remove(`0)">
+            <summary>
+            Removes an item from the buffer
+            </summary>
+            <param name="item">Item to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Remove(`0[],System.Int32,System.Int32)">
+            <summary>
+            Reads the next X number of items and places them in the array passed in
+            </summary>
+            <param name="array">Array to copy to</param>
+            <param name="offset">Offset to start at</param>
+            <param name="count">Number of items to read</param>
+            <returns>The number of items that were read</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.Skip(System.Int32)">
+            <summary>
+            Skips ahead in the buffer
+            </summary>
+            <param name="Count">Number of items in the buffer to skip</param>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.ToString">
+            <summary>
+            Returns the buffer as a string
+            </summary>
+            <returns>The buffer as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.RingBuffer`1.op_Implicit(Utilities.DataTypes.RingBuffer{`0})~System.String">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.Count">
+            <summary>
+            Item count for the circular buffer
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.IsReadOnly">
+            <summary>
+            Is this read only?
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.AllowOverflow">
+            <summary>
+            Is overflow allowed?
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.MaxCapacity">
+            <summary>
+            Maximum capacity
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.IsSynchronized">
+            <summary>
+            Is this synchronized?
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.SyncRoot">
+            <summary>
+            Sync root
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.Buffer">
+            <summary>
+            Buffer that the circular buffer uses
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.ReadPosition">
+            <summary>
+            Read position
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.WritePosition">
+            <summary>
+            Write position
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.RingBuffer`1.Item(System.Int32)">
+            <summary>
+            Allows getting an item at a specific position in the buffer
+            </summary>
+            <param name="Position">Position to look at</param>
+            <returns>The specified item</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Threading.TaskQueue`1">
+            <summary>
+            Class that helps with running tasks in parallel
+            on a set of objects (that will come in on an ongoing basis, think producer/consumer situations)
+            </summary>
+            <typeparam name="T">Object type to process</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Threading.TaskQueue`1.#ctor(System.Int32,System.Action{`0},System.Action{System.Exception})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Capacity">Number of items that are allowed to be processed in the queue at one time</param>
+            <param name="ProcessItem">Action that is used to process each item</param>
+            <param name="HandleError">Handles an exception if it occurs (defaults to eating the error)</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Threading.TaskQueue`1.Enqueue(`0)">
+            <summary>
+            Adds the item to the queue to be processed
+            </summary>
+            <param name="Item">Item to process</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Threading.TaskQueue`1.Cancel(System.Boolean)">
+            <summary>
+            Cancels the queue from processing
+            </summary>
+            <param name="Wait">Determines if the function should wait for the tasks to complete before returning</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Threading.TaskQueue`1.Process">
+            <summary>
+            Processes the queue
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Threading.TaskQueue`1.Dispose(System.Boolean)">
+            <summary>
+            Disposes of the objects
+            </summary>
+            <param name="Disposing">True to dispose of all resources, false only disposes of native resources</param>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.CancellationToken">
+            <summary>
+            Token used to signal cancellation
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.Tasks">
+            <summary>
+            Group of tasks that the queue uses
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.ProcessItem">
+            <summary>
+            Action used to process an individual item in the queue
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.HandleError">
+            <summary>
+            Called when an exception occurs when processing the queue
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.IsCanceled">
+            <summary>
+            Determines if it has been cancelled
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Threading.TaskQueue`1.IsComplete">
+            <summary>
+            Determines if it has completed all tasks
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.ExceptionExtensions">
+            <summary>
+            Class for housing exception specific extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ExceptionExtensions.ToString(System.Exception,System.String,System.String)">
+            <summary>
+            Converts the exception to a string and appends the specified prefix/suffix (used for logging)
+            </summary>
+            <param name="Exception">Exception to convert</param>
+            <param name="Prefix">Prefix</param>
+            <param name="Suffix">Suffix</param>
+            <returns>The exception as a string</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.TagDictionary`2">
+            <summary>
+            Dictionary that matches multiple keys to each value
+            </summary>
+            <typeparam name="Key">Key type</typeparam>
+            <typeparam name="Value">Value type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Add(`0,System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Adds a list of values to the key
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Values to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Add(`1,`0[])">
+            <summary>
+            Adds a value to the dicionary
+            </summary>
+            <param name="Value">Value to add</param>
+            <param name="Keys">Keys to associate the value with</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.ContainsKey(`0)">
+            <summary>
+            Determines if a key is in the dictionary
+            </summary>
+            <param name="key">Key to check</param>
+            <returns>True if it exists, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Remove(`0)">
+            <summary>
+            Removes all items that are associated with a key
+            </summary>
+            <param name="key">Key</param>
+            <returns>Returns true if the key was found, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.TryGetValue(`0,System.Collections.Generic.IEnumerable{`1}@)">
+            <summary>
+            Attempts to get the values associated with a key
+            </summary>
+            <param name="key">Key</param>
+            <param name="value">Values associated with a key</param>
+            <returns>True if something is returned, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Add(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Adds an item to the dictionary
+            </summary>
+            <param name="item">item to add</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Clear">
+            <summary>
+            Clears the dictionary
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Contains(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Determines if the dictionary contains the key/value pair
+            </summary>
+            <param name="item">item to check</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.CopyTo(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IEnumerable{`1}}[],System.Int32)">
+            <summary>
+            Copies itself to an array
+            </summary>
+            <param name="array">Array</param>
+            <param name="arrayIndex">Array index</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.Remove(System.Collections.Generic.KeyValuePair{`0,System.Collections.Generic.IEnumerable{`1}})">
+            <summary>
+            Removes a specific key/value pair
+            </summary>
+            <param name="item">item to remove</param>
+            <returns>True if it is removed, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets the enumerator
+            </summary>
+            <returns>The enumerator</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.Items">
+            <summary>
+            Items in the dictionary
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.Values">
+            <summary>
+            Gets the values found in the dictionary
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.Keys">
+            <summary>
+            Gets the keys found in the dictionary
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.KeyList">
+            <summary>
+            List of keys that have been entered
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.Item(`0)">
+            <summary>
+            Gets the values based on a key
+            </summary>
+            <param name="key">Key to get the values of</param>
+            <returns>The values associated with the key</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.Count">
+            <summary>
+            Number of items in the dictionary
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.IsReadOnly">
+            <summary>
+            Always false
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.TagDictionary`2.TaggedItem`2">
+            <summary>
+            Holds information about each value
+            </summary>
+            <typeparam name="TKey">Key type</typeparam>
+            <typeparam name="TValue">Value type</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.TaggedItem`2.#ctor(System.Collections.Generic.IEnumerable{`2},`3)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Keys">Keys</param>
+            <param name="Value">Value</param>
+        </member>
+        <member name="M:Utilities.DataTypes.TagDictionary`2.TaggedItem`2.#ctor(`2,`3)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Key">Key</param>
+            <param name="Value">Value</param>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.TaggedItem`2.Keys">
+            <summary>
+            The list of keys associated with the value
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.TagDictionary`2.TaggedItem`2.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.StringTemplate">
+            <summary>
+            Acts as a template for a string
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.StringTemplate.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Template">Template</param>
+            <param name="KeyEnd">Ending signifier of a key</param>
+            <param name="KeyStart">Starting signifier of a key</param>
+        </member>
+        <member name="M:Utilities.DataTypes.StringTemplate.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Info">Serialization info</param>
+            <param name="Context">Streaming context</param>
+        </member>
+        <member name="M:Utilities.DataTypes.StringTemplate.ToString">
+            <summary>
+            Applies the key/values to the template and returns the resulting string
+            </summary>
+            <returns>The resulting string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.StringTemplate.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Implements the ISerializable interface and returns the data needed to serialize the dictionary instance
+            </summary>
+            <param name="info">Serialization info</param>
+            <param name="context">Streaming context</param>
+        </member>
+        <member name="M:Utilities.DataTypes.StringTemplate.op_Implicit(Utilities.DataTypes.StringTemplate)~System.String">
+            <summary>
+            Converts the object to a string
+            </summary>
+            <param name="Value">Value to convert</param>
+            <returns>The value as a string</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.StringTemplate.Template">
+            <summary>
+            Template
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.StringTemplate.KeyStart">
+            <summary>
+            Beginning signifier of a key
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.StringTemplate.KeyEnd">
+            <summary>
+            Ending signifier of a key
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.DelegateExtensions">
+            <summary>
+            Extensions for Func, Action, and EventHandler
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DelegateExtensions.Async(System.Action)">
+            <summary>
+            Runs an action async
+            </summary>
+            <param name="Action">Action to run</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DelegateExtensions.Raise``1(System.Action{``0},``0)">
+            <summary>
+            Safely calls the specified action
+            </summary>
+            <typeparam name="T">The type of the event args</typeparam>
+            <param name="Delegate">The delegate</param>
+            <param name="EventArgs">The event args</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DelegateExtensions.Raise``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>
+            Safely raises the event
+            </summary>
+            <typeparam name="T">The type of the event args</typeparam>
+            <param name="Delegate">The delegate</param>
+            <param name="Sender">The sender</param>
+            <param name="EventArg">The event args</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.DelegateExtensions.Raise``2(System.Func{``0,``1},``0)">
+            <summary>
+            Safely calls the Func
+            </summary>
+            <typeparam name="T1">The event arg type</typeparam>
+            <typeparam name="T2">The return type</typeparam>
+            <param name="Delegate">The delegate</param>
+            <param name="EventArgs">The event args</param>
+            <returns>The value returned by the function</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.BaseEventArgs">
+            <summary>
+            Base event args for the events used in the system
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.EventArgs.BaseEventArgs.Stop">
+            <summary>
+            Should the event be stopped?
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.EventArgs.BaseEventArgs.Content">
+            <summary>
+            Content of the event
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.SavedEventArgs">
+            <summary>
+            Saved event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.SavingEventArgs">
+            <summary>
+            Saving event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.DeletedEventArgs">
+            <summary>
+            Deleted event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.DeletingEventArgs">
+            <summary>
+            Deleting event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.ChangedEventArgs">
+            <summary>
+            Changed event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.LoadedEventArgs">
+            <summary>
+            Loaded event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.LoadingEventArgs">
+            <summary>
+            Loading event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.OnStartEventArgs">
+            <summary>
+            On start event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.OnEndEventArgs">
+            <summary>
+            On end event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.EventArgs.OnErrorEventArgs">
+            <summary>
+            On error event args
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Table">
+            <summary>
+            Holds tabular information
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Table.#ctor(System.String[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ColumnNames">Column names</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Table.#ctor(System.Data.IDataReader)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Reader">Data reader to get the data from</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Table.AddRow(System.Object[])">
+            <summary>
+            Adds a row using the objects passed in
+            </summary>
+            <param name="Objects">Objects to create the row from</param>
+            <returns>This</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Table.ColumnNames">
+            <summary>
+            Column names for the table
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Table.ColumnNameHash">
+            <summary>
+            Column Name hash table
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Table.Rows">
+            <summary>
+            Rows within the table
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Table.Item(System.Int32)">
+            <summary>
+            Gets a specific row
+            </summary>
+            <param name="RowNumber">Row number</param>
+            <returns>The row specified</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Row">
+            <summary>
+            Holds an individual row
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Row.#ctor(System.Collections.Hashtable,System.String[],System.Object[])">
+            <summary>
+            Constructor
+            </summary>
+            <param name="ColumnNames">Column names</param>
+            <param name="ColumnValues">Column values</param>
+            <param name="ColumnNameHash">Column name hash</param>
+        </member>
+        <member name="P:Utilities.DataTypes.Row.ColumnNameHash">
+            <summary>
+            Column names
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Row.ColumnNames">
+            <summary>
+            Column names
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Row.ColumnValues">
+            <summary>
+            Column values
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Row.Item(System.String)">
+            <summary>
+            Returns a column based on the column name specified
+            </summary>
+            <param name="ColumnName">Column name to search for</param>
+            <returns>The value specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Row.Item(System.Int32)">
+            <summary>
+            Returns a column based on the value specified
+            </summary>
+            <param name="Column">Column number</param>
+            <returns>The value specified</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Patterns.BaseClasses.SafeDisposableBaseClass">
+            <summary>
+            Base class used for disposable objects
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.BaseClasses.SafeDisposableBaseClass.#ctor">
+            <summary>
+            Construct
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.BaseClasses.SafeDisposableBaseClass.Dispose">
+            <summary>
+            Dispose function
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.BaseClasses.SafeDisposableBaseClass.Dispose(System.Boolean)">
+            <summary>
+            Function to override in order to dispose objects
+            </summary>
+            <param name="Managed">If true, managed and unmanaged objects should be disposed. Otherwise unmanaged objects only.</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Patterns.BaseClasses.SafeDisposableBaseClass.Finalize">
+            <summary>
+            Destructor
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.ConverterBase`2">
+            <summary>
+            Converter class
+            </summary>
+            <typeparam name="T">Type of input</typeparam>
+            <typeparam name="R">Type of output</typeparam>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.ConverterBaseHack`1">
+            <summary>
+            Hack class needed since you can't inherit from interfaces twice
+            </summary>
+            <typeparam name="T">Object type</typeparam>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Interfaces.IConverter`1">
+            <summary>
+            Converter interface
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Interfaces.IConverter">
+            <summary>
+            Converter interface
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Interfaces.IConverter`1.CanConvert(System.Type)">
+            <summary>
+            Can the converter convert to the type specified
+            </summary>
+            <param name="type">Type to convert to</param>
+            <returns>True if it can, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Interfaces.IConverter`1.To(`0,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBaseHack`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBaseHack`1.CanConvert(System.Type)">
+            <summary>
+            Can the converter convert to the type specified
+            </summary>
+            <param name="type">Type to convert to</param>
+            <returns>True if it can, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBaseHack`1.To(`0,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBase`2.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBase`2.CanConvert(System.Type)">
+            <summary>
+            Can the converter convert to the type specified
+            </summary>
+            <param name="type">Type to convert to</param>
+            <returns>True if it can, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBase`2.To(`0,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ConverterBase`2.To(`1,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.ConverterBase`2.Manager">
+            <summary>
+            Manager object
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Converters.DbTypeTypeConverter">
+            <summary>
+            DbType to Type converter
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.DbTypeTypeConverter.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.DbTypeTypeConverter.To(System.Type,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.DbTypeTypeConverter.To(System.Data.DbType,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Converters.GenericConverter">
+            <summary>
+            Generic converter (last ditch effort class)
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.GenericConverter.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.GenericConverter.CanConvert(System.Type)">
+            <summary>
+            Always returns true as it will attempt any return type
+            </summary>
+            <param name="type">Type asking about</param>
+            <returns>True</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.GenericConverter.To(System.Object,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.Converters.GenericConverter.Manager">
+            <summary>
+            Manager object
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToDbType">
+            <summary>
+            SqlDbType to DbType Converter
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToDbType.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToDbType.To(System.Data.SqlDbType,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToDbType.To(System.Data.DbType,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToType">
+            <summary>
+            SqlDbType to Type Converter
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToType.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToType.To(System.Data.SqlDbType,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.SqlDbTypeToType.To(System.Type,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Interfaces.IObjectConverter">
+            <summary>
+            Object Converter interface
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Interfaces.IObjectConverter.To``1(System.Object,``0)">
+            <summary>
+            Converts the object from type T to type R
+            </summary>
+            <typeparam name="R">Object type returned</typeparam>
+            <param name="Item">Item to convert</param>
+            <param name="DefaultValue">Default value to return if the value is not convertable</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Interfaces.IObjectConverter.To(System.Object,System.Type,System.Object)">
+            <summary>
+            Converts the object from type T to type R
+            </summary>
+            <param name="Item">Item to convert</param>
+            <param name="ReturnType">Object type returned</param>
+            <param name="DefaultValue">Default value to return if the value is not convertable</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.Interfaces.IObjectConverter.ObjectType">
+            <summary>
+            Object type accepted
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Manager">
+            <summary>
+            Conversion manager
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Manager.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Manager.AddConverter(System.Type,System.Type)">
+            <summary>
+            Adds a converter to the system
+            </summary>
+            <param name="ObjectConverter">Object converter</param>
+            <param name="ObjectType">Object type</param>
+            <returns>This</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Manager.To``2(``0,``1)">
+            <summary>
+            Converts item from type T to R
+            </summary>
+            <typeparam name="T">Incoming type</typeparam>
+            <typeparam name="R">Resulting type</typeparam>
+            <param name="Item">Incoming object</param>
+            <param name="DefaultValue">Default return value if the item is null or can not be converted</param>
+            <returns>The value converted to the specified type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Manager.To``1(``0,System.Type,System.Object)">
+            <summary>
+            Converts item from type T to R
+            </summary>
+            <typeparam name="T">Incoming type</typeparam>
+            <param name="Item">Incoming object</param>
+            <param name="ResultType">Result type</param>
+            <param name="DefaultValue">Default return value if the item is null or can not be converted</param>
+            <returns>The value converted to the specified type</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.Manager.Converters">
+            <summary>
+            Converters
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.ObjectConverter`1">
+            <summary>
+            Converter class
+            </summary>
+            <typeparam name="T">Type of input</typeparam>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ObjectConverter`1.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ObjectConverter`1.To``1(System.Object,``0)">
+            <summary>
+            Converts the object from type T to type R
+            </summary>
+            <typeparam name="R">Return type</typeparam>
+            <param name="Item">Item to convert</param>
+            <param name="DefaultValue">Default value to return if the value is not convertable</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.ObjectConverter`1.To(System.Object,System.Type,System.Object)">
+            <summary>
+            Converts the object from type T to type ReturnType
+            </summary>
+            <param name="Item">Item to convert</param>
+            <param name="DefaultValue">Default value to return if the value is not convertable</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.ObjectConverter`1.Manager">
+            <summary>
+            Manager object
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.ObjectConverter`1.ObjectType">
+            <summary>
+            Object type
+            </summary>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.ObjectConverter`1.Converters">
+            <summary>
+            Converter list
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions">
+            <summary>
+            Reflection oriented extensions
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Attribute``1(System.Reflection.ICustomAttributeProvider,System.Boolean)">
+            <summary>
+            Gets the attribute from the item
+            </summary>
+            <typeparam name="T">Attribute type</typeparam>
+            <param name="Provider">Attribute provider</param>
+            <param name="Inherit">When true, it looks up the heirarchy chain for the inherited custom attributes</param>
+            <returns>Attribute specified if it exists</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Attributes``1(System.Reflection.ICustomAttributeProvider,System.Boolean)">
+            <summary>
+            Gets the attributes from the item
+            </summary>
+            <typeparam name="T">Attribute type</typeparam>
+            <param name="Provider">Attribute provider</param>
+            <param name="Inherit">When true, it looks up the heirarchy chain for the inherited custom attributes</param>
+            <returns>Array of attributes</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Call``1(System.Object,System.String,System.Object[])">
+            <summary>
+            Calls a method on an object
+            </summary>
+            <param name="MethodName">Method name</param>
+            <param name="Object">Object to call the method on</param>
+            <param name="InputVariables">(Optional)input variables for the method</param>
+            <typeparam name="ReturnType">Return type expected</typeparam>
+            <returns>The returned value of the method</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Create``1(System.Type,System.Object[])">
+            <summary>
+            Creates an instance of the type and casts it to the specified type
+            </summary>
+            <typeparam name="ClassType">Class type to return</typeparam>
+            <param name="Type">Type to create an instance of</param>
+            <param name="args">Arguments sent into the constructor</param>
+            <returns>The newly created instance of the type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Create(System.Type,System.Object[])">
+            <summary>
+            Creates an instance of the type
+            </summary>
+            <param name="Type">Type to create an instance of</param>
+            <param name="args">Arguments sent into the constructor</param>
+            <returns>The newly created instance of the type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Create``1(System.Collections.Generic.IEnumerable{System.Type},System.Object[])">
+            <summary>
+            Creates an instance of the types and casts it to the specified type
+            </summary>
+            <typeparam name="ClassType">Class type to return</typeparam>
+            <param name="Types">Types to create an instance of</param>
+            <param name="args">Arguments sent into the constructor</param>
+            <returns>The newly created instance of the types</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Create(System.Collections.Generic.IEnumerable{System.Type},System.Object[])">
+            <summary>
+            Creates an instance of the types specified
+            </summary>
+            <param name="Types">Types to create an instance of</param>
+            <param name="args">Arguments sent into the constructor</param>
+            <returns>The newly created instance of the types</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.GetName(System.Type)">
+            <summary>
+            Returns the type's name (Actual C# name, not the funky version from
+            the Name property)
+            </summary>
+            <param name="ObjectType">Type to get the name of</param>
+            <returns>string name of the type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.HasDefaultConstructor(System.Type)">
+            <summary>
+            Determines if the type has a default constructor
+            </summary>
+            <param name="Type">Type to check</param>
+            <returns>True if it does, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Is(System.Object,System.Type)">
+            <summary>
+            Determines if an object is of a specific type
+            </summary>
+            <param name="Object">Object</param>
+            <param name="Type">Type</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Is(System.Type,System.Type)">
+            <summary>
+            Determines if an object is of a specific type
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="Type">Type</param>
+            <returns>True if it is, false otherwise</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Load(System.Reflection.AssemblyName)">
+            <summary>
+            Loads an assembly by its name
+            </summary>
+            <param name="Name">Name of the assembly to return</param>
+            <returns>The assembly specified if it exists</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.LoadAssemblies(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Loads assemblies within a directory and returns them in an array.
+            </summary>
+            <param name="Directory">The directory to search in</param>
+            <param name="Recursive">Determines whether to search recursively or not</param>
+            <returns>Array of assemblies in the directory</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.MarkedWith``1(System.Collections.Generic.IEnumerable{System.Type},System.Boolean)">
+            <summary>
+            Goes through a list of types and determines if they're marked with a specific attribute
+            </summary>
+            <typeparam name="T">Attribute type</typeparam>
+            <param name="Types">Types to check</param>
+            <param name="Inherit">When true, it looks up the heirarchy chain for the inherited custom attributes</param>
+            <returns>The list of types that are marked with an attribute</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.MakeShallowCopy``1(``0,System.Boolean)">
+            <summary>
+            Makes a shallow copy of the object
+            </summary>
+            <param name="Object">Object to copy</param>
+            <param name="SimpleTypesOnly">If true, it only copies simple types (no classes, only items like int, string, etc.), false copies everything.</param>
+            <returns>A copy of the object</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Objects``1(System.Reflection.Assembly)">
+            <summary>
+            Returns an instance of all classes that it finds within an assembly
+            that are of the specified base type/interface.
+            </summary>
+            <typeparam name="ClassType">Base type/interface searching for</typeparam>
+            <param name="Assembly">Assembly to search within</param>
+            <returns>A list of objects that are of the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Objects``1(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Returns an instance of all classes that it finds within a group of assemblies
+            that are of the specified base type/interface.
+            </summary>
+            <typeparam name="ClassType">Base type/interface searching for</typeparam>
+            <param name="Assemblies">Assemblies to search within</param>
+            <returns>A list of objects that are of the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Objects``1(System.IO.DirectoryInfo,System.Boolean)">
+            <summary>
+            Returns an instance of all classes that it finds within a directory
+            that are of the specified base type/interface.
+            </summary>
+            <typeparam name="ClassType">Base type/interface searching for</typeparam>
+            <param name="Directory">Directory to search within</param>
+            <param name="Recursive">Should this be recursive</param>
+            <returns>A list of objects that are of the type specified</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Property(System.Object,System.Reflection.PropertyInfo)">
+            <summary>
+            Gets the value of property
+            </summary>
+            <param name="Object">The object to get the property of</param>
+            <param name="Property">The property to get</param>
+            <returns>Returns the property's value</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Property(System.Object,System.String)">
+            <summary>
+            Gets the value of property
+            </summary>
+            <param name="Object">The object to get the property of</param>
+            <param name="Property">The property to get</param>
+            <returns>Returns the property's value</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Property(System.Object,System.Reflection.PropertyInfo,System.Object,System.String)">
+            <summary>
+            Sets the value of destination property
+            </summary>
+            <param name="Object">The object to set the property of</param>
+            <param name="Property">The property to set</param>
+            <param name="Value">Value to set the property to</param>
+            <param name="Format">Allows for formatting if the destination is a string</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Property(System.Object,System.String,System.Object,System.String)">
+            <summary>
+            Sets the value of destination property
+            </summary>
+            <param name="Object">The object to set the property of</param>
+            <param name="Property">The property to set</param>
+            <param name="Value">Value to set the property to</param>
+            <param name="Format">Allows for formatting if the destination is a string</param>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyGetter``2(System.Reflection.PropertyInfo)">
+            <summary>
+            Gets a lambda expression that calls a specific property's getter function
+            </summary>
+            <typeparam name="ClassType">Class type</typeparam>
+            <typeparam name="DataType">Data type expecting</typeparam>
+            <param name="Property">Property</param>
+            <returns>A lambda expression that calls a specific property's getter function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyGetter``1(System.Reflection.PropertyInfo)">
+            <summary>
+            Gets a lambda expression that calls a specific property's getter function
+            </summary>
+            <typeparam name="ClassType">Class type</typeparam>
+            <param name="Property">Property</param>
+            <returns>A lambda expression that calls a specific property's getter function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyName(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+            Gets a property name
+            </summary>
+            <param name="Expression">LINQ expression</param>
+            <returns>The name of the property</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyName(System.Linq.Expressions.Expression)">
+            <summary>
+            Gets a property name
+            </summary>
+            <param name="Expression">LINQ expression</param>
+            <returns>The name of the property</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertySetter``2(System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Gets a lambda expression that calls a specific property's setter function
+            </summary>
+            <typeparam name="ClassType">Class type</typeparam>
+            <typeparam name="DataType">Data type expecting</typeparam>
+            <param name="Property">Property</param>
+            <returns>A lambda expression that calls a specific property's setter function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertySetter``1(System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            Gets a lambda expression that calls a specific property's setter function
+            </summary>
+            <typeparam name="ClassType">Class type</typeparam>
+            <param name="Property">Property</param>
+            <returns>A lambda expression that calls a specific property's setter function</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyType(System.Object,System.String)">
+            <summary>
+            Gets a property's type
+            </summary>
+            <param name="Object">object who contains the property</param>
+            <param name="PropertyPath">Path of the property (ex: Prop1.Prop2.Prop3 would be
+            the Prop1 of the source object, which then has a Prop2 on it, which in turn
+            has a Prop3 on it.)</param>
+            <returns>The type of the property specified or null if it can not be reached.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.PropertyType(System.Type,System.String)">
+            <summary>
+            Gets a property's type
+            </summary>
+            <param name="ObjectType">Object type</param>
+            <param name="PropertyPath">Path of the property (ex: Prop1.Prop2.Prop3 would be
+            the Prop1 of the source object, which then has a Prop2 on it, which in turn
+            has a Prop3 on it.)</param>
+            <returns>The type of the property specified or null if it can not be reached.</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.ToString(System.Reflection.Assembly,Utilities.DataTypes.ExtensionMethods.VersionInfo)">
+            <summary>
+            Gets the version information in a string format
+            </summary>
+            <param name="Assembly">Assembly to get version information from</param>
+            <param name="InfoType">Version info type</param>
+            <returns>The version information as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.ToString(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},Utilities.DataTypes.ExtensionMethods.VersionInfo)">
+            <summary>
+            Gets the version information in a string format
+            </summary>
+            <param name="Assemblies">Assemblies to get version information from</param>
+            <param name="InfoType">Version info type</param>
+            <returns>The version information as a string</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.ToString(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Boolean)">
+            <summary>
+            Gets assembly information for all currently loaded assemblies
+            </summary>
+            <param name="Assemblies">Assemblies to dump information from</param>
+            <param name="HTMLOutput">Should HTML output be used</param>
+            <returns>An HTML formatted string containing the assembly information</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.ToString(System.Object,System.Boolean)">
+            <summary>
+            Dumps the property names and current values from an object
+            </summary>
+            <param name="Object">Object to dunp</param>
+            <param name="HTMLOutput">Determines if the output should be HTML or not</param>
+            <returns>An HTML formatted table containing the information about the object</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.ToString(System.Type,System.Boolean)">
+            <summary>
+            Dumps the properties names and current values
+            from an object type (used for static classes)
+            </summary>
+            <param name="ObjectType">Object type to dunp</param>
+            <param name="HTMLOutput">Should this be output as an HTML string</param>
+            <returns>An HTML formatted table containing the information about the object type</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Types``1(System.Reflection.Assembly)">
+            <summary>
+            Gets a list of types based on an interface
+            </summary>
+            <param name="Assembly">Assembly to check</param>
+            <typeparam name="BaseType">Class type to search for</typeparam>
+            <returns>List of types that use the interface</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Types(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Gets a list of types based on an interface
+            </summary>
+            <param name="Assembly">Assembly to check</param>
+            <param name="BaseType">Base type to look for</param>
+            <returns>List of types that use the interface</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Types``1(System.Collections.Generic.IEnumerable{System.Reflection.Assembly})">
+            <summary>
+            Gets a list of types based on an interface
+            </summary>
+            <param name="Assemblies">Assemblies to check</param>
+            <typeparam name="BaseType">Class type to search for</typeparam>
+            <returns>List of types that use the interface</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.ExtensionMethods.ReflectionExtensions.Types(System.Collections.Generic.IEnumerable{System.Reflection.Assembly},System.Type)">
+            <summary>
+            Gets a list of types based on an interface
+            </summary>
+            <param name="Assemblies">Assemblies to check</param>
+            <param name="BaseType">Base type to look for</param>
+            <returns>List of types that use the interface</returns>
+        </member>
+        <member name="T:Utilities.DataTypes.ExtensionMethods.VersionInfo">
+            <summary>
+            Version info
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.VersionInfo.ShortVersion">
+            <summary>
+            Short version
+            </summary>
+        </member>
+        <member name="F:Utilities.DataTypes.ExtensionMethods.VersionInfo.LongVersion">
+            <summary>
+            Long version
+            </summary>
+        </member>
+        <member name="T:Utilities.DataTypes.Conversion.Converters.ExpandoConverter">
+            <summary>
+            Expando converter
+            </summary>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.ExpandoConverter.#ctor(Utilities.DataTypes.Conversion.Manager)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="Manager">Manager object</param>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.ExpandoConverter.CanConvert(System.Type)">
+            <summary>
+            Always returns true as it will attempt any return type
+            </summary>
+            <param name="type">Type asking about</param>
+            <returns>True</returns>
+        </member>
+        <member name="M:Utilities.DataTypes.Conversion.Converters.ExpandoConverter.To(System.Dynamic.ExpandoObject,System.Type)">
+            <summary>
+            Converts the object to the specified type
+            </summary>
+            <param name="Item">Object to convert</param>
+            <param name="ReturnType">Return type</param>
+            <returns>The object as the type specified</returns>
+        </member>
+        <member name="P:Utilities.DataTypes.Conversion.Converters.ExpandoConverter.Manager">
+            <summary>
+            Manager object
+            </summary>
+        </member>
+    </members>
+</doc>
