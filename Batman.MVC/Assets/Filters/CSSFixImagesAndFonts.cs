@@ -19,23 +19,21 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
+using Batman.Core;
 using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
-using Batman.MVC.Assets.Enums;
 using Batman.Core.FileSystem;
-using Utilities.DataTypes.ExtensionMethods;
+using Batman.Core.FileSystem.Interfaces;
+using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Drawing;
+using System.Web.Mvc;
+using Utilities.DataTypes.ExtensionMethods;
 using Utilities.Media.Image.ExtensionMethods;
-using System.Drawing.Imaging;
-using Batman.Core.FileSystem.Interfaces;
-using Batman.Core;
-#endregion
 
 namespace Batman.MVC.Assets.Filters
 {
@@ -45,6 +43,11 @@ namespace Batman.MVC.Assets.Filters
     public class CSSFixImagesAndFonts : IFilter
     {
         /// <summary>
+        /// Used to determine images in the CSS file
+        /// </summary>
+        private Regex ImageRegex = new Regex(@"url\([""']*(?<File>[^""')]*)[""']*\)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+        /// <summary>
         /// Filter name
         /// </summary>
         public string Name { get { return "CSS Embed Images"; } }
@@ -53,11 +56,6 @@ namespace Batman.MVC.Assets.Filters
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PreCombine; } }
-
-        /// <summary>
-        /// Used to determine images in the CSS file
-        /// </summary>
-        private Regex ImageRegex = new Regex(@"url\([""']*(?<File>[^""')]*)[""']*\)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         /// <summary>
         /// Filters the assets
@@ -108,37 +106,41 @@ namespace Batman.MVC.Assets.Filters
                         }
                         else
                         {
-                            using (Bitmap TempImage = new Bitmap(File.FullName))
+                            try
                             {
-                                string MIMEType = "image/jpeg";
-                                string Content = "";
-                                if (File.FullName.ToUpperInvariant().EndsWith(".PNG"))
+                                using (Bitmap TempImage = new Bitmap(File.FullName))
                                 {
-                                    MIMEType = "image/png";
-                                    Content = TempImage.ToBase64(ImageFormat.Png);
+                                    string MIMEType = "image/jpeg";
+                                    string Content = "";
+                                    if (File.FullName.ToUpperInvariant().EndsWith(".PNG"))
+                                    {
+                                        MIMEType = "image/png";
+                                        Content = TempImage.ToBase64(ImageFormat.Png);
+                                    }
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".JPG") || File.FullName.ToUpperInvariant().EndsWith(".JPEG"))
+                                    {
+                                        MIMEType = "image/jpeg";
+                                        Content = TempImage.ToBase64(ImageFormat.Jpeg);
+                                    }
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".GIF"))
+                                    {
+                                        MIMEType = "image/gif";
+                                        Content = TempImage.ToBase64(ImageFormat.Gif);
+                                    }
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".TIFF"))
+                                    {
+                                        MIMEType = "image/tiff";
+                                        Content = TempImage.ToBase64(ImageFormat.Tiff);
+                                    }
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".BMP"))
+                                    {
+                                        MIMEType = "image/bmp";
+                                        Content = TempImage.ToBase64(ImageFormat.Bmp);
+                                    }
+                                    Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIMEType + ";base64," + Content + ")");
                                 }
-                                else if (File.FullName.ToUpperInvariant().EndsWith(".JPG") || File.FullName.ToUpperInvariant().EndsWith(".JPEG"))
-                                {
-                                    MIMEType = "image/jpeg";
-                                    Content = TempImage.ToBase64(ImageFormat.Jpeg);
-                                }
-                                else if (File.FullName.ToUpperInvariant().EndsWith(".GIF"))
-                                {
-                                    MIMEType = "image/gif";
-                                    Content = TempImage.ToBase64(ImageFormat.Gif);
-                                }
-                                else if (File.FullName.ToUpperInvariant().EndsWith(".TIFF"))
-                                {
-                                    MIMEType = "image/tiff";
-                                    Content = TempImage.ToBase64(ImageFormat.Tiff);
-                                }
-                                else if (File.FullName.ToUpperInvariant().EndsWith(".BMP"))
-                                {
-                                    MIMEType = "image/bmp";
-                                    Content = TempImage.ToBase64(ImageFormat.Bmp);
-                                }
-                                Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIMEType + ";base64," + Content + ")");
                             }
+                            catch { }
                         }
                     }
                 }
