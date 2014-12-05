@@ -19,16 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-
+using Batman.Core.Bootstrapper.BaseClasses;
+using StructureMap;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Batman.Core.Bootstrapper.BaseClasses;
-using Batman.Core.Bootstrapper.Interfaces;
-using StructureMap;
-
-#endregion Usings
 
 namespace Batman.Core.Bootstrapper.TinyIoC
 {
