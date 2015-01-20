@@ -15,7 +15,7 @@ namespace Batman.Core.Tests
         public void Start()
         {
             BatComputer.PreStart();
-            Assert.IsType<Batman.Core.Bootstrapper.SimpleInjector.Bootstrapper>(BatComputer.Bootstrapper);
+            Assert.IsType<Batman.Core.Bootstrapper.TinyIoC.Bootstrapper>(BatComputer.Bootstrapper);
             BatComputer.PostStart();
         }
     }

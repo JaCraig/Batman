@@ -22,15 +22,11 @@ THE SOFTWARE.*/
 #region Usings
 
 using Batman.Core;
-using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
-using Batman.Core.Logging;
-using Batman.Core.Logging.BaseClasses;
 using Batman.MVC.Assets.Enums;
 using Batman.MVC.Assets.Interfaces;
 using Batman.MVC.Assets.Transformers;
-using Batman.MVC.Assets.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -181,9 +177,9 @@ namespace Batman.MVC.Assets
         }
 
         /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// Returns a <see cref="System.String"/> that represents this instance.
         /// </summary>
-        /// <returns>A <see cref="System.String" /> that represents this instance.</returns>
+        /// <returns>A <see cref="System.String"/> that represents this instance.</returns>
         public override string ToString()
         {
             return new StringBuilder().AppendLine()
@@ -199,6 +195,8 @@ namespace Batman.MVC.Assets
         /// <param name="Directory">Directory to create bundles from</param>
         private void CreateBundles(IDirectory Directory)
         {
+            if (!Directory.Exists)
+                return;
             string BundleDirectory = Directory.FullName.Replace(FileManager.Directory("~/").FullName, "~/").Replace("\\", "/");
             StyleBundle Bundle = new StyleBundle(BundleDirectory + "/bundle/css");
             Bundle.Transforms.Clear();
@@ -236,7 +234,7 @@ namespace Batman.MVC.Assets
         public class VirtualFileHack : VirtualFile
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="VirtualFileHack" /> class.
+            /// Initializes a new instance of the <see cref="VirtualFileHack"/> class.
             /// </summary>
             /// <param name="Location">The location.</param>
             public VirtualFileHack(string Location)
