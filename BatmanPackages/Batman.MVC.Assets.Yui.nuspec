@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC.Assets.Yui</id>
-        <version>1.0.0063</version>
+        <version>1.0.0065</version>
         <title>Batman Framework YUI Support</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -16,8 +16,8 @@
         <tags>batman framework mvc webgrease</tags>
         <dependencies>
             <dependency id="YUICompressor.NET" version="[2.7.0.0]" />
-			<dependency id="Batman.Core" version="[1.0.0063]" />
-			<dependency id="Batman.MVC" version="[1.0.0063]" />
+			<dependency id="Batman.Core" version="[1.0.0065]" />
+			<dependency id="Batman.MVC" version="[1.0.0065]" />
         </dependencies>
     </metadata>
     <files>
