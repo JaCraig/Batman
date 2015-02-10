@@ -68,43 +68,43 @@
     <Reference Include="System.Xml" />
     <Reference Include="Utilities.Compression, Version=1.0.0.0, Culture=neutral, PublicKeyToken=353b021c6ffac084, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Compression.3.4.0170\lib\net40\Utilities.Compression.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Compression.3.4.0182\lib\net40\Utilities.Compression.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.DataTypes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1a9f1ce8fe69b437, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.3.4.0170\lib\net40\Utilities.DataTypes.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-DataTypes.3.4.0182\lib\net40\Utilities.DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Encryption, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5a44967fd06b87ab, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Encryption.3.4.0170\lib\net40\Utilities.Encryption.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Encryption.3.4.0182\lib\net40\Utilities.Encryption.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.FileFormats, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cf552f07a3cb083a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-FileFormats.3.4.0170\lib\net40\Utilities.FileFormats.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-FileFormats.3.4.0182\lib\net40\Utilities.FileFormats.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.IO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=312f07f157e6ffd6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.4.0170\lib\net40\Utilities.IO.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-IO.3.4.0182\lib\net40\Utilities.IO.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Math, Version=1.0.0.0, Culture=neutral, PublicKeyToken=77603567fbfc2dbc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Math.3.4.0170\lib\net40\Utilities.Math.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Math.3.4.0182\lib\net40\Utilities.Math.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Media, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ce06e600ecabfb5e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.4.0170\lib\net40\Utilities.Media.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Media.3.4.0182\lib\net40\Utilities.Media.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Random, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7171cc3be6ac60dc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Random.3.4.0170\lib\net40\Utilities.Random.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Random.3.4.0182\lib\net40\Utilities.Random.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Reflection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=501e17eff79c154d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.4.0170\lib\net40\Utilities.Reflection.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Reflection.3.4.0182\lib\net40\Utilities.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Utilities.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=53dcaf16ffff41af, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.4.0170\lib\net40\Utilities.Web.dll</HintPath>
+      <HintPath>..\packages\CraigsUtilityLibrary-Web.3.4.0182\lib\net40\Utilities.Web.dll</HintPath>
     </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

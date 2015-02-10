@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.MVC.Serialization.ServiceStack</id>
-        <version>1.0.0066</version>
+        <version>1.0.0067</version>
         <title>Batman Framework ServiceStack Serializers</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -15,11 +15,11 @@
         <language>en-US</language>
         <tags>batman framework mvc servicestack</tags>
         <dependencies>
-            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0170]" />
-            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0170]" />
+            <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0182]" />
+            <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0182]" />
             <dependency id="ServiceStack.Text" version="[4.0.36]" />
-			<dependency id="Batman.Core" version="[1.0.0066]" />
-			<dependency id="Batman.MVC" version="[1.0.0066]" />
+			<dependency id="Batman.Core" version="[1.0.0067]" />
+			<dependency id="Batman.MVC" version="[1.0.0067]" />
         </dependencies>
     </metadata>
     <files>
