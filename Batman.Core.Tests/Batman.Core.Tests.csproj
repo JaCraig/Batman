@@ -78,10 +78,6 @@
     <Compile Include="Tasks\TaskTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Batman.Core.Bootstrapper.SimpleInjector\Batman.Core.Bootstrapper.SimpleInjector.csproj">
-      <Project>{ae30cd90-9e88-437a-a56f-37dc081e7378}</Project>
-      <Name>Batman.Core.Bootstrapper.SimpleInjector</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Batman.Core.Bootstrapper.TinyIoC\Batman.Core.Bootstrapper.TinyIoC.csproj">
       <Project>{A45865D2-BA36-4832-828B-6C6CD7C09BF4}</Project>
       <Name>Batman.Core.Bootstrapper.TinyIoC</Name>
