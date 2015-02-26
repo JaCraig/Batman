@@ -1,0 +1,6 @@
+syntax: glob
+content/*
+*/bin/*
+*/obj/*
+*.suo
+packages
