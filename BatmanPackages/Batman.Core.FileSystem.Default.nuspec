@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>Batman.Core.FileSystem.Default</id>
-        <version>1.0.0068</version>
+        <version>1.0.0069</version>
         <title>Batman Framework Default File System</title>
         <authors>James Craig</authors>
         <owners>James Craig</owners>
@@ -17,7 +17,7 @@
         <dependencies>
             <dependency id="CraigsUtilityLibrary-IO" version="[3.4.0190]" />
             <dependency id="CraigsUtilityLibrary-DataTypes" version="[3.4.0190]" />
-			<dependency id="Batman.Core" version="[1.0.0068]" />
+			<dependency id="Batman.Core" version="[1.0.0069]" />
         </dependencies>
     </metadata>
     <files>
