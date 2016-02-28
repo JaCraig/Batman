@@ -19,21 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
+using Batman.Core.FileSystem.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
 using System.IO;
-using Utilities.IO.ExtensionMethods;
-#endregion
+using Utilities.DataTypes.ExtensionMethods;
 
 namespace Batman.Core.FileSystem.Local
 {
@@ -42,8 +32,6 @@ namespace Batman.Core.FileSystem.Local
     /// </summary>
     public class WebDirectory : IDirectory
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -62,26 +50,12 @@ namespace Batman.Core.FileSystem.Local
             this.InternalDirectory = Directory;
         }
 
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Internal directory
-        /// </summary>
-        protected Uri InternalDirectory { get; private set; }
-
         public DateTime Accessed
         {
             get { return DateTime.Now; }
         }
 
         public DateTime Created
-        {
-            get { return DateTime.Now; }
-        }
-
-        public DateTime Modified
         {
             get { return DateTime.Now; }
         }
@@ -96,6 +70,11 @@ namespace Batman.Core.FileSystem.Local
             get { return InternalDirectory.AbsolutePath; }
         }
 
+        public DateTime Modified
+        {
+            get { return DateTime.Now; }
+        }
+
         public string Name
         {
             get { return InternalDirectory.AbsolutePath; }
@@ -103,7 +82,7 @@ namespace Batman.Core.FileSystem.Local
 
         public IDirectory Parent
         {
-            get { return new WebDirectory(InternalDirectory.AbsolutePath.Left(InternalDirectory.AbsolutePath.LastIndexOf("/") - 1)); }
+            get { return new WebDirectory(InternalDirectory.AbsolutePath.Left(InternalDirectory.AbsolutePath.LastIndexOf("/", StringComparison.Ordinal) - 1)); }
         }
 
         public IDirectory Root
@@ -116,18 +95,17 @@ namespace Batman.Core.FileSystem.Local
             get { return 0; }
         }
 
-        #endregion
-
-        #region Functions
+        /// <summary>
+        /// Internal directory
+        /// </summary>
+        protected Uri InternalDirectory { get; private set; }
 
         public void Create()
         {
-            
         }
 
         public void Delete()
         {
-            
         }
 
         public IEnumerable<IDirectory> EnumerateDirectories(string SearchPattern, SearchOption Options = SearchOption.TopDirectoryOnly)
@@ -152,7 +130,5 @@ namespace Batman.Core.FileSystem.Local
         {
             return FullName;
         }
-
-        #endregion
     }
 }

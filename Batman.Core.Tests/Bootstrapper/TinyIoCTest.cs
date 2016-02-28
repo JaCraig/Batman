@@ -14,7 +14,7 @@ namespace Batman.Core.Tests.Bootstrapper
         {
             if (obj == null)
                 return false;
-            TestClass Item = obj as TestClass;
+            var Item = obj as TestClass;
             return (Item.A == A
                     && Item.B == B
                     && Item.C == C);
@@ -33,8 +33,8 @@ namespace Batman.Core.Tests.Bootstrapper
         {
             using (Batman.Core.Bootstrapper.TinyIoC.Bootstrapper Bootstrapper = new Core.Bootstrapper.TinyIoC.Bootstrapper())
             {
-                Bootstrapper.Register<TestClass>(() => new TestClass() { A = 10, B = 1.23f, C = "Testing" }, "Test1");
-                Assert.Equal(new TestClass() { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>("Test1"));
+                Bootstrapper.Register<TestClass>(() => new TestClass { A = 10, B = 1.23f, C = "Testing" }, "Test1");
+                Assert.Equal(new TestClass { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>("Test1"));
             }
         }
 
@@ -43,8 +43,8 @@ namespace Batman.Core.Tests.Bootstrapper
         {
             using (Batman.Core.Bootstrapper.TinyIoC.Bootstrapper Bootstrapper = new Core.Bootstrapper.TinyIoC.Bootstrapper())
             {
-                Bootstrapper.Register<TestClass>(() => new TestClass() { A = 10, B = 1.23f, C = "Testing" });
-                Assert.Equal(new TestClass() { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>());
+                Bootstrapper.Register<TestClass>(() => new TestClass { A = 10, B = 1.23f, C = "Testing" });
+                Assert.Equal(new TestClass { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>());
             }
         }
 
@@ -63,8 +63,8 @@ namespace Batman.Core.Tests.Bootstrapper
         {
             using (Batman.Core.Bootstrapper.TinyIoC.Bootstrapper Bootstrapper = new Core.Bootstrapper.TinyIoC.Bootstrapper())
             {
-                Bootstrapper.Register<TestClass>(new TestClass() { A = 10, B = 1.23f, C = "Testing" }, "Item1");
-                Assert.Equal(new TestClass() { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>("Item1"));
+                Bootstrapper.Register<TestClass>(new TestClass { A = 10, B = 1.23f, C = "Testing" }, "Item1");
+                Assert.Equal(new TestClass { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>("Item1"));
             }
         }
 
@@ -73,8 +73,8 @@ namespace Batman.Core.Tests.Bootstrapper
         {
             using (Batman.Core.Bootstrapper.TinyIoC.Bootstrapper Bootstrapper = new Core.Bootstrapper.TinyIoC.Bootstrapper())
             {
-                Bootstrapper.Register<TestClass>(new TestClass() { A = 10, B = 1.23f, C = "Testing" });
-                Assert.Equal(new TestClass() { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>());
+                Bootstrapper.Register<TestClass>(new TestClass { A = 10, B = 1.23f, C = "Testing" });
+                Assert.Equal(new TestClass { A = 10, B = 1.23f, C = "Testing" }, Bootstrapper.Resolve<TestClass>());
             }
         }
 

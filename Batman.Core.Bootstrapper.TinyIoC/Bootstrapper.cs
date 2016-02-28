@@ -19,13 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.Bootstrapper.BaseClasses;
 using System;
 using System.Collections.Generic;
 using TinyIoC;
-#endregion
 
 namespace Batman.Core.Bootstrapper.TinyIoC
 {
@@ -34,14 +31,13 @@ namespace Batman.Core.Bootstrapper.TinyIoC
     /// </summary>
     public class Bootstrapper : BootstrapperBase<TinyIoCContainer>
     {
-        public Bootstrapper()
-            : base()
-        {
-        }
-
+        public override string Name { get { return "TinyIoC"; } }
         protected override TinyIoCContainer AppContainer { get { return TinyIoCContainer.Current; } }
 
-        public override string Name { get { return "TinyIoC"; } }
+        public override void Dispose(bool Managed)
+        {
+            AppContainer.Dispose();
+        }
 
         public override void Register<T>(Func<T> Function, string Name)
         {
@@ -83,7 +79,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             AppContainer.Register<T>(Object);
         }
 
-        public override object Resolve(Type ObjectType, string Name,object DefaultObject=null)
+        public override object Resolve(Type ObjectType, string Name, object DefaultObject = null)
         {
             try
             {
@@ -92,7 +88,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override object Resolve(Type ObjectType,object DefaultObject=null)
+        public override object Resolve(Type ObjectType, object DefaultObject = null)
         {
             try
             {
@@ -101,7 +97,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>(string Name,T DefaultObject=default(T))
+        public override T Resolve<T>(string Name, T DefaultObject = default(T))
         {
             try
             {
@@ -110,7 +106,7 @@ namespace Batman.Core.Bootstrapper.TinyIoC
             catch { return DefaultObject; }
         }
 
-        public override T Resolve<T>(T DefaultObject=default(T))
+        public override T Resolve<T>(T DefaultObject = default(T))
         {
             try
             {
@@ -132,14 +128,9 @@ namespace Batman.Core.Bootstrapper.TinyIoC
         {
             try
             {
-            return AppContainer.ResolveAll<T>();
+                return AppContainer.ResolveAll<T>();
             }
             catch { return new List<T>(); }
-        }
-
-        public override void Dispose(bool Managed)
-        {
-            AppContainer.Dispose();
         }
     }
 }

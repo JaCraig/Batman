@@ -56,7 +56,7 @@ namespace Batman.MVC.Assets.Yui
             IEnumerable<IAsset> Processable = Assets.Where(x => !x.Minified);
             if (Processable.FirstOrDefault() == null)
                 return Assets;
-            JavaScriptCompressor Minifier = new JavaScriptCompressor();
+            var Minifier = new JavaScriptCompressor();
             foreach (IAsset Asset in Processable)
             {
                 try

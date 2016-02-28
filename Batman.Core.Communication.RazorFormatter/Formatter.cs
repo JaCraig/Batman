@@ -19,17 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System.Net.Mail;
-using System.Net.Mime;
-using System.Threading;
-using System.Dynamic;
 using Batman.Core.Communication.Interfaces;
-using RazorEngine.Templating;
 using Batman.Core.FileSystem;
-using System.Linq;
 using System.IO;
-#endregion
+using System.Linq;
 
 namespace Batman.Core.Communication.SMTP
 {
@@ -38,8 +31,6 @@ namespace Batman.Core.Communication.SMTP
     /// </summary>
     public class Formatter : IFormatter
     {
-        public Formatter() { }
-
         public string Name { get { return "Razor"; } }
 
         public IMessage Format<T>(IMessage Message, string Template, T Model)

@@ -19,16 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
 using Batman.Core.Bootstrapper.Interfaces;
+using Batman.Core.Communication;
 using Batman.Core.FileSystem;
 using Batman.Core.Tasks;
-using System;
-
-using Utilities.DataTypes.ExtensionMethods;
-using System.Linq;
-using Batman.Core.Communication;
-#endregion
 
 namespace Batman.Core.Bootstrapper.Modules
 {
@@ -37,6 +31,10 @@ namespace Batman.Core.Bootstrapper.Modules
     /// </summary>
     public class ManagersModule : IModule
     {
+        /// <summary>
+        /// Loads the module using the bootstrapper
+        /// </summary>
+        /// <param name="Bootstrapper">Bootstrapper used to register various objects</param>
         public void Load(IBootstrapper Bootstrapper)
         {
             Bootstrapper.Register<FileManager>(new FileManager());

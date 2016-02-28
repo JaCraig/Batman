@@ -19,23 +19,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
 using Batman.Core.Logging;
-using System.IO;
-using Utilities.DataTypes;
+using Batman.Core.Logging.BaseClasses;
 using Batman.Core.Tasks.Enums;
 using Batman.Core.Tasks.Interfaces;
-using System.Reflection;
-#endregion
+using System;
+using Utilities.DataTypes;
+using Utilities.DataTypes.ExtensionMethods;
+using Utilities.IO.Logging.Enums;
 
 namespace Batman.Core.Tasks
 {
@@ -44,8 +35,6 @@ namespace Batman.Core.Tasks
     /// </summary>
     public class TaskManager
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -58,18 +47,10 @@ namespace Batman.Core.Tasks
             }
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
         /// Tasks to run
         /// </summary>
         public ListMapping<RunTime, ITask> Tasks { get; private set; }
-
-        #endregion
-
-        #region Functions
 
         /// <summary>
         /// Runs the tasks associated with the run time specified
@@ -88,11 +69,15 @@ namespace Batman.Core.Tasks
             }
         }
 
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString()
         {
             return Tasks.ToString(x => x.Value.ToString(y => y.Name, "\n"));
         }
-
-        #endregion
     }
 }

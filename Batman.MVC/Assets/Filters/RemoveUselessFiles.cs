@@ -19,18 +19,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
 using Batman.MVC.Assets.Enums;
-using Batman.Core.FileSystem;
-using Utilities.DataTypes.ExtensionMethods;
+using Batman.MVC.Assets.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-#endregion
+using Utilities.DataTypes.ExtensionMethods;
 
 namespace Batman.MVC.Assets.Filters
 {
@@ -52,7 +46,7 @@ namespace Batman.MVC.Assets.Filters
         /// <summary>
         /// Used to determine what files to remove
         /// </summary>
-        private Regex RemoveRegex = new Regex(@"-vsdoc|_references.js", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private readonly Regex RemoveRegex = new Regex(@"-vsdoc|_references.js", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         /// <summary>
         /// Filters the assets

@@ -19,13 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System.Text;
 using Batman.MVC.ActionFilters;
-using Utilities.DataTypes.ExtensionMethods;
-using System;
-using System.Web.Mvc;
-#endregion
 
 namespace Batman.MVC.BaseClasses
 {
@@ -36,16 +30,11 @@ namespace Batman.MVC.BaseClasses
     [Compress(Minify = false)]
     public abstract class APIControllerBase : ControllerBase
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
-        public APIControllerBase()
-            : base()
+        protected APIControllerBase()
         {
         }
-
-        #endregion
     }
 }

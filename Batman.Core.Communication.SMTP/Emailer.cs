@@ -19,14 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System.Net.Mail;
-using System.Net.Mime;
-using System.Threading;
-using System.Collections.Generic;
 using Batman.Core.Communication.BaseClasses;
 using System;
-#endregion
+using System.Net.Mail;
+using System.Net.Mime;
 
 namespace Batman.Core.Communication.SMTP
 {
@@ -35,32 +31,29 @@ namespace Batman.Core.Communication.SMTP
     /// </summary>
     public class Emailer : CommunicatorBase
     {
-        public Emailer() { }
-
-        public override string Name { get { return "SMTP"; } }
-
         public override Type MessageType { get { return typeof(EmailMessage); } }
+        public override string Name { get { return "SMTP"; } }
 
         public override Interfaces.IMessage CreateMessage()
         {
             return new EmailMessage(this);
         }
 
-        protected override void InternalSend(Interfaces.IMessage Message2)
+        protected override void InternalSend(Interfaces.IMessage message)
         {
-            EmailMessage Message = Message2 as EmailMessage;
+            var Message = message as EmailMessage;
             if (Message == null)
                 return;
             if (string.IsNullOrEmpty(Message.Body))
                 Message.Body = " ";
-            using (System.Net.Mail.MailMessage message = new System.Net.Mail.MailMessage())
+            using (MailMessage TempMailMessage = new MailMessage())
             {
                 char[] Splitter = { ',', ';' };
                 string[] AddressCollection = Message.To.Split(Splitter);
                 for (int x = 0; x < AddressCollection.Length; ++x)
                 {
                     if (!string.IsNullOrEmpty(AddressCollection[x].Trim()))
-                        message.To.Add(AddressCollection[x]);
+                        TempMailMessage.To.Add(AddressCollection[x]);
                 }
                 if (!string.IsNullOrEmpty(Message.CC))
                 {
@@ -68,7 +61,7 @@ namespace Batman.Core.Communication.SMTP
                     for (int x = 0; x < AddressCollection.Length; ++x)
                     {
                         if (!string.IsNullOrEmpty(AddressCollection[x].Trim()))
-                            message.CC.Add(AddressCollection[x]);
+                            TempMailMessage.CC.Add(AddressCollection[x]);
                     }
                 }
                 if (!string.IsNullOrEmpty(Message.Bcc))
@@ -77,34 +70,34 @@ namespace Batman.Core.Communication.SMTP
                     for (int x = 0; x < AddressCollection.Length; ++x)
                     {
                         if (!string.IsNullOrEmpty(AddressCollection[x].Trim()))
-                            message.Bcc.Add(AddressCollection[x]);
+                            TempMailMessage.Bcc.Add(AddressCollection[x]);
                     }
                 }
-                message.Subject = Message.Subject;
+                TempMailMessage.Subject = Message.Subject;
                 if (!string.IsNullOrEmpty(Message.From))
-                    message.From = new System.Net.Mail.MailAddress(Message.From);
+                    TempMailMessage.From = new MailAddress(Message.From);
                 using (AlternateView BodyView = AlternateView.CreateAlternateViewFromString(Message.Body, null, MediaTypeNames.Text.Html))
                 {
                     foreach (LinkedResource Resource in Message.EmbeddedResources)
                     {
                         BodyView.LinkedResources.Add(Resource);
                     }
-                    message.AlternateViews.Add(BodyView);
-                    message.Priority = Message.Priority;
-                    message.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
-                    message.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
-                    message.IsBodyHtml = true;
+                    TempMailMessage.AlternateViews.Add(BodyView);
+                    TempMailMessage.Priority = Message.Priority;
+                    TempMailMessage.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+                    TempMailMessage.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+                    TempMailMessage.IsBodyHtml = true;
                     foreach (Attachment TempAttachment in Message.Attachments)
                     {
-                        message.Attachments.Add(TempAttachment);
+                        TempMailMessage.Attachments.Add(TempAttachment);
                     }
                     if (!string.IsNullOrEmpty(Message.Server))
                     {
-                        SendMessage(new System.Net.Mail.SmtpClient(Message.Server, Message.Port), Message, message);
+                        SendMessage(new SmtpClient(Message.Server, Message.Port), Message, TempMailMessage);
                     }
                     else
                     {
-                        SendMessage(new SmtpClient(), Message, message);
+                        SendMessage(new SmtpClient(), Message, TempMailMessage);
                     }
                 }
             }
@@ -112,7 +105,7 @@ namespace Batman.Core.Communication.SMTP
 
         private void SendMessage(SmtpClient smtpClient, EmailMessage Message, MailMessage message)
         {
-            using (System.Net.Mail.SmtpClient smtp = smtpClient)
+            using (SmtpClient smtp = smtpClient)
             {
                 if (!string.IsNullOrEmpty(Message.UserName) && !string.IsNullOrEmpty(Message.Password))
                 {

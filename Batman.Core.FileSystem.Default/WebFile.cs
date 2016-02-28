@@ -19,21 +19,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
 using Batman.Core.FileSystem.Interfaces;
-using System.Web;
+using System;
 using System.IO;
+using System.Text;
+using Utilities.DataTypes.ExtensionMethods;
 using Utilities.IO.ExtensionMethods;
-#endregion
 
 namespace Batman.Core.FileSystem.Local
 {
@@ -42,8 +33,6 @@ namespace Batman.Core.FileSystem.Local
     /// </summary>
     public class WebFile : IFile
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -62,15 +51,6 @@ namespace Batman.Core.FileSystem.Local
             this.InternalFile = File;
         }
 
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Internal pointer to the file system
-        /// </summary>
-        protected Uri InternalFile { get; private set; }
-
         public DateTime Accessed
         {
             get { return DateTime.Now; }
@@ -81,14 +61,9 @@ namespace Batman.Core.FileSystem.Local
             get { return DateTime.Now; }
         }
 
-        public DateTime Modified
-        {
-            get { return DateTime.Now; }
-        }
-
         public IDirectory Directory
         {
-            get { return new WebDirectory(InternalFile.AbsolutePath.Left(InternalFile.AbsolutePath.LastIndexOf("/")-1)); }
+            get { return new WebDirectory(InternalFile.AbsolutePath.Left(InternalFile.AbsolutePath.LastIndexOf("/", StringComparison.Ordinal) - 1)); }
         }
 
         public bool Exists
@@ -111,16 +86,26 @@ namespace Batman.Core.FileSystem.Local
             get { return 0; }
         }
 
+        public DateTime Modified
+        {
+            get { return DateTime.Now; }
+        }
+
         public string Name
         {
             get { return InternalFile.AbsolutePath; }
         }
 
-        #endregion
-
-        #region Functions
+        /// <summary>
+        /// Internal pointer to the file system
+        /// </summary>
+        protected Uri InternalFile { get; private set; }
 
         public void Delete()
+        {
+        }
+
+        public void MoveTo(IDirectory Directory)
         {
         }
 
@@ -138,8 +123,9 @@ namespace Batman.Core.FileSystem.Local
         {
         }
 
-        public void MoveTo(IDirectory Directory)
+        public override string ToString()
         {
+            return FullName;
         }
 
         public void Write(string Content, System.IO.FileMode Mode = FileMode.Create, Encoding Encoding = null)
@@ -149,12 +135,5 @@ namespace Batman.Core.FileSystem.Local
         public void Write(byte[] Content, System.IO.FileMode Mode = FileMode.Create)
         {
         }
-
-        public override string ToString()
-        {
-            return FullName;
-        }
-
-        #endregion
     }
 }

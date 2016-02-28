@@ -35,7 +35,6 @@ namespace Batman.Core.Bootstrapper.Ninject
     public class Bootstrapper : BootstrapperBase<StandardKernel>
     {
         public Bootstrapper()
-            : base()
         {
             _Container = new StandardKernel();
         }

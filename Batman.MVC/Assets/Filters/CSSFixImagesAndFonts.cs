@@ -20,7 +20,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
 using Batman.Core;
-using Batman.Core.Bootstrapper.Interfaces;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
 using Batman.MVC.Assets.Enums;
@@ -31,7 +30,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web.Mvc;
 using Utilities.DataTypes.ExtensionMethods;
 using Utilities.Media.Image.ExtensionMethods;
 
@@ -43,11 +41,6 @@ namespace Batman.MVC.Assets.Filters
     public class CSSFixImagesAndFonts : IFilter
     {
         /// <summary>
-        /// Used to determine images in the CSS file
-        /// </summary>
-        private Regex ImageRegex = new Regex(@"url\([""']*(?<File>[^""')]*)[""']*\)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
-        /// <summary>
         /// Filter name
         /// </summary>
         public string Name { get { return "CSS Embed Images"; } }
@@ -56,6 +49,11 @@ namespace Batman.MVC.Assets.Filters
         /// Time to run the filter
         /// </summary>
         public RunTime TimeToRun { get { return RunTime.PreCombine; } }
+
+        /// <summary>
+        /// Used to determine images in the CSS file
+        /// </summary>
+        private Regex ImageRegex = new Regex(@"url\([""']*(?<File>[^""')]*)[""']*\)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         /// <summary>
         /// Filters the assets
@@ -91,16 +89,28 @@ namespace Batman.MVC.Assets.Filters
                             || File.Extension.ToUpperInvariant() == ".EOT")
                         {
                             string MIME = "";
-                            if (File.Extension.ToUpperInvariant() == ".WOFF")
-                                MIME = "application/x-font-woff";
-                            else if (File.Extension.ToUpperInvariant() == ".OTF")
-                                MIME = "application/x-font-opentype";
-                            else if (File.Extension.ToUpperInvariant() == ".TTF")
-                                MIME = "application/x-font-ttf";
-                            else if (File.Extension.ToUpperInvariant() == ".SVG")
-                                MIME = "image/svg+xml";
-                            else if (File.Extension.ToUpperInvariant() == ".EOT")
-                                MIME = "application/vnd.ms-fontobject";
+                            switch (File.Extension.ToUpperInvariant())
+                            {
+                                case ".WOFF":
+                                    MIME = "application/x-font-woff";
+                                    break;
+
+                                case ".OTF":
+                                    MIME = "application/x-font-opentype";
+                                    break;
+
+                                case ".TTF":
+                                    MIME = "application/x-font-ttf";
+                                    break;
+
+                                case ".SVG":
+                                    MIME = "image/svg+xml";
+                                    break;
+
+                                case ".EOT":
+                                    MIME = "application/vnd.ms-fontobject";
+                                    break;
+                            }
 
                             Asset.Content = Asset.Content.Replace(MatchString, "url(data:" + MIME + ";base64," + File.ReadBinary().ToString(Base64FormattingOptions.None) + ")");
                         }
@@ -112,27 +122,27 @@ namespace Batman.MVC.Assets.Filters
                                 {
                                     string MIMEType = "image/jpeg";
                                     string Content = "";
-                                    if (File.FullName.ToUpperInvariant().EndsWith(".PNG"))
+                                    if (File.FullName.ToUpperInvariant().EndsWith(".PNG", StringComparison.Ordinal))
                                     {
                                         MIMEType = "image/png";
                                         Content = TempImage.ToBase64(ImageFormat.Png);
                                     }
-                                    else if (File.FullName.ToUpperInvariant().EndsWith(".JPG") || File.FullName.ToUpperInvariant().EndsWith(".JPEG"))
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".JPG", StringComparison.Ordinal) || File.FullName.ToUpperInvariant().EndsWith(".JPEG", StringComparison.Ordinal))
                                     {
                                         MIMEType = "image/jpeg";
                                         Content = TempImage.ToBase64(ImageFormat.Jpeg);
                                     }
-                                    else if (File.FullName.ToUpperInvariant().EndsWith(".GIF"))
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".GIF", StringComparison.Ordinal))
                                     {
                                         MIMEType = "image/gif";
                                         Content = TempImage.ToBase64(ImageFormat.Gif);
                                     }
-                                    else if (File.FullName.ToUpperInvariant().EndsWith(".TIFF"))
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".TIFF", StringComparison.Ordinal))
                                     {
                                         MIMEType = "image/tiff";
                                         Content = TempImage.ToBase64(ImageFormat.Tiff);
                                     }
-                                    else if (File.FullName.ToUpperInvariant().EndsWith(".BMP"))
+                                    else if (File.FullName.ToUpperInvariant().EndsWith(".BMP", StringComparison.Ordinal))
                                     {
                                         MIMEType = "image/bmp";
                                         Content = TempImage.ToBase64(ImageFormat.Bmp);

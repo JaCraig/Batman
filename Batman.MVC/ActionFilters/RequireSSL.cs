@@ -45,7 +45,7 @@ namespace Batman.MVC.ActionFilters
             HttpResponseBase Response = filterContext.HttpContext.Response;
             if (!Request.IsSecureConnection && !Request.IsLocal)
             {
-                UriBuilder Builder = new UriBuilder(Request.Url);
+                var Builder = new UriBuilder(Request.Url);
                 Builder.Scheme = Uri.UriSchemeHttps;
                 Response.Redirect(Builder.Uri.ToString());
             }

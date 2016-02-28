@@ -19,25 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
-using System.IO;
-using Batman.Core.Tasks;
-using Batman.Core.Tasks.Enums;
-using Batman.Core.FileSystem;
 using Batman.Core.Communication.Interfaces;
 using Batman.Core.FileSystem.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Threading;
-#endregion
 
 namespace Batman.Core.Communication.BaseClasses
 {
@@ -46,8 +32,6 @@ namespace Batman.Core.Communication.BaseClasses
     /// </summary>
     public abstract class CommunicatorBase : ICommunicator
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -55,14 +39,10 @@ namespace Batman.Core.Communication.BaseClasses
         {
         }
 
-        #endregion
-
-        #region Properties
-
         /// <summary>
-        /// Name of the communicator
+        /// Formatters
         /// </summary>
-        public abstract string Name { get; }
+        public IEnumerable<IFormatter> Formatters { get; private set; }
 
         /// <summary>
         /// Message type used by the communicator
@@ -70,13 +50,15 @@ namespace Batman.Core.Communication.BaseClasses
         public abstract Type MessageType { get; }
 
         /// <summary>
-        /// Formatters
+        /// Name of the communicator
         /// </summary>
-        public IEnumerable<IFormatter> Formatters { get; private set; }
+        public abstract string Name { get; }
 
-        #endregion
-
-        #region Functions
+        /// <summary>
+        /// Creates a message
+        /// </summary>
+        /// <returns>Message object</returns>
+        public abstract IMessage CreateMessage();
 
         /// <summary>
         /// Initializes the communicator
@@ -108,20 +90,6 @@ namespace Batman.Core.Communication.BaseClasses
         }
 
         /// <summary>
-        /// Sends a message asynchronously
-        /// </summary>
-        /// <typeparam name="T">Model type</typeparam>
-        /// <param name="Template">Template text to use</param>
-        /// <param name="Model">Model object</param>
-        /// <param name="Message">Message to send</param>
-        /// <returns>this</returns>
-        public ICommunicator SendAsync<T>(IMessage Message, string Template, T Model)
-        {
-            ThreadPool.QueueUserWorkItem(x => Send(Message, Template, Model));
-            return this;
-        }
-
-        /// <summary>
         /// Sends a message
         /// </summary>
         /// <typeparam name="T">Model type</typeparam>
@@ -147,6 +115,20 @@ namespace Batman.Core.Communication.BaseClasses
         /// <param name="Model">Model object</param>
         /// <param name="Message">Message to send</param>
         /// <returns>this</returns>
+        public ICommunicator SendAsync<T>(IMessage Message, string Template, T Model)
+        {
+            ThreadPool.QueueUserWorkItem(x => Send(Message, Template, Model));
+            return this;
+        }
+
+        /// <summary>
+        /// Sends a message asynchronously
+        /// </summary>
+        /// <typeparam name="T">Model type</typeparam>
+        /// <param name="Template">Template text to use</param>
+        /// <param name="Model">Model object</param>
+        /// <param name="Message">Message to send</param>
+        /// <returns>this</returns>
         public ICommunicator SendAsync<T>(IMessage Message, IFile Template, T Model)
         {
             ThreadPool.QueueUserWorkItem(x => Send(Message, Template, Model));
@@ -154,17 +136,9 @@ namespace Batman.Core.Communication.BaseClasses
         }
 
         /// <summary>
-        /// Creates a message
-        /// </summary>
-        /// <returns>Message object</returns>
-        public abstract IMessage CreateMessage();
-
-        /// <summary>
         /// Sends a message
         /// </summary>
-        /// <param name="Message">Message to send</param>
-        protected abstract void InternalSend(IMessage Message);
-
-        #endregion
+        /// <param name="message">Message to send</param>
+        protected abstract void InternalSend(IMessage message);
     }
 }

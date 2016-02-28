@@ -19,22 +19,14 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using Batman.Core.Bootstrapper.Interfaces;
-using System.Web.Mvc;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
-using Batman.MVC.Assets.Enums;
+using Batman.Core;
 using Batman.Core.FileSystem;
-using Utilities.DataTypes.ExtensionMethods;
+using Batman.Core.FileSystem.Interfaces;
+using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.IO;
-using Batman.Core.FileSystem.Interfaces;
-using Batman.Core;
-#endregion
 
 namespace Batman.MVC.Assets.Filters
 {
@@ -56,7 +48,7 @@ namespace Batman.MVC.Assets.Filters
         /// <summary>
         /// Used to determine what files to remove
         /// </summary>
-        private Regex FileImportRegex = new Regex(@"/// <reference path=""(?<File>[^""]*)"" />", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private readonly Regex FileImportRegex = new Regex(@"/// <reference path=""(?<File>[^""]*)"" />", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         /// <summary>
         /// Filters the assets
@@ -70,7 +62,7 @@ namespace Batman.MVC.Assets.Filters
             if (Assets.FirstOrDefault().Type != AssetType.Javascript)
                 return Assets;
             FileManager FileSystem = BatComputer.Bootstrapper.Resolve<FileManager>();
-            List<IAsset> TempAssets = new List<IAsset>();
+            var TempAssets = new List<IAsset>();
             foreach (IAsset Asset in Assets)
             {
                 bool Done = false;

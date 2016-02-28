@@ -70,7 +70,7 @@ namespace Batman.MVC.Assets.Filters
             if (Assets.FirstOrDefault().Type != AssetType.CSS)
                 return Assets;
             FileManager FileSystem = BatComputer.Bootstrapper.Resolve<FileManager>();
-            List<IAsset> TempAssets = new List<IAsset>();
+            var TempAssets = new List<IAsset>();
             foreach (IAsset Asset in Assets)
             {
                 bool Done = false;

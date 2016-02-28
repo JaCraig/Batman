@@ -52,7 +52,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
         {
             if (Data == null)
                 return new ContentResult();
-            ContentResult Result = new ContentResult();
+            var Result = new ContentResult();
             using (MemoryStream Stream = new MemoryStream())
             {
                 ServiceStack.Text.XmlSerializer.SerializeToStream(Data, Stream);
@@ -67,7 +67,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
         {
             if (Data == null)
                 return new ContentResult();
-            ContentResult Result = new ContentResult();
+            var Result = new ContentResult();
             Result.Content = ServiceStack.Text.XmlSerializer.SerializeToString(Data);
             Result.ContentType = ContentType;
             return Result;

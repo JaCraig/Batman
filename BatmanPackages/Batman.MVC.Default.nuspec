@@ -28,7 +28,7 @@
             <dependency id="Batman.Core.FileSystem.Default" version="[1.0.0069]" />
             <dependency id="Glimpse.Batman" version="[1.0.0069]" />
 			<dependency id="Glimpse.Mvc5" version="1.5.3" />
-			<dependency id="Glimpse.NLog" version="1.6.1" />
+			<dependency id="Glimpse.NLog" version="1.7.0" />
 			<dependency id="Glimpse.MiniProfiler" version="1.2.5" />
 			<dependency id="Glimpse.Elmah" version="1.1.1" />
 			<dependency id="Glimpse.Ado" version="1.7.3" />

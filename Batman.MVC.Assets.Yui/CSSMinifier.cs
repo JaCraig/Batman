@@ -19,25 +19,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using Batman.MVC.Assets.Interfaces;
 using Batman.MVC.Assets.Enums;
+using Batman.MVC.Assets.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
-using System.IO;
-using Batman.MVC.Assets.Utils;
-using System.Web;
-using Batman.MVC.Assets;
 using Yahoo.Yui.Compressor;
-#endregion
 
 namespace Batman.MVC.Assets.Yui
 {
     /// <summary>
     /// CSS minifier
     /// </summary>
-    public class CSSMinifier:IFilter
+    public class CSSMinifier : IFilter
     {
         public string Name { get { return "YUI CSS Minifier"; } }
 
@@ -55,7 +48,7 @@ namespace Batman.MVC.Assets.Yui
             IEnumerable<IAsset> Processable = Assets.Where(x => !x.Minified);
             if (Processable.FirstOrDefault() == null)
                 return Assets;
-            CssCompressor Minifier = new CssCompressor() { CompressionType = CompressionType.Standard, RemoveComments = true };
+            var Minifier = new CssCompressor { CompressionType = CompressionType.Standard, RemoveComments = true };
             foreach (IAsset Asset in Processable)
             {
                 try

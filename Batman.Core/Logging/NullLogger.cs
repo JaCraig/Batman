@@ -19,12 +19,8 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using Batman.Core.Bootstrapper.Interfaces;
-using System;
 using Batman.Core.Logging.BaseClasses;
 using Utilities.IO.Logging.Enums;
-#endregion
 
 namespace Batman.Core.Logging
 {
@@ -33,6 +29,9 @@ namespace Batman.Core.Logging
     /// </summary>
     public class NullLogger : LogBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NullLogger"/> class.
+        /// </summary>
         public NullLogger()
             : base(x => { })
         {

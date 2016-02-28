@@ -19,8 +19,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-
 using Batman.Core;
 using Batman.Core.FileSystem;
 using Batman.Core.FileSystem.Interfaces;
@@ -34,12 +32,9 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Hosting;
-using System.Web.Mvc;
 using System.Web.Optimization;
 using Utilities.DataTypes;
 using Utilities.DataTypes.ExtensionMethods;
-
-#endregion Usings
 
 namespace Batman.MVC.Assets
 {
@@ -48,8 +43,6 @@ namespace Batman.MVC.Assets
     /// </summary>
     public class AssetManager
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -69,10 +62,6 @@ namespace Batman.MVC.Assets
             RunOrder.Add(RunTime.PostMinified);
             RunOrder.Add(RunTime.PreCombine);
         }
-
-        #endregion Constructor
-
-        #region Properties
 
         /// <summary>
         /// Content filters
@@ -104,10 +93,6 @@ namespace Batman.MVC.Assets
         /// </summary>
         protected IEnumerable<ITranslator> Translators { get; private set; }
 
-        #endregion Properties
-
-        #region Functions
-
         /// <summary>
         /// Auto creates the bundles for the given directory
         /// </summary>
@@ -124,11 +109,11 @@ namespace Batman.MVC.Assets
         /// <returns>The asset type</returns>
         public AssetType DetermineType(string Path)
         {
-            AssetType Type = Translators.FirstOrDefault(x => Path.EndsWith(x.FileTypeAccepts))
+            AssetType Type = Translators.FirstOrDefault(x => Path.EndsWith(x.FileTypeAccepts, StringComparison.Ordinal))
                               .Chain(x => x.TranslatesTo, AssetType.Unknown);
-            if (Type == AssetType.Unknown && Path.EndsWith("css"))
+            if (Type == AssetType.Unknown && Path.EndsWith("css", StringComparison.Ordinal))
                 return AssetType.CSS;
-            else if (Type == AssetType.Unknown && Path.EndsWith("js"))
+            else if (Type == AssetType.Unknown && Path.EndsWith("js", StringComparison.Ordinal))
                 return AssetType.Javascript;
             return Type;
         }
@@ -161,13 +146,13 @@ namespace Batman.MVC.Assets
             {
                 Content = Filter.Filter(Content);
             }
-            System.Collections.Generic.List<BundleFile> Files = new System.Collections.Generic.List<BundleFile>();
+            var Files = new System.Collections.Generic.List<BundleFile>();
             foreach (IAsset Asset in Assets)
             {
-                if (Asset.Path.StartsWith("~") || Asset.Path.StartsWith("/"))
+                if (Asset.Path.StartsWith("~", StringComparison.Ordinal) || Asset.Path.StartsWith("/", StringComparison.Ordinal))
                 {
                     Files.Add(new BundleFile(Asset.Path, new VirtualFileHack(Asset.Path)));
-                    Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~") || x.Path.StartsWith("/")).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
+                    Files.Add(Asset.Included.Where(x => x.Path.StartsWith("~", StringComparison.Ordinal) || x.Path.StartsWith("/", StringComparison.Ordinal)).Select(x => new BundleFile(x.Path, new VirtualFileHack(x.Path))));
                 }
             }
             Response.Content = Content;
@@ -198,7 +183,7 @@ namespace Batman.MVC.Assets
             if (!Directory.Exists)
                 return;
             string BundleDirectory = Directory.FullName.Replace(FileManager.Directory("~/").FullName, "~/").Replace("\\", "/");
-            StyleBundle Bundle = new StyleBundle(BundleDirectory + "/bundle/css");
+            var Bundle = new StyleBundle(BundleDirectory + "/bundle/css");
             Bundle.Transforms.Clear();
             Bundle.Transforms.Add(new Transformer());
             if (Directory.Exists)
@@ -208,7 +193,7 @@ namespace Batman.MVC.Assets
                     Bundle.IncludeDirectory(BundleDirectory, "*." + Value, true);
                 }
             }
-            ScriptBundle Bundle2 = new ScriptBundle(BundleDirectory + "/bundle/js");
+            var Bundle2 = new ScriptBundle(BundleDirectory + "/bundle/js");
             Bundle2.Transforms.Clear();
             Bundle2.Transforms.Add(new Transformer());
             if (Directory.Exists)
@@ -225,8 +210,6 @@ namespace Batman.MVC.Assets
                 CreateBundles(SubDirectory);
             }
         }
-
-        #endregion Functions
 
         /// <summary>
         /// Virtual file hacky system

@@ -47,7 +47,7 @@ namespace Glimpse.Batman
 
         public override object GetData(ITabContext context)
         {
-            Dictionary<string, string[]> Return = new Dictionary<string, string[]>();
+            var Return = new Dictionary<string, string[]>();
             Return.Add("Bootstrapper", new string[] { BatComputer.Bootstrapper.Name });
             Return.Add("File systems", BatComputer.Bootstrapper.Resolve<FileManager>().ToString().Split(new string[]{","},StringSplitOptions.RemoveEmptyEntries));
             Return.Add("Communication systems", BatComputer.Bootstrapper.Resolve<CommunicationManager>().ToString().Split(new string[]{"\n"}, StringSplitOptions.RemoveEmptyEntries));

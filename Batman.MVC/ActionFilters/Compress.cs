@@ -19,12 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
 using System;
 using System.Web.Mvc;
 using Utilities.DataTypes.ExtensionMethods;
 using Utilities.Web.ExtensionMethods;
-#endregion
 
 namespace Batman.MVC.ActionFilters
 {
@@ -34,21 +32,14 @@ namespace Batman.MVC.ActionFilters
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class Compress : ActionFilterAttribute
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
         public Compress()
-            : base()
         {
             Type = MinificationType.HTML;
             Minify = true;
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Should this be minified
@@ -60,10 +51,6 @@ namespace Batman.MVC.ActionFilters
         /// </summary>
         public virtual MinificationType Type { get; set; }
 
-        #endregion
-
-        #region Functions
-
         /// <summary>
         /// On Action Executing
         /// </summary>
@@ -74,7 +61,5 @@ namespace Batman.MVC.ActionFilters
                 filterContext.HttpContext.HTTPCompress(Minify, Type);
             base.OnActionExecuting(filterContext);
         }
-
-        #endregion
     }
 }

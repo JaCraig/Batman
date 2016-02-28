@@ -27,7 +27,7 @@ namespace Batman.Core.Tests.Tasks
         [Fact]
         public void BasicTest()
         {
-            TaskManager Manager = new TaskManager();
+            var Manager = new TaskManager();
             Manager.Run(RunTime.PreStart);
             Assert.Equal(1, Manager.Tasks.Count);
         }

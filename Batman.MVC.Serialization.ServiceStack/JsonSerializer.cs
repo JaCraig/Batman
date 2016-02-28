@@ -51,7 +51,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
         {
             if (Data == null)
                 return new ContentResult();
-            ContentResult Result = new ContentResult();
+            var Result = new ContentResult();
             Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data, ObjectType);
             HttpRequest Request = HttpContext.Current.Request;
             if (!string.IsNullOrEmpty(Request.QueryString["callback"]) || !string.IsNullOrEmpty(Request.QueryString["jsonp"]))
@@ -67,7 +67,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
         {
             if (Data == null)
                 return new ContentResult();
-            ContentResult Result = new ContentResult();
+            var Result = new ContentResult();
             Result.Content = ServiceStack.Text.JsonSerializer.SerializeToString(Data);
             HttpRequest Request = HttpContext.Current.Request;
             if (!string.IsNullOrEmpty(Request.QueryString["callback"]) || !string.IsNullOrEmpty(Request.QueryString["jsonp"]))

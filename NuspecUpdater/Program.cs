@@ -45,7 +45,7 @@ namespace NuspecUpdater
         {
             foreach (FileInfo File in new DirectoryInfo("..\\..\\..\\BatmanPackages\\").EnumerateFiles("*.nuspec", SearchOption.AllDirectories))
             {
-                FileInfo PackagesFile = new FileInfo("..\\..\\..\\" + File.Name.Replace(".nuspec", "") + "\\packages.config");
+                var PackagesFile = new FileInfo("..\\..\\..\\" + File.Name.Replace(".nuspec", "") + "\\packages.config");
                 if (PackagesFile.Exists)
                 {
                     string PackagesContent = PackagesFile.Read();

@@ -19,21 +19,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
 using Batman.Core.FileSystem.Local.BaseClasses;
+using System;
 using System.IO;
-#endregion
+using System.Web;
+using Utilities.DataTypes.ExtensionMethods;
 
 namespace Batman.Core.FileSystem.Local
 {
@@ -42,30 +32,15 @@ namespace Batman.Core.FileSystem.Local
     /// </summary>
     public class RelativeLocalFileSystem : LocalFileSystemBase
     {
-        #region Constructor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public RelativeLocalFileSystem() : base() { }
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Relative starter
-        /// </summary>
-        protected override string HandleRegexString { get { return @"^[~|\.]"; } }
-
         /// <summary>
         /// Name of the file system
         /// </summary>
         public override string Name { get { return "Relative Local"; } }
 
-        #endregion
-
-        #region Functions
+        /// <summary>
+        /// Relative starter
+        /// </summary>
+        protected override string HandleRegexString { get { return @"^[~|\.]"; } }
 
         /// <summary>
         /// Gets the absolute path of the variable passed in
@@ -87,21 +62,19 @@ namespace Batman.Core.FileSystem.Local
                 BaseDirectory = HttpContext.Current.Server.MapPath("~/");
                 ParentDirectory = new DirectoryInfo(HttpContext.Current.Server.MapPath("~/")).Parent.FullName;
             }
-            if (Path.StartsWith("..\\"))
+            if (Path.StartsWith("..\\", StringComparison.Ordinal))
             {
                 Path = ParentDirectory + Path.Right(Path.Length - 2);
             }
-            else if (Path.StartsWith(".\\"))
+            else if (Path.StartsWith(".\\", StringComparison.Ordinal))
             {
                 Path = BaseDirectory + Path.Right(Path.Length - 1);
             }
-            else if (Path.StartsWith("~\\"))
+            else if (Path.StartsWith("~\\", StringComparison.Ordinal))
             {
                 Path = BaseDirectory + Path.Right(Path.Length - 1);
             }
             return Path;
         }
-
-        #endregion
     }
 }

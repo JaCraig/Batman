@@ -19,52 +19,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
-using Batman.Core.FileSystem.Interfaces;
-using System.Web;
 using Batman.Core.FileSystem.Local.BaseClasses;
-#endregion
 
 namespace Batman.Core.FileSystem.Local
 {
     /// <summary>
     /// HTTP file system
     /// </summary>
-    public class HTTPFileSystem:WebFileSystemBase
+    public class HTTPFileSystem : WebFileSystemBase
     {
-        #region Constructor
-
-        /// <summary>
-        /// Constructor
-        /// </summary>
-        public HTTPFileSystem() : base() { }
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Relative starter
-        /// </summary>
-        protected override string HandleRegexString { get { return @"^https?://|^www\."; } }
-
         /// <summary>
         /// Name of the file system
         /// </summary>
         public override string Name { get { return "HTTP"; } }
 
-        #endregion
-
-        #region Functions
+        /// <summary>
+        /// Relative starter
+        /// </summary>
+        protected override string HandleRegexString { get { return @"^https?://|^www\."; } }
 
         /// <summary>
         /// Gets the absolute path of the variable passed in
@@ -75,7 +47,5 @@ namespace Batman.Core.FileSystem.Local
         {
             return Path;
         }
-
-        #endregion
     }
 }

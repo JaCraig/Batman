@@ -55,7 +55,7 @@ namespace Batman.MVC.Serialization.ServiceStackSerializers
         public override IValueProvider GetValueProvider(ControllerContext controllerContext)
         {
             if (controllerContext == null)
-                throw new ArgumentNullException("controllerContext");
+                throw new ArgumentNullException(nameof(controllerContext));
             HttpRequestBase Request = controllerContext.HttpContext.Request;
             if (!Request.ContentType.StartsWith("application/json", StringComparison.OrdinalIgnoreCase))
                 return null;

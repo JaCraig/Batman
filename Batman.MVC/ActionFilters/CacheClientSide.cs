@@ -19,12 +19,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
 using System;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-#endregion
 
 namespace Batman.MVC.ActionFilters
 {
@@ -34,16 +32,10 @@ namespace Batman.MVC.ActionFilters
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public class ClientSideCache : ActionFilterAttribute
     {
-        #region Properties
-
         /// <summary>
         /// Days that the item should be cached
         /// </summary>
         public virtual int DaysToCache { get; set; }
-
-        #endregion
-
-        #region Functions
 
         /// <summary>
         /// Action executing
@@ -68,7 +60,7 @@ namespace Batman.MVC.ActionFilters
             Context.Response.Cache.SetMaxAge(new TimeSpan(DaysToCache, 0, 0, 0));
             Context.Response.Cache.SetRevalidation(HttpCacheRevalidation.None);
             Context.Response.Cache.SetETag(Etag);
-            if (String.Compare(IncomingEtag, Etag) == 0
+            if (string.Compare(IncomingEtag, Etag, StringComparison.Ordinal) == 0
                 || Date.CompareTo(ModifiedSinceDate) <= 0)
             {
                 Context.Response.StatusCode = (int)HttpStatusCode.NotModified;
@@ -102,7 +94,5 @@ namespace Batman.MVC.ActionFilters
                 Context.Cache[Context.Request.Path + "date"] = Date;
             return Date;
         }
-
-        #endregion
     }
 }

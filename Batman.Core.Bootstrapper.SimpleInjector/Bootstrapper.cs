@@ -35,7 +35,6 @@ namespace Batman.Core.Bootstrapper.SimpleInjector
     public class Bootstrapper : BootstrapperBase<Container>
     {
         public Bootstrapper()
-            : base()
         {
             _Container = new Container();
         }

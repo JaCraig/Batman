@@ -19,22 +19,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-using Batman.Core.Logging.BaseClasses;
-using Batman.Core.Logging;
-using System.IO;
-using Batman.Core.Tasks;
-using Batman.Core.Tasks.Enums;
-using Batman.Core.FileSystem;
-using Batman.Core.Communication;
 using Batman.Core.Profiling.BaseClasses;
 using StackExchange.Profiling;
-#endregion
+using System;
 
 namespace Batman.Core.Profiling.MiniProfiler
 {
@@ -48,21 +35,23 @@ namespace Batman.Core.Profiling.MiniProfiler
             this.Current = StackExchange.Profiling.MiniProfiler.Current;
         }
 
-        public override string Name { get { return "MiniProfiler"; } }
-
         public Profile(StackExchange.Profiling.MiniProfiler ProfilerUsing, IDisposable StepDisposable)
         {
-            this.Current = (ProfilerUsing == null) ? StackExchange.Profiling.MiniProfiler.Current : ProfilerUsing;
+            this.Current = ProfilerUsing ?? StackExchange.Profiling.MiniProfiler.Current;
             this.StepDisposable = StepDisposable;
         }
 
+        public override string Name { get { return "MiniProfiler"; } }
         private StackExchange.Profiling.MiniProfiler Current { get; set; }
 
         private IDisposable StepDisposable { get; set; }
 
-        public override Interfaces.IProfiler Step(string Name)
+        public override void Dispose(bool Managed)
         {
-            return new Profile(Current, Current.Step(Name));
+            if (StepDisposable != null)
+            {
+                StepDisposable.Dispose();
+            }
         }
 
         public override Interfaces.IProfiler Start()
@@ -71,18 +60,15 @@ namespace Batman.Core.Profiling.MiniProfiler
             return this;
         }
 
+        public override Interfaces.IProfiler Step(string Name)
+        {
+            return new Profile(Current, Current.Step(Name));
+        }
+
         public override Interfaces.IProfiler Stop(bool DiscardResults)
         {
             StackExchange.Profiling.MiniProfiler.Stop(DiscardResults);
             return this;
-        }
-
-        public override void Dispose(bool Managed)
-        {
-            if (StepDisposable != null)
-            {
-                StepDisposable.Dispose();
-            }
         }
     }
 }

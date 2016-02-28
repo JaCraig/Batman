@@ -116,7 +116,7 @@ namespace Batman.MVC.Assets
         {
             if (obj == null)
                 return false;
-            Asset TempAsset = obj as Asset;
+            var TempAsset = obj as Asset;
             if (obj == null)
                 return false;
             return TempAsset.Path.ToUpperInvariant() == Path.ToUpperInvariant();

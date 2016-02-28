@@ -19,10 +19,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
-using Batman.Core.Bootstrapper.Interfaces;
 using System;
-#endregion
 
 namespace Batman.Core.Logging.BaseClasses
 {
@@ -31,17 +28,13 @@ namespace Batman.Core.Logging.BaseClasses
     /// </summary>
     public abstract class LogBase : Utilities.IO.Logging.BaseClasses.LogBase<LogBase>
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="Start">Called when the log is started</param>
-        public LogBase(Action<LogBase> Start)
+        protected LogBase(Action<LogBase> Start)
             : base(Start)
         {
         }
-
-        #endregion
     }
 }

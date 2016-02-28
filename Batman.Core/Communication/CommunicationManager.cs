@@ -19,27 +19,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
+using Batman.Core.Communication.BaseClasses;
+using Batman.Core.Communication.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using Batman.Core.Bootstrapper.Interfaces;
-
 using Utilities.DataTypes.ExtensionMethods;
-using Batman.Core.Logging.BaseClasses;
-using Utilities.IO.Logging.Enums;
-using Batman.Core.Logging;
-using System.IO;
-using Batman.Core.Tasks;
-using Batman.Core.Tasks.Enums;
-using Batman.Core.FileSystem;
-using System.Net.Mail;
-using System.Threading;
-using System.Net.Mime;
-using Batman.Core.Communication.Interfaces;
-using Batman.Core.Communication.BaseClasses;
-#endregion
 
 namespace Batman.Core.Communication
 {
@@ -48,8 +33,6 @@ namespace Batman.Core.Communication
     /// </summary>
     public class CommunicationManager
     {
-        #region Constructor
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -59,10 +42,6 @@ namespace Batman.Core.Communication
             Communicators = new Dictionary<Type, ICommunicator>();
             AppDomain.CurrentDomain.GetAssemblies().Objects<CommunicatorBase>().ForEach(x => { x.Initialize(Formatters); Communicators.Add(x.MessageType, x); });
         }
-
-        #endregion
-
-        #region Properties
 
         /// <summary>
         /// Communicators
@@ -81,10 +60,12 @@ namespace Batman.Core.Communication
         /// <returns>The communicator based on its message type</returns>
         public ICommunicator this[Type MessageType] { get { return Communicators[MessageType]; } }
 
-        #endregion
-
-        #region Functions
-
+        /// <summary>
+        /// Returns a <see cref="System.String" /> that represents this instance.
+        /// </summary>
+        /// <returns>
+        /// A <see cref="System.String" /> that represents this instance.
+        /// </returns>
         public override string ToString()
         {
             return new StringBuilder()
@@ -93,7 +74,5 @@ namespace Batman.Core.Communication
                         .AppendFormat("Communicators: {0}", Communicators.ToString(x => x.Value.Name))
                         .ToString();
         }
-
-        #endregion
     }
 }

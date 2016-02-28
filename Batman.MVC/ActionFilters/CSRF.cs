@@ -19,11 +19,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.*/
 
-#region Usings
 using System;
 using System.Web.Mvc;
 using Utilities.DataTypes.ExtensionMethods;
-#endregion
 
 namespace Batman.MVC.ActionFilters
 {
@@ -33,8 +31,6 @@ namespace Batman.MVC.ActionFilters
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
     public class CSRF : FilterAttribute, IAuthorizationFilter
     {
-        #region Functions
-
         /// <summary>
         /// OnAuthorization
         /// </summary>
@@ -52,11 +48,9 @@ namespace Batman.MVC.ActionFilters
         /// <returns>True if it should be set up, false otherwise</returns>
         private bool ShouldValidate(AuthorizationContext Context)
         {
-            return (string.Compare(Context.HttpContext.Request.HttpMethod, System.Net.WebRequestMethods.Http.Post, true) == 0
+            return (string.Compare(Context.HttpContext.Request.HttpMethod, System.Net.WebRequestMethods.Http.Post, StringComparison.OrdinalIgnoreCase) == 0
                 && Context.ActionDescriptor.Attributes<ValidateAntiForgeryTokenAttribute>().Length == 0
                 && Context.ActionDescriptor.Attributes<ByPassCRSF>().Length == 0);
         }
-
-        #endregion
     }
 }
