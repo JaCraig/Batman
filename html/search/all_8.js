@@ -24,7 +24,7 @@ var searchData=
   ['imodule_2ecs',['IModule.cs',['../_i_module_8cs.html',1,'']]],
   ['included',['Included',['../class_batman_1_1_m_v_c_1_1_assets_1_1_asset.html#a18fe991dc287b079ce24b1a3e50fc616',1,'Batman.MVC.Assets.Asset.Included()'],['../interface_batman_1_1_m_v_c_1_1_assets_1_1_interfaces_1_1_i_asset.html#a6e80779bb6e2d7c76106dd413536b32c',1,'Batman.MVC.Assets.Interfaces.IAsset.Included()']]],
   ['initialize',['Initialize',['../class_batman_1_1_core_1_1_communication_1_1_base_classes_1_1_communicator_base.html#ae0583f5e996e3ba3f035a2577be57b8e',1,'Batman.Core.Communication.BaseClasses.CommunicatorBase.Initialize()'],['../class_batman_1_1_m_v_c_1_1_base_classes_1_1_controller_base.html#ab3a4ac7e3f7032cafbfd6336f5d5b8a8',1,'Batman.MVC.BaseClasses.ControllerBase.Initialize()']]],
-  ['internalsend',['InternalSend',['../class_batman_1_1_core_1_1_communication_1_1_base_classes_1_1_communicator_base.html#a79add07d259f5d6f9b0b815033db6660',1,'Batman::Core::Communication::BaseClasses::CommunicatorBase']]],
+  ['internalsend',['InternalSend',['../class_batman_1_1_core_1_1_communication_1_1_base_classes_1_1_communicator_base.html#a8d5f5df2bfa350de642d6a06fba2c82d',1,'Batman::Core::Communication::BaseClasses::CommunicatorBase']]],
   ['iprofiler',['IProfiler',['../interface_batman_1_1_core_1_1_profiling_1_1_interfaces_1_1_i_profiler.html',1,'Batman::Core::Profiling::Interfaces']]],
   ['iprofiler_2ecs',['IProfiler.cs',['../_i_profiler_8cs.html',1,'']]],
   ['iserializer',['ISerializer',['../interface_batman_1_1_core_1_1_serialization_1_1_interfaces_1_1_i_serializer.html',1,'Batman::Core::Serialization::Interfaces']]],
